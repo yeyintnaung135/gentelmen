@@ -473,7 +473,7 @@
       function getData(){
         user_id = `@if(isset(Auth::guard('web')->user()->id))
             {{Auth::guard('web')->user()->id}}
-            @endif`;
+            @endif`
         var loItem = window.localStorage.getItem('Item',user_id);
         var arrayFromStroage = JSON.parse(localStorage.getItem('Item'));
         alert (loItem);
