@@ -522,37 +522,28 @@
       // deletedata();
     });
     function getnavData(){
+        var user_id = `{{Auth::guard('web')->user()->id}}`;
         var loItem = window.localStorage.getItem('Item');
         var arrayFromStroage = JSON.parse(localStorage.getItem('Item'));
         var arrayLength = arrayFromStroage.length;
-        user_id = `{{Auth::guard('web')->user()->id}}`;
         // var count = localStorage.length('Item');
         //  alert(arrayLength);
-        function getItemById(loItem, user_id) {
-              var i, len;
-              for (i = 0, len = loItem.length; i < len; i += 1) {
-                  if(user_id === loItem[i].id) {
-                      return loItem[i];
-                  }
-              }
-
-              return undefined;
-          }
-
-          testItem = getItemById(loItem, user_id);
-          console.log(testItem);
         var html = "";
         if (loItem != null) {
          
 					itemArr = JSON.parse(loItem);
+          var user = itemArr.includes(user_id);
+          alert(user)
           $.each(itemArr,function(i,v){
             user_id = `{{Auth::guard('web')->user()->id}}`;
-            var user = parseInt(v.user_id);
-            var acc = user.length;
-            console.log(user);
+            // var user = parseInt(v.user_id);
+            // var acc = user.length;
+            // console.log(user);
           $('#fav-space').html(arrayLength);
           if(v.user_id == user_id)
           { 
+            
+            
             $('#wishlist'+v.id).hide();
             $('#delete'+v.id).show();
             // alert("right");
