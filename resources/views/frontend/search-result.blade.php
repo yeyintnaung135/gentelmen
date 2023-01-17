@@ -471,8 +471,12 @@
 			}
 
       function getData(){
-        var loItem = window.localStorage.getItem('Item');
+        user_id = `@if(isset(Auth::guard('web')->user()->id))
+            {{Auth::guard('web')->user()->id}}
+            @endif`;
+        var loItem = window.localStorage.getItem('Item',user_id);
         var arrayFromStroage = JSON.parse(localStorage.getItem('Item'));
+        alert (loItem);
         var arrayLength = arrayFromStroage.length;
         // var count = localStorage.length('Item');
         //  alert(arrayLength);
@@ -480,6 +484,21 @@
         if (loItem != null) {
          
 					itemArr = JSON.parse(loItem);
+          $.each(itemArr,function(i,v){
+          
+            // alert( window.userID )
+          if(v.user_id == user_id)
+          { 
+            alert("hello");
+            $('#wishlist'+v.id).hide();
+            $('#delete'+v.id).show();
+            // alert("right");
+            // html += `${arrayLength}`;
+            
+          }else{
+           
+          }
+        });
           html += `${arrayLength}`;
           $('#fav-space').html(html);
           // document.getElementById('fav-space').innerHTML = parseInt(document.getElementById('fav-space').innerHTML) + 1;
@@ -516,12 +535,14 @@
             user_id = `{{Auth::guard('web')->user()->id}}`;
             // alert( window.userID )
           if(v.user_id == user_id)
-          {
+          { 
+            $('#wishlist'+v.id).hide();
+            $('#delete'+v.id).show();
             // alert("right");
             // html += `${arrayLength}`;
             $('#fav-space').html(arrayLength);
           }else{
-            html += parse('0');
+            html += parseInt('0');
           }
         });
           
