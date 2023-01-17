@@ -287,7 +287,7 @@
         </div>
         <div class="action mb-4">
           <a href="#" class="btn bg-gold lh-sm text-navy text-uppercase rounded-0
-        d-none d-md-block mb-5">Next Step</a>
+        d-none d-md-block mb-5" id="next">Next Step</a>
         </div>
       </div>
     </div>

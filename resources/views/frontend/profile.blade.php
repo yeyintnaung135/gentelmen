@@ -1168,9 +1168,10 @@ getData();
                     <div class="text-center">
                       <div id="tbody" class="mb-1 position-relative">
                         <img src="'/assets/images/categories/ready/${v.photo}'" alt="">
-                        <button class="remove" onclick="deletedata('{{Auth::guard('web')->user()->id}}','${v.id}','${v.photo_one}','${v.name}','${v.price}')">
-                        <i class='bx bxs-heart position-absolute top-0 end-0 me-2 me-md-3 mt-2 mt-md-3
-                        cursor-pointer' style='color:#0e122d'></i>
+                        <button class="remove position-absolute top-0 end-0 me-2 me-md-3 mt-2 mt-md-3
+                        cursor-pointer"  style='all:unset'
+                        onclick="deletedata('{{Auth::guard('web')->user()->id}}','${v.id}','${v.photo_one}','${v.name}','${v.price}')">
+                        <i class='bx bxs-heart' style='color:#0e122d'></i>
                         </button>
 
                       </div>

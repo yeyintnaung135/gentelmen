@@ -1,24 +1,9 @@
 <section id="step5" class="custom d-none">
-  <div class="alert alert-danger bg-danger d-flex text-center d-none align-items-center
-  alert-width mt-5"
-       id="alertnone" role="alert">
-    <svg style="width:2vw;height:2vw" class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:">
-      <use xlink:href="#exclamation-triangle-fill"/>
-    </svg>
-    <div class="">
-      Need to fill this field - <span id="need" class="text-dark"></span>
-    </div>
+  <div class="alert alert-dark alert-dismissible d-none" id="alertnone">
+    Need to fill this field - <span id="need" class="text-dark"></span>
   </div>
-  <div class="alert bg-danger d-flex justify-content-evenly align-items-center d-none
-  mx-auto mt-5 alert-width"
-       id="login_error" role="alert">
-    {{-- <svg style="width:2vw;height:2vw" class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:">
-      <use xlink:href="#exclamation-triangle-fill"/>
-    </svg> --}}
-    <i class='bx bxs-plane-land bx-flashing' style="font-size: 23px;"></i>
-    <div class="">
-      Need to login first!!!
-    </div>
+  <div class="alert alert-dark alert-dismissible d-none" id="login_error">
+    Need to login first!!!
   </div>
   <p class="text-decoration-underline text-center text-md-end my-3" id="store">
     <a href="#">Save measurement</a></p>

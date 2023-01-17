@@ -1,0 +1,114 @@
+button {
+  all: unset;
+}
+
+.ready-to-wear .ready__body {
+  padding-inline: 20px;
+}
+
+.ready__filter {
+  padding-inline: 15px;
+  margin-block-end: 30px;
+}
+
+.ready__filter--items {
+  /*padding-inline: 30px;*/
+  padding-block: 15px;
+}
+
+/*  new way*/
+.initHeight {
+  height: 70px;
+  overflow-y: hidden;
+}
+
+#price-filter .ready__filter--item {
+  height: 100%;
+}
+
+.he-100 {
+  height: 100%;
+}
+
+.ready__body {
+  margin-inline: 10px;
+}
+
+.ready__input--group {
+  height: 35px;
+}
+
+.ready__input--group .form-check-input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  border-color: white;
+  background-color: transparent !important;
+}
+
+.ready__input--group .form-check-input[type='checkbox']:checked {
+  background-color: var(--clr-gold-0) !important;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' style='fill: rgba(0, 0, 0, 1);transform: ;msFilter:;'%3e%3cpath d='m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z'%3e%3c/path%3e%3c/svg%3e");
+}
+
+.load {
+  display: block;
+  color: rgba(255, 255, 255, 0.5);
+  /*background: yellow;*/
+  cursor: pointer;
+  margin-left: 40px;
+}
+
+.less {
+  display: none;
+}
+
+.ready__item {
+  margin-bottom: 25px;
+}
+
+.ready__item--img-group {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.ready__item--img-group i {
+  color: var(--clr-navy) !important;
+}
+
+.ready__item--img-group button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.ready__item--info {
+  text-align: center;
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1100px) {
+  .ready__filter {
+    padding-inline: 10px;
+  }
+
+  .ready__filter--items {
+    padding-inline: 10px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+
+  .ready__filter {
+    padding-inline: 0;
+  }
+
+  .ready__filter--items {
+    padding-inline: 30px;
+    padding-block: 15px;
+  }
+
+  .ready__body {
+    margin-inline: 30px;
+  }
+}

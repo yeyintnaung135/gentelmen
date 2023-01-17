@@ -46,7 +46,7 @@
                     <i class='bx bxs-heart'></i>
                     </button>
                     @else
-                    <button type="button" class="btn bg-gold-0"
+                    <button type="button" class=""
                     data-bs-toggle="modal"
                     data-bs-target="#exampleModal"><i class='bx bx-heart'></i>
                     </button>
