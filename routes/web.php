@@ -133,6 +133,7 @@ Route::post('/get_style_for_ready_ajax', 'Frontend\FrontendController@get_style_
 Route::get('/get_style_category', 'Admin\ReadyController@get_style_category_data')->name('get_style_category');
 
 Route::post('/get_swiper_photo_ready', 'Admin\ReadyController@get_swiper_photo_ready_data')->name('get_swiper_photo_ready');
+Route::post('/get_swiper_style_ajax', 'Admin\StyleController@get_swiper_style_ajax_data')->name('get_swiper_style_ajax');
 
 
 // Texture

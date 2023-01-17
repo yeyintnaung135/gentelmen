@@ -153,7 +153,7 @@ class StyleController extends Controller
         }else{
             $piece = "no";
         }
-        
+
         $type_name = CustomizeCategory::find($request->type);
         logger($type_name);
         $style = Style::create([
@@ -504,6 +504,17 @@ class StyleController extends Controller
 
         $style = Style::find($request->style_id)->delete();
         return response()->json("success");
+    }
+    public function get_swiper_style_ajax_data(Request $request)
+    {
+      // dd($request->all());
+      $styles = Style::find($request->style_id);
+      // $styles->popular_count +=1;
+      // $styles->save();
+
+      return response()->json([
+          'styles' => $styles
+      ]);
     }
 
 }

@@ -1554,7 +1554,7 @@
     }
 
     function style_filter(name) {
-      alert("style filter");
+      // alert("style filter");
       if(count == 3)
       {
         sessionStorage.setItem('suit_piece',name);
@@ -1586,7 +1586,7 @@
               <div class="radio-group ">
               <input type="radio" name="test" id="style_check${v.id}" class="form-check-input"/>
                   <div class="cursor-pointer" data-bs-toggle="modal"
-                      data-bs-target="#myCategory${v.id}">
+                      data-bs-target="#myCategory${v.id}" onclick="get_swiper(${v.id})">
                     <img src="{{'/assets/images/categories/style/${photo}'}}" alt=""
                         class="cus-img-res">
                     <p class="text-center mt-2" id="style_data${v.id}">${name}/${v.type_id}/${v.pieces}/${v.category}</p>
@@ -1645,7 +1645,7 @@
               <div class="radio-group ">
               <input type="radio" name="test" id="style_check${v.id}" class="form-check-input"/>
                   <div class="cursor-pointer" data-bs-toggle="modal"
-                      data-bs-target="#myCategory${v.id}">
+                      data-bs-target="#myCategory${v.id}" onclick="get_swiper(${v.id})">
                     <img src="{{'/assets/images/categories/style/${photo}'}}" alt=""
                         class="cus-img-res">
                     <p class="text-center mt-2" id="style_data${v.id}">${name}/${v.type_id}/${v.pieces}/${v.category}</p>
@@ -1693,7 +1693,7 @@
               <div class="radio-group ">
               <input type="radio" name="test" id="style_check${v.id}" class="form-check-input"/>
                   <div class="cursor-pointer" data-bs-toggle="modal"
-                      data-bs-target="#myCategory${v.id}">
+                      data-bs-target="#myCategory${v.id}" onclick="get_swiper(${v.id})">
                     <img src="{{'/assets/images/categories/style/${photo}'}}" alt=""
                         class="cus-img-res">
                     <p class="text-center mt-2" id="style_data${v.id}">${name}/${v.type_id}/${v.pieces}/${v.category}</p>
@@ -1978,7 +1978,7 @@
     }
 
     function store_order() {
-      alert("do store order");
+      // alert("do store order");
       // alert("store_order"+$('#order_id').val());
       var addr = $('#order_address').val();
       var user = @json($user);

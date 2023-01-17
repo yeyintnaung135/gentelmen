@@ -48,35 +48,7 @@
                   pick this style
                 </label>
               </div>
-              <div class="col-12 col-lg-6 order-first order-lg-last swiper-container">
-                <h5 class="pop-up__title d-block d-lg-none">Business conference style 2</h5>
-                <div class="swiper mySwiper2 top-swiper" id="mySwiper2{{$style->id}}">
-                  <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                      <img src="{{'/assets/images/categories/style/'. $style->photo_one}}"/>
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="{{'/assets/images/categories/style/'. $style->photo_two}}"/>
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="{{'/assets/images/categories/style/'. $style->photo_three}}"/>
-                    </div>
-                  </div>
-                  <div class="swiper-pagination"></div>
-                </div>
-                <div thumbsSlider="" class="swiper thumbsSlider d-none d-md-block">
-                  <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                      <img src="{{'/assets/images/categories/style/'. $style->photo_one}}"/>
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="{{'/assets/images/categories/style/'. $style->photo_two}}"/>
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="{{'/assets/images/categories/style/'. $style->photo_three}}"/>
-                    </div>
-                  </div>
-                </div>
+              <div class="col-md-6 order-1 order-md-2" id="swiper-space{{$style->id}}">
 
               </div>
             </div>
@@ -89,27 +61,145 @@
 @endforeach
 @push('zh-js')
   <script>
-   
+    function get_swiper(value) {
+      // alert("style =-- "+value);
+      var html = "";
+
+      // alert();
+      $.ajax({
+        type: 'POST',
+        url: '/get_swiper_style_ajax',
+        data: {
+          "_token": "{{csrf_token()}}",
+          "style_id": value
+        },
+        success: function (data) {
+          // start swiper
+          console.log(data.styles.photo_one);
+          if (data.styles.photo_two == null && data.styles.photo_three == null) {
+            html += `<div class="d-lg-none">
+              <img src="assets/images/categories/style/${data.styles.photo_one}"/>
+              </div>
+            <div class="swiper mySwiper2 mb-3 d-none d-md-block" id="mySwiper2${data.styles.id}">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="assets/images/categories/style/${data.styles.photo_one}"/>
+                    </div>`;
+            if (data.styles.photo_two != null) {
+              html += `
+                    <div class="swiper-slide">
+                        <img src="assets/images/categories/style/${data.styles.photo_two}"/>
+                    </div>`;
+            }
+            if (data.styles.photo_three != null) {
+              html += `
+                    <div class="swiper-slide">
+                        <img src="assets/images/categories/style/${data.styles.photo_three}"/>
+                    </div>`;
+            }
+            html += `
+                </div>
+            </div>
+
+            `;
+          } else {
+            html +=
+              `
+            <div class="swiper mySwiper2 mb-3" id="mySwiper2${data.styles.id}">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="assets/images/categories/style/${data.styles.photo_one}"/>
+                    </div>`;
+            if (data.styles.photo_two != null) {
+              html += `
+                    <div class="swiper-slide">
+                        <img src="assets/images/categories/style/${data.styles.photo_two}"/>
+                    </div>`;
+            }
+            if (data.styles.photo_three != null) {
+              html += `
+                    <div class="swiper-slide">
+                        <img src="assets/images/categories/style/${data.styles.photo_three}"/>
+                    </div>`;
+            }
+            html += `
+                </div>
+            </div>`
+          }
+          html += `
+            <div thumbsSlider="" class="swiper mySwiper d-none d-md-block"
+                id="mySwiper${data.styles.id}">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="assets/images/categories/style/${data.styles.photo_one}"/>
+                    </div>`;
+          if (data.styles.photo_two != null) {
+            html += `
+                    <div class="swiper-slide">
+                        <img src="assets/images/categories/style/${data.styles.photo_two}"/>
+                    </div>`
+          }
+          if (data.styles.photo_three != null) {
+            html += `
+                    <div class="swiper-slide">
+                        <img src="assets/images/categories/style/${data.styles.photo_three}"/>
+                    </div>`;
+          }
+          html += `
+                </div>
+            </div>
+            `;
+          $('#swiper-space'+value).html(html);
+          const swiper = new Swiper("#mySwiper" + value, {
+            // loop: true,
+            spaceBetween: 10,
+            slidesPerView: 4,
+            freeMode: true,
+            watchSlidesProgress: true,
+          });
+          const swiper2 = new Swiper("#mySwiper2" + value, {
+            loop: true,
+            spaceBetween: 10,
+            thumbs: {
+              swiper: swiper,
+            },
+            breakpoints: {
+              // when window width is >= 320px
+              0: {
+                slidesPerView: 1.7,
+                spaceBetween: 15
+              },
+              769: {
+                slidesPerView: 1,
+                spaceBetween: 15
+              },
+            }
+          });
+          //end swiper
+        }
+      });
+      // alert(value);
+    }
     // For pop up modal
-    var swiper = new Swiper(".thumbsSlider", {
-      loop: true,
-      spaceBetween: 10,
-      slidesPerView: 5,
-      watchSlidesProgress: true,
-      pagination: {
-        el: '.swiper-pagination',
-      },
-    });
-    var swiper2 = new Swiper(".top-swiper", {
-      loop: true,
-      spaceBetween: 10,
-      pagination: {
-        el: '.swiper-pagination',
-      },
-      thumbs: {
-        swiper: swiper,
-      },
-    });
+    // var swiper = new Swiper(".thumbsSlider", {
+    //   loop: true,
+    //   spaceBetween: 10,
+    //   slidesPerView: 5,
+    //   watchSlidesProgress: true,
+    //   pagination: {
+    //     el: '.swiper-pagination',
+    //   },
+    // });
+    // var swiper2 = new Swiper(".top-swiper", {
+    //   loop: true,
+    //   spaceBetween: 10,
+    //   pagination: {
+    //     el: '.swiper-pagination',
+    //   },
+    //   thumbs: {
+    //     swiper: swiper,
+    //   },
+    // });
 
     // For see more see less
     $(document).ready(function () {

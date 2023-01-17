@@ -136,7 +136,7 @@
     </div>
   </div>
   {{-- style modal start --}}
-  @foreach($styles as $style)
+  {{-- @foreach($styles as $style)
   <div class="modal fade" id="myCategory{{$style->id}}">
       <div class="modal-dialog modal-dialog-centered modal-xl modal-fullscreen-lg-down pop-up__modal">
         <div class="modal-content">
@@ -224,7 +224,7 @@
         </div>
       </div>
     </div>
-  @endforeach
+  @endforeach --}}
 
   {{-- style modal end --}}
 </section>
