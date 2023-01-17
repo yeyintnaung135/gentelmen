@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use App\Admin;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -56,10 +57,12 @@ class UserRegisterController extends Controller
 
         Auth::guard('web')->logout();
         if(Auth::guard('web')->attempt(['email' => $data['email'], 'password' => $data['password']])) {
-            
+
             if(Auth::guard('web')->check()){
                if( Auth::guard('web')->user()->role == 0 || Auth::guard('super_admin')->user()->role == 1){
                 //    return redirect()->back()->with('success','Successfully register your account!');
+                // dd(Auth::guard('web')->user()->id);
+                Session::put('user_id',Auth::guard('web')->user()->id);
                 return response()->json(['status' => 'success']);
                }else{
                 //    return redirect()->back()->with('message','Login Fail');

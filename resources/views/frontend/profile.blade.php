@@ -80,7 +80,7 @@
                 Information</h6>
               <form>
                 @if(!empty($user_detail))
-                <input type="hidden" id="user_id" name="user_id" value="{{$user_detail->id}}">
+                <input type="hidden" style="color:black" id="user_id" name="user_id" value="{{$user_detail->id}}">
                 @endif
               <div class="mx-5">
                 <div class="row mb-3 g-0 g-md-5">

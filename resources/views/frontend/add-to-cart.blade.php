@@ -491,7 +491,7 @@
         $('.paypal_space').show();
       });
       $('#remove_all').click(function(){
-        alert("rall");
+        // alert("rall");
         var user_id = @json($user_id);
 
         var mycart = localStorage.getItem('mycart');

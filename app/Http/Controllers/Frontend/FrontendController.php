@@ -1103,7 +1103,7 @@ class FrontendController extends Controller
     {
       $style = Style::where('type_id',$request->cus_cate_id)->where('category',$request->id)->where('pieces',$request->piece)->get();
     }
-    
+
     return response()->json($style);
   }
   public function ajex_get_style_jacktes(Request $request){
