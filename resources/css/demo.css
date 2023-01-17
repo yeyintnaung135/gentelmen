@@ -1,0 +1,149 @@
+a.morelink {
+  text-decoration:none;
+  outline: none;
+  color: red;
+}
+.morecontent span {
+  display: none;
+}
+
+.cus_overflow {
+  overflow: visible;
+}
+
+.menu-wrapper {
+  max-height: 120px;
+  border: 1px solid #ddd;
+  display: flex;
+  overflow-x: auto;
+}
+
+.menu-wrapper::-webkit-scrollbar {
+  width: 0;
+}
+
+.menu-wrapper .menu__item {
+  width: 310px;
+  height: 110px;
+  /*line-height: 110px;*/
+  background-color: red;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+
+/*Payment receive*/
+.payment-receive {
+  margin: 5px;
+}
+.payment-receive__close-wrapper {
+  display: flex;
+  justify-content: end;
+}
+.payment-receive__header {
+  text-align: center;
+  margin-bottom: 40px;
+  /*margin: 10px 20px 30px 20px;*/
+}
+.receive__success {
+  margin-bottom: 20px;
+}
+.receive__success .bx {
+  font-size: 70px !important;
+}
+.receive__success-text > h1{
+  margin-bottom: 7px;
+  font-family: 'Montserrat', sans-serif !important;
+  color: #fff;
+  font-size: 20px;
+  letter-spacing: 0;
+}
+.receive__success-text > p{
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+}
+.payment-receive__body {
+  margin-bottom: 40px;
+}
+.payment-receive__body .receive__order {
+  display: flex;
+  justify-content: space-between;
+}
+.receive__order p {
+  font-size: 13px;
+}
+.receive__separator hr {
+  border: 1px solid #fff !important;
+  margin-bottom: 20px;
+}
+.payment-receive__body .receive__detail > h2 {
+  margin-bottom: 40px;
+  font-family: 'Montserrat', sans-serif !important;
+  color: #fff;
+  font-size: 17px;
+  /*font-weight: bold;*/
+  letter-spacing: 1px;
+  text-align: center;
+}
+.receive__detail-wrapper .receive-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.receive__detail-wrapper .receive-item p {
+  font-size: 14px;
+}
+.payment-receive__footer p {
+  text-align: center;
+  font-size: 12px;
+}
+/*order detail*/
+td {
+  padding: 5px 0 !important;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1100px) {
+
+  .payment-receive {
+    margin: 10px;
+  }
+
+  .receive__success .bx {
+    font-size: 100px !important;
+  }
+
+  .receive__success-text > h1{
+    font-size: 25px;
+  }
+
+  .receive__success-text > p{
+    font-size: 13px;
+  }
+
+  .payment-receive__body .receive__detail > h2 {
+    font-size: 20px;
+  }
+
+}
+@media screen and (min-width: 992px) {
+  .payment-receive {
+    margin: 10px;
+  }
+
+  .receive__success .bx {
+    font-size: 100px !important;
+  }
+
+  .receive__success-text > h1{
+    font-size: 25px;
+  }
+
+  .receive__success-text > p{
+    font-size: 13px;
+  }
+
+  .payment-receive__body .receive__detail > h2 {
+    font-size: 20px;
+  }
+}
+/*End Payment Receive*/
