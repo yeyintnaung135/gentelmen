@@ -1128,7 +1128,7 @@ getData();
      var whishlist = localStorage.getItem('Item');
       if(whishlist){
       getData();
-      getnavData();
+      // getnavData();
 
       }
 
@@ -1168,9 +1168,10 @@ getData();
                     <div class="text-center">
                       <div id="tbody" class="mb-1 position-relative">
                         <img src="'/assets/images/categories/ready/${v.photo}'" alt="">
-                        <button class="remove" onclick="deletedata('{{Auth::guard('web')->user()->id}}','${v.id}','${v.photo_one}','${v.name}','${v.price}')">
-                        <i class='bx bxs-heart position-absolute top-0 end-0 me-2 me-md-3 mt-2 mt-md-3
-                        cursor-pointer' style='color:#0e122d'></i>
+                        <button class="remove position-absolute top-0 end-0 me-2 me-md-3 mt-2 mt-md-3
+                        cursor-pointer"  style='all:unset'
+                        onclick="deletedata('{{Auth::guard('web')->user()->id}}','${v.id}','${v.photo_one}','${v.name}','${v.price}')">
+                        <i class='bx bxs-heart' style='color:#0e122d'></i>
                         </button>
 
                       </div>
@@ -1192,48 +1193,44 @@ getData();
 
       }
 
-         $(document).ready(function(){
-      getData();
-      // whishlist();
-      // deletedata();
-    });
-    function getnavData(){
-        var loItem = window.localStorage.getItem('Item');
-        var arrayFromStroage = JSON.parse(localStorage.getItem('Item'));
-        var arrayLength = arrayFromStroage.length;
-        // var count = localStorage.length('Item');
-        //  alert(arrayLength);
-        var html = "";
-        if (loItem != null) {
+
+    // function getnavData(){
+    //     var loItem = window.localStorage.getItem('Item');
+    //     var arrayFromStroage = JSON.parse(localStorage.getItem('Item'));
+    //     var arrayLength = arrayFromStroage.length;
+    //     // var count = localStorage.length('Item');
+    //     //  alert(arrayLength);
+    //     var html = "";
+    //     if (loItem != null) {
 
 
-          itemArr = JSON.parse(loItem);
+    //       itemArr = JSON.parse(loItem);
 
-          $.each(itemArr,function(i,v){
-            user_id = `{{Auth::guard('web')->user()->id}}`;
-            // alert( window.userID )
-          if(v.user_id == user_id)
-          {
-            // alert("right");
-            // html += `${arrayLength}`;
-            $('#fav-space').html(arrayLength);
-          }else{
-            html += parse('0');
-          }
-        });
+    //       $.each(itemArr,function(i,v){
+    //         user_id = `{{Auth::guard('web')->user()->id}}`;
+    //         // alert( window.userID )
+    //       if(v.user_id == user_id)
+    //       {
+    //         
+    //         // html += `${arrayLength}`;
+    //         $('#fav-space').html(arrayLength);
+    //       }else{
+    //         html += parse('0');
+    //       }
+    //     });
 
 
 
-          // document.getElementById('fav-space').innerHTML = parseInt(document.getElementById('fav-space').innerHTML) + 1;
+    //       // document.getElementById('fav-space').innerHTML = parseInt(document.getElementById('fav-space').innerHTML) + 1;
 
-        }else{
+    //     }else{
 
-        }
+    //     }
 
-    }
+    // }
 </script>
 @endpush
-@push('whishlist-nav')
+<!-- @push('whishlist-nav')
 @if(isset(Auth::guard('web')->user()->id))
 <script>
     $(document).ready(function(){
@@ -1258,7 +1255,7 @@ getData();
             // alert( window.userID )
           if(v.user_id == user_id)
           {
-            // alert("right");
+            
             // html += `${arrayLength}`;
             $('#fav-space').html(arrayLength);
           }else{
@@ -1276,5 +1273,5 @@ getData();
     }
 </script>
 @endif
-@endpush
+@endpush -->
 

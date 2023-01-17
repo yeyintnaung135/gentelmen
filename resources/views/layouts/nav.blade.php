@@ -67,7 +67,7 @@
                         <i class='bx bx-log-out bx-flip-horizontal icon' ></i>
                     </a>
           <a class="me-2 me-md-3 center-flex" href="/profile">
-            <i class='bx bx-user-circle icon'><span id="total_qty"></span></i>
+            <i class='bx bx-user-circle icon'><!--<span id="total_qty"></span>--></i>
           </a>
           <!-- <form id="logout-form" action="{{ route('.logout') }}" method="POST"
                           class="d-none">
