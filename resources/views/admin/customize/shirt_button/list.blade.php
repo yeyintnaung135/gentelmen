@@ -111,6 +111,13 @@
 @endpush
 @section('js')
 <script>
+    if(sessionStorage.getItem('reload_additional_list') == 1)
+    {
+      // alert();
+      window.location.reload();
+      sessionStorage.removeItem('reload_additional_list');
+    }
+
     function delete_shirt_button_confirm(value){
         swal({
                 title: "Are You Sure Delete",

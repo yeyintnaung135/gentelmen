@@ -9,38 +9,46 @@
                         <div class="row mt-3">
                             <div class="col-6">
                                 <div class="form-group">
+                                    <label>Type</label>
+                                    <select class="form-control" 
+                                    v-bind:class="{
+                                            'border-danger': forrequire(
+                                                this.requireerroryk.customize_cate_id,
+                                                this.shirt_button.customize_cate_id
+                                            ),
+                                        }"
+                                    v-model="shirt_button.customize_cate_id" name="texture">
+                                        <option v-for="(customize_cate,index) in customize_cates" :key="index" :value="customize_cate.name">{{customize_cate.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
                                     <label>Description</label>
 
-                                    <select class="form-control"
-
+                                       <textarea type="text" class="form-control" 
                                     v-bind:class="{
                                             'border-danger': forrequire(
                                                 this.requireerroryk.description,
                                                 this.shirt_button.description
                                             ),
                                         }"
-                                    v-model="shirt_button.color" name="btn_text">
-                                        <option selected hidden>Choose Descirpion</option>
-                                        <option v-for="(color,index) in colors" :key="index" :value="color.id">{{color.name}}</option>
-                                    </select>
+                                    name="" id="" v-model="shirt_button.description">
+                                    </textarea>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
                                     <label>Price</label>
 
-                                    <select class="form-control"
-
+                                    <input type="text" class="form-control" 
                                     v-bind:class="{
                                             'border-danger': forrequire(
-                                                this.requireerroryk.color,
-                                                this.shirt_button.color
+                                                this.requireerroryk.price,
+                                                this.shirt_button.price
                                             ),
                                         }"
-                                    v-model="shirt_button.color" name="btn_text">
-                                        <option selected hidden>Choose Color</option>
-                                        <option v-for="(color,index) in colors" :key="index" :value="color.id">{{color.name}}</option>
-                                    </select>
+                                    name="" id="" v-model="shirt_button.price">
                                 </div>
                             </div>
                             <div class="col-6">
@@ -48,16 +56,23 @@
                                     <label>Choose Style</label>
 
                                     <select class="form-control"
-
                                     v-bind:class="{
                                             'border-danger': forrequire(
-                                                this.requireerroryk.color,
-                                                this.shirt_button.color
+                                                this.requireerroryk.style_id,
+                                                this.shirt_button.style_id
                                             ),
                                         }"
-                                    v-model="shirt_button.color" name="btn_text">
-                                        <option selected hidden>Choose Color</option>
-                                        <option v-for="(color,index) in colors" :key="index" :value="color.id">{{color.name}}</option>
+                                    v-model="shirt_button.style_id" name="btn_text">
+                                        <option selected hidden>VEST LAPEL</option>
+                                        <option value="JACKET STYLE">PIPING & STITCHING</option>
+                                        <option value="STYLE OF LAPELS">VEST STYLE & BUTTONS</option>
+                                        <option value="LAPEL BUTTON HOLE">BOTTON STYLE</option>
+                                        <option value="LAPEL STITCHING">BELOW POCKET</option>
+                                        <option value="BELOW POCKET">CHEST POCKET</option>
+                                        <option value="TICKET POCKETS">BACK FABRIC</option>
+                                        <option value="SLEEVE BUTTONS">BACK ADJUSTER</option>
+
+                                        <!-- <option v-for="(style,index) in styles" :key="index" :value="style.name">{{style.name}}</option> -->
                                     </select>
                                 </div>
                             </div>
@@ -65,17 +80,16 @@
                                 <div class="form-group">
                                     <label>Choose Lapel</label>
 
-                                    <select class="form-control"
-
+                                    <select class="form-control" 
                                     v-bind:class="{
                                             'border-danger': forrequire(
-                                                this.requireerroryk.color,
-                                                this.shirt_button.color
+                                                this.requireerroryk.vest_lapel_id,
+                                                this.shirt_button.vest_lapel_id
                                             ),
                                         }"
-                                    v-model="shirt_button.color" name="btn_text">
-                                        <option selected hidden>Choose Color</option>
-                                        <option v-for="(color,index) in colors" :key="index" :value="color.id">{{color.name}}</option>
+                                    v-model="shirt_button.vest_lapel_id" name="btn_text">
+                                        <option selected hidden>Choose Lapel</option>
+                                        <option v-for="(vest_lapel,index) in vest_lapels" :key="index" :value="vest_lapel.name">{{vest_lapel.name}}</option>
                                     </select>
                                 </div>
                             </div>
@@ -133,6 +147,9 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
             uploadCount:0,
             removeCount:0,
             colors:{},
+            style:{},
+            vest_lapels:{},
+            customize_cates:{},
             testimg:[],
             url1:null,
             url2:null,
@@ -149,12 +166,22 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
             shirt_button:{
             files:[],
             color:"",
+            style_id:"",
+            vest_lapel_id:"",
+            customize_cate_id:"",
+            description:"",
+            price:"",
         },
         name:"",
                 //forerror
         requireerroryk: {
             color:false,
+            style_id:false,
+            vest_lapel_id:false,
+            customize_cate_id:false,
             name: false,
+            description: false,
+            price: false,
             photoerror: false
         },
             //forerror
@@ -202,7 +229,12 @@ headers: { 'content-type': 'multipart/form-data' }
 }
             let formData = new FormData();
                 // formData.append('file', this.fit_suit.files);
-                formData.append('color', this.shirt_button.color);
+                formData.append('description', this.shirt_button.description);
+                formData.append('price', this.shirt_button.price);
+                // formData.append('color', this.shirt_button.color);
+                formData.append('style', this.shirt_button.style_id);
+                formData.append('color', this.shirt_button.vest_lapel_id);
+                formData.append('type', this.shirt_button.customize_cate_id);
                 formData.append('images', this.$refs.myVueDropzone.getQueuedFiles());
                 this.$refs.myVueDropzone.getQueuedFiles().forEach(file => {
                 formData.append('images[]', file, file.upload.name);
@@ -231,6 +263,31 @@ headers: { 'content-type': 'multipart/form-data' }
                 tmperrorcounts += 1;
             } else {this.requireerroryk.color = false;}
 
+            if (this.shirt_button.style_id == "") {
+                this.requireerroryk.style_id = true;
+                tmperrorcounts += 1;
+            } else {this.requireerroryk.style_id = false;}
+
+            if (this.shirt_button.vest_lapel_id == "") {
+                this.requireerroryk.vest_lapel_id = true;
+                tmperrorcounts += 1;
+            } else {this.requireerroryk.vest_lapel_id = false;}
+
+            if (this.shirt_button.customize_cate_id == "") {
+                this.requireerroryk.customize_cate_id = true;
+                tmperrorcounts += 1;
+            } else {this.requireerroryk.customize_cate_id = false;}
+
+            if (this.shirt_button.description == "") {
+                this.requireerroryk.description = true;
+                tmperrorcounts += 1;
+            } else {this.requireerroryk.description = false;}
+
+            if (this.shirt_button.price == "") {
+                this.requireerroryk.price = true;
+                tmperrorcounts += 1;
+            } else {this.requireerroryk.price = false;}
+
 
 
             //if input field has no error continue to check min 3 file need to upload
@@ -250,8 +307,32 @@ headers: { 'content-type': 'multipart/form-data' }
                 var alertText = new Array();
                 var i = 0;
 
-                if(this.requireerroryk.color) {
+                if(this.requireerroryk.vest_lapel_id) {
                   alertText[i] = "need to select the color";
+                  i++;
+                }
+                if(this.requireerroryk.style_id) {
+                  alertText[i] = "need to select the style";
+                  i++;
+                }
+                if(this.requireerroryk.customize_cate_id) {
+                  alertText[i] = "need to select the type";
+                  i++;
+                }
+                if(this.requireerroryk.vest_lapel_id) {
+                  alertText[i] = "need to select the vest lapel";
+                  i++;
+                }
+                if(this.requireerroryk.description) {
+                  alertText[i] = "need to fill the description";
+                  i++;
+                }
+                if(this.requireerroryk.price) {
+                  alertText[i] = "need to fill the price";
+                  i++;
+                }
+                if(this.requireerroryk.photoerror) {
+                  alertText[i] = "need to add the photo";
                   i++;
                 }
                 // if(this.requireerroryk.photoerror) {
@@ -281,7 +362,13 @@ headers: { 'content-type': 'multipart/form-data' }
                 formData.append('photo10', this.url10);
                 formData.append('remove_count', this.removeCount);
                 formData.append('upload_count', this.uploadCount);      
-                formData.append('color', this.shirt_button.color);
+                 // formData.append('file', this.fit_suit.files);
+                 formData.append('description', this.shirt_button.description);
+                formData.append('price', this.shirt_button.price);
+                // formData.append('color', this.shirt_button.color);
+                formData.append('style', this.shirt_button.style_id);
+                formData.append('color', this.shirt_button.vest_lapel_id);
+                formData.append('type', this.shirt_button.customize_cate_id);
                 formData.append('images', this.$refs.myVueDropzone.getQueuedFiles());
                 this.$refs.myVueDropzone.getQueuedFiles().forEach(file => {
                 formData.append('images[]', file, file.upload.name);
@@ -291,47 +378,47 @@ headers: { 'content-type': 'multipart/form-data' }
                 headers: { 'content-type': 'multipart/form-data' }
             }
 
-            let sizeStatus = false;
-            var alertSize = new Array();
-            var i = 0;
-            this.$refs.myVueDropzone.getQueuedFiles().forEach(file => {
-            // alert(file.upload.filename);
-            if(file.height > 900 || file.height < 500 && file.width > 800 || file.width < 400)
-            {
-                alertSize[i] = file.upload.filename+" is not match with width min - 400 to max - 800 and height min - 500 to max - 900";
+            // let sizeStatus = false;
+            // var alertSize = new Array();
+            // var i = 0;
+            // this.$refs.myVueDropzone.getQueuedFiles().forEach(file => {
+            // // alert(file.upload.filename);
+            // if(file.height > 900 || file.height < 500 && file.width > 800 || file.width < 400)
+            // {
+            //     alertSize[i] = file.upload.filename+" is not match with width min - 400 to max - 800 and height min - 500 to max - 900";
 
-                // alert(file.upload.filename+" is not match 525*295");
-                i++;
-                sizeStatus = false;
-            }
-            else if(file.width > 800 || file.width < 400)
-            {
-              alertSize[i] = file.upload.filename+" is not match width min - 400 to max - 800";
-              i++;
-                // alert(file.upload.filename+" is not match width 525");
-                sizeStatus = false;
-            }
-            else if(file.height > 900 || file.height < 500)
-            {
-              alertSize[i] = file.upload.filename+" is not match height min - 500 to max - 900";
-              i++;
-                // alert(file.upload.filename+" is not match height 295");
-                sizeStatus = false;
-            }
-            else if(file.height <= 900 || file.height >= 500 && file.width <= 800 || file.width >= 400)
-            {
-                 sizeStatus = true;
-            }
-            });
-             // alert(sizeStatus);
-             if(sizeStatus == false)
-            {
-              alert(alertSize);
+            //     // alert(file.upload.filename+" is not match 525*295");
+            //     i++;
+            //     sizeStatus = false;
+            // }
+            // else if(file.width > 800 || file.width < 400)
+            // {
+            //   alertSize[i] = file.upload.filename+" is not match width min - 400 to max - 800";
+            //   i++;
+            //     // alert(file.upload.filename+" is not match width 525");
+            //     sizeStatus = false;
+            // }
+            // else if(file.height > 900 || file.height < 500)
+            // {
+            //   alertSize[i] = file.upload.filename+" is not match height min - 500 to max - 900";
+            //   i++;
+            //     // alert(file.upload.filename+" is not match height 295");
+            //     sizeStatus = false;
+            // }
+            // else if(file.height <= 900 || file.height >= 500 && file.width <= 800 || file.width >= 400)
+            // {
+            //      sizeStatus = true;
+            // }
+            // });
+            //  // alert(sizeStatus);
+            //  if(sizeStatus == false)
+            // {
+            // //   alert(alertSize);
 
-            }
+            // }
 
-            if(sizeStatus == true)
-            {
+            // if(sizeStatus == true)
+            // {
             axios.post('/store_edit_shirt_button',formData,config)
 
             .then(function (response){
@@ -343,6 +430,8 @@ headers: { 'content-type': 'multipart/form-data' }
                     icon: "success"
                 }).then(function() {
                     window.history.back();
+                    // location.reload(true);
+                    sessionStorage.setItem('reload_additional_list',1);
                 });
 
                 
@@ -353,7 +442,7 @@ headers: { 'content-type': 'multipart/form-data' }
                 // alert("wrong");
                 console.log(error);
             })
-        }
+        // }
         },
 
         removeThisFile (file) {
@@ -474,12 +563,34 @@ headers: { 'content-type': 'multipart/form-data' }
                 alert("wrong");
             })
         },
+        getVest_lapel(){
+            axios.get('/get_vest_lapel_ajax')
+            .then((response) => {
+                console.log(response.data);
+                this.vest_lapels = response.data.vest_lapels;
+            })
+            .catch(function (error){
+                alert("wrong");
+            })
+        },
+        getCustomize_cate(){
+            axios.get('/get_customize_cate')
+            .then((response) => {
+                console.log(response.data.customize_cates);
+                this.customize_cates = response.data.customize_cates;
+            })
+            .catch(function (error){
+                alert("wrong");
+            })
+        },
 
       },
         mounted() {
             this.getTexture();
             this.getStyle();
             this.getColor();
+            this.getVest_lapel();
+            this.getCustomize_cate();
             console.log(this.link);
             let shirt_buttonID = {
                 'id' : this.link
@@ -488,7 +599,11 @@ headers: { 'content-type': 'multipart/form-data' }
             .then( (response) => {
                 // alert("access");
                 console.log(response.data.shirt_buttons.shirt_button);
-                this.shirt_button.color = response.data.shirt_buttons.color
+                this.shirt_button.description = response.data.shirt_buttons.description
+                this.shirt_button.price = response.data.shirt_buttons.price
+                this.shirt_button.style_id = response.data.shirt_buttons.style
+                this.shirt_button.vest_lapel_id = response.data.shirt_buttons.color
+                this.shirt_button.customize_cate_id = response.data.shirt_buttons.type
 
                 
                 // window.location.reload();

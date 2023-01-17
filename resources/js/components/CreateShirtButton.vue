@@ -8,6 +8,21 @@
                         <div class="row mt-3">
                             <div class="col-6">
                                 <div class="form-group">
+                                    <label>Type</label>
+                                    <select class="form-control" 
+                                    v-bind:class="{
+                                            'border-danger': forrequire(
+                                                this.requireerroryk.customize_cate_id,
+                                                this.shirt_button.customize_cate_id
+                                            ),
+                                        }"
+                                    v-model="shirt_button.customize_cate_id" name="texture">
+                                        <option v-for="(customize_cate,index) in customize_cates" :key="index" :value="customize_cate.name">{{customize_cate.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
                                     <label>Description</label>
                                     <textarea type="text" class="form-control" 
                                     v-bind:class="{
@@ -124,11 +139,13 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
             colors:{},
             style:{},
             vest_lapels:{},
+            customize_cates:{},
             shirt_button:{
             files:[],
             color:"",
             style_id:"",
             vest_lapel_id:"",
+            customize_cate_id:"",
             description:"",
             price:"",
         },
@@ -139,6 +156,7 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
             color:false,
             style_id:false,
             vest_lapel_id:false,
+            customize_cate_id:false,
             name: false,
             description: false,
             price: false,
@@ -200,6 +218,11 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
                 tmperrorcounts += 1;
             } else {this.requireerroryk.vest_lapel_id = false;}
 
+            if (this.shirt_button.customize_cate_id == "") {
+                this.requireerroryk.customize_cate_id = true;
+                tmperrorcounts += 1;
+            } else {this.requireerroryk.customize_cate_id = false;}
+
             if (this.shirt_button.description == "") {
                 this.requireerroryk.description = true;
                 tmperrorcounts += 1;
@@ -233,6 +256,10 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
                 }
                 if(this.requireerroryk.style_id) {
                   alertText[i] = "need to select the style";
+                  i++;
+                }
+                if(this.requireerroryk.customize_cate_id) {
+                  alertText[i] = "need to select the type";
                   i++;
                 }
                 if(this.requireerroryk.vest_lapel_id) {
@@ -269,6 +296,7 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
                 // formData.append('color', this.shirt_button.color);
                 formData.append('style', this.shirt_button.style_id);
                 formData.append('color', this.shirt_button.vest_lapel_id);
+                formData.append('type', this.shirt_button.customize_cate_id);
                 formData.append('images', this.$refs.myVueDropzone.getQueuedFiles());
                 this.$refs.myVueDropzone.getQueuedFiles().forEach(file => {
                 formData.append('images[]', file, file.upload.name);
@@ -401,6 +429,16 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
                 alert("wrong");
             })
         },
+        getCustomize_cate(){
+            axios.get('/get_customize_cate')
+            .then((response) => {
+                console.log(response.data.customize_cates);
+                this.customize_cates = response.data.customize_cates;
+            })
+            .catch(function (error){
+                alert("wrong");
+            })
+        },
         getVest_lapel(){
             axios.get('/get_vest_lapel_ajax')
             .then((response) => {
@@ -418,6 +456,7 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
             this.getStyle();
             this.getColor();
             this.getVest_lapel();
+            this.getCustomize_cate();
             console.log('Component mounted.')
         },
 
