@@ -1128,7 +1128,7 @@ getData();
      var whishlist = localStorage.getItem('Item');
       if(whishlist){
       getData();
-      getnavData();
+      // getnavData();
 
       }
 
@@ -1193,48 +1193,44 @@ getData();
 
       }
 
-         $(document).ready(function(){
-      getData();
-      // whishlist();
-      // deletedata();
-    });
-    function getnavData(){
-        var loItem = window.localStorage.getItem('Item');
-        var arrayFromStroage = JSON.parse(localStorage.getItem('Item'));
-        var arrayLength = arrayFromStroage.length;
-        // var count = localStorage.length('Item');
-        //  alert(arrayLength);
-        var html = "";
-        if (loItem != null) {
+
+    // function getnavData(){
+    //     var loItem = window.localStorage.getItem('Item');
+    //     var arrayFromStroage = JSON.parse(localStorage.getItem('Item'));
+    //     var arrayLength = arrayFromStroage.length;
+    //     // var count = localStorage.length('Item');
+    //     //  alert(arrayLength);
+    //     var html = "";
+    //     if (loItem != null) {
 
 
-          itemArr = JSON.parse(loItem);
+    //       itemArr = JSON.parse(loItem);
 
-          $.each(itemArr,function(i,v){
-            user_id = `{{Auth::guard('web')->user()->id}}`;
-            // alert( window.userID )
-          if(v.user_id == user_id)
-          {
-            // alert("right");
-            // html += `${arrayLength}`;
-            $('#fav-space').html(arrayLength);
-          }else{
-            html += parse('0');
-          }
-        });
+    //       $.each(itemArr,function(i,v){
+    //         user_id = `{{Auth::guard('web')->user()->id}}`;
+    //         // alert( window.userID )
+    //       if(v.user_id == user_id)
+    //       {
+    //         
+    //         // html += `${arrayLength}`;
+    //         $('#fav-space').html(arrayLength);
+    //       }else{
+    //         html += parse('0');
+    //       }
+    //     });
 
 
 
-          // document.getElementById('fav-space').innerHTML = parseInt(document.getElementById('fav-space').innerHTML) + 1;
+    //       // document.getElementById('fav-space').innerHTML = parseInt(document.getElementById('fav-space').innerHTML) + 1;
 
-        }else{
+    //     }else{
 
-        }
+    //     }
 
-    }
+    // }
 </script>
 @endpush
-@push('whishlist-nav')
+<!-- @push('whishlist-nav')
 @if(isset(Auth::guard('web')->user()->id))
 <script>
     $(document).ready(function(){
@@ -1259,7 +1255,7 @@ getData();
             // alert( window.userID )
           if(v.user_id == user_id)
           {
-            // alert("right");
+            
             // html += `${arrayLength}`;
             $('#fav-space').html(arrayLength);
           }else{
@@ -1277,5 +1273,5 @@ getData();
     }
 </script>
 @endif
-@endpush
+@endpush -->
 
