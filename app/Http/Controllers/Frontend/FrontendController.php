@@ -1093,11 +1093,17 @@ class FrontendController extends Controller
     return response()->json($package);
   }
   public function ajex_get_style(Request $request){
-    $style_id = Session::get('style_id');
-    // return dd($style_id);
-    $style = Style::where('category',$request->id)->get();
-    // dd($style);
-    // return dd($style);
+    // dd($request->all());
+    // $style_id = Session::get('style_id');
+    if($request->cus_cate_id != 9)
+    {
+    $style = Style::where('type_id',$request->cus_cate_id)->where('category',$request->id)->get();
+    }
+    else
+    {
+      $style = Style::where('type_id',$request->cus_cate_id)->where('category',$request->id)->where('pieces',$request->piece)->get();
+    }
+    
     return response()->json($style);
   }
   public function ajex_get_style_jacktes(Request $request){
@@ -1124,37 +1130,17 @@ class FrontendController extends Controller
 
   public function get_filter_recomment_style(Request $request)
   {
-    $request->session()->put('style_id', $request->id);
-    // $style_id = Session::get('style_id');
-    // return dd($style_id);
-    if($request->id == "2" || $request->id == "3"){
-      $style = Style::where('pieces',$request->id)->get();
-    }else{
-
-
-      if(Session::get('style_id') == 1){
-
-        $style = Style::where('type','1')->get();
-        // return dd($style);
-
-
-      }else if(Session::get('style_id') == 2){
-        $style = Style::where('type','2')->get();
-        // return dd("vests");
-      }else if(Session::get('style_id') == 3){
-        $style = Style::where('type','3')->get();
-        // return dd("pants");
-      }else{
-        $style = Style::where('type',$request->id)->get();
-        // return dd("suits");
-      };
-
-
+    // dd($request->all());
+    if($request->cus_cate_id == 9)
+    {
+    $style = Style::where('type_id',$request->cus_cate_id)->where('pieces',$request->name)->get();
     }
-
-
-
-
+    elseif($request->cus_cate_id != 9)
+    {
+      $style = Style::where('type_id',$request->cus_cate_id)->get();
+    }
+    logger("style result");
+    logger($style);
     // return dd($request);
     return response()->json($style);
   }

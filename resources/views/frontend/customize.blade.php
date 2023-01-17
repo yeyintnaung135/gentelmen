@@ -62,6 +62,7 @@
   @include('layouts/cus_6')
   @include('layouts/cus_7')
   @include('layouts.popup')
+  {{-- @include('layouts/recommend_style_pop_up'); --}}
   {{-- confirm modal start --}}
   <div class="modal fade" id="confirm">
     <div class="modal-dialog modal-dialog-centered">
@@ -287,6 +288,7 @@
       // $('#style_nav_check_'+sessionStorage.getItem('style_cate_id')).click();
       window.scrollTo(0, 0);
       // step3_selected();
+      style_nav_reload();
     }
     else if(sessionStorage.getItem('customize_category_id') != null && sessionStorage.getItem('package_id') != null && sessionStorage.getItem('style_id') != null && sessionStorage.getItem('fitting') != null && sessionStorage.getItem('measure_step') == null && sessionStorage.getItem('order_id') == null)
     {
@@ -699,6 +701,10 @@
                     {
                       sessionStorage.removeItem('style_id');
                       sessionStorage.removeItem('style_name');
+                      sessionStorage.removeItem('style_cate_name');
+                      sessionStorage.removeItem('style_cate_id');
+                      $('.styleNav').removeClass('active');
+
                     }
                   }
                 });
@@ -732,6 +738,7 @@
                     sessionStorage.setItem('suit_piece',2);
                   }
                   step3_selected();
+                  style_filter(sessionStorage.getItem('suit_piece'));
                 }
                 if (count == 4) {
                   // alert("step 4 no reload");
@@ -768,7 +775,7 @@
                     $('.pants_in').hide();
                     $('.vest_in').hide();
                   }
-                  calculate_step4()
+                  calculate_step4();
 
                 }
                 if (count == 5) {
@@ -1506,8 +1513,6 @@
             var style_n = '';
             // var j_data = JSON.parse(data);
             $.each(data, function (i, v) {
-
-
               var color = v.color;
               var style = v.style;
               var photo = v.photo_one;
@@ -1549,7 +1554,7 @@
     }
 
     function style_filter(name) {
-      // alert(name);
+      alert("style filter");
       if(count == 3)
       {
         sessionStorage.setItem('suit_piece',name);
@@ -1562,6 +1567,8 @@
         dataType: "json",
         data: {
           name: name,
+
+          cus_cate_id : sessionStorage.getItem('customize_category_id')
         },
         success: function (data) {
           console.log(data);
@@ -1579,10 +1586,10 @@
               <div class="radio-group ">
               <input type="radio" name="test" id="style_check${v.id}" class="form-check-input"/>
                   <div class="cursor-pointer" data-bs-toggle="modal"
-                      data-bs-target="#myCategory${name}">
+                      data-bs-target="#myCategory${v.id}">
                     <img src="{{'/assets/images/categories/style/${photo}'}}" alt=""
                         class="cus-img-res">
-                    <p class="text-center mt-2" id="style_data${v.id}">${name}</p>
+                    <p class="text-center mt-2" id="style_data${v.id}">${name}/${v.type_id}/${v.pieces}/${v.category}</p>
                   </div>
                   </div>
                 </div>`
@@ -1611,9 +1618,54 @@
       })
 
     }
+    function style_nav_reload()
+    {
+      alert("style nav reload");
 
+      // alert("hello");
+      $.ajax({
+        method: "Get",
+        url: "{{ route('ajex_get_style') }}",
+        cache: false,
+        dataType: "json",
+        data: {
+          piece:sessionStorage.getItem('suit_piece'),
+          id: sessionStorage.getItem('style_cate_id'),
+          cus_cate_id: sessionStorage.getItem('customize_category_id'),
+        },
+        success: function (data) {
+          console.log(data);
+            var style_n = '';
+            // var j_data = JSON.parse(data);
+            $.each(data, function (i, v) {
+              var name = v.name;
+              var photo = v.photo_one;
+              console.log(name);
+              style_n += ` <div class="col-md-4">
+              <div class="radio-group ">
+              <input type="radio" name="test" id="style_check${v.id}" class="form-check-input"/>
+                  <div class="cursor-pointer" data-bs-toggle="modal"
+                      data-bs-target="#myCategory${v.id}">
+                    <img src="{{'/assets/images/categories/style/${photo}'}}" alt=""
+                        class="cus-img-res">
+                    <p class="text-center mt-2" id="style_data${v.id}">${name}/${v.type_id}/${v.pieces}/${v.category}</p>
+                  </div>
+                  </div>
+                </div>`
+            })
+            $('#style_card').html(style_n);
+
+
+        },
+        error: function (err) {
+          console.log(err);
+        }
+
+
+                      })
+    }
     function style_nav(name,id) {
-      // alert(name);
+      alert("style nav");
       $('#style_rec_cate_id').val(id);
       sessionStorage.setItem('style_cate_name',name);
       sessionStorage.setItem('style_cate_id',id);
@@ -1625,7 +1677,9 @@
         dataType: "json",
         data: {
           name: name,
+          piece:sessionStorage.getItem('suit_piece'),
           id: id,
+          cus_cate_id: sessionStorage.getItem('customize_category_id'),
         },
         success: function (data) {
           $(document).ready(function () {
@@ -1642,7 +1696,7 @@
                       data-bs-target="#myCategory${v.id}">
                     <img src="{{'/assets/images/categories/style/${photo}'}}" alt=""
                         class="cus-img-res">
-                    <p class="text-center mt-2" id="style_data${v.id}">${name}</p>
+                    <p class="text-center mt-2" id="style_data${v.id}">${name}/${v.type_id}/${v.pieces}/${v.category}</p>
                   </div>
                   </div>
                 </div>`
@@ -1924,7 +1978,7 @@
     }
 
     function store_order() {
-      // alert("do store order");
+      alert("do store order");
       // alert("store_order"+$('#order_id').val());
       var addr = $('#order_address').val();
       var user = @json($user);
@@ -1936,6 +1990,15 @@
       var lower_id = $('#lower_measure_id').val();
       var order_id = $('#order_id').val();
       // alert("Order ID = "+order_id);
+      // if(sessionStorage.getItem('suit_piece') == null && sessionStorage.getItem('suit_piece') == '')
+      // {
+      //   var suit_piece = ''
+      // }
+      // else
+      // {
+      //   var suit_piece = sessionStorage.getItem('suit_piece')
+      // }
+
       $.ajax({
         type: 'POST',
         url: 'ajax_store_order',
@@ -1961,7 +2024,8 @@
           "jacket_in" : sessionStorage.getItem('jacket_in'),
           "vest_in" : sessionStorage.getItem('vest_in'),
           "pant_in" : sessionStorage.getItem('pants_in'),
-          "measure_type" : sessionStorage.getItem('measure_unit')
+          "measure_type" : sessionStorage.getItem('measure_unit'),
+          "suit_piece" : sessionStorage.getItem('suit_piece')
         },
         success: function (data) {
           console.log("Order_id-"+data.order.id);
@@ -2279,7 +2343,7 @@
         // alert("customize category is 9 and do suit pieces");
         if(count == 3)
         {
-        style_filter(sessionStorage.getItem('suit_piece'));
+        // style_filter(sessionStorage.getItem('suit_piece'));
         var suit_piece = sessionStorage.getItem('suit_piece');
         $('#myCategory'+sessionStorage.getItem('style_name')).modal('show');
         }

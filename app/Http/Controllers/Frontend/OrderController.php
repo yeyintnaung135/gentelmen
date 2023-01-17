@@ -14,6 +14,14 @@ class OrderController extends Controller
     {
       logger("store order function start");
       logger($request->all());
+      if($request->suit_piece == 'null')
+      {
+        $suit_piece = null;
+      }
+      else
+      {
+        $suit_piece = $request->suit_piece;
+      }
       if($request->cus_cate_id == 1 || $request->cus_cate_id == 2)
       {
         logger("one");
@@ -63,7 +71,7 @@ class OrderController extends Controller
           'user_id' => $request->user_id,
           'address' => $request->address,
           'suit_code' => $request->suit_code,
-          'suit_piece' => $request->suit_piece,
+          'suit_piece' => $suit_piece,
           'jacket_in' => $request->jacket_in,
           'vest_in' => $request->vest_in,
           'pant_in' => $request->pant_in,
