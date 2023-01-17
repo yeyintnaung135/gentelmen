@@ -205,3 +205,49 @@
 
   </script>
 @endsection
+@push('whishlist-nav')
+@if(isset(Auth::guard('web')->user()->id))
+<script>
+    $(document).ready(function(){
+      getnavData();
+      // whishlist();
+      // deletedata();
+    });
+    function getnavData(){
+        var loItem = window.localStorage.getItem('Item');
+        var arrayFromStroage = JSON.parse(localStorage.getItem('Item'));
+        var arrayLength = arrayFromStroage.length;
+        // var count = localStorage.length('Item');
+        //  alert(arrayLength);
+        var html = "";
+        if (loItem != null) {
+         
+					itemArr = JSON.parse(loItem);
+          $.each(itemArr,function(i,v){
+            user_id = `{{Auth::guard('web')->user()->id}}`;
+            // alert( window.userID )
+          $('#fav-space').html(arrayLength);
+          if(v.user_id == user_id)
+          { 
+            $('#wishlist'+v.id).hide();
+            $('#delete'+v.id).show();
+            // alert("right");
+            // html += `${arrayLength}`;
+            $('#fav-space').html(arrayLength);
+          }else{
+            html += parseInt('0');
+          }
+
+        });
+        // $('#fav-space').html(arrayLength);
+          
+          
+          // document.getElementById('fav-space').innerHTML = parseInt(document.getElementById('fav-space').innerHTML) + 1;
+					
+				}else{
+
+				}
+    }
+</script>
+@endif
+@endpush
