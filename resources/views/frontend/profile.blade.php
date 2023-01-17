@@ -615,6 +615,7 @@
 
 {{--order detail for customize--}}
 @foreach($cus_orders as $cus_order)
+@if($cus_order->status == 1)
     <div class="modal fade" id="orderDetail{{$cus_order->id}}">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
@@ -752,6 +753,7 @@
         </div>
       </div>
     </div>
+  @endif
     @endforeach
     {{--order detail for cart--}}
     @foreach($cart_orders as $cart_order)

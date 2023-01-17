@@ -141,7 +141,16 @@ class OrderController extends Controller
       $order = Order::find($request->order_id);
       $order->shipping_id = $request->shipping_id;
       $order->shipping_price = $shipping->price;
-      $order->total += $shipping->price;
+      if($order->shipping_price != null)
+      {
+        $order->total = 0;
+        $order->total += $order->suit_total + $shipping->price;
+      }
+      else
+      {
+        $order->total += $shipping->price;
+      }
+
       $order->save();
       return response()->json([
         'shipping' => $shipping,

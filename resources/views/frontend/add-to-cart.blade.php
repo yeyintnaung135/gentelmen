@@ -474,6 +474,7 @@
       }
       function nav_cart_total_qty()
       {
+        // alert("navvvvv");
         // start cart qty total to nav
         var grand_total = localStorage.getItem('grandTotal');
         var grand_total_obj = JSON.parse(grand_total);
@@ -490,6 +491,7 @@
         $('.paypal_space').show();
       });
       $('#remove_all').click(function(){
+        alert("rall");
         var user_id = @json($user_id);
 
         var mycart = localStorage.getItem('mycart');
@@ -509,6 +511,8 @@
           text: "Successfully Removed!",
           icon: "success",
         });
+        $('#total_cart_qty').html(0);
+        // nav_cart_total_qty();
         showmodal(user_id);
       });
   </script>

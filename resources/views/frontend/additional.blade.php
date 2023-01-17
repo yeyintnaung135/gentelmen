@@ -259,7 +259,7 @@
                         <p class="small-text">Add to favourite fabric list</p>
                       </div>
                       <div id="delete{{$grand->id}}" class="delete align-items-center text-uppercase lh-0 mb-4"
-                      onclick="deletedata('{{Auth::guard('web')->user()->id}}','{{$grand->id}}','{{$grand->photo_one}}','{{$grand->name}}','{{$grand->price}}')" 
+                      onclick="deletedata('{{Auth::guard('web')->user()->id}}','{{$grand->id}}','{{$grand->photo_one}}','{{$grand->name}}','{{$grand->price}}')"
                        style="cursor:pointer;
                        display:flex;">
                         <i class="bx bxs-heart me-3"></i>
@@ -935,6 +935,12 @@
       //     });
       //   }
       // });
+      swal({
+        title: "Success!",
+        text: "Successfully Add to cart!",
+        icon: "success",
+      });
+      $('.addi__modal').modal('hide');
     }
 
     // function add_to_favourite(value) {
@@ -1031,11 +1037,11 @@
         $('#delete'+id).hide();
         getData();
       }
-      
+
 
         //remove item from ls
 			function deleteData(user_id,id,photo_one,name,price) {
-		
+
         	alert(`user_id = ${user_id}, id = ${id}, photo = ${photo_one}, name = ${name}, price = ${price}`);
 				var loItem = window.localStorage.getItem('Item');
 				var removeItem = window.localStorage.getItem('Item','id');
@@ -1046,7 +1052,7 @@
 				itemArr.splice(0,1);
 				localStorage.setItem('Item',JSON.stringify(itemArr));
         document.getElementById('fav-space').innerHTML = parseInt(document.getElementById('fav-space').innerHTML) - 1;
-        
+
 
 			}
 
@@ -1058,7 +1064,7 @@
         //  alert(arrayLength);
         var html = "";
         if (loItem != null) {
-         
+
 					itemArr = JSON.parse(loItem);
           $.each(itemArr,function(i,v){
             user_id = `@if(isset(Auth::guard('web')->user()->id))
@@ -1074,10 +1080,10 @@
             html += parse('0');
           }
         });
-          
-          
+
+
           // document.getElementById('fav-space').innerHTML = parseInt(document.getElementById('fav-space').innerHTML) + 1;
-					
+
 				}else{
 
 				}

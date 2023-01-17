@@ -494,6 +494,12 @@
           }
         });
         // end cart qty total to nav
+        swal({
+      title: "Success!",
+      text: "Successfully Add to cart!",
+      icon: "success",
+    });
+    $('.addi__modal').modal('hide');
   }
 
   //add to cart ready to wear end
@@ -558,11 +564,11 @@ $(document).ready(function(){
         $('#delete'+id).hide();
         getData();
       }
-      
+
 
         //remove item from ls
 			function deleteData(user_id,id,photo_one,name,price) {
-		
+
         	alert(`user_id = ${user_id}, id = ${id}, photo = ${photo_one}, name = ${name}, price = ${price}`);
 				var loItem = window.localStorage.getItem('Item');
 				var removeItem = window.localStorage.getItem('Item','id');
@@ -573,7 +579,7 @@ $(document).ready(function(){
 				itemArr.splice(0,1);
 				localStorage.setItem('Item',JSON.stringify(itemArr));
         document.getElementById('fav-space').innerHTML = parseInt(document.getElementById('fav-space').innerHTML) - 1;
-        
+
 
 			}
 
@@ -585,7 +591,7 @@ $(document).ready(function(){
         //  alert(arrayLength);
         var html = "";
         if (loItem != null) {
-         
+
 					itemArr = JSON.parse(loItem);
           $.each(itemArr,function(i,v){
             user_id = `@if(isset(Auth::guard('web')->user()->id))
@@ -601,10 +607,10 @@ $(document).ready(function(){
             html += parse('0');
           }
         });
-          
-          
+
+
           // document.getElementById('fav-space').innerHTML = parseInt(document.getElementById('fav-space').innerHTML) + 1;
-					
+
 				}else{
 
 				}
@@ -628,7 +634,7 @@ $(document).ready(function(){
         //  alert(arrayLength);
         var html = "";
         if (loItem != null) {
-         
+
 					itemArr = JSON.parse(loItem);
           $.each(itemArr,function(i,v){
             user_id = `{{Auth::guard('web')->user()->id}}`;
@@ -642,10 +648,10 @@ $(document).ready(function(){
             html += parse('0');
           }
         });
-          
-          
+
+
           // document.getElementById('fav-space').innerHTML = parseInt(document.getElementById('fav-space').innerHTML) + 1;
-					
+
 				}else{
 
 				}
