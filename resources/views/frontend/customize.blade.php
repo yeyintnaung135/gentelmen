@@ -1,7 +1,7 @@
 @extends('layouts.header')
 @push('styles')
-  <link href="{{asset('css/SelectCss/select2.min.css')}}" rel="stylesheet"/>
   <link href="{{ asset('css/customize.css') }}" rel="stylesheet">
+  <link href="{{asset('css/SelectCss/select2.min.css')}}" rel="stylesheet"/>
   <link href="{{ asset('css/fabric.css') }}" rel="stylesheet">
   <link href="{{ asset('css/owl/owl.carousel.min.css') }}" rel="stylesheet">
   <link href="{{ asset('css/owl/owl.theme.default.min.css') }}" rel="stylesheet">
@@ -108,6 +108,23 @@
 
 
   <script>
+
+
+      $(".cus_3_pop_up_labels p").click(function () {
+        let defa;
+        defa = $(this).attr('for');
+        // console.log(defa);
+        localStorage.setItem("lastCheck", defa);
+        $("#" + defa).prop("checked", true).trigger("click");
+        let lastCheck = localStorage.getItem("lastCheck")
+        console.log("-------------")
+        console.log($("#" + lastCheck))
+      });
+      let lastCheck = localStorage.getItem("lastCheck")
+      console.log("-------------")
+      console.log($("#" + lastCheck))
+      $("#" + lastCheck).prop("checked", true).trigger("click");
+
 
 
     $(document).ready(function() {
@@ -1579,7 +1596,7 @@
               var pieces = v.pieces;
               console.log(pieces);
               style_n += `<div class="col-6 col-md-4">
-              <div class="radio-group ">
+              <div class="radio-group cus_3_card_inputs">
               <input type="radio" name="test" id="style_check${v.id}" class="form-check-input"/>
                   <div class="cursor-pointer" data-bs-toggle="modal"
                       data-bs-target="#myCategory${v.id}" onclick="get_swiper(${v.id})">
