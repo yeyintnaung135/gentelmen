@@ -46,7 +46,7 @@ class Order extends Model
     return $this->belongsTo('App\Package','package_id');
   }
   public function jacket() {
-    return $this->belongsTo('App\Jacket_button','jacket_id');
+    return $this->belongsTo('App\Top','jacket_id');
   }
 
   public function pant() {

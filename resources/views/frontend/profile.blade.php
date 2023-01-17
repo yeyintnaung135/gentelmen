@@ -724,7 +724,7 @@
                 @if($cus_order->jacket_id != null)
                 <tr>
                   <td class="text-white">Jacket Style :</td>
-                  <td class="text-white-70">{{$cus_order->jacket->name}}</td>
+                  <td class="text-white-70">{{$cus_order->jacket->style}}</td>
                 </tr>
                 @endif
                 @if($cus_order->vest_id != null)
