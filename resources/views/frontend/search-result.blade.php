@@ -493,13 +493,13 @@
             $('#wishlist'+v.id).hide();
             $('#delete'+v.id).show();
             // alert("right");
-            // html += `${arrayLength}`;
+            
             
           }else{
-           
+          //  html += parse('0');
           }
         });
-          html += `${arrayLength}`;
+         html += `${arrayLength}`;
           $('#fav-space').html(html);
           // document.getElementById('fav-space').innerHTML = parseInt(document.getElementById('fav-space').innerHTML) + 1;
 					
@@ -534,6 +534,7 @@
           $.each(itemArr,function(i,v){
             user_id = `{{Auth::guard('web')->user()->id}}`;
             // alert( window.userID )
+          $('#fav-space').html(arrayLength);
           if(v.user_id == user_id)
           { 
             $('#wishlist'+v.id).hide();
@@ -544,7 +545,9 @@
           }else{
             html += parseInt('0');
           }
+
         });
+        // $('#fav-space').html(arrayLength);
           
           
           // document.getElementById('fav-space').innerHTML = parseInt(document.getElementById('fav-space').innerHTML) + 1;
