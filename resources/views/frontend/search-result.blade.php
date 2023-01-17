@@ -476,7 +476,7 @@
             @endif`
         var loItem = window.localStorage.getItem('Item',user_id);
         var arrayFromStroage = JSON.parse(localStorage.getItem('Item'));
-        alert (loItem);
+        // alert (loItem);
         var arrayLength = arrayFromStroage.length;
         // var count = localStorage.length('Item');
         //  alert(arrayLength);
@@ -525,15 +525,31 @@
         var loItem = window.localStorage.getItem('Item');
         var arrayFromStroage = JSON.parse(localStorage.getItem('Item'));
         var arrayLength = arrayFromStroage.length;
+        user_id = `{{Auth::guard('web')->user()->id}}`;
         // var count = localStorage.length('Item');
         //  alert(arrayLength);
+        function getItemById(loItem, user_id) {
+              var i, len;
+              for (i = 0, len = loItem.length; i < len; i += 1) {
+                  if(user_id === loItem[i].id) {
+                      return loItem[i];
+                  }
+              }
+
+              return undefined;
+          }
+
+          testItem = getItemById(loItem, user_id);
+          console.log(testItem);
         var html = "";
         if (loItem != null) {
          
 					itemArr = JSON.parse(loItem);
           $.each(itemArr,function(i,v){
             user_id = `{{Auth::guard('web')->user()->id}}`;
-            // alert( window.userID )
+            var user = parseInt(v.user_id);
+            var acc = user.length;
+            console.log(user);
           $('#fav-space').html(arrayLength);
           if(v.user_id == user_id)
           { 
