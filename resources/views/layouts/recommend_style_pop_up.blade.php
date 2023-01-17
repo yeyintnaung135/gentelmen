@@ -8,7 +8,7 @@
             <button type="button" class="btn-close btn-close-white"
                     data-bs-dismiss="modal"></button>
           </div>
-          <section class="pop-up cus_3_pop_up_labels">
+          <section class="pop-up">
             <div class="row g-0 g-lg-5">
               <div class="col-12 col-lg-6 order-last order-lg-first">
                 <h5 class="pop-up__title d-none d-lg-block">{{$style->category}}</h5>
@@ -42,11 +42,11 @@
                     </div>
                   </div>
                 </div>
-                <p id="style_modal_click{{$style->id}}" class="pop-up__button"
+                <label id="style_modal_click{{$style->id}}" class="pop-up__button"
                    for="style_check{{$style->id}}" onclick="style_rec('{{$style->id}}','{{$style->name}}')"
                          data-bs-toggle="modal" data-bs-target="#step3-confirm">
                   pick this style
-                </p>
+                </label>
               </div>
               <div class="col-md-6 order-1 order-md-2" id="swiper-space{{$style->id}}">
 

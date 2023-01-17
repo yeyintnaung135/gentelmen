@@ -1,7 +1,7 @@
 @extends('layouts.header')
 @push('styles')
-  <link href="{{ asset('css/customize.css') }}" rel="stylesheet">
   <link href="{{asset('css/SelectCss/select2.min.css')}}" rel="stylesheet"/>
+  <link href="{{ asset('css/customize.css') }}" rel="stylesheet">
   <link href="{{ asset('css/fabric.css') }}" rel="stylesheet">
   <link href="{{ asset('css/owl/owl.carousel.min.css') }}" rel="stylesheet">
   <link href="{{ asset('css/owl/owl.theme.default.min.css') }}" rel="stylesheet">
@@ -108,23 +108,6 @@
 
 
   <script>
-
-
-      $(".cus_3_pop_up_labels p").click(function () {
-        let defa;
-        defa = $(this).attr('for');
-        // console.log(defa);
-        localStorage.setItem("lastCheck", defa);
-        $("#" + defa).prop("checked", true).trigger("click");
-        let lastCheck = localStorage.getItem("lastCheck")
-        console.log("-------------")
-        console.log($("#" + lastCheck))
-      });
-      let lastCheck = localStorage.getItem("lastCheck")
-      console.log("-------------")
-      console.log($("#" + lastCheck))
-      $("#" + lastCheck).prop("checked", true).trigger("click");
-
 
 
     $(document).ready(function() {
@@ -301,7 +284,7 @@
       // $('#style_nav_check_'+sessionStorage.getItem('style_cate_id')).click();
       window.scrollTo(0, 0);
       // step3_selected();
-      // style_nav_reload();
+      style_nav_reload();
     }
     else if(sessionStorage.getItem('customize_category_id') != null && sessionStorage.getItem('package_id') != null && sessionStorage.getItem('style_id') != null && sessionStorage.getItem('fitting') != null && sessionStorage.getItem('measure_step') == null && sessionStorage.getItem('order_id') == null)
     {
@@ -1565,15 +1548,21 @@
       })
 
     }
-    function style_filter_reload()
-    {
+
+    function style_filter(name) {
+      // alert("style filter");
+      if(count == 3)
+      {
+        sessionStorage.setItem('suit_piece',name);
+
+      }
       $.ajax({
         method: "Get",
         url: "{{ route('get_filter_recomment_style') }}",
         cache: false,
         dataType: "json",
         data: {
-          name: sessionStorage.getItem('suit_piece'),
+          name: name,
 
           cus_cate_id : sessionStorage.getItem('customize_category_id')
         },
@@ -1623,75 +1612,11 @@
         }
 
       })
-    }
-    function style_filter(name) {
-      // alert("style filter");
-      if(count == 3)
-      {
-        sessionStorage.setItem('suit_piece',name);
-
-      }
-      $.ajax({
-        method: "Get",
-        url: "{{ route('get_filter_recomment_style') }}",
-        cache: false,
-        dataType: "json",
-        data: {
-          name: name,
-
-          cus_cate_id : sessionStorage.getItem('customize_category_id')
-        },
-        success: function (data) {
-          console.log(data);
-          $(document).ready(function () {
-            var style_n = '';
-            // var j_data = JSON.parse(data);
-            $.each(data, function (i, v) {
-
-
-              var name = v.name;
-              var photo = v.photo_one;
-              var pieces = v.pieces;
-              console.log(pieces);
-              style_n += `<div class="col-6 col-md-4">
-              <div class="radio-group cus_3_card_inputs">
-              <input type="radio" name="test" id="style_check${v.id}" class="form-check-input"/>
-                  <div class="cursor-pointer" data-bs-toggle="modal"
-                      data-bs-target="#myCategory${v.id}" onclick="get_swiper(${v.id})">
-                    <img src="{{'/assets/images/categories/style/${photo}'}}" alt=""
-                        class="cus-img-res">
-                    <p class="text-center mt-2" id="style_data${v.id}">${name}/${v.type_id}/${v.pieces}/${v.category}</p>
-                  </div>
-                  </div>
-                </div>`
-
-            })
-            $('#style_card').html(style_n);
-            if(name == 2){
-              // alert("2two");
-              $('#cus1_jacket').show();
-              $('#cus1_vest').hide();
-              $('#cus1_pant').show();
-            }else if(name == 3)
-            {
-              // alert("3three");
-              $('#cus1_jacket').show();
-              $('#cus1_vest').show();
-              $('#cus1_pant').show();
-            }
-          });
-
-        },
-        error: function (err) {
-          console.log(err);
-        }
-
-      })
 
     }
     function style_nav_reload()
     {
-      // alert("style nav reload");
+      alert("style nav reload");
 
       // alert("hello");
       $.ajax({
@@ -1733,10 +1658,10 @@
         }
 
 
-        })
+                      })
     }
     function style_nav(name,id) {
-      // alert("style nav");
+      alert("style nav");
       $('#style_rec_cate_id').val(id);
       sessionStorage.setItem('style_cate_name',name);
       sessionStorage.setItem('style_cate_id',id);
@@ -2426,28 +2351,6 @@
         {
         $('#myCategory'+sessionStorage.getItem('style_name')).modal('show');
         }
-      }
-      if(sessionStorage.getItem('style_cate_id') != null && sessionStorage.getItem('style_cate_id') != '')
-      {
-        style_nav_reload();
-      }
-      else
-      {
-        style_filter_reload();
-      }
-      // alert(sessionStorage.getItem('customize_category_id'));
-      if(sessionStorage.getItem('customize_category_id') == 9)
-      {
-        // alert("kotin");
-        if(sessionStorage.getItem('suit_piece') == 2)
-        {
-          $('.rec-type').val(2).change();
-        }
-        else if(sessionStorage.getItem('suit_piece') == 3)
-        {
-          $('.rec-type').val(3).change();
-        }
-
       }
       // $("#cus2_option option[value=3]").attr('selected','selected');
       // id="style_check${v.id}"
