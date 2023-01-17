@@ -9,7 +9,61 @@
                         <div class="row mt-3">
                             <div class="col-6">
                                 <div class="form-group">
-                                    <label>Choose Color</label>
+                                    <label>Description</label>
+
+                                    <select class="form-control"
+
+                                    v-bind:class="{
+                                            'border-danger': forrequire(
+                                                this.requireerroryk.description,
+                                                this.shirt_button.description
+                                            ),
+                                        }"
+                                    v-model="shirt_button.color" name="btn_text">
+                                        <option selected hidden>Choose Descirpion</option>
+                                        <option v-for="(color,index) in colors" :key="index" :value="color.id">{{color.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label>Price</label>
+
+                                    <select class="form-control"
+
+                                    v-bind:class="{
+                                            'border-danger': forrequire(
+                                                this.requireerroryk.color,
+                                                this.shirt_button.color
+                                            ),
+                                        }"
+                                    v-model="shirt_button.color" name="btn_text">
+                                        <option selected hidden>Choose Color</option>
+                                        <option v-for="(color,index) in colors" :key="index" :value="color.id">{{color.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label>Choose Style</label>
+
+                                    <select class="form-control"
+
+                                    v-bind:class="{
+                                            'border-danger': forrequire(
+                                                this.requireerroryk.color,
+                                                this.shirt_button.color
+                                            ),
+                                        }"
+                                    v-model="shirt_button.color" name="btn_text">
+                                        <option selected hidden>Choose Color</option>
+                                        <option v-for="(color,index) in colors" :key="index" :value="color.id">{{color.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label>Choose Lapel</label>
 
                                     <select class="form-control"
 
