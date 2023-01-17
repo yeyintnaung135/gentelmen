@@ -1167,7 +1167,7 @@ getData();
               html+=`<div class="col-6 col-md-4">
                     <div class="text-center">
                       <div id="tbody" class="mb-1 position-relative">
-                        <img src="'/assets/images/categories/ready/${v.photo}'" alt="">
+                        <img src="{{'/assets/images/categories/ready/${v.photo}'}}" alt="">
                         <button class="remove position-absolute top-0 end-0 me-2 me-md-3 mt-2 mt-md-3
                         cursor-pointer"  style='all:unset'
                         onclick="deletedata('{{Auth::guard('web')->user()->id}}','${v.id}','${v.photo_one}','${v.name}','${v.price}')">
