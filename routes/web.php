@@ -1082,7 +1082,7 @@ Route::get('customize', function (Request $request) {
                   $articles .= '
                   <div class="col-6 col-md-4 mb-3 mb-md-0 px-2">
                   <div class="radio-group fabric-group">
-                  <input type="radio" name="" value="" id="texture_check_'.$grand->id.'" class="form-check-input"/>
+                  <input type="radio" name="test" value="" id="texture_check_'.$grand->id.'" class="form-check-input"/>
                     <div class="cursor-pointer" data-bs-toggle="modal"
                          data-bs-target="#myFabric' . $grand->id .'" onclick="get_swiper(' . $grand->id . ')">
                       <div class="img-container mb-1">
