@@ -8,7 +8,7 @@ class SuitTips extends Model
 {
     //
     protected $fillable = [
-        'photo','brand','title','description','feature'
+        'photo','brand','title','description','feature','admin'
     ];
 
     protected $attributes = [

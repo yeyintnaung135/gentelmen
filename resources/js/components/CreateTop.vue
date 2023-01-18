@@ -80,7 +80,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <!-- <div class="col-6">
                                 <div class="form-group">
                                     <label>Choose Size</label>
                                     <select class="form-control"
@@ -97,7 +97,7 @@
                                         <option value="extra">Extra</option>
                                     </select>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="col-6">
                                 <div class="form-group">
                                     <label>Description</label>

@@ -1207,9 +1207,12 @@ Route::get('cart', function () {
   $user_info = User::find($user_id);
     return view('frontend.add-to-cart',compact('favs','carts','user_id','user_info'));
 });
-Route::get('suit-tips-detail', function () {
-    return view('frontend.suitTipsDetail');
-});
+Route::get('suit-tips-detail/{id}', function ($id) {
+    $suit_tip = SuitTips::where('id',$id)->first();
+    $latest_suit_tips = SuitTips::latest()->take(3)->get();
+    // return dd($latest_suit_tip);
+    return view('frontend.suitTipsDetail',compact('suit_tip','latest_suit_tips'));
+})->name('suit-tip-details');
 Route::get('profile', function () {
   $user = Session::get('user_id');
   // dd($user);

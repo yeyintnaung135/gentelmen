@@ -18,13 +18,13 @@
               <h6>{{$feature->title}}</h6>
               <p class="item__texts-desc">{{$feature->description}}.</p>
               <button class="pop-up__button mt-4">
-                <a href="/suit-tips-detail">Detail</a>
+                <a href="/suit-tips-detail/{{$feature->id}}">Detail</a>
               </button>
             </div>
           </div>
         @endforeach
 
-        <div class="col-12 col-md-6 col-lg-4 tips__item">
+        <!-- <div class="col-12 col-md-6 col-lg-4 tips__item">
           <img class="item__img" src="{{asset('assets/images/suitTips/img_1.png')}}" alt="">
           <div class="item__texts">
             <span class="text-white-50">Emperor of Asia - Dec 9 2022</span>
@@ -51,7 +51,7 @@
               <a href="/suit-tips-detail">Detail</a>
             </button>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="tips__wrapper">
@@ -65,7 +65,7 @@
               <h6>{{$suit_tip->title}}</h6>
               <p class="item__texts-desc">{{$suit_tip->description}}.</p>
               <button class="pop-up__button mt-4">
-                <a href="/suit-tips-detail">Detail</a>
+                <a href="/suit-tips-detail/{{$feature->id}}">Detail</a>
               </button>
             </div>
           </div>

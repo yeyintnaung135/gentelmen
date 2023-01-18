@@ -1823,6 +1823,9 @@ public function search(Request $request)
   //     }
   //   }]
   // ])->orderBy("id", 'desc')->paginate();
+  if(Session::get('user_id')){
+    
+  }
   $text = $request->input('gg');
   $texts = ReadyToWear::where('name', 'LIKE',"$text" . '%')->latest()->get();
   return view('frontend.search-result', compact('texts'))->with('i',(request()->input('page',1)-1)*5);

@@ -67,9 +67,7 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Description</label>
-                                    <textarea name="description" type="text" class="form-control" id="exampleInputEmail1" value="{{$suit_tip->description}}" placeholder="Enter Description Name">
-                                      {{$suit_tip->description}}
-                                    </textarea>
+                                    <textarea name="description" type="text" class="form-control" id="exampleInputEmail1" value="{{$suit_tip->description}}" placeholder="Enter Description Name">{{$suit_tip->description}}</textarea>
                                     @error('description')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
