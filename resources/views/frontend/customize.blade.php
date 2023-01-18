@@ -733,13 +733,8 @@
                   // alert(sessionStorage.getItem('suit_piece'));
                   if(sessionStorage.getItem('customize_category_id') == 9)
                   {
-                    if(sessionStorage.getItem('suit_piece') == null && sessionStorage.getItem('suit_piece') == '')
-                    {
-                      // alert("suit piece ====="+sessionStorage.getItem('suit_piece'));
-                      sessionStorage.setItem('suit_piece',2);
-                    }
-                    else
-                    {
+
+
                       // alert("wtf");
                       // alert(sessionStorage.getItem('suit_piece'));
                       if(sessionStorage.getItem('suit_piece') == 2)
@@ -752,8 +747,11 @@
                         // alert("333")
                         sessionStorage.setItem('suit_piece',3);
                       }
-                      // alert("wtfffff");
-                    }
+                      else
+                      {
+                        sessionStorage.setItem('suit_piece',2);
+                      }
+
 
                   }
                   step3_selected();
