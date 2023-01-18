@@ -622,8 +622,9 @@
             if(count == 1 || count == 2)
             {
             sessionStorage.setItem('customize_category_id',cus_cate_id);
-            if(sessionStorage.getItem('customize_category_id') !== 9)
+            if(sessionStorage.getItem('customize_category_id') != 9)
             {
+              // alert("fuckkker");
               sessionStorage.removeItem('suit_piece');
               if(sessionStorage.getItem('texture_id') != null && sessionStorage.getItem('texture_id') != '')
               {
@@ -729,33 +730,34 @@
                 }
                 if(count == 3)
                 {
+                  // alert(sessionStorage.getItem('suit_piece'));
                   if(sessionStorage.getItem('customize_category_id') == 9)
                   {
-                    // if(sessionStorage.getItem('suit_piece') != null && sessionStorage.getItem('suit_piece') != '')
-                    // {
-                      // alert("win");
+                    if(sessionStorage.getItem('suit_piece') == null && sessionStorage.getItem('suit_piece') == '')
+                    {
+                      // alert("suit piece ====="+sessionStorage.getItem('suit_piece'));
                       sessionStorage.setItem('suit_piece',2);
-                    // }
-                    // else
-                    // {
-                    //   console.log("wtf");
-                    //   alert(sessionStorage.getItem('suit_piece'));
-                    //   if(sessionStorage.getItem('suit_piece') == 2)
-                    //   {
-                    //     alert("222");
-                    //     sessionStorage.setItem('suit_piece',2);
-                    //   }
-                    //   else if(sessionStorage.getItem('suit_piece') == 3)
-                    //   {
-                    //     alert("333")
-                    //     sessionStorage.setItem('suit_piece',3);
-                    //   }
-                    //   alert("wtfffff");
-                    // }
+                    }
+                    else
+                    {
+                      // alert("wtf");
+                      // alert(sessionStorage.getItem('suit_piece'));
+                      if(sessionStorage.getItem('suit_piece') == 2)
+                      {
+                        // alert("222");
+                        sessionStorage.setItem('suit_piece',2);
+                      }
+                      else if(sessionStorage.getItem('suit_piece') == 3)
+                      {
+                        // alert("333")
+                        sessionStorage.setItem('suit_piece',3);
+                      }
+                      // alert("wtfffff");
+                    }
 
                   }
                   step3_selected();
-                  style_filter(sessionStorage.getItem('suit_piece'));
+                  // style_filter(sessionStorage.getItem('suit_piece'));
                 }
                 if (count == 4) {
                   // alert("step 4 no reload");
@@ -1129,12 +1131,14 @@
             $('#next-unconfirm').hide();
             $('#step_title').html('Choose the package')
             $('#next-unconfirm').hide();
+            alert(sessionStorage.getItem('suit_piece'));
           }
           if (count === 3) {
             $('#next-arrow').hide();
             $('#next-unconfirm').show();
             $('#step_title').html('style recommendations');
             $('#package_id').val(package_id);
+            // alert(sessionStorage.getItem('suit_piece'));
             step3_selected();
             }
             if(count === 4) {
@@ -2408,6 +2412,7 @@
     }
     function step3_selected()
     {
+      // alert(sessionStorage.getItem('suit_piece'));
       $('#style_nav_check_'+sessionStorage.getItem('style_cate_id')).addClass('active');
       // start
 
