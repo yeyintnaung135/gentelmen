@@ -35,10 +35,10 @@
                   <tr>
                     <th>No</th>
                     <th>Photo</th>
-                    <th>Texture</th>
                     <th>Style</th>
                     <th>Button</th>
                     <th>Price</th>
+                    <th>Description</th>
                     <th>Action</th>
                   </tr>
                   </thead>
@@ -48,10 +48,10 @@
                   <tr>
                     <td>{{$i++}}</td>
                     <td><img class="rounded-5 shadow-sm" src="{{'/assets/images/customize/top/'. $top->photo_one}}" alt="" width="100px" height="60px"/></td>
-                    <td>{{$top->texture}}</td>
                     <td>{{$top->style}}</td>
                     <td>{{$top->color}}</td>
                     <td>{{$top->price}}</td>
+                    <td>{{$top->description}}</td>
                     <td>
                     <div style="
                         display: flex;
@@ -76,10 +76,10 @@
                   <tr class="text-center">
                     <th>No</th>
                     <th>Photo</th>
-                    <th>Texture</th>
                     <th>Style</th>
                     <th>Button</th>
                     <th>Price</th>
+                    <th>Description</th>
                     <th>Action</th>
                   </tr>
                   </tfoot>

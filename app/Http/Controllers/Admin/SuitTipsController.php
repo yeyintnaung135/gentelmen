@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\SuitTips;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Validator;
@@ -76,6 +77,7 @@ class SuitTipsController extends Controller
         'title' => $request->title,
         'description' => $request->description,
         'feature' => $feature,
+        'admin' => Auth::guard('admin')->name,
       ]);
       return redirect()->route('suit_tip_list')->with('success','Your SuitTip is successfully Created');
     }

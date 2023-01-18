@@ -7,33 +7,31 @@
   <section class="detail-container mx-auto">
     <div class="detail">
       <div class="detail__title"
-           style='background-image: url({{asset("assets/images/suitTips/mesh-715.png")}});'>
-        <p>Suit Tips #1 Title</p>
+           style='background-image: url({{asset("/assets/images/suit_tip/". $suit_tip->photo)}});'>
+        <p>{{$suit_tip->title}}</p>
       </div>
       <div class="d-flex justify-content-between detail__info">
-        <p class="blog__author">Author: <span>Shoung Gyi</span></p>
-        <p class="blog__date">Date: <span>12 Dec 2022</span></p>
+        <p class="blog__author">Author: <span>{{$suit_tip->admin}}</span></p>
+        <p class="blog__date">Date: <span>{{ \Carbon\Carbon::parse($suit_tip->created_at)->format('M d Y')}}</span></p>
       </div>
       <div class="detail__description">
-        <p>&nbsp;&nbsp;&nbsp;&nbsp; Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab
-          accusantium
-          blanditiis
-          est
-          explicabo in itaque, natus necessitatibus nobis, omnis pariatur perspiciatis praesentium
-          quia recusandae tempora temporibus. Dolores eius ex itaque possimus quam repudiandae totam
-          ut voluptate! Accusamus aut consectetur consequatur, delectus dicta dignissimos dolorem
-          dolores doloribus eius error eveniet fugit hic impedit ipsum, iusto labore laboriosam
-          maxime
-          nisi nobis non nostrum officiis porro praesentium quam quidem quisquam quod ratione rem
-          repudiandae sint, suscipit vel vitae voluptatem! Accusantium beatae commodi id incidunt
-          quas. Ab accusamus aliquam, cupiditate eius eum fugit in iste molestiae nostrum quo
-          reiciendis tempora totam voluptatem. Aut, vel!</p>
+        <p> {{$suit_tip->description}}</p>
       </div>
     </div>
     <div class="latest-blog">
       <h1 class="latest__title">Latest Blogs</h1>
       <div class="row tips__items">
+        @foreach($latest_suit_tips as $latest_suit_tip)
         <div class="col-12 col-md-6 col-lg-4 tips__item">
+          <img class="item__img" src="{{'/assets/images/suit_tip/'. $latest_suit_tip->photo}}" alt="">
+          <div class="item__texts">
+            <span class="text-white-50">Emperor of Asia -{{ \Carbon\Carbon::parse($latest_suit_tip->created_at)->format('M d Y')}}</span>
+            <h6>How to Measure Upper Body</h6>
+            <p class="more">{{$latest_suit_tip->description}}</p>
+          </div>
+        </div>
+        @endforeach
+        <!-- <div class="col-12 col-md-6 col-lg-4 tips__item">
           <img class="item__img" src="{{asset('assets/images/suitTips/img_1.png')}}" alt="">
           <div class="item__texts">
             <span class="text-white-50">Emperor of Asia - Dec 9 2022</span>
@@ -48,15 +46,7 @@
             <h6>How to Measure Upper Body</h6>
             <p class="more">adipisicing elit. Aliquid assumenda at porro reiciendis velit. Accusantium aliquam autem dicta eligendi eos fugiat illo incidunt iusto maiores molestias nisi obcaecati odio optio possimus, quam quas quasi quidem quod reprehenderit velit? Accusamus animi cumque dolore enim exercitationem in modi quisquam reprehenderit?</p>
           </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 tips__item">
-          <img class="item__img" src="{{asset('assets/images/suitTips/img_1.png')}}" alt="">
-          <div class="item__texts">
-            <span class="text-white-50">Emperor of Asia - Dec 9 2022</span>
-            <h6>How to Measure Upper Body</h6>
-            <p class="more">adipisicing elit. Aliquid assumenda at porro reiciendis velit. Accusantium aliquam autem dicta eligendi eos fugiat illo incidunt iusto maiores molestias nisi obcaecati odio optio possimus, quam quas quasi quidem quod reprehenderit velit? Accusamus animi cumque dolore enim exercitationem in modi quisquam reprehenderit?</p>
-          </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
