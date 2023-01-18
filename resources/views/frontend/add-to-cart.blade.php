@@ -409,14 +409,14 @@
               }).then(
               function(isConfirm){
                   if(isConfirm){
-                    alert("one");
+                    // alert("one");
 
 
                   var total_total = grand_total_obj.filter(total => total.id == user_id);
                   let item_cart = mycartobj.filter(item => item.id !== user_id || item.item_id !== item_id);
                   total_total[0].sub_total =parseInt(total[0].sub_total) - parseInt(item[0].price)*parseInt(qty);
                   total_total[0].total_qty -= parseInt(qty);
-                  alert("TOTAL+"+total[0].total_qty);
+                  // alert("TOTAL+"+total[0].total_qty);
                   console.log(item_cart);
                   console.log("yes");
                   localStorage.setItem('mycart',JSON.stringify(item_cart));
@@ -426,7 +426,7 @@
                   $('#total').val(total_total[0].sub_total);
 
               }else{
-                alert("two");
+                // alert("two");
                   item[0].qty;
                 console.log("no");
                   localStorage.setItem('mycart',JSON.stringify(mycartobj));
@@ -444,7 +444,7 @@
 
           }else{
               console.log("hello");
-              alert("three");
+              // alert("three");
               item[0].qty-=qty;
 
               total[0].sub_total -= parseInt(item[0].price)*qty;
@@ -525,7 +525,7 @@
         $.each(grand_total_obj,function(i,v){
           if(v.id == user_id)
           {
-            alert("nav="+v.total_qty);
+            // alert("nav="+v.total_qty);
             $('#total_cart_qty').html(v.total_qty);
           }
         });
@@ -678,14 +678,14 @@
         //  alert(arrayLength);
         var html = "";
         if (loItem != null) {
-         
+
 					itemArr = JSON.parse(loItem);
           $.each(itemArr,function(i,v){
             user_id = `{{Auth::guard('web')->user()->id}}`;
             // alert( window.userID )
           $('#fav-space').html(arrayLength);
           if(v.user_id == user_id)
-          { 
+          {
             $('#wishlist'+v.id).hide();
             $('#delete'+v.id).show();
             // alert("right");
@@ -697,10 +697,10 @@
 
         });
         // $('#fav-space').html(arrayLength);
-          
-          
+
+
           // document.getElementById('fav-space').innerHTML = parseInt(document.getElementById('fav-space').innerHTML) + 1;
-					
+
 				}else{
 
 				}

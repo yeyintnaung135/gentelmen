@@ -1602,7 +1602,7 @@
                       data-bs-target="#myCategory${v.id}" onclick="get_swiper(${v.id})">
                     <img src="{{'/assets/images/categories/style/${photo}'}}" alt=""
                         class="cus-img-res">
-                    <p class="text-center mt-2" id="style_data${v.id}">${name}/${v.type_id}/${v.pieces}/${v.category}</p>
+                    <p class="text-center mt-2" id="style_data${v.id}">${name}</p>
                   </div>
                   </div>
                 </div>`
@@ -1667,7 +1667,7 @@
                       data-bs-target="#myCategory${v.id}" onclick="get_swiper(${v.id})">
                     <img src="{{'/assets/images/categories/style/${photo}'}}" alt=""
                         class="cus-img-res">
-                    <p class="text-center mt-2" id="style_data${v.id}">${name}/${v.type_id}/${v.pieces}/${v.category}</p>
+                    <p class="text-center mt-2" id="style_data${v.id}">${name}</p>
                   </div>
                   </div>
                 </div>`
@@ -1727,7 +1727,7 @@
                       data-bs-target="#myCategory${v.id}" onclick="get_swiper(${v.id})">
                     <img src="{{'/assets/images/categories/style/${photo}'}}" alt=""
                         class="cus-img-res">
-                    <p class="text-center mt-2" id="style_data${v.id}">${name}/${v.type_id}/${v.pieces}/${v.category}</p>
+                    <p class="text-center mt-2" id="style_data${v.id}">${name}</p>
                   </div>
                   </div>
                 </div>`
@@ -1776,7 +1776,7 @@
                       data-bs-target="#myCategory${v.id}" onclick="get_swiper(${v.id})">
                     <img src="{{'/assets/images/categories/style/${photo}'}}" alt=""
                         class="cus-img-res">
-                    <p class="text-center mt-2" id="style_data${v.id}">${name}/${v.type_id}/${v.pieces}/${v.category}</p>
+                    <p class="text-center mt-2" id="style_data${v.id}">${name}</p>
                   </div>
                   </div>
                 </div>`
