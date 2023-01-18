@@ -144,11 +144,11 @@ class OrderController extends Controller
       if($order->shipping_price != null)
       {
         $order->total = 0;
-        $order->total += $order->suit_total + $shipping->price;
+        $order->total += $order->suit_total + $shipping->price+2;
       }
       else
       {
-        $order->total += $shipping->price;
+        $order->total += $shipping->price+2;
       }
 
       $order->save();

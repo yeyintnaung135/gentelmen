@@ -54,9 +54,22 @@
           </div>
           <div class="cart__total">
             <p class="total__item-name">TOTAL</p>
-            <p class="total__item-price" id="total_space"></p>
+            <p class="total__item-price">$<span id="total_space"></span></p>
+
+          </div>
+          <div class="cart__total my-5">
+            <p class="col-md-3">Address :</p>
+            <!--          <p class="col-md-9">No.143, Zayyardipa 1st Street, 31 ward, North Dagon.</p>-->
+            @if(!empty($user_info))
+            <textarea type="text" class="form-control" rows="2" id="order_address" autofocus onkeyup="store_address(this.value)">{{$user_info->city}} {{$user_info->tsp_street}}</textarea>
+            @else
+            <textarea type="text" class="form-control" rows="2" id="order_address" autofocus></textarea>
+            @endif
           </div>
         </div>
+
+
+
       </div>
 
       <div class="checkout__wrapper">
@@ -65,7 +78,7 @@
             <div id="paypal-button-container"></div>
           </div>
           <p class="checkout__info">(delivery fees will include in checkout)</p>
-          <button class="btn bg-gold rounded-1 text-uppercase" id="show_paypal">process to checkout</button>
+          <button class="btn bg-gold rounded-1 text-uppercase" id="show_paypal" onclick="available_payment()">process to checkout</button>
         </div>
       </div>
       <!--      <div class="row cart__items-title">
@@ -122,6 +135,36 @@
 @section('js')
   <script>
     // For see more see less
+    function store_address(value)
+    {
+      sessionStorage.setItem('address',value);
+      $("#paypal-button-container").hide();
+    }
+    function available_payment() {
+      // alert($('#country').val());
+    if(sessionStorage.getItem('address') != null && sessionStorage.getItem('address') != '')
+    {
+
+        $("#paypal-button-container").show();
+
+        // alert("what");
+
+    }
+    else
+    {
+      swal({
+          title: "Error",
+          text : "Need to fill Address",
+          icon : "error",
+      }).then(function() {
+      });
+      $("#paypal-button-container").hide();
+    }
+
+
+
+
+    }
     $(document).ready(function () {
       var user_id = @json($user_id);
       // alert(user_id);
@@ -380,6 +423,7 @@
                   localStorage.setItem('grandTotal',JSON.stringify(grand_total_obj));
                   showmodal(user_id);
                   nav_cart_total_qty()
+                  $('#total').val(total_total[0].sub_total);
 
               }else{
                 alert("two");
@@ -543,7 +587,8 @@
                     "cart_item" : mycartobj,
                     "grand_total" : grandTotal_obj,
                     "value" : total,
-                    "user_id" : user_id
+                    "user_id" : user_id,
+                    "address" : sessionStorage.getItem('address')
                 })
             }).then(function(res) {
                 return res.json();

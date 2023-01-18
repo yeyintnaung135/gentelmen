@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-md-7">
       <p class="ff-mont text-white ls-0 text-uppercase h5 mb-4" id="te">here is your billing
-        address</p>
+      address</p>
       <div class="ms-0 ms-md-4 mb-5">
         <div class="row mb-1">
           <p class="col-md-3">Name :</p>
@@ -35,7 +35,7 @@
           <!--          <p class="col-md-9">No.143, Zayyardipa 1st Street, 31 ward, North Dagon.</p>-->
           <div class="col-md-9">
             @if(!empty($user_info))
-            <textarea type="text" class="form-control" rows="2" id="order_address" autofocus onkeyup="store_address(this.value)">{{$user_info->city}}/{{$user_info->tsp_street}}</textarea>
+            <textarea type="text" class="form-control" rows="2" id="order_address" autofocus onkeyup="store_address(this.value)">{{$user_info->city}} {{$user_info->tsp_street}}</textarea>
             @else
             <textarea type="text" class="form-control" rows="2" id="order_address" autofocus>No.143, Zayyardipa 1st Street, 31 ward, North Dagon.</textarea>
             @endif

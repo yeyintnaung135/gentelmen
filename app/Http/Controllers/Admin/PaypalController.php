@@ -73,6 +73,7 @@ class PaypalController extends Controller
             'user_id' => $total->id,
             'total' => $total->sub_total,
             'total_qty' => $total->total_qty,
+            'address' => $data['address']
           ]);
 
           $order_code = $date."-".$cart_order->id;

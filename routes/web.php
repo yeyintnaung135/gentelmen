@@ -1204,7 +1204,8 @@ Route::get('cart', function () {
   $favs = Favourite::where('user_id',Session::get('user_id'))->get();
   $carts = AddToCart::where('user_id',Session::get('user_id'))->get();
   $user_id = Session::get('user_id');
-    return view('frontend.add-to-cart',compact('favs','carts','user_id'));
+  $user_info = User::find($user_id);
+    return view('frontend.add-to-cart',compact('favs','carts','user_id','user_info'));
 });
 Route::get('suit-tips-detail', function () {
     return view('frontend.suitTipsDetail');

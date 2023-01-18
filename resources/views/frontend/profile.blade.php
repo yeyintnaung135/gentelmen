@@ -598,7 +598,7 @@
                   </div>
                   <div class="d-flex flex-row flex-md-column items-info">
                     <div class="text-white-50 mb-1 mb-md-2">Delivery to</div>
-                    <div class="">-</div>
+                    <div class="">{{$cart_order->address}}</div>
                   </div>
 
                   <div class="position-absolute top-0 end-0 mt-2 mt-md-3 mx-4 text-white-50">

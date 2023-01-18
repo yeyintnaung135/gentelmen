@@ -12,6 +12,7 @@ class CartOrder extends Model
       'order_code',
       'total',
       'total_qty',
+      'address'
     ];
     public function user() {
       return $this->belongsTo('App\User','user_id');

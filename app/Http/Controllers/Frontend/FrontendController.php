@@ -1101,9 +1101,10 @@ class FrontendController extends Controller
     }
     else
     {
+      logger("suit data style");
       $style = Style::where('type_id',$request->cus_cate_id)->where('category',$request->id)->where('pieces',$request->piece)->get();
     }
-
+    logger($style);
     return response()->json($style);
   }
   public function ajex_get_style_jacktes(Request $request){
@@ -1133,10 +1134,24 @@ class FrontendController extends Controller
     // dd($request->all());
     if($request->cus_cate_id == 9)
     {
-    $style = Style::where('type_id',$request->cus_cate_id)->where('pieces',$request->name)->get();
+      logger("suit result");
+      if(!empty($request->style_cate_id))
+      {
+        logger("have cate");
+        $style = Style::where('type_id',$request->cus_cate_id)->where('category',$request->style_cate_id)->where('pieces',$request->piece)->get();
+      }
+      else
+      {
+        logger("no have cate");
+        $style = Style::where('type_id',$request->cus_cate_id)->where('pieces',$request->piece)->get();
+
+      }
+
+    logger("length suit table = ".count($style));
     }
     elseif($request->cus_cate_id != 9)
     {
+      logger("other result");
       $style = Style::where('type_id',$request->cus_cate_id)->get();
     }
     logger("style result");
