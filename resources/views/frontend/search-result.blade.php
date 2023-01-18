@@ -10,8 +10,8 @@
 
   <section class="result">
     <h5>Search results</h5>
-    <span class="result-total">30 results found</span>
-    <div class="result-filter">
+    <!-- <span class="result-total">30 results found</span> -->
+    <!-- <div class="result-filter">
       <div class="d-flex align-items-center flex-column">
         <div>
           <div class="d-flex justify-content-start customize-fabric flex-wrap">
@@ -259,7 +259,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="ready__items row" id="ready_space">
      @foreach($texts as $text)
       <div class="col-6 col-md-4 col-lg-3 ready__item">
