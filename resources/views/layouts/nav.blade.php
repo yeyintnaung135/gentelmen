@@ -42,7 +42,7 @@
             ></i></a> --}}
         @if(isset(Auth::guard('web')->user()->id))
         <input type="hidden" style="color:black" value="{{Auth::guard('web')->user()->id}}" id="hidden_user_id">
-          <a href="#" class="position-relative me-2 me-md-3 center-flex">
+          <a href="{{route('profile')}}" class="position-relative me-2 me-md-3 center-flex">
             <i class='bx bx-heart icon text-danger'></i>
             <span
               class="position-absolute top-0 start-100 translate-middle badge rounded-pill">
@@ -67,7 +67,7 @@
                         <i class='bx bx-log-out bx-flip-horizontal icon' ></i>
                     </a>
           <a class="me-2 me-md-3 center-flex" href="/profile">
-            <i class='bx bx-user-circle icon'><span id="total_qty"></span></i>
+            <i class='bx bx-user-circle icon'><!--<span id="total_qty"></span>--></i>
           </a>
           <!-- <form id="logout-form" action="{{ route('.logout') }}" method="POST"
                           class="d-none">

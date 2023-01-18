@@ -473,10 +473,10 @@
       function getData(){
         user_id = `@if(isset(Auth::guard('web')->user()->id))
             {{Auth::guard('web')->user()->id}}
-            @endif`;
+            @endif`
         var loItem = window.localStorage.getItem('Item',user_id);
         var arrayFromStroage = JSON.parse(localStorage.getItem('Item'));
-        alert (loItem);
+        // alert (loItem);
         var arrayLength = arrayFromStroage.length;
         // var count = localStorage.length('Item');
         //  alert(arrayLength);
@@ -493,13 +493,13 @@
             $('#wishlist'+v.id).hide();
             $('#delete'+v.id).show();
             // alert("right");
-            // html += `${arrayLength}`;
+            
             
           }else{
-           
+          //  html += parse('0');
           }
         });
-          html += `${arrayLength}`;
+         html += `${arrayLength}`;
           $('#fav-space').html(html);
           // document.getElementById('fav-space').innerHTML = parseInt(document.getElementById('fav-space').innerHTML) + 1;
 					
@@ -522,6 +522,7 @@
       // deletedata();
     });
     function getnavData(){
+        var user_id = `{{Auth::guard('web')->user()->id}}`;
         var loItem = window.localStorage.getItem('Item');
         var arrayFromStroage = JSON.parse(localStorage.getItem('Item'));
         var arrayLength = arrayFromStroage.length;
@@ -531,11 +532,18 @@
         if (loItem != null) {
          
 					itemArr = JSON.parse(loItem);
+          var user = itemArr.includes(user_id);
+          alert(user)
           $.each(itemArr,function(i,v){
             user_id = `{{Auth::guard('web')->user()->id}}`;
-            // alert( window.userID )
+            // var user = parseInt(v.user_id);
+            // var acc = user.length;
+            // console.log(user);
+          $('#fav-space').html(arrayLength);
           if(v.user_id == user_id)
           { 
+            
+            
             $('#wishlist'+v.id).hide();
             $('#delete'+v.id).show();
             // alert("right");
@@ -544,7 +552,9 @@
           }else{
             html += parseInt('0');
           }
+
         });
+        // $('#fav-space').html(arrayLength);
           
           
           // document.getElementById('fav-space').innerHTML = parseInt(document.getElementById('fav-space').innerHTML) + 1;

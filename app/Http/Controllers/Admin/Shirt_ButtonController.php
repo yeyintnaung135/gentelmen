@@ -146,6 +146,7 @@ class Shirt_ButtonController extends Controller
             'description' =>$request->description,
             'price' =>$request->price,
             'style' =>$request->style,
+            'type' =>$request->type,
             'photo_one' => $request->images[0]->getClientOriginalName(),
             'photo_two' => $photo2,
             'photo_three' => $photo3,
@@ -195,11 +196,10 @@ class Shirt_ButtonController extends Controller
         logger($request->all());
         $edit_shirt_button = Shirt_Button::find($request->shirt_button_id);
         $edit_shirt_button->color = $request->color;
-        $edit_shirt_button->size = $request->size;
         $edit_shirt_button->price = $request->price;
         $edit_shirt_button->style = $request->style;
         $edit_shirt_button->description = $request->description;
-        $edit_shirt_button->price = $request->price;
+        $edit_shirt_button->type = $request->type;
         if($request->remove_count > 0)
         {
             if($request->remove_count == 1)

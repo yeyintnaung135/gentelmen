@@ -46,7 +46,7 @@
                     <i class='bx bxs-heart'></i>
                     </button>
                     @else
-                    <button type="button" class="btn bg-gold-0"
+                    <button type="button" class=""
                     data-bs-toggle="modal"
                     data-bs-target="#exampleModal"><i class='bx bx-heart'></i>
                     </button>
@@ -602,12 +602,14 @@ $(document).ready(function(){
           {
             // alert("right");
             // html += `${arrayLength}`;
-            $('#fav-space').html(arrayLength);
+           
           }else{
-            html += parse('0');
+            // html += parse('0');
           }
         });
-
+         html += `${arrayLength}`;
+          $('#fav-space').html(html);
+          
 
           // document.getElementById('fav-space').innerHTML = parseInt(document.getElementById('fav-space').innerHTML) + 1;
 
@@ -641,6 +643,8 @@ $(document).ready(function(){
             // alert( window.userID )
           if(v.user_id == user_id)
           {
+            $('#wishlist'+v.id).hide();
+            $('#delete'+v.id).show();
             // alert("right");
             // html += `${arrayLength}`;
             $('#fav-space').html(arrayLength);

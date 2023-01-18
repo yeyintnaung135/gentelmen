@@ -251,18 +251,15 @@
                       </div>
                     </div>
                     @if(isset(Auth::guard('web')->user()->id))
-                      <div id="wishlist{{$grand->id}}" class="align-items-center text-uppercase lh-0 mb-4"
-                      onclick="whishlist('{{Auth::guard('web')->user()->id}}','{{$grand->id}}','{{$grand->photo_one}}','{{$grand->name}}','{{$grand->price}}')"
+                      <div class=" align-items-center text-uppercase lh-0 mb-4"
                        style="cursor:pointer;
-                       display:flex;">
+                             display:flex;">
+                        <a id="wishlist{{$grand->id}}" onclick="whishlist('{{Auth::guard('web')->user()->id}}','{{$grand->id}}','{{$grand->photo_one}}','{{$grand->name}}','{{$grand->price}}')">
                         <i class="bx bx-heart me-3"></i>
-                        <p class="small-text">Add to favourite fabric list</p>
-                      </div>
-                      <div id="delete{{$grand->id}}" class="delete align-items-center text-uppercase lh-0 mb-4"
-                      onclick="deletedata('{{Auth::guard('web')->user()->id}}','{{$grand->id}}','{{$grand->photo_one}}','{{$grand->name}}','{{$grand->price}}')"
-                       style="cursor:pointer;
-                       display:flex;">
+                        </a>
+                        <a id="delete{{$grand->id}}" onclick="deletedata('{{Auth::guard('web')->user()->id}}','{{$grand->id}}','{{$grand->photo_one}}','{{$grand->name}}','{{$grand->price}}')" style="display: none;">
                         <i class="bx bxs-heart me-3"></i>
+                        </a>
                         <p class="small-text">Add to favourite fabric list</p>
                       </div>
                     @else
@@ -971,7 +968,7 @@
     // }
 
     $('#btc').click(function () {
-      // alert("bbb");
+      alert("bbb");
 
       window.location.href = "customize";
       sessionStorage.setItem('step6', '0');
@@ -982,7 +979,7 @@
 <script>
   $(document).ready(function(){
       getData();
-      $('.delete').hide();
+      // $('.delete').hide();
       // whishlist();
       // deletedata();
     });
@@ -1075,6 +1072,50 @@
           {
             // alert("right");
             // html += `${arrayLength}`;
+            // $('#fav-space').html(arrayLength);
+          }else{
+            // html += parseInt('0');
+            // html += parse('0');
+          }
+        });
+          html += `${arrayLength}`;
+          $('#fav-space').html(html);
+          
+          // document.getElementById('fav-space').innerHTML = parseInt(document.getElementById('fav-space').innerHTML) + 1;
+					
+				}else{
+
+				}
+      }
+  </script>
+@endpush
+@push('whishlist-nav')
+@if(isset(Auth::guard('web')->user()->id))
+<script>
+    $(document).ready(function(){
+      getnavData();
+      // whishlist();
+      // deletedata();
+    });
+    function getnavData(){
+        var loItem = window.localStorage.getItem('Item');
+        var arrayFromStroage = JSON.parse(localStorage.getItem('Item'));
+        var arrayLength = arrayFromStroage.length;
+        // var count = localStorage.length('Item');
+        //  alert(arrayLength);
+        var html = "";
+        if (loItem != null) {
+
+					itemArr = JSON.parse(loItem);
+          $.each(itemArr,function(i,v){
+            user_id = `{{Auth::guard('web')->user()->id}}`;
+            // alert( window.userID )
+          if(v.user_id == user_id)
+          {
+            $('#wishlist'+v.id).hide();
+            $('#delete'+v.id).show();
+            // alert("right");
+            // html += `${arrayLength}`;
             $('#fav-space').html(arrayLength);
           }else{
             html += parse('0');
@@ -1088,5 +1129,6 @@
 
 				}
     }
-  </script>
+</script>
+@endif
 @endpush
