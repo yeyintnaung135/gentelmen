@@ -77,7 +77,7 @@ class SuitTipsController extends Controller
         'title' => $request->title,
         'description' => $request->description,
         'feature' => $feature,
-        'admin' => Auth::guard('admin')->name,
+        'admin' => Auth::guard('admin')->user()->name,
       ]);
       return redirect()->route('suit_tip_list')->with('success','Your SuitTip is successfully Created');
     }
@@ -120,13 +120,16 @@ class SuitTipsController extends Controller
               File::delete(public_path($update_suit_tip->photo));
           }
           $manager = new ImageManager(['driver' => 'imagick']);
-          $photo = time() . '1.' . $request->file('photo')->getClientOriginalExtension();
+        //   $photo = time() . '1.' . $request->file('photo')->getClientOriginalExtension();
           // $get_path = $request->file('photo')->move(public_path('/frontend/package'), $photo);
-          // $photo = $request->photo->hashName();
+           $photo = $request->file('photo')->hashName();
+          
           $path = '/assets/images/suit_tip/'. $photo;
-          $manager->make($photo)
+          
+          $manager->make($request->file('photo'))
           ->resize(499,276)
-          ->update(public_path($path));
+          ->save(public_path($path));
+        //   return dd($photo);
            $update_suit_tip->photo = $photo;
          
 

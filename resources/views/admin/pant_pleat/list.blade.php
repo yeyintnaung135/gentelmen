@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Jacket Button List</h1>
+            <h1 class="m-0">Pant Pleat List</h1>
           </div><!-- /.col -->
           <div class="col-sm-6" style="padding-left: 33vw">
             <a  href="{{route('add_pant_pleat')}}" type="button" class="btn btn-primary">Create</a>

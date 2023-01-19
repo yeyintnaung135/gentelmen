@@ -73,9 +73,22 @@
                                     @enderror
                                 </div>
                               </div>
-                            <div class="col-sm-6">
-                            <button type="submit" class="btn btn-primary" style="margin-bottom: 10%;">Submit</button>
+                              <div class="col-sm-6">
+                              <!-- checkbox -->
+                              <div class="form-group">
+                                <div class="form-check">
+                                  @if($suit_tip->feature === "Yes")
+                                  <input name="feature" class="form-check-input" value="yes" type="checkbox" checked>
+                                  @else
+                                  <input name="feature" class="form-check-input" value="no" type="checkbox">
+                                  @endif
+                                  <label class="form-check-label">Add this to Featured Posts</label>
+                                </div>
                               </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <button type="submit" class="btn btn-primary" style="margin-bottom: 10%;">Submit</button>
+                            </div>
                             </div>
                           </div>
                           <!-- /.row -->
