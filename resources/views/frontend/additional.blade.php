@@ -1019,7 +1019,7 @@
 
 
       function deletedata(user_id,id,photo_one,name,price){
-        alert(`user_id = ${user_id}, id = ${id}, photo = ${photo_one}, name = ${name}, price = ${price}`);
+        // alert(`user_id = ${user_id}, id = ${id}, photo = ${photo_one}, name = ${name}, price = ${price}`);
 				var loItem = window.localStorage.getItem('Item');
 				// var removeItem = window.localStorage.getItem('Item','id');
         // alert(removeItem);
@@ -1039,7 +1039,7 @@
         //remove item from ls
 			function deleteData(user_id,id,photo_one,name,price) {
 
-        	alert(`user_id = ${user_id}, id = ${id}, photo = ${photo_one}, name = ${name}, price = ${price}`);
+        	// alert(`user_id = ${user_id}, id = ${id}, photo = ${photo_one}, name = ${name}, price = ${price}`);
 				var loItem = window.localStorage.getItem('Item');
 				var removeItem = window.localStorage.getItem('Item','id');
         // alert(removeItem);
