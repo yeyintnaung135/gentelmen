@@ -436,7 +436,7 @@
 
 
       function deletedata(user_id,id,photo_one,name,price){
-        alert(`user_id = ${user_id}, id = ${id}, photo = ${photo_one}, name = ${name}, price = ${price}`);
+        // alert(`user_id = ${user_id}, id = ${id}, photo = ${photo_one}, name = ${name}, price = ${price}`);
 				var loItem = window.localStorage.getItem('Item');
 				// var removeItem = window.localStorage.getItem('Item','id');
         // alert(removeItem);
@@ -456,7 +456,7 @@
         //remove item from ls
 			function deleteData(user_id,id,photo_one,name,price) {
 		
-        	alert(`user_id = ${user_id}, id = ${id}, photo = ${photo_one}, name = ${name}, price = ${price}`);
+        	// alert(`user_id = ${user_id}, id = ${id}, photo = ${photo_one}, name = ${name}, price = ${price}`);
 				var loItem = window.localStorage.getItem('Item');
 				var removeItem = window.localStorage.getItem('Item','id');
         // alert(removeItem);
@@ -533,7 +533,7 @@
          
 					itemArr = JSON.parse(loItem);
           var user = itemArr.includes(user_id);
-          alert(user)
+          // alert(user)
           $.each(itemArr,function(i,v){
             user_id = `{{Auth::guard('web')->user()->id}}`;
             // var user = parseInt(v.user_id);
