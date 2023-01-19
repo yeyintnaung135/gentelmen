@@ -809,11 +809,11 @@
                   show_measure_data();
                 }
                 if (count == 6) {
-                  alert("check measure data");
+                  // alert("check measure data");
                   //default set measure unit when session is null start
                   if(sessionStorage.getItem('measure_unit') == null && sessionStorage.getItem('measure_unit') == '')
                   {
-                    alert("null so fill cm");
+                    // alert("null so fill cm");
                     sessionStorage.setItem('measure_unit','cm');
                   }
                   //default set measure unit when session is null end
@@ -1129,7 +1129,7 @@
             $('#next-unconfirm').hide();
             $('#step_title').html('Choose the package')
             $('#next-unconfirm').hide();
-            alert(sessionStorage.getItem('suit_piece'));
+            // alert(sessionStorage.getItem('suit_piece'));
           }
           if (count === 3) {
             $('#next-arrow').hide();

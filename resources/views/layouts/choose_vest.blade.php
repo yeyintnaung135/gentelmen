@@ -48,8 +48,8 @@
                 <span class="col-md-6 mb-2 d-flex flex-column justify-content-center">
                   <span class="row g-0 mb-2">
                     <span class="col-1 mt-1">
-                       <input type="radio" name="vest" id="choose_vest{{$not_unique_vest->id}}"
-                              class="form-check-input me-2 mb-1"/>
+                       <input type="radio" name="vest" id="choose_vest{{$not_unique_vest->id}}" value="{{$not_unique_vest->id}}"
+                              class="form-check-input me-2 mb-1" onclick="getvest(this.value)"/>
                     </span>
                     <span class="col-11 ps-2">
                       <span class="title">{{$not_unique_vest->color}}</span>

@@ -1538,7 +1538,7 @@ public function store_measure_data(Request $request)
     //   $upper_id = $upper->id;
     //   }
     // }
-    if($request->cus_cate_id == 1 || $request->cus_cate_id == 1)
+    if($request->cus_cate_id == 1 || $request->cus_cate_id == 2)
     {
       $upper_id = $upper->id;
       $lower_id = null;
@@ -1824,7 +1824,7 @@ public function search(Request $request)
   //   }]
   // ])->orderBy("id", 'desc')->paginate();
   if(Session::get('user_id')){
-    
+
   }
   $text = $request->input('gg');
   $texts = ReadyToWear::where('name', 'LIKE',"$text" . '%')->latest()->get();
