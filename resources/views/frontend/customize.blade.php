@@ -111,6 +111,422 @@
 
 
     $(document).ready(function() {
+      // alert("startttttttt");
+      // var from = @json(Session::get('from_reset'));
+      // alert("helll"+from);
+      // alert(sessionStorage.getItem('customize_category_id'));
+      if(sessionStorage.getItem('customize_category_id') == null)
+      {
+        // alert("yes");
+        var from = @json(Session::get('from_reset'));
+      }
+      else if(sessionStorage.getItem('customize_category_id') != null)
+      {
+        // alert("no");
+        var from = 0;
+      }
+      // alert(from);
+      // var from = @json(Session::get('from_reset'));
+      var has_step = @json(Session::get('has_step'));
+      var user_id = @json(Session::get('user_id'));
+      if(from == 1)
+      {
+      if(has_step == null)
+      {
+        alert("do store temporary");
+        $.ajax({
+          type: 'POST',
+          url: '/store_customize_step_data',
+          data: {
+            "_token": "{{csrf_token()}}",
+            "user_id":user_id,
+            "cus_cate_id": sessionStorage.getItem('customize_category_id'),
+            "package_id" : sessionStorage.getItem('package_id'),
+            "style_id" : sessionStorage.getItem('style_id'),
+            "style_name" : sessionStorage.getItem('style_name'),
+            "style_cate_name" : sessionStorage.getItem('style_cate_name'),
+            "style_cate_id" : sessionStorage.getItem('style_cate_id'),
+            "fitting" : sessionStorage.getItem('fitting'),
+            "texture_id" : sessionStorage.getItem('texture_id'),
+            "jacket_id" : sessionStorage.getItem('jacket_id'),
+            "vest_id" : sessionStorage.getItem('vest_id'),
+            "pant_id" : sessionStorage.getItem('pant_id'),
+            "upper_id" : sessionStorage.getItem('upper_id'),
+            "lower_id" : sessionStorage.getItem('lower_id'),
+            "order_id" : sessionStorage.getItem('order_id'),
+            "step_no" : sessionStorage.getItem('step_no'),
+            "measured" : sessionStorage.getItem('measure_step'),
+            "suit_piece" : sessionStorage.getItem('suit_piece'),
+            "jacket_in" :sessionStorage.getItem('jacket_in'),
+            "vest_in" : sessionStorage.getItem('vest_in'),
+            "pant_in" : sessionStorage.getItem('pants_in'),
+            "package_price" : sessionStorage.getItem('package_price'),
+            "texture_price" : sessionStorage.getItem('texture_price'),
+            "cus_total_price" : sessionStorage.getItem('cus_total_price'),
+            "measure_type" : sessionStorage.getItem('measure_unit'),
+            "suit_code" : sessionStorage.getItem('suit_code'),
+            "shipping_id" : sessionStorage.getItem('shipping_id'),
+            "shipping_price" : sessionStorage.getItem('shipping_price'),
+            },
+          success: function (data) {
+            sessionStorage.setItem('has_step',data.has_step);
+          }
+        });
+      }
+      //store temporary data for user end
+      //get temporary data for user start
+      if(has_step != null)
+      {
+        alert("do get temporary");
+        $.ajax({
+          type: 'POST',
+          url: '/get_customize_step_data',
+          data: {
+            "_token": "{{csrf_token()}}",
+            "user_id":user_id,
+            "has_step" : has_step
+          },
+          success: function (data) {
+            swal({
+              title: "Your Login was successfully",
+              text: "And Do you delete your previous customize session data?",
+              icon: "warning",
+              buttons: [
+                'No, cancel it!',
+                'Yes, I am sure!'
+              ],
+              dangerMode: true,
+            }).then(function(isConfirm) {
+              if (isConfirm) {
+                swal({
+                  title: 'Sucessful!',
+                  text: 'Your previous customize session data are successfully deleted!',
+                  icon: 'success'
+                }).then(function() {
+                  //delete temporary start
+                  $.ajax({
+                    type: 'POST',
+                    url: '/delete_customize_step_data',
+                    data: {
+                      "_token": "{{csrf_token()}}",
+                      "temporary_id": has_step,
+                    },
+                    success: function (data) {
+                      sessionStorage.clear();
+                      // store new temprary start
+                      // $.ajax({
+                      //   type: 'POST',
+                      //   url: '/store_customize_step_data',
+                      //   data: {
+                      //     "_token": "{{csrf_token()}}",
+                      //     "user_id":response.data.user_id,
+                      //     "cus_cate_id": sessionStorage.getItem('customize_category_id'),
+                      //     "package_id" : sessionStorage.getItem('package_id'),
+                      //     "style_id" : sessionStorage.getItem('style_id'),
+                      //     "style_name" : sessionStorage.getItem('style_name'),
+                      //     "style_cate_name" : sessionStorage.getItem('style_cate_name'),
+                      //     "style_cate_id" : sessionStorage.getItem('style_cate_id'),
+                      //     "fitting" : sessionStorage.getItem('fitting'),
+                      //     "texture_id" : sessionStorage.getItem('texture_id'),
+                      //     "jacket_id" : sessionStorage.getItem('jacket_id'),
+                      //     "vest_id" : sessionStorage.getItem('vest_id'),
+                      //     "pant_id" : sessionStorage.getItem('pant_id'),
+                      //     "upper_id" : sessionStorage.getItem('upper_id'),
+                      //     "lower_id" : sessionStorage.getItem('lower_id'),
+                      //     "order_id" : sessionStorage.getItem('order_id'),
+                      //     "step_no" : sessionStorage.getItem('step_no'),
+                      //     "measured" : sessionStorage.getItem('measure_step'),
+                      //     "suit_piece" : sessionStorage.getItem('suit_piece'),
+                      //     "jacket_in" :sessionStorage.getItem('jacket_in'),
+                      //     "vest_in" : sessionStorage.getItem('vest_in'),
+                      //     "pant_in" : sessionStorage.getItem('pants_in'),
+                      //     },
+                      //   success: function (data) {
+                      //     sessionStorage.setItem('has_step',data.has_step);
+                      //   }
+                      // });
+
+                      // end new temporary
+                      window.location.reload();
+
+                    }
+                  });
+                    //delete temporary end
+                });
+              } else {
+                swal("Cancelled", "Your previous customize session data are successfully recover :)", "success");
+                //get start --
+                console.log(data.get_step_data);
+                if(data.get_step_data.texture_id == null)
+                    {
+                        var texture_id = ''
+                    }
+                    else
+                    {
+                      var texture_id = data.get_step_data.texture_id;
+                      sessionStorage.setItem('texture_id',texture_id);
+
+                    }
+                    if(data.get_step_data.customize_category_id == null)
+                    {
+                      var cus_cate_id = ''
+                    }
+                    else
+                    {
+                      var cus_cate_id = data.get_step_data.customize_category_id;
+                      sessionStorage.setItem('customize_category_id',cus_cate_id);
+                    }
+                    if(data.get_step_data.package_id == null)
+                    {
+                      var package_id = ''
+                    }
+                    else
+                    {
+                      var package_id = data.get_step_data.package_id;
+                      sessionStorage.setItem('package_id',package_id);
+                    }
+                    if(data.get_step_data.style_id == null)
+                    {
+                      var style_id = ''
+                    }
+                    else
+                    {
+                      var style_id = data.get_step_data.style_id;
+
+                      sessionStorage.setItem('style_id',style_id);
+                    }
+                    if(data.get_step_data.style_name == null)
+                    {
+                      var style_name = ''
+                    }
+                    else
+                    {
+                      var style_name = data.get_step_data.style_name;
+                      sessionStorage.setItem('style_name',style_name);
+                    }
+                    if(data.get_step_data.style_cate_name == null)
+                    {
+                      var style_cate_name = ''
+                    }
+                    else
+                    {
+                      var style_cate_name = data.get_step_data.style_cate_name;
+                      sessionStorage.setItem('style_cate_name',style_cate_name);
+                    }
+                    if(data.get_step_data.style_cate_id == null)
+                    {
+                      var style_cate_id = ''
+                    }
+                    else
+                    {
+                      var style_cate_id = data.get_step_data.style_cate_id;
+                      sessionStorage.setItem('style_cate_id',style_cate_id);
+                    }
+                    if(data.get_step_data.fitting == null)
+                    {
+                      var fitting = ''
+                    }
+                    else
+                    {
+                      var fitting = data.get_step_data.fitting;
+                      sessionStorage.setItem('fitting',fitting);
+                    }
+                    if(data.get_step_data.jacket_id == null)
+                    {
+                      var jacket_id = ''
+                    }
+                    else
+                    {
+                      var jacket_id = data.get_step_data.jacket_id;
+                      sessionStorage.setItem('jacket_id',jacket_id);
+                    }
+                    if(data.get_step_data.vest_id == null)
+                    {
+                      var vest_id = ''
+                    }
+                    else
+                    {
+                      var vest_id = data.get_step_data.vest_id
+                      sessionStorage.setItem('vest_id',vest_id);
+                    }
+                    if(data.get_step_data.pant_id == null)
+                    {
+                      var pant_id = ''
+                    }
+                    else
+                    {
+                      var pant_id = data.get_step_data.pant_id;
+                      sessionStorage.setItem('pant_id',pant_id);
+                    }
+                    if(data.get_step_data.upper_id == null)
+                    {
+                      var upper_id = ''
+                    }
+                    else
+                    {
+                      var upper_id = data.get_step_data.upper_id;
+                      sessionStorage.setItem('upper_id',upper_id);
+                    }
+                    if(data.get_step_data.lower_id == null)
+                    {
+                      var lower_id = ''
+                    }
+                    else
+                    {
+                      var lower_id = data.get_step_data.lower_id
+                      sessionStorage.setItem('lower_id',lower_id);
+                    }
+                    if(data.get_step_data.order_id == null)
+                    {
+                      var order_id = ''
+                    }
+                    else
+                    {
+                      var order_id = data.get_step_data.order_id
+                      sessionStorage.setItem('order_id',order_id);
+                    }
+                    if(data.get_step_data.shipping_id == null)
+                    {
+                      var shipping_id = ''
+                    }
+                    else
+                    {
+                      var shipping_id = data.get_step_data.shipping_id;
+                      sessionStorage.setItem('shipping_id',shipping_id);
+                    }
+                    if(data.get_step_data.shipping_price == null)
+                    {
+                      var shipping_price = ''
+                    }
+                    else
+                    {
+                      var shipping_price = data.get_step_data.shipping_price;
+                      sessionStorage.setItem('shipping_price',shipping_price);
+                    }
+                    if(data.get_step_data.measured == null)
+                    {
+                      var measured = ''
+                    }
+                    else
+                    {
+                      var measured = data.get_step_data.measured
+                      sessionStorage.setItem('measure_step',measured);
+                    }
+                    if(data.get_step_data.suit_piece == null)
+                    {
+                      var suit_piece = ''
+                    }
+                    else
+                    {
+                      var suit_piece = data.get_step_data.suit_piece
+                      sessionStorage.setItem('suit_piece',suit_piece);
+                    }
+                    if(data.get_step_data.jacket_in == null)
+                    {
+                      var jacket_in = false
+                    }
+                    else
+                    {
+                      var jacket_in = data.get_step_data.jacket_in
+                      sessionStorage.setItem('jacket_in',jacket_in);
+                    }
+                    if(data.get_step_data.vest_in == null)
+                    {
+                      var vest_in = false
+                    }
+                    else
+                    {
+                      var vest_in = data.get_step_data.vest_in
+                      sessionStorage.setItem('vest_in',vest_in);
+                    }
+                    if(data.get_step_data.pant_in == null)
+                    {
+                      var pant_in = false
+                    }
+                    else
+                    {
+                      var pant_in = data.get_step_data.pant_in
+                      sessionStorage.setItem('pants_in',pant_in);
+                    }
+                    if(data.get_step_data.package_price == null)
+                    {
+                      var package_price = 0;
+                    }
+                    else
+                    {
+                      var package_price = data.get_step_data.package_price
+                      sessionStorage.setItem('package_price',package_price);
+                    }
+                    if(data.get_step_data.texture_price == null)
+                    {
+                      var texture_price = 0;
+                    }
+                    else
+                    {
+                      var texture_price = data.get_step_data.texture_price
+                      sessionStorage.setItem('texture_price',texture_price);
+                    }
+                    if(data.get_step_data.suit_code == null)
+                    {
+                      var suit_code = "start";
+                    }
+                    else
+                    {
+                      var suit_code = data.get_step_data.suit_code;
+                      // alert(data.get_step_data.suit_code);
+                      sessionStorage.setItem('suit_code',suit_code);
+                    }
+                    if(data.get_step_data.cus_total_price == null)
+                    {
+                      // alert("ctp-0");
+                      var cus_total_price = 0;
+                      sessionStorage.setItem('cus_total_price',cus_total_price);
+                    }
+                    else
+                    {
+                      // alert("ctp-have");
+                      var cus_total_price = data.get_step_data.cus_total_price
+                      sessionStorage.setItem('cus_total_price',cus_total_price);
+                    }
+                    if(data.get_step_data.measure_type == 'cm')
+                    {
+                      // alert("in cm");
+                      var measure_unit = "cm";
+                      sessionStorage.setItem('measure_unit',measure_unit);
+                    }
+                    else if(data.get_step_data.measure_type == 'in')
+                    {
+                      // alert("in in");
+                      var measure_unit = "in";
+                      sessionStorage.setItem('measure_unit',measure_unit);
+                    }
+                    else
+                    {
+                      // alert("null unit");
+                      sessionStorage.setItem('measure_unit','cm');
+
+                    }
+
+                    if(data.user == null)
+                    {
+                      var address = ''
+                    }
+                    else
+                    {
+                      var address = data.user.address
+                      sessionStorage.setItem('address',data.user.city+'/'+data.user.tsp_street);
+                    }
+                     sessionStorage.setItem('step_no',data.get_step.step);
+                     window.location.reload();
+                  }
+                  //get end --
+                });
+              }
+            })
+
+      }
+      //get temporary data for user end
+    }
       var showChar = 50;
       var ellipsestext = "...";
       var moretext = "Read More";

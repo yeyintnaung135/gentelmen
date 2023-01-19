@@ -104,7 +104,7 @@
           <p class="ls-0">Shop By</p>
       </div>-->
       <div class="menu-title me-5">
-        <p class="ls-0 text-uppercase"><a href="/customize">Customise</a></p>
+        <p class="ls-0 text-uppercase"><a href="/customize" onclick="check_temporary()">Customise</a></p>
       </div>
       <!--      <div class="menu-title me-5" id="fabric">
               <p class="ls-0"><a href="/fabrics">Fabrics & Textures</a></p>
@@ -771,6 +771,11 @@
   });
 </script>
 <script>
+  function check_temporary()
+  {
+    // alert("check");
+
+  }
   function logout() {
     // alert(value);
     swal({
