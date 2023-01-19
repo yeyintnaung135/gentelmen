@@ -135,6 +135,7 @@
 @section('js')
   <script>
     // For see more see less
+
     function store_address(value)
     {
       sessionStorage.setItem('address',value);
@@ -150,6 +151,7 @@
         // alert("what");
 
     }
+
     else
     {
       swal({
@@ -167,7 +169,13 @@
     }
     $(document).ready(function () {
       var user_id = @json($user_id);
-      // alert(user_id);
+      var user_info = @json($user_info);
+      // alert(user_info.city);
+      if(user_info.city != null || user_info.tsp_street != null)
+      {
+        $("#paypal-button-container").show();
+      }
+
       var grandTotal = localStorage.getItem('grandTotal');
 
       var grandTotal_obj = JSON.parse(grandTotal);
@@ -220,6 +228,7 @@
     $(document).ready(function(){
       var user_id = @json($user_id);
       // alert(user_id);
+
       showmodal(user_id);
     })
     function showmodal(user_id){
