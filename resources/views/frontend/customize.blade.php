@@ -188,7 +188,7 @@
           },
           success: function (data) {
             swal({
-              title: "Your Login was successfully",
+              title: "Customize Selected Data Alert!",
               text: "And Do you delete your previous customize session data?",
               icon: "warning",
               buttons: [
