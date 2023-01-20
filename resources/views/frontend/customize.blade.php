@@ -133,7 +133,7 @@
       {
       if(has_step == null)
       {
-        alert("do store temporary");
+        // alert("do store temporary");
         $.ajax({
           type: 'POST',
           url: '/store_customize_step_data',
@@ -177,7 +177,7 @@
       //get temporary data for user start
       if(has_step != null)
       {
-        alert("do get temporary");
+        // alert("do get temporary");
         $.ajax({
           type: 'POST',
           url: '/get_customize_step_data',
