@@ -143,10 +143,12 @@ class PaypalController extends Controller
         'net_amount' => $result['purchase_units'][0]['payments']['captures'][0]['seller_receivable_breakdown']['net_amount']['value'],
         'status' => $result['purchase_units'][0]['payments']['captures'][0]['status'],
         'tran_id' => $orderId,
-
+        'account_id' => $result['payment_source']['paypal']['account_id']
       ]);
       // Update database
       logger("payer info");
+      logger($result['payer']['payer_id']);
+      logger($result['payment_source']['paypal']['account_id']);
       logger($result['payment_source']['paypal']['email_address']);
       logger($result['purchase_units'][0]['shipping']['name']['full_name']);
       logger($result['purchase_units'][0]['payments']['captures'][0]['status']);
@@ -182,10 +184,14 @@ class PaypalController extends Controller
         'net_amount' => $result['purchase_units'][0]['payments']['captures'][0]['seller_receivable_breakdown']['net_amount']['value'],
         'status' => $result['purchase_units'][0]['payments']['captures'][0]['status'],
         'tran_id' => $orderId,
+        // 'payer_id' => $result['payer']
+        'account_id' => $result['payment_source']['paypal']['account_id']
 
       ]);
       // Update database
       logger("payer info");
+      logger($result['payer'][0]['payer_id']);
+      logger($result['payment_source']['paypal']['account_id']);
       logger($result['payment_source']['paypal']['email_address']);
       logger($result['purchase_units'][0]['shipping']['name']['full_name']);
       logger($result['purchase_units'][0]['payments']['captures'][0]['status']);

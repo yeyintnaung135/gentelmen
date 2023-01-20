@@ -16,7 +16,8 @@ class Payment extends Model
         'status',
         'tran_id',
         'net_amount',
-        'paypal_fee'
+        'paypal_fee',
+        'account_id'
     ];
     public function order() {
       return $this->belongsTo('App\Order','order_id');

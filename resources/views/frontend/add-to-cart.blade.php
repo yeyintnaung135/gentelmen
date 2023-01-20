@@ -141,14 +141,26 @@
       $("#paypal-button-container").hide();
     }
     function available_payment() {
-      // alert($('#country').val());
+
+
+
     if(sessionStorage.getItem('address') != null && sessionStorage.getItem('address') != '')
     {
-
+      if($('#total').val() == '')
+      {
+        // alert("null");
+        swal({
+            title: "Error",
+            text : "Nothing to checkout in cart",
+            icon : "error",
+        });
+        $("#paypal-button-container").hide();
+      }
+      else
+      {
+        // alert("not null");
         $("#paypal-button-container").show();
-
-        // alert("what");
-
+      }
     }
     else
     {
@@ -167,6 +179,29 @@
     }
     $(document).ready(function () {
       var user_id = @json($user_id);
+      var user_info = @json($user_info);
+      if(user_info.city == null)
+      {
+        var user_city = '';
+      }
+      else
+      {
+        var user_city = user_info.city;
+      }
+      if(user_info.tsp_street == null)
+      {
+        var user_tsp = '';
+      }
+      else
+      {
+        var user_tsp = user_info.tsp_street;
+      }
+      var address = user_city+' '+user_tsp;
+      if(user_info.city != null || user_info.tsp_street != null)
+      {
+        sessionStorage.setItem('address',address);
+      }
+
       // alert(user_id);
       var grandTotal = localStorage.getItem('grandTotal');
 
