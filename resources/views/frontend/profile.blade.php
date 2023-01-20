@@ -23,7 +23,7 @@
         <div class="px-3">
           <hr class="d-none d-lg-block text-white-50">
         </div>
-        <div class="nav-pills mt-5 d-none d-lg-block" role="tablist">
+        <div id="nav" class="nav-pills mt-5 d-none d-lg-block" role="tablist">
           <a class="active d-flex align-items-center mb-4" style="height: 20px;"
              data-bs-toggle="pill" href="#profile">
             <img src="{{asset('assets/images/profile/icon/profile.png')}}" width="20px" alt="" class="me-3">
@@ -1194,40 +1194,39 @@ getData();
       }
 
 
-    // function getnavData(){
-    //     var loItem = window.localStorage.getItem('Item');
-    //     var arrayFromStroage = JSON.parse(localStorage.getItem('Item'));
-    //     var arrayLength = arrayFromStroage.length;
-    //     // var count = localStorage.length('Item');
-    //     //  alert(arrayLength);
-    //     var html = "";
-    //     if (loItem != null) {
+      if(sessionStorage.getItem('to_profile') == 1){
+       var html = "";
+       var html_1 = "";
+       sessionStorage.removeItem('to_profile');
+       html+=`
+       <a class="d-flex align-items-center mb-4" style="height: 20px;" data-bs-toggle="pill" href="#profile" aria-selected="false" role="tab" tabindex="-1">
+            <img src="http://localhost:8000/assets/images/profile/icon/profile.png" width="20px" alt="" class="me-3">
+            Profile
+          </a>
+      <a class="d-flex align-items-center mb-4 active" style="height: 20px;" data-bs-toggle="pill" href="#wishlist" aria-selected="true" role="tab">
+        <img src="http://localhost:8000/assets/images/profile/icon/wishlist.png" width="20px" alt="" class="me-3">
 
+        Wishlist
+      </a>
+      <a class="d-flex align-items-center mb-4" style="height: 20px;"
+            data-bs-toggle="pill" href="#measurements">
+          <img src="{{asset('assets/images/profile/icon/measurement.png')}}" width="20px" alt="" class="me-3">
+          Measurements
+        </a>
+        <a class="d-flex align-items-center mb-4" style="height: 20px;"
+            data-bs-toggle="pill" href="#orders">
+          <img src="{{asset('assets/images/profile/icon/order.png')}}" width="20px" alt=""
+                class="me-3">
+          Orders
+        </a>
+       `
+       $('#nav').html(html);
 
-    //       itemArr = JSON.parse(loItem);
-
-    //       $.each(itemArr,function(i,v){
-    //         user_id = `{{Auth::guard('web')->user()->id}}`;
-    //         // alert( window.userID )
-    //       if(v.user_id == user_id)
-    //       {
-    //         
-    //         // html += `${arrayLength}`;
-    //         $('#fav-space').html(arrayLength);
-    //       }else{
-    //         html += parse('0');
-    //       }
-    //     });
-
-
-
-    //       // document.getElementById('fav-space').innerHTML = parseInt(document.getElementById('fav-space').innerHTML) + 1;
-
-    //     }else{
-
-    //     }
-
-    // }
+       $("#wishlist").addClass("active show");
+       $('#wishlist').show();
+       $("#profile").removeClass("active");
+    
+      }
 </script>
 @endpush
 <!-- @push('whishlist-nav')

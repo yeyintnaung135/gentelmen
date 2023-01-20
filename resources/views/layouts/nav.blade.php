@@ -42,7 +42,7 @@
             ></i></a> --}}
         @if(isset(Auth::guard('web')->user()->id))
         <input type="hidden" style="color:black" value="{{Auth::guard('web')->user()->id}}" id="hidden_user_id">
-          <a href="{{route('profile')}}" class="position-relative me-2 me-md-3 center-flex">
+          <a onclick="profile()" href="{{route('profile')}}" class="position-relative me-2 me-md-3 center-flex">
             <i class='bx bx-heart icon text-danger'></i>
             <span
               class="position-absolute top-0 start-100 translate-middle badge rounded-pill">
@@ -813,6 +813,10 @@
       });
   }
 
+  function profile(){
+    // alert('hello');
+    sessionStorage.setItem('to_profile',1);
+  }
 </script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
