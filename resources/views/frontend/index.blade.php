@@ -259,8 +259,9 @@
             <div class="swiper-slide bottom-flex {{ $loop->first ? 'active' : '' }}"
                  style="background-image: url('{{asset('frontend/images/'
                              .$banner->photo)}}')">
-              <h2 class=" text-uppercase fw-700 swiper-no-swiping">{{$banner->text}}</h2>
-              <h2 class="text-uppercase fw-700 swiper-no-swiping"></h2>
+              <h2 class="banner-title text-uppercase fw-700
+              swiper-no-swiping">{{$banner->text}}</h2>
+              <p class="banner-desc text-uppercase fw-700 swiper-no-swiping"></p>
               <button class="button-two-corner"><a
                   href="/customize"><span>{{$banner->button_text}}</span></a>
               </button>
@@ -673,7 +674,7 @@
         //  alert(arrayLength);
         var html = "";
         if (loItem != null) {
-         
+
 					itemArr = JSON.parse(loItem);
           $.each(itemArr,function(i,v){
             user_id = `{{Auth::guard('web')->user()->id}}`;
@@ -687,10 +688,10 @@
             html += parse('0');
           }
         });
-          
-          
+
+
           // document.getElementById('fav-space').innerHTML = parseInt(document.getElementById('fav-space').innerHTML) + 1;
-					
+
 				}else{
 
 				}
