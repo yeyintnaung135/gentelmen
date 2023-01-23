@@ -226,7 +226,7 @@
   margin-bottom: 30px !important;
   position: relative;
   transition: all 1s ease;
-  height: 400px;
+  height: auto;
 }
 
 .radio-group input[type="radio"] {
@@ -602,6 +602,12 @@ a.morelink {
   .custom {
     margin-inline: 1.5625rem;
   }
+  
+  .sticky-md-top.sticky-height {
+  height: 100%;
+  margin-bottom: 40px;
+}
+
 
   /*.type {*/
   /*  width: 100%;*/
@@ -746,6 +752,12 @@ a.morelink {
   .cus-img-res {
     height: 300px;
   }
+  
+    .sticky-md-top.sticky-height {
+  height: 100%;
+  margin-bottom: 40px;
+}
+
 
 }
 
