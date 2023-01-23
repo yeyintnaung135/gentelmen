@@ -45,12 +45,13 @@ class FrontendController extends Controller
 
     $category = Category::all();
     $testimonials = Testimonial::all();
+    $packages = Package::all();
     // dd(Session::get('user_id'));
     $favs = Favourite::where('user_id', Session::get('user_id'))->get();
     $carts = AddToCart::where('user_id', Session::get('user_id'))->get();
 
     // dd($favs);
-    return view('frontend.index', compact('banners', 'category', 'testimonials', 'favs', 'carts'));
+    return view('frontend.index', compact('packages','banners', 'category', 'testimonials', 'favs', 'carts'));
   }
 
   public function show_fabrics(Request $request)
