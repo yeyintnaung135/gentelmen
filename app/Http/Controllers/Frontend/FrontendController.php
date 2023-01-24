@@ -45,12 +45,13 @@ class FrontendController extends Controller
 
     $category = Category::all();
     $testimonials = Testimonial::all();
+    $packages = Package::all();
     // dd(Session::get('user_id'));
     $favs = Favourite::where('user_id', Session::get('user_id'))->get();
     $carts = AddToCart::where('user_id', Session::get('user_id'))->get();
 
     // dd($favs);
-    return view('frontend.index', compact('banners', 'category', 'testimonials', 'favs', 'carts'));
+    return view('frontend.index', compact('packages','banners', 'category', 'testimonials', 'favs', 'carts'));
   }
 
   public function show_fabrics(Request $request)
@@ -1144,7 +1145,6 @@ class FrontendController extends Controller
       {
         logger("no have cate");
         $style = Style::where('type_id',$request->cus_cate_id)->where('pieces',$request->piece)->get();
-
       }
 
     logger("length suit table = ".count($style));
@@ -1154,8 +1154,8 @@ class FrontendController extends Controller
       logger("other result");
       $style = Style::where('type_id',$request->cus_cate_id)->get();
     }
-    logger("style result");
-    logger($style);
+    // logger("style result");
+    // logger($style);
     // return dd($request);
     return response()->json($style);
   }

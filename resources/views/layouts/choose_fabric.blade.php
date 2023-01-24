@@ -6,12 +6,13 @@
     </button>
   </div>
   <div class="row g-0 g-md-5 me-2" id="grand-space" style="max-width:1200px">
+
   </div>
   <div class="auto-load text-center">
     <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg"
          xmlns:xlink="http://www.w3.org/1999/xlink"
          x="0px" y="0px" height="60" viewBox="0 0 100 100" enable-background="new 0 0 0 0"
-         xml:space="preserve">
+         xml:space="preserve" style="fill:white">
               <path fill="#000"
                     d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
                 <animateTransform attributeName="transform" attributeType="XML" type="rotate"
@@ -352,8 +353,148 @@
     }
   }
 </script>
+@push('script_fabric_infinite')
+<script>
+  // begin fabric  infinite scroll
+  var ENDPOINT = "{{ url('/') }}";
+  var page = 1;
+  var start = 0;
+  var pageNo = 0;
+
+    infinteLoadMore(page)
+  $(window).scroll(function () {
+    console.log("dkfddfj");
+    if ($(window).scrollTop() + $(window).height() >= ($(document).height() - 200)) {
+      console.log("work scroll function inside!!page = " + page);
+      page++;
+      start = (page * 6) - 6;
+
+      if (page <= 4) {
+          infinteLoadMore(page);
+      }
+
+
+
+    }
+  })
+
+  function infinteLoadMore(page) {
+    // alert("hello load more");
+    var grand_id = $('#GrandID').val();
+    var filter_key = $('#GrandID_filter_key').val();
+    var mobile = $('#GrandID_mobile').val();
+    var i = 0;
+    // alert(filter_key);
+    var colorjs = @json($colors);
+    var texturejs = @json($textures);
+    var patternjs = @json($patterns);
+    var packagejs = @json($packages);
+    var colorjs_arr = [];
+    var texturejs_arr = [];
+    var patternjs_arr = [];
+    var pricejs_arr = [];
+    var packagejs_arr = [];
+    var i = 0;
+
+    for (i = 0; i < colorjs.length; i++) {
+      if ($('#oncolor' + colorjs[i].id).is(":checked")) {
+        // it is checked
+        colorjs_arr.push($('#oncolor' + colorjs[i].id).val());
+      }
+    }
+    for (i = 0; i < texturejs.length; i++) {
+      if ($('#ontexture' + texturejs[i].id).is(":checked")) {
+        // it is checked
+        texturejs_arr.push($('#ontexture' + texturejs[i].id).val());
+      }
+    }
+    for (i = 0; i < patternjs.length; i++) {
+      if ($('#onpattern' + patternjs[i].id).is(":checked")) {
+        // it is checked
+        patternjs_arr.push($('#onpattern' + patternjs[i].id).val());
+      }
+    }
+    for (i = 0; i < packagejs.length; i++) {
+      if ($('#onpackage' + packagejs[i].id).is(":checked")) {
+        // it is checked
+        packagejs_arr.push($('#onpackage' + packagejs[i].id).val());
+      }
+    }
+    if ($('#low').is(":checked")) {
+      // it is checked
+      pricejs_arr.push($('#low').val());
+    }
+    if ($('#high').is(":checked")) {
+      // it is checked
+      pricejs_arr.push($('#high').val());
+    }
+    // console.log(packagejs_arr);
+    // console.log(colorjs_arr);
+    // console.log(texturejs_arr);
+    // console.log(patternjs_arr);
+    // console.log(pricejs_arr);
+    var jacket_status = 0;
+    var pant_status = 0;
+    var vest_status = 0;
+    $.ajax({
+      url: ENDPOINT + "/customize?page=" + page,
+      datatype: "html",
+      type: "get",
+      history: false,
+      data: {
+        "_token": "{{csrf_token()}}",
+        "colors": colorjs_arr,
+        "types": texturejs_arr,
+        "patterns": patternjs_arr,
+        "prices": pricejs_arr,
+        "packages": packagejs_arr,
+        "jacket_status" : jacket_status,
+        "vest_status" : vest_status,
+        "pant_status" : pant_status,
+        "start": start
+      },
+      beforeSend: function () {
+        $('.auto-load').show();
+      }
+
+    })
+      .done(function (response) {
+        // console.log(response);
+        // console.log("PAGE"+response.page_no);
+
+        // console.log(response.res.length);
+        // console.log("step1");
+        if (response.res.length == 0) {
+          $('.auto-load').html("");
+          return;
+        }
+
+        // pageNo = response.page_no;
+        $('.auto-load').hide();
+        $("#grand-space").append(response.res)
+
+        // $("#myModal").modal()
+      })
+
+      .fail(function (jqXHR, ajaxOptions, thrownError) {
+        console.log('Server error occured');
+      });
+
+
+  }
+
+  function advance_filter() {
+    $('#grand-space').html("");
+    page = 1;
+    start = 0;
+    infinteLoadMore(page);
+  }
+</script>
+
+@endpush
 @push('script_tag')
 <script>
+
   function get_swiper(texture_id)
   {
     var html = "";

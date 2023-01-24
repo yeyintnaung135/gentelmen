@@ -515,8 +515,9 @@ Route::get('customize', function (Request $request) {
         $patterns = FabricPattern::all();
         // $packages = Package::all();
         $colors = Color::all();
-        // $favs = Favourite::where('user_id', Session::get('user_id'))->get();
-        // $carts = AddToCart::where('user_id', Session::get('user_id'))->get();
+//start fabric data for infinite scroll line 518 to line 1074
+
+  logger("texture========521");
         if ($request->colors == null && $request->types == null && $request->patterns == null && $request->prices == null && $request->packages == null) {
             $Grands = Texture::orderBy('popular_count', 'desc')->paginate(6);
             // dd($Grands);
@@ -1073,20 +1074,96 @@ Route::get('customize', function (Request $request) {
               $Grands = $connect_arr;
             }
         }
-        $articles = '';
-        $public_path = 'http://localhost:8000/assets/images/categories/texture/';
+
+        //end fabric data for infinite scroll line 518 to line 1074
+        //start fabric data for infinite scroll line 1074 to line
+
+
+        //end fabric data for infinite scroll line 1074 to line
+        //start jacket data for infinite scroll line 1080 to line
+        if($request->jacket_status == 1)
+        {
+          if($request->style != null)
+          {
+            logger("Style have");
+            $not_unique_tops = Top::where('style',$request->style)->paginate(6);
+
+          }
+          else
+          {
+            logger("not style have");
+            $not_unique_tops = Top::paginate(6);
+          }
+
+        }
+        else
+        {
+          $not_unique_tops = null;
+        }
+
+        //end jacket data for infinite scroll line 1080 to line
+        //start pant data for infinite scroll line 1080 to line
+        if($request->pant_status == 1)
+        {
+          if($request->style != null)
+          {
+            $not_unique_pants = Pant::where('style',$request->style)->paginate(6);
+          }
+          else
+          {
+            $not_unique_pants = Pant::paginate(6);
+          }
+        }
+        else
+        {
+          $not_unique_pants = null;
+        }
+
+        //end pant data for infinite scroll line 1080 to line
+        //start vest data for infinite scroll line 1123 to line
+        if($request->vest_status == 1)
+        {
+          if($request->style != null)
+          {
+            $not_unique_vests = Shirt_Button::where('style',$request->style)->paginate(6);
+          }
+          else
+          {
+            $not_unique_vests = Shirt_Button::paginate(6);
+          }
+        }
+        else
+        {
+          $not_unique_vests = null;
+        }
+        //end pant data for infinite scroll line 1123 to line
+        $vest_articles = '';
+        $pant_articles = '';
+        $jacket_articles = '';
+        $texture_articles = '';
+        $style_articles = '';
+        $public_path_vest = 'http://localhost:8000/assets/images/customize/shirt_button/';
+        $public_path_pant = 'http://localhost:8000/assets/images/customize/pant/';
+        $public_path_jacket = 'http://localhost:8000/assets/images/customize/';
+        $public_path_texture = 'http://localhost:8000/assets/images/categories/texture/';
+        $public_path_style = 'http://localhost:8000/assets/images/categories/style/';
+
+
         if ($request->ajax()) {
+
+          if($request->jacket_status == 0 && $request->pant_status == 0 && $request->vest_status == 0)
+          {
             foreach ($Grands as $grand) {
                 // logger($grand);
-
-                  $articles .= '
+                logger("texture infinite scrolllllllllllllll");
+                  $texture_articles .= '
                   <div class="col-6 col-md-4 mb-3 mb-md-0 px-2">
                   <div class="radio-group fabric-group">
                   <input type="radio" name="test" value="" id="texture_check_'.$grand->id.'" class="form-check-input"/>
                     <div class="cursor-pointer" data-bs-toggle="modal"
                          data-bs-target="#myFabric' . $grand->id .'" onclick="get_swiper(' . $grand->id . ')">
                       <div class="img-container mb-1">
-                        <img src="' . $public_path . $grand->photo_one . '"
+                        <img src="' . $public_path_texture . $grand->photo_one . '"
                              alt="" class="img-responsive">
                       </div>
                       <p class="mb-2 small-text fabric-text">' .
@@ -1098,8 +1175,102 @@ Route::get('customize', function (Request $request) {
                   </div>
                   ';
             }
+            return response()->json(['res' => $texture_articles, 'page_no' => 8]);
+          }
+          if($request->jacket_status == 0 && $request->pant_status == 1 && $request->vest_status == 0)
+          {
+            foreach($not_unique_pants as $pant)
+            {
+                $pant_articles .= '
+                <label class="row cursor-pointer mb-5" for="sb1">
+                      <span class="col-md-6 mb-2 d-flex flex-column justify-content-center">
+                        <span class="row g-0 mb-2">
+                          <span class="col-1 mt-1">
+                             <input type="radio" name="pant" id="choose_pant'.$pant->id.'" value="'.$pant->id.'"
+                                    class="form-check-input me-2 mb-1" onclick="getpant(this.value)"/>
+                          </span>
+                          <span class="col-11 ps-2">
+                            <span class="title">'.$pant->color.'</span>
+                          </span>
+                        </span>
+                        <span class="d-block more">
+                        '.$pant->description.'
+                        </span>
+                      </span>
+                  <span class="col-md-6 jacket">
+                      <span class="fit-img-container">
+                        <img src="'.$public_path_pant.$pant->photo_one.'" alt="" class="">
+                      </span>
+                    </span>
+                </label>
+                ';
+            }
+            return response()->json(['res' => $pant_articles, 'page_no' => 8]);
+          }
+          if($request->jacket_status == 0 && $request->pant_status == 0 && $request->vest_status == 1)
+          {
+              foreach($not_unique_vests as $vest)
+              {
+                $vest_articles.='
+                <label class="row cursor-pointer mb-5" for="sb1">
+                      <span class="col-md-6 mb-2 d-flex flex-column justify-content-center">
+                        <span class="row g-0 mb-2">
+                          <span class="col-1 mt-1">
+                             <input type="radio" name="vest" id="choose_vest'.$vest->id.'" value="'.$vest->id.'"
+                                    class="form-check-input me-2 mb-1" onclick="getvest(this.value)"/>
+                          </span>
+                          <span class="col-11 ps-2">
+                            <span class="title">'.$vest->color.'</span>
+                          </span>
+                        </span>
+                        <span class="text-white-50 d-block">
+                        '.$vest->description.'
+                        </span>
+                      </span>
+                  <span class="col-md-6 jacket">
+                      <span class="fit-img-container">
+                        <img src="'.$public_path_vest.$vest->photo_one.'" alt="" class="">
+                      </span>
+                    </span>
+                </label>
+                ';
+              }
+              return response()->json(['res' => $vest_articles, 'page_no' => 8]);
+
+          }
+          if($request->jacket_status == 1 && $request->pant_status == 0 && $request->vest_status == 0)
+          {
+            logger("jacketkkkkkkkkkkkkkkkkkkkkkkkkkk");
+            foreach($not_unique_tops as $top)
+            {
+              $jacket_articles .='
+              <label class="row cursor-pointer mb-5" for="sb1">
+                    <span class="col-md-6 mb-2 d-flex flex-column justify-content-center">
+                      <span class="row g-0 mb-2">
+                        <span class="col-1 mt-1">
+                          <input type="radio" name="jacket" id="choose_jacket'.$top->id.'" value="'.$top->id.'"
+                                  class="form-check-input me-2 mb-1" onclick="getjacket(this.value)"/>
+                        </span>
+                        <span class="col-11 ps-2">
+                          <span class="title">'.$top->color.'</span>
+                        </span>
+                      </span>
+                      <span class=" d-block more">
+                      '.$top->description.'
+                      </span>
+                    </span>
+                <span class="col-md-6 jacket">
+                    <span class="">
+                      <img src="'.$public_path_jacket.$top->photo_one.'" alt="" class="">
+                    </span>
+                  </span>
+              </label>
+              ';
+            }
+            return response()->json(['res' => $jacket_articles, 'page_no' => 8]);
+          }
+
             // dd($artcles);
-            return response()->json(['res' => $articles, 'page_no' => 8]);
         }
 
         $user = Session::get('user_id');
@@ -1116,11 +1287,11 @@ Route::get('customize', function (Request $request) {
           $lower = null;
         }
         $tops = Top::all()->unique('style');
-        $not_unique_tops = Top::all();
+
         $vests = Shirt_Button::all()->unique('style');
-        $not_unique_vests = Shirt_Button::all();
+
         $pants = Pant::all()->unique('style');
-        $not_unique_pants = Pant::all();
+
         $top_cates = CustomizeCategory::all();
         $jacket_buttons = Jacket_button::all();
         // return view('frontend.choose-fabric', compact('upper','lower','user','Grands', 'textures', 'subs','colors', 'patterns', 'favs', 'carts','packages')
@@ -1162,27 +1333,305 @@ Route::get('package-detail', function () {
 });
 
 // ready to wear
-Route::get('ready-to-wear', function () {
+Route::get('ready-to-wear', function (Request $request) {
   $user = Session::get('user_id');
   // dd($user);
   $user_detail = User::find($user);
   // dd($user_detail);
   $favs = Favourite::where('user_id',Session::get('user_id'))->get();
   $carts = AddToCart::where('user_id',Session::get('user_id'))->get();
-  $readys = ReadyToWear::all();
+
   $styles = Style::all();
   $style_cates = Style_Category::all();
   $packages = Package::all();
   $textures = Texture::all();
   $main_textures = MainTexture::all();
+  if(!empty($request->style_cate_name) || !empty($request->texture_id) || !empty($request->package_id))
+  {
+      logger("yes");
+      $readys_arr = [];
+      $readys_style = [];
+      $readys_package = [];
+      $readys_texture = [];
+      $last_readys_result = [];
+      $connect_arr = [];//for paginate
+      $next_start = $request->start;
+      $next_end = $next_start+5;
+     //start one only
+     if(!empty($request->style_cate_name) && !$request->texture_id && !($request->package_id))
+     {
+       $qty = 1;
+       foreach($request->style_cate_name as $style_cate)
+         {
+           $one_readys = ReadyToWear::where('style_id',$style_cate)->get();
+           array_push($readys_arr,$one_readys);
+         }
+      //last result
+      for ($i = 0; $i < count($readys_arr); $i++) {
+          foreach ($readys_arr[$i] as $rg) {
+              array_push($last_readys_result, $rg);
+          }
+      }
+     }
+     if(!$request->style_cate_name && !empty($request->texture_id) && !($request->package_id))
+     {
+       $qty = 1;
+       foreach($request->texture_id as $texture)
+       {
+        $one_readys = ReadyToWear::where('main_texture_id',$texture)->get();
+         array_push($readys_arr,$one_readys);
+       }
+      //last result
+      for ($i = 0; $i < count($readys_arr); $i++) {
+        foreach ($readys_arr[$i] as $rg) {
+            array_push($last_readys_result, $rg);
+        }
+    }
+     }
+     if(!$request->style_cate_name && !($request->texture_id) && !empty($request->package_id))
+     {
+       $qty = 1;
+       foreach($request->package_id as $package)
+       {
+        $one_readys = ReadyToWear::where('package_id',$package)->get();
+         array_push($readys_arr,$one_readys);
+       }
+      //last result
+      for ($i = 0; $i < count($readys_arr); $i++) {
+        foreach ($readys_arr[$i] as $rg) {
+            array_push($last_readys_result, $rg);
+        }
+      }
+     }
+     // end one only
+    // start two only
+    // start(style,texture)
+    if(!empty($request->style_cate_name) && !empty($request->texture_id) && !($request->package_id))
+    {
+      $qty = 2;
+      foreach($request->style_cate_name as $style_cate)
+      {
+        $rstyle = ReadyToWear::where('style_id',$style_cate)->get();
+        array_push($readys_style,$rstyle);
+      }
+      for ($i = 0; $i < count($readys_style); $i++) {
+        foreach ($readys_style[$i] as $rs) {
+            for ($j = 0; $j < count($request->texture_id); $j++) {
+                if ($rs->main_texture_id == $request->texture_id[$j]) {
+                    array_push($readys_arr, $rs);
+                }
+              }
+            }
+          }
+          // logger($readys_arr);
+      //last result
+      for ($i = 0; $i < count($readys_arr); $i++) {
+            array_push($last_readys_result, $readys_arr[$i]);
+      }
+      logger($last_readys_result);
+    }
+    // end(style,texture)
+    // start(style,package)
+    if(!empty($request->style_cate_name) && !($request->texture_id) && !empty($request->package_id))
+    {
+      $qty = 2;
+      foreach($request->style_cate_name as $style_cate)
+      {
+        $rstyle = ReadyToWear::where('style_id',$style_cate)->get();
+        array_push($readys_style,$rstyle);
+      }
+      for ($i = 0; $i < count($readys_style); $i++) {
+        foreach ($readys_style[$i] as $rs) {
+            for ($j = 0; $j < count($request->package_id); $j++) {
+                if ($rs->package_id == $request->package_id[$j]) {
+                    array_push($readys_arr, $rs);
+                }
+              }
+            }
+          }
+      //last result
+      for ($i = 0; $i < count($readys_arr); $i++) {
+
+            array_push($last_readys_result, $readys_arr[$i]);
+
+    }
+    }
+    // end(style,package)
+    // start(texture,package)
+    if(!($request->style_cate_name) && !empty($request->texture_id) && !empty($request->package_id))
+    {
+      $qty = 2;
+      foreach($request->texture_id as $texture)
+      {
+        $rtexture = ReadyToWear::where('main_texture_id',$texture)->get();
+        array_push($readys_style,$rtexture);
+      }
+      for ($i = 0; $i < count($readys_style); $i++) {
+        foreach ($readys_style[$i] as $rs) {
+            for ($j = 0; $j < count($request->package_id); $j++) {
+                if ($rs->package_id == $request->package_id[$j]) {
+                    array_push($readys_arr, $rs);
+                }
+              }
+            }
+          }
+      //last result
+      for ($i = 0; $i < count($readys_arr); $i++) {
+
+            array_push($last_readys_result, $readys_arr[$i]);
+
+      }
+    }
+    // end(texture,package)
+    // end two only
+    //start three only
+    if(!empty($request->style_cate_name) && !empty($request->texture_id) && !empty($request->package_id))
+    {
+      $qty=2;
+      for ($i = 0; $i < count($request->style_cate_name); $i++) {
+        $rstyle = ReadyToWear::where('style_id',$request->style_cate_name[$i])->get();
+        array_push($readys_style,$rstyle);
+        // logger($grands);
+        // array_push($readys_style, $rstyle);
+    }
+    //last result
+    for ($i = 0; $i < count($readys_style); $i++) {
+        foreach ($readys_style[$i] as $rs) {
+            for ($j = 0; $j < count($request->texture_id); $j++) {
+                if ($rs->main_texture_id == $request->texture_id[$j]) {
+                    array_push($readys_texture, $rs);
+                }
+            }
+        }
+    }
+
+    foreach ($readys_texture as $rg) {
+        // logger("lllllllllll");
+        // logger($rg);
+        // logger("pattern-id".$rg->pattern_id);
+        for ($j = 0; $j < count($request->package_id); $j++) {
+            if ($rg->package_id == $request->package_id[$j]) {
+                array_push($readys_arr, $rg);
+            }
+        }
+    }
+      //last result
+      for ($i = 0; $i < count($readys_arr); $i++) {
+
+        array_push($last_readys_result, $readys_arr[$i]);
+
+  }
+    }
+    //end three only
+     //start all paginage
+     for($i=$next_start;$i<count($last_readys_result);$i++)
+     {
+       logger($last_readys_result[0]);
+       array_push($connect_arr,$last_readys_result[$i]);
+       if($i==$next_end)
+       {
+         break;
+       }
+     }
+     logger(count($connect_arr));
+     if(count($connect_arr) == 0)
+     {
+       $readys = [];
+     }
+     else
+     {
+       $readys = $connect_arr;
+     }
+    //  logger($connect_arr);
+     //end all paginate
+  }//filter all end
+  else
+  {
+    logger("no");
+    $readys = ReadyToWear::paginate(6);
+  }
+  $articles = '';
+  $public_path = 'http://localhost:8000/assets/images/categories/ready/';
+  if ($request->ajax()) {
+    foreach($readys as $ready)
+    {
+
+//       $articles.='
+//       <div class="col-6 col-lg-4 ready__item">
+//         <div class="ready__item--img-group">
+//           <img src="'.$public_path.$ready->photo_one.'" alt="">
+//            <i class='.'bx bx-heart'.'></i>
+//         </div>
+//         <div class="ready__item--info">
+//           <p>'.$ready->name.'</p>
+//           <p><strong>$ '.$ready->price.'</strong></p>
+//         </div>
+//       </div>
+// ';
+        $articles.='
+        <div class="col-6 col-lg-4 ready__item" data-bs-toggle="modal"
+             data-bs-target="#myready'.$ready->id.'" onclick="get_swiper('.$ready->id.')">
+          <div class="ready__item--img-group">
+            <img src="'.$public_path.$ready->photo_one.'" alt="">';
+            if(!empty($user))
+            {
+
+            $artcles.='
+              <button id="wishlist'.$ready->id.'" onclick="whishlist('.$user.','.$ready->id.','.$ready->photo_one.','.$ready->name.','.$ready->price.')>
+              <i class='.'bx bx-heart'.'></i>
+              </button>
+              <button id="delete{{$ready->id}}" onclick="deletedata('.$user.','.$ready->id.','.$ready->photo_one.','.$ready->name.','.$ready->price.'" style="display: none;">
+              <i class="bx bx-heart"></i>
+              </button>';
+            }
+            else
+            {
+              $articles.='
+              <button type="button" class=""
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"><i class="bx bx-heart"></i>
+              </button>';
+            }
+            $articles.='
+          </div>
+          <div class="ready__item--info">
+            <p>'.$ready->name.'</p>
+            <p><strong>$ '.$ready->price.'</strong></p>
+          </div>
+        </div>
+        ';
+    }
+    return response()->json(['res' => $articles, 'page_no' => 8]);
+  }
     return view('frontend.readyToWear',compact('main_textures','user','user_detail','favs','carts','readys','styles','packages','textures','style_cates'));
 });
-Route::get('suit-tips', function () {
+Route::get('suit-tips', function (Request $request) {
     $features = SuitTips::where('feature',"Yes")->get();
-    $suit_tips = SuitTips::all();
-    $favs = Favourite::where('user_id',Session::get('user_id'))->get();
-    $carts = AddToCart::where('user_id',Session::get('user_id'))->get();
-    return view('frontend.suitTips',compact('suit_tips','features','favs','carts'));
+    $suit_tips = SuitTips::paginate(3);
+    $articles = '';
+    $public_path = 'http://localhost:8000/assets/images/suit_tip/';
+    if ($request->ajax()) {
+      foreach($suit_tips as $tip)
+      {
+        $articles .='
+        <div class="col-12 col-md-6 col-lg-4 tips__item">
+          <img class="item__img" src="'.$public_path.$tip->photo.'" alt="">
+          <div class="item__texts">
+            <span>'.$tip->brand.' - '.\Carbon\Carbon::parse($tip->created_at)->format('M d Y').'</span>
+            <h6>'.$tip->title.'</h6>
+            <p class="item__texts-desc">'.$tip->description.'</p>
+            <button class="pop-up__button mt-4">
+              <a href="/suit-tips-detail/'.$tip->id.'">Detail</a>
+            </button>
+          </div>
+        </div>
+        ';
+      }
+      return response()->json(['res' => $articles, 'page_no' => 8]);
+    }
+
+
+    return view('frontend.suitTips',compact('suit_tips','features'));
 });
 Route::get('faq', function () {
   $faq_titles = Faq::select('name', 'title', 'question')->get()->groupBy([function($title){

@@ -585,14 +585,17 @@
         $('#fabric-filter').hide();
       }
       if (current_link_href === '#jacket') {
+        jacket_infinite_scroll_start(null);
         cfTitle.html('Jacket')
           window.scrollTo({ top: 0, behavior: 'smooth' })
       }
       if (current_link_href === '#vest') {
+        vest_infinite_scroll_start(null);
         cfTitle.html('Vest')
           window.scrollTo({ top: 0, behavior: 'smooth' })
       }
       if (current_link_href === '#pant') {
+        pant_infinite_scroll_start(null);
         cfTitle.html('Pant')
           window.scrollTo({ top: 0, behavior: 'smooth' })
       }
@@ -1824,176 +1827,177 @@
         })
     }
 
-    function jacket_button(style) {
-      $.ajax({
-        method: "Get",
-        url: "{{ route('get_jacket_button') }}",
-        cache: false,
-        dataType: "json",
-        data: {
-          style: style,
-        },
-        success: function (data) {
-          console.log(data.style);
-          $(document).ready(function () {
-            var style_n = '';
-            // var j_data = JSON.parse(data);
-            $.each(data, function (i, v) {
+    // function jacket_button(style) {
+    //   $.ajax({
+    //     method: "Get",
+    //     url: "{{ route('get_jacket_button') }}",
+    //     cache: false,
+    //     dataType: "json",
+    //     data: {
+    //       style: style,
+    //     },
+    //     success: function (data) {
+    //       console.log(data.style);
+    //       $(document).ready(function () {
+    //         var style_n = '';
+    //         // var j_data = JSON.parse(data);
+    //         $.each(data, function (i, v) {
 
 
-              var color = v.color;
-              var style = v.style;
-              var photo = v.photo_one;
-              var description = v.description;
-              console.log(name);
-              style_n += `<label class="row cursor-pointer mb-5" for="sb1">
-                                      <span class="col-md-6 mb-2 d-flex flex-column justify-content-center">
-                                        <span class="row g-0 mb-2">
-                                          <span class="col-1 mt-1">
-                                            <input type="radio" name="jacket" id="sb1"
-                                                    class="form-check-input me-2 mb-1"/>
-                                          </span>
-                                          <span class="col-11 ps-2">
-                                            <span class="title">${color}</span>
-                                          </span>
-                                        </span>
-                                        <span class="text-white-50 d-block">
-                                         ${description}
-                                        </span>
-                                      </span>
-                                  <span class="col-md-6 jacket">
-                                      <span class="fit-img-container">
-                                        <img src="{{'/assets/images/customize/top/${photo}'}}" alt="" class="">
-                                      </span>
-                                    </span>
-                                </label>`
+    //           var color = v.color;
+    //           var style = v.style;
+    //           var photo = v.photo_one;
+    //           var description = v.description;
+    //           console.log(name);
+    //           style_n += `<label class="row cursor-pointer mb-5" for="sb1">
+    //                                   <span class="col-md-6 mb-2 d-flex flex-column justify-content-center">
+    //                                     <span class="row g-0 mb-2">
+    //                                       <span class="col-1 mt-1">
+    //                                         <input type="radio" name="jacket" id="sb1"
+    //                                                 class="form-check-input me-2 mb-1"/>
+    //                                       </span>
+    //                                       <span class="col-11 ps-2">
+    //                                         <span class="title">${color}</span>
+    //                                       </span>
+    //                                     </span>
+    //                                     <span class="text-white-50 d-block">
+    //                                      ${description}
+    //                                     </span>
+    //                                   </span>
+    //                               <span class="col-md-6 jacket">
+    //                                   <span class="fit-img-container">
+    //                                     <img src="{{'/assets/images/customize/top/${photo}'}}" alt="" class="">
+    //                                   </span>
+    //                                 </span>
+    //                             </label>`
 
-            })
-            $('#jacket-style').html(style_n);
-          });
+    //         })
+    //         $('#jacket-style').html(style_n);
+    //       });
 
-        },
-        error: function (err) {
-          console.log(err);
-        }
+    //     },
+    //     error: function (err) {
+    //       console.log(err);
+    //     }
 
-      })
+    //   })
 
-    }
+    // }
 
-    function vest_lapel(style) {
-      $.ajax({
-        method: "Get",
-        url: "{{ route('get_vest_lapel') }}",
-        cache: false,
-        dataType: "json",
-        data: {
-          style: style,
-        },
-        success: function (data) {
-          console.log(data.style);
-          $(document).ready(function () {
-            var style_n = '';
-            // var j_data = JSON.parse(data);
-            $.each(data, function (i, v) {
+    // function vest_lapel(style) {
+    //   $.ajax({
+    //     method: "Get",
+    //     url: "{{ route('get_vest_lapel') }}",
+    //     cache: false,
+    //     dataType: "json",
+    //     data: {
+    //       style: style,
+    //     },
+    //     success: function (data) {
+    //       console.log(data.style);
+    //       $(document).ready(function () {
+    //         var style_n = '';
+    //         // var j_data = JSON.parse(data);
+    //         $.each(data, function (i, v) {
 
 
-              var color = v.color;
-              var style = v.style;
-              var photo = v.photo_one;
-              var description = v.description;
-              console.log(name);
-              style_n += `<label class="row cursor-pointer mb-5" for="sb1">
-                                      <span class="col-md-6 mb-2 d-flex flex-column justify-content-center">
-                                        <span class="row g-0 mb-2">
-                                          <span class="col-1 mt-1">
-                                            <input type="radio" name="jacket" id="sb1"
-                                                    class="form-check-input me-2 mb-1"/>
-                                          </span>
-                                          <span class="col-11 ps-2">
-                                            <span class="title">${color}</span>
-                                          </span>
-                                        </span>
-                                        <span class="text-white-50 d-block">
-                                         ${description}
-                                        </span>
-                                      </span>
-                                  <span class="col-md-6 jacket">
-                                      <span class="fit-img-container">
-                                        <img src="{{'/assets/images/customize/shirt_button/${photo}'}}" alt="" class="">
-                                      </span>
-                                    </span>
-                                </label>`
+    //           var color = v.color;
+    //           var style = v.style;
+    //           var photo = v.photo_one;
+    //           var description = v.description;
+    //           console.log(name);
+    //           style_n += `<label class="row cursor-pointer mb-5" for="sb1">
+    //                                   <span class="col-md-6 mb-2 d-flex flex-column justify-content-center">
+    //                                     <span class="row g-0 mb-2">
+    //                                       <span class="col-1 mt-1">
+    //                                         <input type="radio" name="jacket" id="sb1"
+    //                                                 class="form-check-input me-2 mb-1"/>
+    //                                       </span>
+    //                                       <span class="col-11 ps-2">
+    //                                         <span class="title">${color}</span>
+    //                                       </span>
+    //                                     </span>
+    //                                     <span class="text-white-50 d-block">
+    //                                      ${description}
+    //                                     </span>
+    //                                   </span>
+    //                               <span class="col-md-6 jacket">
+    //                                   <span class="fit-img-container">
+    //                                     <img src="{{'/assets/images/customize/shirt_button/${photo}'}}" alt="" class="">
+    //                                   </span>
+    //                                 </span>
+    //                             </label>`
 
-            })
-            $('#vest-lapel').html(style_n);
-          });
+    //         })
+    //         $('#vest-lapel').html(style_n);
+    //       });
 
-        },
-        error: function (err) {
-          console.log(err);
-        }
+    //     },
+    //     error: function (err) {
+    //       console.log(err);
+    //     }
 
-      })
+    //   })
 
-    }
+    // }
 
-    function pant_pleat(style) {
-      $.ajax({
-        method: "Get",
-        url: "{{ route('get_pant_pleat') }}",
-        cache: false,
-        dataType: "json",
-        data: {
-          style: style,
-        },
-        success: function (data) {
-          console.log(data.style);
-          $(document).ready(function () {
-            var style_n = '';
-            // var j_data = JSON.parse(data);
-            $.each(data, function (i, v) {
-              var color = v.color;
-              var style = v.style;
-              var photo = v.photo_one;
-              var description = v.description;
-              console.log(name);
-              style_n += `<label class="row cursor-pointer mb-5" for="sb1">
-                                      <span class="col-md-6 mb-2 d-flex flex-column justify-content-center">
-                                        <span class="row g-0 mb-2">
-                                          <span class="col-1 mt-1">
-                                            <input type="radio" name="jacket" id="sb1"
-                                                    class="form-check-input me-2 mb-1"/>
-                                          </span>
-                                          <span class="col-11 ps-2">
-                                            <span class="title">${color}</span>
-                                          </span>
-                                        </span>
-                                        <span class="text-white-50 d-block">
-                                          ${description}
-                                        </span>
-                                      </span>
-                                  <span class="col-md-6 jacket">
-                                      <span class="fit-img-container">
-                                        <img src="{{'/assets/images/customize/pant/${photo}'}}" alt="" class="">
-                                      </span>
-                                    </span>
-                                </label>`
+    // function pant_pleat(style) {
+    //   $.ajax({
+    //     method: "Get",
+    //     url: "{{ route('get_pant_pleat') }}",
+    //     cache: false,
+    //     dataType: "json",
+    //     data: {
+    //       style: style,
+    //     },
+    //     success: function (data) {
+    //       console.log(data.style);
+    //       $(document).ready(function () {
+    //         var style_n = '';
+    //         // var j_data = JSON.parse(data);
+    //         $.each(data, function (i, v) {
+    //           var color = v.color;
+    //           var style = v.style;
+    //           var photo = v.photo_one;
+    //           var description = v.description;
+    //           console.log(name);
+    //           style_n += `<label class="row cursor-pointer mb-5" for="sb1">
+    //                                   <span class="col-md-6 mb-2 d-flex flex-column justify-content-center">
+    //                                     <span class="row g-0 mb-2">
+    //                                       <span class="col-1 mt-1">
+    //                                         <input type="radio" name="jacket" id="sb1"
+    //                                                 class="form-check-input me-2 mb-1"/>
+    //                                       </span>
+    //                                       <span class="col-11 ps-2">
+    //                                         <span class="title">${color}</span>
+    //                                       </span>
+    //                                     </span>
+    //                                     <span class="text-white-50 d-block">
+    //                                       ${description}
+    //                                     </span>
+    //                                   </span>
+    //                               <span class="col-md-6 jacket">
+    //                                   <span class="fit-img-container">
+    //                                     <img src="{{'/assets/images/customize/pant/${photo}'}}" alt="" class="">
+    //                                   </span>
+    //                                 </span>
+    //                             </label>`
 
-            })
-            $('#pleat-selection').html(style_n);
-          });
+    //         })
+    //         $('#pleat-selection').html(style_n);
+    //       });
 
-        },
-        error: function (err) {
-          console.log(err);
-        }
+    //     },
+    //     error: function (err) {
+    //       console.log(err);
+    //     }
 
-      })
+    //   })
 
-    }
+    // }
     function style_filter_reload()
     {
+      // alert("style_filter_reload");
       $.ajax({
         method: "Get",
         url: "{{ route('get_filter_recomment_style') }}",
@@ -2017,7 +2021,7 @@
               var pieces = v.pieces;
               console.log(pieces);
               style_n += `<div class="col-6 col-md-4">
-              <div class="radio-group ">
+              <div class="radio-group">
               <input type="radio" name="test" id="style_check${v.id}" class="form-check-input"/>
                   <div class="cursor-pointer" data-bs-toggle="modal"
                       data-bs-target="#myCategory${v.id}" onclick="get_swiper(${v.id})">
@@ -2594,128 +2598,7 @@
       }
     }
 
-    // begin  infinite scroll
-    var ENDPOINT = "{{ url('/') }}";
-    var page = 1;
-    var start = 0;
-    var pageNo = 0;
-    infinteLoadMore(page)
-    $(window).scroll(function () {
-      // console.log("work scroll function!!");
-      if ($(window).scrollTop() + $(window).height() >= ($(document).height() - 200)) {
-        console.log("work scroll function inside!!page = " + page);
-        page++;
-        start = (page * 6) - 6;
-        // console.log('Page = ' + page);
-        infinteLoadMore(page);
-      }
-    })
 
-    function infinteLoadMore(page) {
-      // alert("hello load more");
-      var grand_id = $('#GrandID').val();
-      var filter_key = $('#GrandID_filter_key').val();
-      var mobile = $('#GrandID_mobile').val();
-      var i = 0;
-      // alert(filter_key);
-      var colorjs = @json($colors);
-      var texturejs = @json($textures);
-      var patternjs = @json($patterns);
-      var packagejs = @json($packages);
-      var colorjs_arr = [];
-      var texturejs_arr = [];
-      var patternjs_arr = [];
-      var pricejs_arr = [];
-      var packagejs_arr = [];
-      var i = 0;
-
-      for (i = 0; i < colorjs.length; i++) {
-        if ($('#oncolor' + colorjs[i].id).is(":checked")) {
-          // it is checked
-          colorjs_arr.push($('#oncolor' + colorjs[i].id).val());
-        }
-      }
-      for (i = 0; i < texturejs.length; i++) {
-        if ($('#ontexture' + texturejs[i].id).is(":checked")) {
-          // it is checked
-          texturejs_arr.push($('#ontexture' + texturejs[i].id).val());
-        }
-      }
-      for (i = 0; i < patternjs.length; i++) {
-        if ($('#onpattern' + patternjs[i].id).is(":checked")) {
-          // it is checked
-          patternjs_arr.push($('#onpattern' + patternjs[i].id).val());
-        }
-      }
-      for (i = 0; i < packagejs.length; i++) {
-        if ($('#onpackage' + packagejs[i].id).is(":checked")) {
-          // it is checked
-          packagejs_arr.push($('#onpackage' + packagejs[i].id).val());
-        }
-      }
-      if ($('#low').is(":checked")) {
-        // it is checked
-        pricejs_arr.push($('#low').val());
-      }
-      if ($('#high').is(":checked")) {
-        // it is checked
-        pricejs_arr.push($('#high').val());
-      }
-      // console.log(packagejs_arr);
-      // console.log(colorjs_arr);
-      // console.log(texturejs_arr);
-      // console.log(patternjs_arr);
-      // console.log(pricejs_arr);
-      $.ajax({
-        url: ENDPOINT + "/customize?page=" + page,
-        datatype: "html",
-        type: "get",
-        history: false,
-        data: {
-          "_token": "{{csrf_token()}}",
-          "colors": colorjs_arr,
-          "types": texturejs_arr,
-          "patterns": patternjs_arr,
-          "prices": pricejs_arr,
-          "packages": packagejs_arr,
-          "start": start
-        },
-        beforeSend: function () {
-          $('.auto-load').show();
-        }
-
-      })
-        .done(function (response) {
-          console.log(response);
-          // console.log("PAGE"+response.page_no);
-
-          console.log(response.res.length);
-          // console.log("step1");
-          if (response.res.length == 0) {
-            $('.auto-load').html("");
-            return;
-          }
-
-          // pageNo = response.page_no;
-          $('.auto-load').hide();
-          $("#grand-space").append(response.res)
-
-          // $("#myModal").modal()
-        })
-
-        .fail(function (jqXHR, ajaxOptions, thrownError) {
-          console.log('Server error occured');
-        });
-
-
-    }
-
-    function advance_filter() {
-      $('#grand-space').html("");
-      page = 1;
-      start = 0;
-      infinteLoadMore(page);
-    }
 
     $('#view_more_additional_page').click(function () {
       sessionStorage.setItem('step6', '1');

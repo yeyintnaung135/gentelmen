@@ -59,7 +59,7 @@
 
       <div class="tab-pane container active mx-0 px-0" id="style_nav_" aria-labelledby="style_nav_check_">
 
-        <div id="style_card" class="row g-3 g-md-5">
+        <div id="style_card" class="row g-3 g-md-5" style="max-width:1300px">
 
 
 

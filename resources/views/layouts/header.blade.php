@@ -42,6 +42,11 @@
 <body>
 @yield('content')
 @stack('script_tag')
+@stack('script_fabric_infinite')
+@stack('script_jacket_infinite')
+@stack('script_pant_infinite')
+@stack('script_vest_infinite')
+@stack('script_suit_tip_infinite')
 </body>
 
 </html>
