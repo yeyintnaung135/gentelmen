@@ -1144,7 +1144,6 @@ class FrontendController extends Controller
       {
         logger("no have cate");
         $style = Style::where('type_id',$request->cus_cate_id)->where('pieces',$request->piece)->get();
-
       }
 
     logger("length suit table = ".count($style));
@@ -1154,8 +1153,8 @@ class FrontendController extends Controller
       logger("other result");
       $style = Style::where('type_id',$request->cus_cate_id)->get();
     }
-    logger("style result");
-    logger($style);
+    // logger("style result");
+    // logger($style);
     // return dd($request);
     return response()->json($style);
   }

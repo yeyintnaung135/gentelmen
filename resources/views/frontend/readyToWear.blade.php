@@ -33,7 +33,7 @@
         </div>
         <div class="col-11 col-md-8">
           <div class="ready__items row" id="ready_space">
-            @foreach($readys as $ready)
+            {{-- @foreach($readys as $ready)
               <div class="col-6 col-lg-4 ready__item" data-bs-toggle="modal"
                    data-bs-target="#myready{{$ready->id}}" onclick="get_swiper({{$ready->id}})">
                 <div class="ready__item--img-group">
@@ -57,27 +57,20 @@
                   <p><strong>$ {{$ready->price}}</strong></p>
                 </div>
               </div>
-            @endforeach
-            {{-- <div class="col-6 col-lg-4 ready__item">
-              <div class="ready__item--img-group">
-                <img src="{{asset("assets/images/ready/ready-2.png")}}" alt="">
-                <i class='bx bx-heart'></i>
-              </div>
-              <div class="ready__item--info">
-                <p>Suit Name</p>
-                <p><strong>$ 479</strong></p>
-              </div>
-            </div> --}}
-            {{-- <div class="col-6 col-lg-4 ready__item">
-              <div class="ready__item--img-group">
-                <img src="{{asset("assets/images/ready/ready-3.png")}}" alt="">
-                <i class='bx bx-heart'></i>
-              </div>
-              <div class="ready__item--info">
-                <p>Suit Name</p>
-                <p><strong>$ 479</strong></p>
-              </div>
-            </div> --}}
+            @endforeach --}}
+          </div>
+          <div class="auto-load text-center">
+            <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink"
+                 x="0px" y="0px" height="60" viewBox="0 0 100 100" enable-background="new 0 0 0 0"
+                 xml:space="preserve">
+                      <path fill="#000"
+                            d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+                        <animateTransform attributeName="transform" attributeType="XML" type="rotate"
+                                          dur="1s"
+                                          from="0 50 50" to="360 50 50" repeatCount="indefinite"/>
+                      </path>
+                  </svg>
           </div>
         </div>
       </div>
@@ -286,6 +279,7 @@
   $(document).ready(function(){
 
   });
+
   function get_swiper(ready_id)
   {
     var html = "";
@@ -602,14 +596,14 @@ $(document).ready(function(){
           {
             // alert("right");
             // html += `${arrayLength}`;
-           
+
           }else{
             // html += parse('0');
           }
         });
          html += `${arrayLength}`;
           $('#fav-space').html(html);
-          
+
 
           // document.getElementById('fav-space').innerHTML = parseInt(document.getElementById('fav-space').innerHTML) + 1;
 
@@ -617,7 +611,197 @@ $(document).ready(function(){
 
 				}
     }
+  //start infinite scroll
+  var style_arr = [];
+  var texture_arr = [];
+  var package_arr = [];
+  var ENDPOINT = "{{ url('/') }}";
+  var page = 1;
+  var start = 0;
+  var pageNo = 0;
+  infinteLoadMore(page,style_arr,texture_arr,package_arr)
+  $(window).scroll(function () {
+    // alert("jfdkdf");
+    if ($(window).scrollTop() + $(window).height() >= ($(document).height() - 300)) {
+      page++;
+      start = (page * 6) - 6;
+      // console.log('Page = ' + page);
+      if (page <= 6) {
+        infinteLoadMore(page,style_arr,texture_arr,package_arr);
+      }
+    }
+  })
+  function infinteLoadMore(page,style_arr,texture_arr,package_arr) {
+    // alert("kfdjfdk");
+    $.ajax({
+      url: ENDPOINT + "/ready-to-wear?page=" + page,
+      datatype: "html",
+      type: "get",
+      history: false,
+      data: {
+        "_token": "{{csrf_token()}}",
+        "style_cate_name" : style_arr,
+        "texture_id" : texture_arr,
+        "package_id" : package_arr,
+        "start" : start
+      },
+      beforeSend: function () {
+        $('.auto-load').show();
+      }
+    })
+      .done(function (response) {
+        console.log(response.length);
+        if (response.res.length == 0) {
+          $('.auto-load').html("");
+          return;
+        }
+        $('.auto-load').hide();
 
+        $("#ready_space").append(response.res);
+        // $("#grand_space").fadeIn(3000);
+        // console.log("fade")
+        // $("#myModal").modal()
+      })
+      .fail(function (jqXHR, ajaxOptions, thrownError) {
+        console.log('Server error occured');
+      });
+  }
+  //end infinite scroll
+
+  function getstyle(value,value2,value3)
+  {
+    // alert("navvvvv");
+    $('#ready_space').html("");
+    var status = style_arr.includes(value);
+    var tstatus = texture_arr.includes(value2);
+    var pstatus = package_arr.includes(value3);
+    // // alert(status)
+    if(status == true)
+    {
+      let index_style = style_arr.indexOf(value);
+      // alert(index_style)
+      style_arr.splice(index_style,1)
+    }
+    else
+    {
+      if(value != 0)
+      {
+        style_arr.push(value);
+      }
+    }
+    if(tstatus == true)
+    {
+      let index_texture = texture_arr.indexOf(value2);
+      texture_arr.splice(index_texture,1)
+    }
+    else
+    {
+      if(value2 != 0)
+      {
+        texture_arr.push(value2);
+      }
+    }
+    if(pstatus == true)
+    {
+      let index_package = package_arr.indexOf(value3);
+      // alert(index_style)
+      package_arr.splice(index_package,1)
+    }
+    else
+    {
+      if(value3 != 0)
+      {
+        package_arr.push(value3);
+      }
+    }
+    var style_check = $('input[name="style_check"]:checked').val();
+
+    if(style_arr.length != 0 || texture_arr.length != 0 || package_arr.length != 0)
+    {
+      page = 1;
+      start = 0;
+      infinteLoadMore(page,style_arr,texture_arr,package_arr);
+  //   $.ajax({
+  //     type: 'POST',
+  //     url: '/get_style_for_ready_ajax',
+  //     data: {
+  //       "_token": "{{csrf_token()}}",
+  //       "style_cate_name" : style_arr,
+  //       "texture_id" : texture_arr,
+  //       "package_id" : package_arr
+  //     },
+  //   success: function (data) {
+  //       console.log(data.qty);
+  //       var html = "";
+  //       var i,j=0;
+  //       // for(i=0;i<data.readys.length;i++)
+  //       // {
+  //       //   html +=`
+  //       //       <div class="col-6 col-lg-4 ready__item">
+  //       //         <div class="ready__item--img-group">
+  //       //           <img src="{{asset('/assets/images/categories/ready/${data.readys[i].photo_one}')}}" alt="">
+  //       //           <i class='bx bx-heart'></i>
+  //       //         </div>
+  //       //         <div class="ready__item--info">
+  //       //           <p>${data.readys[i].name}</p>
+  //       //           <p><strong>$ ${data.readys[i].price}</strong></p>
+  //       //         </div>
+  //       //       </div>
+  //       //       `;
+  //       // }
+  //       //old start
+  //       if(data.qty == 1)
+  //       {
+  //         for(i=0;i<data.readys.length;i++)
+  //         {
+  //           for(j=0;j<data.readys[i].length;j++)
+  //           {
+  //             html +=`
+  //             <div class="col-6 col-lg-4 ready__item" data-bs-toggle="modal"
+  //                data-bs-target="#myready${data.readys[i][j].id}" onclick="get_swiper(${data.readys[i][j].id})">
+  //               <div class="ready__item--img-group">
+  //                 <img src="{{asset('/assets/images/categories/ready/${data.readys[i][j].photo_one}')}}" alt="">
+  //                 <i class='bx bx-heart'></i>
+  //               </div>
+  //               <div class="ready__item--info">
+  //                 <p>${data.readys[i][j].name}</p>
+  //                 <p><strong>$ ${data.readys[i][j].price}</strong></p>
+  //               </div>
+  //             </div>
+  //             `;
+  //           }
+  //         }
+  //       }
+  //       else if(data.qty == 2)
+  //       {
+  //         for(i=0;i<data.readys.length;i++)
+  //         {
+  //           html +=`
+  //           <div class="col-6 col-lg-4 ready__item" data-bs-toggle="modal"
+  //              data-bs-target="#myready${data.readys[i].id}" onclick="get_swiper(${data.readys[i].id})">
+  //             <div class="ready__item--img-group">
+  //               <img src="{{asset('/assets/images/categories/ready/${data.readys[i].photo_one}')}}" alt="">
+  //               <i class='bx bx-heart'></i>
+  //             </div>
+  //             <div class="ready__item--info">
+  //               <p>${data.readys[i].name}</p>
+  //               <p><strong>$ ${data.readys[i].price}</strong></p>
+  //             </div>
+  //           </div>
+  //           `;
+  //         }
+  //       }
+
+  //       // end start
+  //       $('#ready_space').html(html);
+  //   }
+  // });
+    }
+    else
+    {
+      window.location.reload();
+    }
+  }
 </script>
 @endpush
 @push('whishlist-nav')
