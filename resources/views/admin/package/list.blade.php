@@ -40,6 +40,8 @@
                     <th>Description</th>
                     <th>Made In</th>
                     <th>Tailor</th>
+                    <th>Price</th>
+                    <th>Link</th>
                     <th>Action</th>
                   </tr>
                   </thead>
@@ -50,9 +52,11 @@
                     <td>{{$i++}}</td>
                     <td><img class="rounded-5 shadow-sm" src="{{'/frontend/package/'. $package->photo}}" alt="" width="150px" height="60px"/></td>
                     <td>{{$package->title}}</td>
-                    <td>{{$package->description}}</td>
+                    <td>{{substr($package->description,0,20)}}</td>
                     <td>{{$package->made_in}}</td>
                     <td>{{$package->tailor}}</td>
+                    <td>{{$package->price}}</td>
+                    <td>{{$package->link}}</td>
 
                     <td>
                     <div style="
@@ -83,6 +87,8 @@
                     <th>Description</th>
                     <th>Made In</th>
                     <th>Tailor</th>
+                    <th>Price</th>
+                    <th>Link</th>
                     <th>Action</th>
                   </tr>
                   </tfoot>

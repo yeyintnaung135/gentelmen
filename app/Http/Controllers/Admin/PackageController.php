@@ -26,6 +26,7 @@ class PackageController extends Controller
             'made_in' => ['required', 'string', 'max:50'],
             'tailor' => ['required', 'string', 'max:50'],
             'price' => ['required', 'string', 'max:50'],
+            'link' => ['required'],
         ]);
     }
 
@@ -37,6 +38,7 @@ class PackageController extends Controller
             'made_in' => ['required', 'string', 'max:50'],
             'tailor' => ['required', 'string', 'max:50'],
             'price' => ['required', 'string', 'max:50'],
+            'link' => ['required'],
         ]);
     }
 
@@ -85,6 +87,7 @@ class PackageController extends Controller
             'made_in' => $request->made_in,
             'tailor' => $request->tailor,
             'price' => $request->price,
+            'link' => $request->link,
         ]);
         return redirect()->route('package_list')->with('success','Your Package is successfully Created');
     }
@@ -119,6 +122,7 @@ class PackageController extends Controller
         $update_package->made_in = $request->made_in;
         $update_package->tailor = $request->tailor;
         $update_package->price = $request->price;
+        $update_package->link = $request->link;
         if ($request->file('photo')) {
 
             if (File::exists(public_path($update_package->photo))) {

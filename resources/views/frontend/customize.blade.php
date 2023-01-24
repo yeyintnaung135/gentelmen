@@ -575,24 +575,29 @@
       console.log(current_link_href)
       if (current_link_href === '#fitting') {
         cfTitle.html('Fitting')
+          window.scrollTo({ top: 0, behavior: 'smooth' })
       }
       if (current_link_href === '#fabric') {
         $('#fabric-filter').show();
         cfTitle.html('Fabric Selection')
+          window.scrollTo({ top: 0, behavior: 'smooth' })
       } else {
         $('#fabric-filter').hide();
       }
       if (current_link_href === '#jacket') {
         jacket_infinite_scroll_start(null);
         cfTitle.html('Jacket')
+          window.scrollTo({ top: 0, behavior: 'smooth' })
       }
       if (current_link_href === '#vest') {
         vest_infinite_scroll_start(null);
         cfTitle.html('Vest')
+          window.scrollTo({ top: 0, behavior: 'smooth' })
       }
       if (current_link_href === '#pant') {
         pant_infinite_scroll_start(null);
         cfTitle.html('Pant')
+          window.scrollTo({ top: 0, behavior: 'smooth' })
       }
       console.log(current_link)
       console.log(current_link_href)

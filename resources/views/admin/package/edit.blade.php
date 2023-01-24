@@ -96,6 +96,15 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                              @enderror
+                              <div class="form-group">
+                                <label>Link</label>
+                                <input name="link" type="text" class="form-control @error('link') is-invalid @enderror" id="exampleInputEmail1" placeholder="Enter Link" value="{{ $package->link }}" required autocomplete="link" autofocus>
+                              </div>
+                              @error('link')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                             @enderror
                              <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div>

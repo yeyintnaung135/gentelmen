@@ -259,8 +259,9 @@
             <div class="swiper-slide bottom-flex {{ $loop->first ? 'active' : '' }}"
                  style="background-image: url('{{asset('frontend/images/'
                              .$banner->photo)}}')">
-              <h2 class=" text-uppercase fw-700 swiper-no-swiping">{{$banner->text}}</h2>
-              <h2 class="text-uppercase fw-700 swiper-no-swiping"></h2>
+              <h2 class="banner-title text-uppercase fw-700
+              swiper-no-swiping">{{$banner->text}}</h2>
+              <p class="banner-desc text-uppercase fw-700 swiper-no-swiping"></p>
               <button class="button-two-corner"><a
                   href="/customize"><span>{{$banner->button_text}}</span></a>
               </button>
@@ -326,18 +327,26 @@
     <div class="swiper sw-2">
       <div class="swiper-wrapper">
         <!-- Slides -->
-        <div class="swiper-slide">
-          <img src="{{asset('assets/images/home/classic.png')}}" alt="">
-          <h6 class="swiper-no-swiping mt-4">Legacy</h6>
-        </div>
-        <div class="swiper-slide">
+        @foreach($packages as $package)
+
+            <div class="swiper-slide">
+            <a href="{{$package->link}}">
+                <!--<p>{{$package->link}}</p>-->
+              <img src="{{'/frontend/package/'. $package->photo}}" alt="">
+              <h6 class="swiper-no-swiping mt-4">{{$package->title}}</h6>
+              </a>
+            </div>
+        
+       
+        @endforeach
+        <!-- <div class="swiper-slide">
           <img src="{{asset('assets/images/home/legacy.png')}}" alt="">
           <h6 class="swiper-no-swiping mt-4">Premium</h6>
         </div>
         <div class="swiper-slide">
           <img src="{{asset('assets/images/home/classic.png')}}" alt="">
           <h6 class="swiper-no-swiping mt-4">Classic</h6>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
@@ -673,7 +682,7 @@
         //  alert(arrayLength);
         var html = "";
         if (loItem != null) {
-         
+
 					itemArr = JSON.parse(loItem);
           $.each(itemArr,function(i,v){
             user_id = `{{Auth::guard('web')->user()->id}}`;
@@ -687,10 +696,10 @@
             html += parse('0');
           }
         });
-          
-          
+
+
           // document.getElementById('fav-space').innerHTML = parseInt(document.getElementById('fav-space').innerHTML) + 1;
-					
+
 				}else{
 
 				}
