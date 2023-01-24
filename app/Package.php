@@ -8,6 +8,6 @@ class Package extends Model
 {
     //
     protected $fillable = [
-        'photo','title','description','made_in','tailor','price',
+        'photo','title','description','made_in','tailor','price','link'
     ];
 }

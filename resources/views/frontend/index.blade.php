@@ -328,10 +328,16 @@
       <div class="swiper-wrapper">
         <!-- Slides -->
         @foreach($packages as $package)
-        <div class="swiper-slide">
-          <img src="{{'/frontend/package/'. $package->photo}}" alt="">
-          <h6 class="swiper-no-swiping mt-4">{{$package->title}}</h6>
-        </div>
+
+            <div class="swiper-slide">
+            <a href="{{$package->link}}">
+                <!--<p>{{$package->link}}</p>-->
+              <img src="{{'/frontend/package/'. $package->photo}}" alt="">
+              <h6 class="swiper-no-swiping mt-4">{{$package->title}}</h6>
+              </a>
+            </div>
+        
+       
         @endforeach
         <!-- <div class="swiper-slide">
           <img src="{{asset('assets/images/home/legacy.png')}}" alt="">
