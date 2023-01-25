@@ -3,7 +3,7 @@
 
   <div class="upload d-flex flex-column flex-md-row justify-content-center
   justify-content-md-end
-  align-items-center my-5">
+  align-items-center mt-5">
     <!--    <div class="d-flex">
           <i class='bx bx-upload me-2'></i>
           <a href="#" id="uploadText" class="text-uppercase mb-4">upload my style</a>
@@ -34,13 +34,11 @@
            id="style_nav_check_{{$style_cate->id}}"
            href="{{$style_cate->name}}" aria-selected="true">{{$style_cate->name}}</button>
       @endforeach
-      <div class="swiper d-block d-md-block d-lg-none" style="width: 80vw; height: 80px;">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper d-flex">
+        <div id="style_nav" class="menu-wrapper">
           <!-- Slides -->
           @foreach($style_cates as $style_cate)
-            <div class="swiper-slide">
-              <button
+            <div class="menu__item">
+              <button onclick="style_nav('{{$style_cate->name}}','{{$style_cate->id}}')"
                  class="nav-link text-white-50"
                  data-bs-target="#style_nav_{{$style_cate->id}}"
                  data-bs-toggle="pill"

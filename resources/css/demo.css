@@ -170,3 +170,43 @@ h1,h2,h3,h4,h5,h6 {
   margin-inline-end: 10px;
   color: var(--clr-gold-0);
 }
+
+/*read more read less*/
+.hide{
+  display: none;
+}
+
+.post button{
+  padding: 10px;
+  background-color: #ff0268;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+.post:not(:last-child){
+  margin-bottom: 50px;
+}
+.hide{
+  display: none;
+}
+
+/*Swiper*/
+.menu-wrapper {
+  max-height: 120px;
+  border: 1px solid #ddd;
+  display: flex;
+  overflow-x: auto;
+}
+
+.menu-wrapper::-webkit-scrollbar {
+  width: 0;
+}
+
+.menu-wrapper .menu__item {
+  width: 310px;
+  height: 110px;
+  /*line-height: 110px;*/
+  background-color: red;
+  margin-right: 10px;
+  flex-shrink: 0;
+}

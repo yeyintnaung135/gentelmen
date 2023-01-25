@@ -12,9 +12,10 @@
               <span class="title">Extra Slim Fit</span>
             </span>
           </span>
-          <span class="d-block more">
+          <span class="description d-block">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci eos incidunt nemo odit rem, velit. Aperiam asperiores doloribus facere, ipsam molestias non praesentium quo. Aperiam atque aut blanditiis dignissimos quidem rem repellat veritatis? Error impedit iure necessitatibus officia quis, repudiandae sint. Labore nisi quibusdam quis recusandae tempora ut. Animi assumenda culpa delectus eius exercitationem fugit hic laboriosam magni, nisi non?
           </span>
+          <span onclick="readMore(this)" class="read-more-btn">Read More</span>
         </span>
         <span class="col-md-6">
           <span class="">
@@ -35,9 +36,10 @@
               <span class="title">Slim Fit</span>
             </span>
           </span>
-          <span class="d-block more">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit..
+          <span class="description d-block">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit
           </span>
+          <span onclick="readMore(this)" class="read-more-btn">Read More</span>
         </span>
         <span class="col-md-6">
                 <span class="">
@@ -58,9 +60,10 @@
               <span class="title">Regular Fit</span>
             </span>
           </span>
-          <span class="d-block more">
+          <span class="description d-block">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
           </span>
+          <span onclick="readMore(this)" class="read-more-btn">Read More</span>
         </span>
         <span class="col-md-6">
                 <span class="">
@@ -81,9 +84,10 @@
               <span class="title">Loose Fit</span>
             </span>
           </span>
-          <span class="d-block more">
+          <span class="description d-block">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
           </span>
+          <span onclick="readMore(this)" class="read-more-btn">Read More</span>
         </span>
         <span class="col-md-6">
                 <span class="">

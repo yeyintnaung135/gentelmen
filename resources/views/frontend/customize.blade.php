@@ -108,6 +108,27 @@
 
 
   <script>
+      let noOfCharac = 50;
+      let contents = document.querySelectorAll(".description");
+      contents.forEach(content => {
+          //If text length is less that noOfCharac... then hide the read more button
+          if (content.textContent.length < noOfCharac) {
+              content.nextElementSibling.style.display = "none";
+          } else {
+              let displayText = content.textContent.slice(0, noOfCharac);
+              let moreText = content.textContent.slice(noOfCharac);
+              content.innerHTML = `${displayText}<span class="dots">...</span><span class="hide
+              more-text">${moreText}</span>`;
+          }
+      });
+
+      function readMore(btn) {
+          console.log('hi')
+          let post = btn.parentElement;
+          post.querySelector(".dots").classList.toggle("hide");
+          post.querySelector(".more-text").classList.toggle("hide");
+          btn.textContent == "Read More" ? btn.textContent = "Read Less" : btn.textContent = "Read More";
+      }
 
 
     $(document).ready(function() {
@@ -527,38 +548,6 @@
       }
       //get temporary data for user end
     }
-      var showChar = 50;
-      var ellipsestext = "...";
-      var moretext = "Read More";
-      var lesstext = "Read Less";
-      $('.more').each(function() {
-        var content = $(this).html();
-
-        if(content.length > showChar) {
-
-          var c = content.substr(0, showChar);
-          var h = content.substr(showChar-1, content.length - showChar);
-
-          var html = c +
-                  '<span class="moreelipses">'+ellipsestext+'</span><span class="morecontent"><span>' + h + '</span><a href="" class="morelink">'+moretext+'</a></span>';
-
-          $(this).html(html);
-        }
-
-      });
-
-      $(".morelink").click(function(){
-        if($(this).hasClass("less")) {
-          $(this).removeClass("less");
-          $(this).html(moretext);
-        } else {
-          $(this).addClass("less");
-          $(this).html(lesstext);
-        }
-        $(this).parent().prev().toggle();
-        $(this).prev().toggle();
-        return false;
-      });
     });
 
 
