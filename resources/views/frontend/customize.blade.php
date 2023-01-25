@@ -1217,6 +1217,12 @@
                   if(sessionStorage.getItem('suit_piece') == 3)
                   {
                     // alert("radio 3 show");
+                    sessionStorage.setItem('jacket_in',true);
+                    $('.input_jacket_in').attr('checked',true);
+                    sessionStorage.setItem('vest_in',true);
+                    $('.input_vest_in').attr('checked',true);
+                    sessionStorage.setItem('pant_in',true);
+                    $('.input_pants_in').attr('checked',true);
                     $('.jacket_in').show();
                     $('.pants_in').show();
                     $('.vest_in').show();
@@ -1238,12 +1244,7 @@
                   else
                   {
                     // alert("bmbm");
-                    sessionStorage.setItem('jacket_in',true);
-                    $('.input_jacket_in').attr('checked',true);
-                    sessionStorage.setItem('vest_in',true);
-                    $('.input_vest_in').attr('checked',true);
-                    sessionStorage.setItem('pant_in',true);
-                    $('.input_pants_in').attr('checked',true);
+
                     $('.all_in').hide();
                     $('.jacket_in').hide();
                     $('.pants_in').hide();
