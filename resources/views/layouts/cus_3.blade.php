@@ -25,6 +25,7 @@
   *6767# *224#
   -->
   <div class="top-margin">
+   <div class="d-none d-lg-block">
     <div id="style_nav" class="nav nav-pills text-uppercase justify-content-between">
       @foreach($style_cates as $style_cate)
         <button onclick="style_nav('{{$style_cate->name}}','{{$style_cate->id}}')"
@@ -34,6 +35,9 @@
            id="style_nav_check_{{$style_cate->id}}"
            href="{{$style_cate->name}}" aria-selected="true">{{$style_cate->name}}</button>
       @endforeach
+      </div>
+      </div>
+      <div class="d-block d-lg-none">
         <div id="style_nav" class="menu-wrapper">
           <!-- Slides -->
           @foreach($style_cates as $style_cate)
@@ -47,7 +51,7 @@
             </div>
           @endforeach
         </div>
-
+</div>
 
       </div>
     </div>
