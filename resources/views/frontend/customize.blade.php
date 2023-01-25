@@ -579,7 +579,7 @@
       }
       if (current_link_href === '#fabric') {
         $('#fabric-filter').show();
-        cfTitle.html('Fabric Selection')
+        cfTitle.html('Fabric')
           window.scrollTo({ top: 0, behavior: 'smooth' })
       } else {
         $('#fabric-filter').hide();

@@ -581,6 +581,180 @@ a.morelink {
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
+h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+}
+.nth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.side-filter {
+  padding: 20px 15px;
+  background: #080A16;
+  overflow-y: auto;
+}
+
+.fil-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fil-header .header-title {
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  letter-spacing: 1px;
+  font-size: 24px;
+}
+
+.fil-content {
+  margin-bottom: 25px;
+}
+
+.fil-content .content-title {
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.content-options .content-option {
+  margin-bottom: 5px;
+}
+
+.content-options .content-option input[type="checkbox"],
+.content-options .content-option input[type="radio"] {
+  margin-top: 7px;
+  margin-right: 10px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.content-options .content-option input[type="checkbox"]:checked,
+.content-options .content-option input[type="radio"]:checked {
+  margin-top: 7px;
+  margin-right: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: var(--clr-gold-0);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' style='fill: rgba(0, 0, 0, 1);transform: ;msFilter:;'%3E%3Cpath d='m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.content-options label {
+  text-transform: capitalize;
+}
+
+/*Package*/
+.content-options.packages {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content-option .package-label {
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  padding: 5px 15px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.price-check:checked + .package-label {
+  border: 1px solid var(--clr-gold-0);
+  color: var(--clr-gold-0);
+}
+
+/*Color and Pattern*/
+.content-options#color,
+.content-options#pattern {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /*justify-content: space-between;*/
+  /*flex-wrap: wrap;*/
+}
+
+/*footer of filter*/
+.fil-footer {
+  margin-block: 35px 20px;
+}
+
+.foot-action-btns {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.action-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  padding: 3px 10px;
+}
+
+.action-btn > a {
+  color: white;
+}
+
+.action-btn.apply {
+  border: 1px solid var(--clr-gold);
+}
+
+.action-btn.apply > a {
+  color: var(--clr-gold);
+}
+
+.action-btn.apply:hover {
+  border: none;
+  background: var(--clr-gold-0);
+  color: #000;
+}
+
+.action-btn.apply:hover > a{
+  color: #000;
+}
+
+/*See more See less*/
+#fabric_type.content-options.collapsed > .content-option:nth-child(n+3),
+#color.content-options.collapsed > .content-option:nth-child(n+5),
+#pattern.content-options.collapsed > .content-option:nth-child(n+5) {
+  display: none;
+}
+
+
+.content-options.collapsed > .list-toggle > p.collapse,
+.content-options.expanded > .list-toggle > p.expand {
+  display: none;
+}
+
+.list-toggle {
+  cursor: pointer;
+}
+
+.list-toggle p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.list-toggle .collapse:not(.show) {
+  display: block;
+}
+
+/*Filter Btn*/
+.filter-btn {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: 1px solid #fff;
+  padding: 5px 10px;
+}
+
+.filter-btn i {
+  margin-inline-end: 10px;
+  color: var(--clr-gold-0);
+}
+
+
 @media screen and (max-width: 480px) {
   .measurement > div {
     width: 100%;
@@ -602,7 +776,7 @@ a.morelink {
   .custom {
     margin-inline: 1.5625rem;
   }
-  
+
   .sticky-md-top.sticky-height {
   height: 100%;
   margin-bottom: 40px;
@@ -659,8 +833,8 @@ a.morelink {
   }
 
   .radio-group input[type="radio"] {
-    top: 85px;
-    right: 5px;
+    bottom: 55px;
+    right: 1px;
   }
 
   .small-line {
@@ -752,7 +926,7 @@ a.morelink {
   .cus-img-res {
     height: 300px;
   }
-  
+
     .sticky-md-top.sticky-height {
   height: 100%;
   margin-bottom: 40px;
