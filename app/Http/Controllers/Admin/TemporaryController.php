@@ -49,7 +49,10 @@ class TemporaryController extends Controller
             'cus_total_price' => $request->cus_total_price,
             'shipping_id' => $request->shipping_id,
             'shipping_price' => $request->shipping_price,
-            'measure_type' => $request->measure_type
+            'measure_type' => $request->measure_type,
+            'jacket_price' => $request->jacket_price,
+            'vest_price' => $request->vest_price,
+            'pant_price' => $request->pant_price,
           ]);
         }
         return response()->json([
@@ -103,6 +106,9 @@ class TemporaryController extends Controller
         $update_step_data->texture_price = $request->texture_price;
         $update_step_data->cus_total_price = $request->cus_total_price;
         $update_step_data->measure_type = $request->measure_type;
+        $update_step_data->jacket_price = $request->jacket_price;
+        $update_step_data->vest_price = $request->vest_price;
+        $update_step_data->pant_price = $request->pant_price;
         $update_step_data->save();
         return response()->json("success");
 

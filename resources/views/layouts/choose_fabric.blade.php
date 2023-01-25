@@ -94,15 +94,15 @@
                      <label for="full-suit" class="form-check-label">FULL SUITS</label>
                    </div> --}}
                    <div class="form-check my-3 jacket_in" id="jacket_in">
-                     <input type="checkbox" id="jacket{{$grand->id}}" name="select" class="form-check-input me-3 input_jacket_in">
+                     <input type="checkbox" id="jacket{{$grand->id}}" name="select" class="form-check-input me-3 input_jacket_in" disabled>
                      <label for="jacket{{$grand->id}}" class="form-check-label">JACKET</label>
                    </div>
                    <div class="form-check vest_in my-3" id="vest_in">
-                    <input type="checkbox" id="vest{{$grand->id}}" name="select" class="form-check-input me-3 input_vest_in">
+                    <input type="checkbox" id="vest{{$grand->id}}" name="select" class="form-check-input me-3 input_vest_in" disabled>
                     <label for="vest{{$grand->id}}" class="form-check-label">VEST</label>
                    </div>
                    <div class="form-check pants_in my-3" id="pants_in">
-                     <input type="checkbox" id="pants{{$grand->id}}" name="select" class="form-check-input me-3 input_pants_in">
+                     <input type="checkbox" id="pants{{$grand->id}}" name="select" class="form-check-input me-3 input_pants_in" disabled>
                      <label for="pants{{$grand->id}}" class="form-check-label">PANTS</label>
                    </div>
                  </div>
@@ -126,7 +126,10 @@
   function select_fabric(value,price)
   {
     // alert("juju");
-
+    var package_price = parseInt(sessionStorage.getItem('package_price'));
+    var pant_total_4 = 0;
+    var vest_total_4 = 0;
+    var jacket_total_4 = 0;
     // $('.input_jacket_in').prop('checked',false);
     // $('.input_vest_in').prop('checked',false);
     // $('.input_pants_in').prop('checked',false);
@@ -134,45 +137,67 @@
     sessionStorage.setItem('texture_price',price);
     // alert($('#jacket'+value).prop("checked"));
     var html_total = "";
-    if(sessionStorage.getItem('texture_id') != null && sessionStorage.getItem('texture_id') != '')
+    if(sessionStorage.getItem('pant_id') != null)
     {
-      var total4 = parseInt(sessionStorage.getItem('package_price'))+parseInt(sessionStorage.getItem('texture_price'))
+       pant_total_4 = parseInt(sessionStorage.getItem('pant_price'));
     }
-    else
+    if(sessionStorage.getItem('vest_id') != null)
     {
-      var total4 = sessionStorage.getItem('package_price')
+       vest_total_4 = parseInt(sessionStorage.getItem('vest_price'));
     }
+    if(sessionStorage.getItem('jacket_id') != null)
+    {
+       jacket_total_4 = parseInt(sessionStorage.getItem('jacket_price'));
+    }
+    var total4 = package_price+jacket_total_4+vest_total_4+pant_total_4+parseInt(sessionStorage.getItem('texture_price'));
+
     html_total +=`
     <span class="me-3 text-gold fs-5">$</span><h4 class="d-inline ff-mont ls-0" id="step2_and_fabric_total">${total4}</h4>
     `;
     // alert(total4);
     $('.three_four_price').html(html_total);
     sessionStorage.setItem('cus_total_price',total4);
+    // if(sessionStorage.getItem('suit_piece') == 2)
+    // {
+    //   sessionStorage.setItem('jacket_in',true);
+    //   $('#jacket'+sessionStorage.getItem('texture_id')).attr('checked',true);
+    //   sessionStorage.setItem('pant_in',true);
+    //   $('#pants'+sessionStorage.getItem('texture_id')).attr('checked',true);
+    // }
+    // else if(sessionStorage.getItem('suit_piece') == 3)
+    // {
+    //   sessionStorage.setItem('jacket_in',true);
+    //   $('#jacket'+sessionStorage.getItem('texture_id')).attr('checked',true);
+    //   sessionStorage.setItem('vest_in',true);
+    //   $('#vest'+sessionStorage.getItem('texture_id')).attr('checked',true);
+    //   sessionStorage.setItem('pant_in',true);
+    //   $('#pants'+sessionStorage.getItem('texture_id')).attr('checked',true);
+    // }
     //end calculate for reaching step 4
-    if($('#jacket'+value).prop("checked") == true)
-    {
-      sessionStorage.setItem('jacket_in',true);
-    }
-    else
-    {
-      sessionStorage.setItem('jacket_in',false);
-    }
-    if($('#vest'+value).prop("checked") == true)
-    {
-      sessionStorage.setItem('vest_in',true);
-    }
-    else
-    {
-      sessionStorage.setItem('vest_in',false);
-    }
-    if($('#pants'+value).prop("checked") == true)
-    {
-      sessionStorage.setItem('pants_in',true);
-    }
-    else
-    {
-      sessionStorage.setItem('pants_in',false);
-    }
+    // if($('#jacket'+value).prop("checked") == true)
+    // {
+    //   sessionStorage.setItem('jacket_in',true);
+    // }
+    // else
+    // {
+    //   sessionStorage.setItem('jacket_in',false);
+    // }
+    // if($('#vest'+value).prop("checked") == true)
+    // {
+    //   sessionStorage.setItem('vest_in',true);
+    // }
+    // else
+    // {
+    //   sessionStorage.setItem('vest_in',false);
+    // }
+    // if($('#pants'+value).prop("checked") == true)
+    // {
+    //   sessionStorage.setItem('pants_in',true);
+    // }
+    // else
+    // {
+    //   sessionStorage.setItem('pants_in',false);
+    // }
   }
 </script>
 @push('script_fabric_infinite')
@@ -319,6 +344,8 @@
 
   function get_swiper(texture_id)
   {
+
+
     var html = "";
     $.ajax({
       type: 'POST',

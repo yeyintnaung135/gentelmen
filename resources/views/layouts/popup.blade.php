@@ -307,7 +307,7 @@
                     //store temporary data for user start
                     if(response.data.has_step == null)
                     {
-                      // alert("do store temporary");
+                      alert("do store temporary");
 
                       $.ajax({
                         type: 'POST',
@@ -324,8 +324,11 @@
                           "fitting" : sessionStorage.getItem('fitting'),
                           "texture_id" : sessionStorage.getItem('texture_id'),
                           "jacket_id" : sessionStorage.getItem('jacket_id'),
+                          "jacket_price" : sessionStorage.getItem('jacket_price'),
                           "vest_id" : sessionStorage.getItem('vest_id'),
+                          "vest_price" : sessionStorage.getItem('vest_price'),
                           "pant_id" : sessionStorage.getItem('pant_id'),
+                          "pant_price" : sessionStorage.getItem('pant_price'),
                           "upper_id" : sessionStorage.getItem('upper_id'),
                           "lower_id" : sessionStorage.getItem('lower_id'),
                           "order_id" : sessionStorage.getItem('order_id'),
@@ -515,6 +518,15 @@
                                     var jacket_id = data.get_step_data.jacket_id;
                                     sessionStorage.setItem('jacket_id',jacket_id);
                                   }
+                                  if(data.get_step_data.jacket_price == null)
+                                  {
+                                    var jacket_price = 0
+                                  }
+                                  else
+                                  {
+                                    var jacket_price = data.get_step_data.jacket_price;
+                                    sessionStorage.setItem('jacket_price',jacket_price);
+                                  }
                                   if(data.get_step_data.vest_id == null)
                                   {
                                     var vest_id = ''
@@ -524,6 +536,15 @@
                                     var vest_id = data.get_step_data.vest_id
                                     sessionStorage.setItem('vest_id',vest_id);
                                   }
+                                  if(data.get_step_data.vest_price == null)
+                                  {
+                                    var vest_price = 0
+                                  }
+                                  else
+                                  {
+                                    var vest_price = data.get_step_data.vest_price;
+                                    sessionStorage.setItem('vest_price',vest_price);
+                                  }
                                   if(data.get_step_data.pant_id == null)
                                   {
                                     var pant_id = ''
@@ -532,6 +553,15 @@
                                   {
                                     var pant_id = data.get_step_data.pant_id;
                                     sessionStorage.setItem('pant_id',pant_id);
+                                  }
+                                  if(data.get_step_data.pant_price == null)
+                                  {
+                                    var pant_price = 0
+                                  }
+                                  else
+                                  {
+                                    var pant_price = data.get_step_data.pant_price;
+                                    sessionStorage.setItem('pant_price',pant_price);
                                   }
                                   if(data.get_step_data.upper_id == null)
                                   {

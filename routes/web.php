@@ -1187,11 +1187,14 @@ Route::get('customize', function (Request $request) {
                         <span class="row g-0 mb-2">
                           <span class="col-1 mt-1">
                              <input type="radio" name="pant" id="choose_pant'.$pant->id.'" value="'.$pant->id.'"
-                                    class="form-check-input me-2 mb-1" onclick="getpant(this.value)"/>
+                                    class="form-check-input me-2 mb-1" onclick="getpant('.$pant->id.','.$pant->price.')"/>
                           </span>
                           <span class="col-11 ps-2">
                             <span class="title">'.$pant->color.'</span>
                           </span>
+                        </span>
+                        <span class=" d-block more">
+                        $'.$pant->price.'
                         </span>
                         <span class="d-block more">
                         '.$pant->description.'
@@ -1217,11 +1220,14 @@ Route::get('customize', function (Request $request) {
                         <span class="row g-0 mb-2">
                           <span class="col-1 mt-1">
                              <input type="radio" name="vest" id="choose_vest'.$vest->id.'" value="'.$vest->id.'"
-                                    class="form-check-input me-2 mb-1" onclick="getvest(this.value)"/>
+                                    class="form-check-input me-2 mb-1" onclick="getvest('.$vest->id.','.$vest->price.')"/>
                           </span>
                           <span class="col-11 ps-2">
                             <span class="title">'.$vest->color.'</span>
                           </span>
+                        </span>
+                        <span class=" d-block more">
+                        $'.$vest->price.'
                         </span>
                         <span class="text-white-50 d-block">
                         '.$vest->description.'
@@ -1249,11 +1255,14 @@ Route::get('customize', function (Request $request) {
                       <span class="row g-0 mb-2">
                         <span class="col-1 mt-1">
                           <input type="radio" name="jacket" id="choose_jacket'.$top->id.'" value="'.$top->id.'"
-                                  class="form-check-input me-2 mb-1" onclick="getjacket(this.value)"/>
+                                  class="form-check-input me-2 mb-1" onclick="getjacket('.$top->id.','.$top->price.')"/>
                         </span>
                         <span class="col-11 ps-2">
                           <span class="title">'.$top->color.'</span>
                         </span>
+                      </span>
+                      <span class=" d-block more">
+                      $'.$top->price.'
                       </span>
                       <span class=" d-block more">
                       '.$top->description.'
