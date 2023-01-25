@@ -35,6 +35,9 @@ class TemporaryCustomizeStepData extends Model
       'measure_type',
       'suit_code',
       'shipping_id',
-      'shipping_price'
+      'shipping_price',
+      'jacket_price',
+      'vest_price',
+      'pant_price'
   ];
 }

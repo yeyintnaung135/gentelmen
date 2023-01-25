@@ -133,7 +133,7 @@
       {
       if(has_step == null)
       {
-        // alert("do store temporary");
+        alert("do store temporary when no old");
         $.ajax({
           type: 'POST',
           url: '/store_customize_step_data',
@@ -159,7 +159,7 @@
             "suit_piece" : sessionStorage.getItem('suit_piece'),
             "jacket_in" :sessionStorage.getItem('jacket_in'),
             "vest_in" : sessionStorage.getItem('vest_in'),
-            "pant_in" : sessionStorage.getItem('pants_in'),
+            "pant_in" : sessionStorage.getItem('pant_in'),
             "package_price" : sessionStorage.getItem('package_price'),
             "texture_price" : sessionStorage.getItem('texture_price'),
             "cus_total_price" : sessionStorage.getItem('cus_total_price'),
@@ -446,7 +446,7 @@
                     else
                     {
                       var pant_in = data.get_step_data.pant_in
-                      sessionStorage.setItem('pants_in',pant_in);
+                      sessionStorage.setItem('pant_in',pant_in);
                     }
                     if(data.get_step_data.package_price == null)
                     {
@@ -1148,10 +1148,11 @@
             } else if (sessionStorage.getItem('package_id') != null) {
               if (count >= 1 && count <= 6) {
                 count++;
-                if(sessionStorage.getItem('package_id') != null && sessionStorage.getItem('package_id') != '')
-                {
-                  calculate_step4();
-                }
+                // if(sessionStorage.getItem('package_id') != null && sessionStorage.getItem('package_id') != '')
+                // {
+                //   calculate_step4();
+                // }
+
                 if(count == 3)
                 {
                   // alert(sessionStorage.getItem('suit_piece'));
@@ -1183,6 +1184,25 @@
                 }
                 if (count == 4) {
                   // alert("step 4 no reload");
+                  if(sessionStorage.getItem('package_id') != null && sessionStorage.getItem('package_id') != '')
+                  {
+                    if(sessionStorage.getItem('cus_total_price') != null)
+                    {
+                      if(parseInt(sessionStorage.getItem('cus_total_price')) <= parseInt(sessionStorage.getItem('package_price')))
+                      {
+                        // alert("equal");
+                        sessionStorage.setItem('cus_total_price',sessionStorage.getItem('package_price'));
+                      }
+                    }
+                    else
+                    {
+                      // alert("null qual");
+                      sessionStorage.setItem('cus_total_price',sessionStorage.getItem('package_price'));
+                    }
+
+
+                    calculate_step4();
+                  }
                   if(sessionStorage.getItem('style_id') == null || sessionStorage.getItem('style_id') == '')
                   {
                     // alert("in444");
@@ -1197,13 +1217,26 @@
                   if(sessionStorage.getItem('suit_piece') == 3)
                   {
                     // alert("radio 3 show");
+                    sessionStorage.setItem('jacket_in',true);
+                    $('.input_jacket_in').attr('checked',true);
+                    sessionStorage.setItem('vest_in',true);
+                    $('.input_vest_in').attr('checked',true);
+                    sessionStorage.setItem('pant_in',true);
+                    $('.input_pants_in').attr('checked',true);
                     $('.jacket_in').show();
                     $('.pants_in').show();
                     $('.vest_in').show();
                   }
                   else if(sessionStorage.getItem('suit_piece') == 2)
                   {
+                    sessionStorage.setItem('jacket_in',true);
+                      $('.input_jacket_in').attr('checked',true);
+                      sessionStorage.setItem('pant_in',true);
+                      $('.input_pants_in').attr('checked',true);
+                      sessionStorage.setItem('vest_in',false);
+                    $('.input_vest_in').attr('checked',false);
                     // alert("radio 2 show");
+
                       $('.vest_in').hide();
                       $('.jacket_in').show();
                     $('.pants_in').show();
@@ -1211,6 +1244,7 @@
                   else
                   {
                     // alert("bmbm");
+
                     $('.all_in').hide();
                     $('.jacket_in').hide();
                     $('.pants_in').hide();
@@ -2060,7 +2094,18 @@
       // alert(name);
       if(count == 3)
       {
+        if(sessionStorage.getItem('style_id') != null && sessionStorage.getItem('style_id') != '')
+        {
+          if(sessionStorage.getItem('suit_piece') != name)
+          {
+            sessionStorage.removeItem('style_id');
+            sessionStorage.removeItem('style_name');
+            sessionStorage.removeItem('style_cate_id');
+            sessionStorage.removeItem('style_cate_name');
+          }
+        }
         sessionStorage.setItem('suit_piece',name);
+
       }
       $.ajax({
         method: "Get",
@@ -2528,7 +2573,7 @@
           "suit_piece" : sessionStorage.getItem('suit_piece'),
           "jacket_in" : sessionStorage.getItem('jacket_in'),
           "vest_in" : sessionStorage.getItem('vest_in'),
-          "pant_in" : sessionStorage.getItem('pants_in'),
+          "pant_in" : sessionStorage.getItem('pant_in'),
           "measure_type" : sessionStorage.getItem('measure_unit'),
           "suit_piece" : sessionStorage.getItem('suit_piece')
         },
@@ -2616,23 +2661,125 @@
     $('#lf').click(function(){
       sessionStorage.setItem('fitting',4)
     })
-    function getvest(value)
+    function getvest(value,price)
     {
-      // alert(value);
+      // alert(price);
+      var package_price = parseInt(sessionStorage.getItem('package_price'));
+      var texture_total_4 = 0;
+      var jacket_total_4 = 0;
+      var pant_total_4 = 0;
       sessionStorage.setItem('vest_id',value);
+      sessionStorage.setItem('vest_price',price);
+      //total
+      var html_total = "";
+      if(sessionStorage.getItem('texture_id') != null)
+      {
+        // alert("1");
+         texture_total_4 = parseInt(sessionStorage.getItem('texture_price'));
+      }
+      if(sessionStorage.getItem('jacket_id') != null)
+      {
+        // alert("2");
+         jacket_total_4 = parseInt(sessionStorage.getItem('jacket_price'));
+      }
+      if(sessionStorage.getItem('pant_id') != null)
+      {
+        // alert("3");
+         pant_total_4 = parseInt(sessionStorage.getItem('pant_price'));
+      }
+
+      var total4 = package_price+texture_total_4+jacket_total_4+pant_total_4+parseInt(sessionStorage.getItem('vest_price'));
+      html_total +=`
+      <span class="me-3 text-gold fs-5">$</span><h4 class="d-inline ff-mont ls-0" id="step2_and_fabric_total">${total4}</h4>
+      `;
+      // alert(total4);
+      $('.three_four_price').html(html_total);
+      sessionStorage.setItem('cus_total_price',total4);
+
+      //end total
     }
-    function getjacket(value)
+    function getjacket(value,price)
     {
-      // alert(value);
+      // alert(price)
+      var package_price = parseInt(sessionStorage.getItem('package_price'));
+      var texture_total_4 = 0;
+      var vest_total_4 = 0;
+      var pant_total_4 = 0;
+      // alert(price);
+      // alert(sessionStorage.getItem('texture_id'));
       sessionStorage.setItem('jacket_id',value);
+      sessionStorage.setItem('jacket_price',price);
+      //total
+      var html_total = "";
+
+
+
+        if(sessionStorage.getItem('texture_id') != null)
+        {
+          // alert("1");
+           texture_total_4 = parseInt(sessionStorage.getItem('texture_price'));
+        }
+        if(sessionStorage.getItem('vest_id') != null)
+        {
+          // alert("2");
+           vest_total_4 = parseInt(sessionStorage.getItem('vest_price'));
+        }
+        if(sessionStorage.getItem('pant_id') != null)
+        {
+          // alert("3");
+           pant_total_4 = parseInt(sessionStorage.getItem('pant_price'));
+        }
+
+        var total4 = package_price+texture_total_4+vest_total_4+pant_total_4+parseInt(sessionStorage.getItem('jacket_price'));
+
+      html_total +=`
+      <span class="me-3 text-gold fs-5">$</span><h4 class="d-inline ff-mont ls-0" id="step2_and_fabric_total">${total4}</h4>
+      `;
+      // alert(total4);
+      $('.three_four_price').html(html_total);
+      sessionStorage.setItem('cus_total_price',total4);
+
+      //end total
     }
-    function getpant(value)
+    function getpant(value,price)
     {
-      // alert(value);
+      // alert(price);
+      var package_price = parseInt(sessionStorage.getItem('package_price'));
+      var texture_total_4 = 0;
+      var vest_total_4 = 0;
+      var jacket_total_4 = 0;
       sessionStorage.setItem('pant_id',value);
+      sessionStorage.setItem('pant_price',price);
+      //total
+      var html_total = "";
+      if(sessionStorage.getItem('texture_id') != null)
+      {
+         texture_total_4 = parseInt(sessionStorage.getItem('texture_price'));
+      }
+      if(sessionStorage.getItem('vest_id') != null)
+      {
+         vest_total_4 = parseInt(sessionStorage.getItem('vest_price'));
+      }
+      if(sessionStorage.getItem('jacket_id') != null)
+      {
+         jacket_total_4 = parseInt(sessionStorage.getItem('jacket_price'));
+      }
+
+      var total4 = package_price+texture_total_4+vest_total_4+jacket_total_4+parseInt(sessionStorage.getItem('pant_price'));
+      html_total +=`
+      <span class="me-3 text-gold fs-5">$</span><h4 class="d-inline ff-mont ls-0" id="step2_and_fabric_total">${total4}</h4>
+      `;
+      // alert(total4);
+      $('.three_four_price').html(html_total);
+      sessionStorage.setItem('cus_total_price',total4);
+
+      //end total
+
+
     }
     function update_temporary()
     {
+      // alert("update temporary");
       // sessionStorage.setItem('has_step',response.data.has_step);
       $.ajax({
         type: 'POST',
@@ -2660,12 +2807,15 @@
           "suit_piece" : sessionStorage.getItem('suit_piece'),
           "jacket_in" : sessionStorage.getItem('jacket_in'),
           "vest_in" : sessionStorage.getItem('vest_in'),
-          "pant_in" : sessionStorage.getItem('pants_in'),
+          "pant_in" : sessionStorage.getItem('pant_in'),
           "cus_total_price" : sessionStorage.getItem('cus_total_price'),
           "package_price" : sessionStorage.getItem('package_price'),
           "texture_price" : sessionStorage.getItem('texture_price'),
           "measure_type" : sessionStorage.getItem('measure_unit'),
-          "suit_code" : sessionStorage.getItem('suit_code')
+          "suit_code" : sessionStorage.getItem('suit_code'),
+          "jacket_price" : sessionStorage.getItem('jacket_price'),
+          "vest_price" : sessionStorage.getItem('vest_price'),
+          "pant_price" : sessionStorage.getItem('pant_price'),
         },
         success: function (data) {
 
@@ -2674,6 +2824,7 @@
     }
     function store_temporary()
     {
+
       var user = @json($user);
       $.ajax({
         type: 'POST',
@@ -2683,6 +2834,7 @@
           "user_id":user,
           "cus_cate_id": sessionStorage.getItem('customize_category_id'),
           "package_id" : sessionStorage.getItem('package_id'),
+          "package_price" : sessionStorage.getItem('package_price'),
           "style_id" : sessionStorage.getItem('style_id'),
           "style_name" : sessionStorage.getItem('style_name'),
           "style_cate_name" : sessionStorage.getItem('style_cate_name'),
@@ -2697,6 +2849,7 @@
           "order_id" : sessionStorage.getItem('order_id'),
           "step_no" : sessionStorage.getItem('step_no'),
           "measured" : sessionStorage.getItem('measure_step'),
+          "cus_total_price" : sessionStorage.getItem('package_price'),
         },
         success: function (data) {
           sessionStorage.setItem('has_step',data.has_step);
@@ -2818,7 +2971,7 @@
         {
           $('#vest'+sessionStorage.getItem('texture_id')).attr('checked',true);
         }
-        if(sessionStorage.getItem('pants_in') == 'true')
+        if(sessionStorage.getItem('pant_in') == 'true')
         {
           $('#pants'+sessionStorage.getItem('texture_id')).attr('checked',true);
         }
@@ -2827,7 +2980,7 @@
         if(sessionStorage.getItem('jacket_id') != '' && sessionStorage.getItem('jacket_id') != null)
         {
           // alert("choose jacket done");
-          $('#choose_jacket'+sessionStorage.getItem('jacket_id')).attr('checked',true);
+          $('#choose_jacket15').attr('checked',true);
         }
         if(sessionStorage.getItem('vest_id') != '' && sessionStorage.getItem('vest_id') != null)
         {
@@ -2857,11 +3010,11 @@
       }
       //step 4 sessiondata selected end
       // alert("count4four");
-      if(count == 4)
-      {
-        // alert("count4modal pupup");
-        $('#myFabric'+sessionStorage.getItem('texture_id')).modal('show');
-      }
+      // if(count == 4)
+      // {
+      //   // alert("count4modal pupup");
+      //   $('#myFabric'+sessionStorage.getItem('texture_id')).modal('show');
+      // }
       if(sessionStorage.getItem('package_id') != null && sessionStorage.getItem('package_id') != '')
       {
         calculate_step4();
@@ -2870,17 +3023,10 @@
     }
     function calculate_step4()
     {
+      // alert("cal444");
       //start calculate step2 and if choose fabric
       var html_total = "";
-      if(sessionStorage.getItem('texture_id') != null && sessionStorage.getItem('texture_id') != '')
-      {
-        // alert("wrong cal 4");
-        var total4 = parseInt(sessionStorage.getItem('package_price'))+parseInt(sessionStorage.getItem('texture_price'))
-      }
-      else
-      {
-        var total4 = sessionStorage.getItem('package_price')
-      }
+      var total4 = sessionStorage.getItem('cus_total_price');
       html_total +=`
       <span class="me-3 text-gold fs-5">$</span><h4 class="d-inline ff-mont ls-0" id="step2_and_fabric_total">${total4}</h4>
       `;
