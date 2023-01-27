@@ -99,9 +99,9 @@
                                 ),
                             }"
                         >
-                        <label style="font-size: 15px" class="text-danger"
+                        <!-- <label style="font-size: 15px" class="text-danger"
                                 >Upload Min One Photo(MinWidth:400px to MaxWidth:800px and MinHeight:500px to MaxHeight:900px)</label
-                            >
+                            > -->
                         </div>
                         <vue-dropzone ref="myVueDropzone"  id="customdropzone" 
                         :options="dropzoneOptions"
@@ -305,44 +305,44 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
             let sizeStatus = false;
             var alertSize = new Array();
             var i = 0;
-            this.$refs.myVueDropzone.getQueuedFiles().forEach(file => {
-            // alert(file.upload.filename);
-            if(file.height > 900 || file.height < 500 && file.width > 800 || file.width < 400)
-            {
-                alertSize[i] = file.upload.filename+" is not match with width min - 400 to max - 800 and height min - 500 to max - 900";
+            // this.$refs.myVueDropzone.getQueuedFiles().forEach(file => {
+            // // alert(file.upload.filename);
+            // if(file.height > 900 || file.height < 500 && file.width > 800 || file.width < 400)
+            // {
+            //     alertSize[i] = file.upload.filename+" is not match with width min - 400 to max - 800 and height min - 500 to max - 900";
 
-                // alert(file.upload.filename+" is not match 525*295");
-                i++;
-                sizeStatus = false;
-            }
-            else if(file.width > 800 || file.width < 400)
-            {
-              alertSize[i] = file.upload.filename+" is not match width min - 400 to max - 800";
-              i++;
-                // alert(file.upload.filename+" is not match width 525");
-                sizeStatus = false;
-            }
-            else if(file.height > 900 || file.height < 500)
-            {
-              alertSize[i] = file.upload.filename+" is not match height min - 500 to max - 900";
-              i++;
-                // alert(file.upload.filename+" is not match height 295");
-                sizeStatus = false;
-            }
-            else if(file.height <= 900 || file.height >= 500 && file.width <= 800 || file.width >= 400)
-            {
-                 sizeStatus = true;
-            }
-            });
+            //     // alert(file.upload.filename+" is not match 525*295");
+            //     i++;
+            //     sizeStatus = false;
+            // }
+            // else if(file.width > 800 || file.width < 400)
+            // {
+            //   alertSize[i] = file.upload.filename+" is not match width min - 400 to max - 800";
+            //   i++;
+            //     // alert(file.upload.filename+" is not match width 525");
+            //     sizeStatus = false;
+            // }
+            // else if(file.height > 900 || file.height < 500)
+            // {
+            //   alertSize[i] = file.upload.filename+" is not match height min - 500 to max - 900";
+            //   i++;
+            //     // alert(file.upload.filename+" is not match height 295");
+            //     sizeStatus = false;
+            // }
+            // else if(file.height <= 900 || file.height >= 500 && file.width <= 800 || file.width >= 400)
+            // {
+            //      sizeStatus = true;
+            // }
+            // });
              // alert(sizeStatus);
-             if(sizeStatus == false)
-            {
-              alert(alertSize);
+            //  if(sizeStatus == false)
+            // {
+            //   alert(alertSize);
 
-            }
+            // }
 
-            if(sizeStatus == true)
-            {
+            // if(sizeStatus == true)
+            // {
 
             axios.post('/store_shirt_button',formData,config)
             .then(function (response){
@@ -360,7 +360,7 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
             .catch(function (error){
                 // alert("wrong");
             })
-        }
+        // }
         },
 
         template: function () {

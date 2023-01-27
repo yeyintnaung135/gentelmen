@@ -23,7 +23,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <!-- <div class="col-6">
                                 <div class="form-group">
                                     <label>Texture</label>
                                     <select class="form-control"
@@ -38,7 +38,7 @@
                                         <option v-for="(texture,index) in textures" :key="index" :value="texture.name">{{texture.name}}</option>
                                     </select>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="col-6">
                                 <div class="form-group">
                                     <label>Choose Style</label>
@@ -94,9 +94,9 @@
                                 ),
                             }"
                         >
-                        <label style="font-size: 15px" class="text-danger"
+                        <!-- <label style="font-size: 15px" class="text-danger"
                                 >Upload Min One Photo(MinWidth:400px to MaxWidth:800px and MinHeight:500px to MaxHeight:900px)</label
-                            >
+                            > -->
                         </div>
                         <vue-dropzone ref="myVueDropzone"  id="customdropzone"
                         :options="dropzoneOptions"
@@ -137,7 +137,7 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
             uploadCount:0,
             removeCount:0,
 
-            textures:{},
+            // textures:{},
             colors:{},
             styles:{},
             customize_cates:{},
@@ -220,7 +220,7 @@ headers: { 'content-type': 'multipart/form-data' }
                 formData.append('price', this.top.price);
                 formData.append('style', this.top.style_id);
                 formData.append('color', this.top.jacket_button_id);
-                formData.append('texture', this.top.texture_id);
+                // formData.append('texture', this.top.texture_id);
                 formData.append('type', this.top.customize_cate_id);
                 formData.append('images', this.$refs.myVueDropzone.getQueuedFiles());
                 this.$refs.myVueDropzone.getQueuedFiles().forEach(file => {
@@ -229,7 +229,7 @@ headers: { 'content-type': 'multipart/form-data' }
 
             axios.post('/store_top',formData,config)
             .then(function (response){
-                alert("access");
+                // alert("access");
                 window.location.reload();
             })
             .catch(function (error){
@@ -289,10 +289,10 @@ headers: { 'content-type': 'multipart/form-data' }
                 var alertText = new Array();
                 var i = 0;
 
-                if(this.requireerroryk.texture_id) {
-                  alertText[i] = "need to select the texture";
-                  i++;
-                }
+                // if(this.requireerroryk.texture_id) {
+                //   alertText[i] = "need to select the texture";
+                //   i++;
+                // }
                 if(this.requireerroryk.style_id) {
                   alertText[i] = "need to select the style";
                   i++;
@@ -339,7 +339,7 @@ headers: { 'content-type': 'multipart/form-data' }
                 formData.append('price', this.top.price);
                 formData.append('style', this.top.style_id);
                 formData.append('color', this.top.jacket_button_id);
-                formData.append('texture', this.top.texture_id);
+                // formData.append('texture', this.top.texture_id);
                 formData.append('type', this.top.customize_cate_id);
                 formData.append('images', this.$refs.myVueDropzone.getQueuedFiles());
                 this.$refs.myVueDropzone.getQueuedFiles().forEach(file => {
@@ -352,42 +352,42 @@ headers: { 'content-type': 'multipart/form-data' }
             let sizeStatus = false;
             var alertSize = new Array();
             var i = 0;
-            this.$refs.myVueDropzone.getQueuedFiles().forEach(file => {
-            // alert(file.upload.filename);
-            if(file.height > 900 || file.height < 500 && file.width > 800 || file.width < 400)
-            {
-                alertSize[i] = file.upload.filename+" is not match with width min - 400 to max - 800 and height min - 500 to max - 900";
+            // this.$refs.myVueDropzone.getQueuedFiles().forEach(file => {
+            // // alert(file.upload.filename);
+            // if(file.height > 900 || file.height < 500 && file.width > 800 || file.width < 400)
+            // {
+            //     alertSize[i] = file.upload.filename+" is not match with width min - 400 to max - 800 and height min - 500 to max - 900";
 
-                // alert(file.upload.filename+" is not match 525*295");
-                i++;
-                sizeStatus = false;
-            }
-            else if(file.width > 800 || file.width < 400)
-            {
-              alertSize[i] = file.upload.filename+" is not match width min - 400 to max - 800";
-              i++;
-                // alert(file.upload.filename+" is not match width 525");
-                sizeStatus = false;
-            }
-            else if(file.height > 900 || file.height < 500)
-            {
-              alertSize[i] = file.upload.filename+" is not match height min - 500 to max - 900";
-              i++;
-                // alert(file.upload.filename+" is not match height 295");
-                sizeStatus = false;
-            }
-            else if(file.height <= 900 || file.height >= 500 && file.width <= 800 || file.width >= 400)
-            {
-                 sizeStatus = true;
-            }
-            });
-            if(sizeStatus == false)
-            {
-              alert(alertSize);
+            //     // alert(file.upload.filename+" is not match 525*295");
+            //     i++;
+            //     sizeStatus = false;
+            // }
+            // else if(file.width > 800 || file.width < 400)
+            // {
+            //   alertSize[i] = file.upload.filename+" is not match width min - 400 to max - 800";
+            //   i++;
+            //     // alert(file.upload.filename+" is not match width 525");
+            //     sizeStatus = false;
+            // }
+            // else if(file.height > 900 || file.height < 500)
+            // {
+            //   alertSize[i] = file.upload.filename+" is not match height min - 500 to max - 900";
+            //   i++;
+            //     // alert(file.upload.filename+" is not match height 295");
+            //     sizeStatus = false;
+            // }
+            // else if(file.height <= 900 || file.height >= 500 && file.width <= 800 || file.width >= 400)
+            // {
+            //      sizeStatus = true;
+            // }
+            // });
+            // if(sizeStatus == false)
+            // {
+            //   alert(alertSize);
 
-            }
-            if(sizeStatus == true)
-            {
+            // }
+            // if(sizeStatus == true)
+            // {
             axios.post('/store_edit_top',formData,config)
 
             .then(function (response){
@@ -399,6 +399,8 @@ headers: { 'content-type': 'multipart/form-data' }
                     icon: "success"
                 }).then(function() {
                     window.history.back();
+                    // location.reload(true);
+                    sessionStorage.setItem('reload_additional_list',1);
                 });
 
                
@@ -408,7 +410,7 @@ headers: { 'content-type': 'multipart/form-data' }
                 // alert("wrong");
                 console.log(error);
             })
-        }
+        // }
         },
 
         removeThisFile (file) {
@@ -566,10 +568,10 @@ headers: { 'content-type': 'multipart/form-data' }
             axios.post('/get_edit_top',topID)
             .then( (response) => {
                 // alert("access");
-                console.log(response.color);
-                this.top.texture_id =  response.data.tops.texture,
+                console.log(response.data.tops.style);
+                // this.top.texture_id =  response.data.tops.texture,
                 this.top.style_id = response.data.tops.style,
-                this.top.customize_cate_id = response.data.tops.type,
+                this.top.customize_cate_id = response.data.tops.type,   
                 this.top.jacket_button_id = response.data.tops.color,
                 this.top.price = response.data.tops.price
                 // window.location.reload();
