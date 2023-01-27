@@ -24,7 +24,7 @@
   <!--
   *6767# *224#
   -->
-  <div class="top-margin">
+  <div class="top-margin mt-3">
    <div class="d-none d-lg-block">
     <div id="style_nav" class="nav nav-pills text-uppercase justify-content-between">
       @foreach($style_cates as $style_cate)

@@ -1,10 +1,4 @@
-<<<<<<< HEAD
 <div class="content" id="fabric">
-  <div class="filter-offcanva d-lg-none">
-    <button class="mb-4 filter-btn" type="button" data-bs-toggle="offcanvas"
-            data-bs-target="#sideFilter">
-=======
-<div class="col-9 col-md-8 pt-3 px-2 px-md-0 content" id="fabric">
   <input type="hidden" id="color_filter_status" value="oncolor">
   <input type="hidden" id="fabric_filter_status" value="ontexture">
   <input type="hidden" id="pattern_filter_status" value="onpattern">
@@ -12,9 +6,8 @@
   <input type="hidden" id="low_price_filter_status" value="low">
   <input type="hidden" id="high_price_filter_status" value="high">
   <div class="filter-offcanva d-lg-none">
-    <button class="ms-2 mb-4 filter-btn" type="button" data-bs-toggle="offcanvas"
+    <button class="mb-4 filter-btn" type="button" data-bs-toggle="offcanvas"
             data-bs-target="#sideFilter" onclick="mobile_filter_status()">
->>>>>>> f7a5bc17c3000c1ed7a916d59406bf9c4305aa3a
       <i class='bx bx-filter-alt'></i>Filter
     </button>
   </div>
