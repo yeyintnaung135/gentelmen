@@ -193,10 +193,10 @@ class TopController extends Controller
     {
         logger($request->all());
         $edit_top = Top::find($request->top_id);
-        $edit_top->texture = $request->texture;
+        // $edit_top->texture = $request->texture;
         $edit_top->style = $request->style;
         $edit_top->color = $request->color;
-        $edit_top->size = $request->size;
+        // $edit_top->size = $request->size;
         $edit_top->price = $request->price;
         $edit_top->type = $request->type;
 

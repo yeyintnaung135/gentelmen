@@ -99,6 +99,12 @@
 @endsection
 @push('datatables-scripts')
 <script>
+     if(sessionStorage.getItem('reload_additional_list') == 1)
+    {
+      // alert();
+      window.location.reload();
+      sessionStorage.removeItem('reload_additional_list');
+    }
  $(function () {
     $('#example2').DataTable({
       "paging": true,

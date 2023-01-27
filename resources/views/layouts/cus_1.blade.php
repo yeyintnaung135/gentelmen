@@ -3,8 +3,8 @@
   <div class="row g-3 g-md-5">
 
 
-    @foreach($customize_cates as $customize_cate)
-      <div onclick="cus2_option('{{$customize_cate->id}}')"  class="col-md-4 col-6 mb-md-0" data-aos="fade-up">
+
+      {{-- <div onclick="cus2_option('{{$customize_cate->id}}')"  class="col-md-4 col-6 mb-md-0" data-aos="fade-up">
         <div class="radio-group">
           <input type="radio" name="customize_category" value="{{$customize_cate->id}}" id="cus{{$customize_cate->id}}" class="form-check-input"/>
           <label class="radio-label cursor-pointer" for="cus{{$customize_cate->id}}">
@@ -13,8 +13,47 @@
             <span class="ff-mont cus2-title">{{$customize_cate->name}}</span><br>
           </label>
         </div>
+      </div> --}}
+      <div onclick="cus2_option('{{$suit_customize_cate->id}}')"  class="col-md-4 col-6 mb-md-0" data-aos="fade-up">
+        <div class="radio-group">
+          <input type="radio" name="customize_category" value="{{$suit_customize_cate->id}}" id="cus{{$suit_customize_cate->id}}" class="form-check-input"/>
+          <label class="radio-label cursor-pointer" for="cus{{$suit_customize_cate->id}}">
+            <img src="{{asset('/assets/images/customize_category/'.$suit_customize_cate->file)}}" alt=""
+                 class="mb-1" id="cus_checked{{$suit_customize_cate->id}}">
+            <span class="ff-mont cus2-title">{{$suit_customize_cate->name}}</span><br>
+          </label>
+        </div>
       </div>
-    @endforeach
+      <div onclick="cus2_option('{{$jacket_customize_cate->id}}')"  class="col-md-4 col-6 mb-md-0" data-aos="fade-up">
+        <div class="radio-group">
+          <input type="radio" name="customize_category" value="{{$jacket_customize_cate->id}}" id="cus{{$jacket_customize_cate->id}}" class="form-check-input"/>
+          <label class="radio-label cursor-pointer" for="cus{{$jacket_customize_cate->id}}">
+            <img src="{{asset('/assets/images/customize_category/'.$jacket_customize_cate->file)}}" alt=""
+                 class="mb-1" id="cus_checked{{$jacket_customize_cate->id}}">
+            <span class="ff-mont cus2-title">{{$jacket_customize_cate->name}}</span><br>
+          </label>
+        </div>
+      </div>
+      <div onclick="cus2_option('{{$vest_customize_cate->id}}')"  class="col-md-4 col-6 mb-md-0" data-aos="fade-up">
+        <div class="radio-group">
+          <input type="radio" name="customize_category" value="{{$vest_customize_cate->id}}" id="cus{{$vest_customize_cate->id}}" class="form-check-input"/>
+          <label class="radio-label cursor-pointer" for="cus{{$vest_customize_cate->id}}">
+            <img src="{{asset('/assets/images/customize_category/'.$vest_customize_cate->file)}}" alt=""
+                 class="mb-1" id="cus_checked{{$vest_customize_cate->id}}">
+            <span class="ff-mont cus2-title">{{$vest_customize_cate->name}}</span><br>
+          </label>
+        </div>
+      </div>
+    <div onclick="cus2_option('{{$pant_customize_cate->id}}')"  class="col-md-4 col-6 mb-md-0" data-aos="fade-up">
+      <div class="radio-group">
+        <input type="radio" name="customize_category" value="{{$pant_customize_cate->id}}" id="cus{{$pant_customize_cate->id}}" class="form-check-input"/>
+        <label class="radio-label cursor-pointer" for="cus{{$pant_customize_cate->id}}">
+          <img src="{{asset('/assets/images/customize_category/'.$pant_customize_cate->file)}}" alt=""
+               class="mb-1" id="cus_checked{{$pant_customize_cate->id}}">
+          <span class="ff-mont cus2-title">{{$pant_customize_cate->name}}</span><br>
+        </label>
+      </div>
+    </div>
     <!-- <div class="col-md-4 col-6 mb-md-0" data-aos="fade-up" >
       <div class="radio-group ">
         <input type="radio" name="test" id="jacket" class="form-check-input"/>

@@ -21,7 +21,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <!-- <div class="col-6">
                                 <div class="form-group">
                                     <label>Texture</label>
                                     <select class="form-control" 
@@ -36,7 +36,7 @@
                                         <option v-for="(texture,index) in textures" :key="index" :value="texture.name">{{texture.name}}</option>
                                     </select>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="col-6">
                                 <div class="form-group">
                                     <label>Choose Style</label>
@@ -136,9 +136,9 @@
                                 ),
                             }"
                         >
-                        <label style="font-size: 15px" class="text-danger"
+                        <!-- <label style="font-size: 15px" class="text-danger"
                                 >Upload Min One Photo(MinWidth:400px to MaxWidth:800px and MinHeight:500px to MaxHeight:900px)</label
-                            >
+                            > -->
                         </div>
                         <vue-dropzone ref="myVueDropzone"  id="customdropzone" 
                         :options="dropzoneOptions"
@@ -261,10 +261,10 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
                 tmperrorcounts += 1;
             } else {this.requireerroryk.jacket_button_id = false;}
 
-            if (this.top.size == "") {
-                this.requireerroryk.size = true;
-                tmperrorcounts += 1;
-            } else {this.requireerroryk.size = false;}
+            // if (this.top.size == "") {
+            //     this.requireerroryk.size = true;
+            //     tmperrorcounts += 1;
+            // } else {this.requireerroryk.size = false;}
 
             if (this.top.customize_cate_id == "") {
                 this.requireerroryk.customize_cate_id = true;
@@ -299,10 +299,10 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
                 var alertText = new Array();
                 var i = 0;
 
-                if(this.requireerroryk.texture_id) {
-                  alertText[i] = "need to select the texture";
-                  i++;
-                }
+                // if(this.requireerroryk.texture_id) {
+                //   alertText[i] = "need to select the texture";
+                //   i++;
+                // }
                 if(this.requireerroryk.style_id) {
                   alertText[i] = "need to select the style";
                   i++;
@@ -311,10 +311,10 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
                   alertText[i] = "need to select the button";
                   i++;
                 }
-                if(this.requireerroryk.size) {
-                  alertText[i] = "need to select the size";
-                  i++;
-                }
+                // if(this.requireerroryk.size) {
+                //   alertText[i] = "need to select the size";
+                //   i++;
+                // }
                 if(this.requireerroryk.customize_cate_id) {
                   alertText[i] = "need to select the type";
                   i++;
@@ -348,8 +348,8 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
                 formData.append('price', this.top.price);
                 formData.append('style', this.top.style_id);
                 formData.append('color', this.top.jacket_button_id);
-                formData.append('size', this.top.size);
-                formData.append('texture', this.top.texture_id);
+                // formData.append('size', this.top.size);
+                // formData.append('texture', this.top.texture_id);
                 formData.append('type', this.top.customize_cate_id);
                 formData.append('images', this.$refs.myVueDropzone.getQueuedFiles());
                 this.$refs.myVueDropzone.getQueuedFiles().forEach(file => {
@@ -359,44 +359,44 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
             let sizeStatus = false;
             var alertSize = new Array();
             var i = 0;
-            this.$refs.myVueDropzone.getQueuedFiles().forEach(file => {
-            // alert(file.upload.filename);
-            if(file.height > 900 || file.height < 500 && file.width > 800 || file.width < 400)
-            {
-                alertSize[i] = file.upload.filename+" is not match with width min - 400 to max - 800 and height min - 500 to max - 900";
+            // this.$refs.myVueDropzone.getQueuedFiles().forEach(file => {
+            // // alert(file.upload.filename);
+            // if(file.height > 900 || file.height < 500 && file.width > 800 || file.width < 400)
+            // {
+            //     alertSize[i] = file.upload.filename+" is not match with width min - 400 to max - 800 and height min - 500 to max - 900";
 
-                // alert(file.upload.filename+" is not match 525*295");
-                i++;
-                sizeStatus = false;
-            }
-            else if(file.width > 800 || file.width < 400)
-            {
-              alertSize[i] = file.upload.filename+" is not match width min - 400 to max - 800";
-              i++;
-                // alert(file.upload.filename+" is not match width 525");
-                sizeStatus = false;
-            }
-            else if(file.height > 900 || file.height < 500)
-            {
-              alertSize[i] = file.upload.filename+" is not match height min - 500 to max - 900";
-              i++;
-                // alert(file.upload.filename+" is not match height 295");
-                sizeStatus = false;
-            }
-            else if(file.height <= 900 || file.height >= 500 && file.width <= 800 || file.width >= 400)
-            {
-                 sizeStatus = true;
-            }
-            });
+            //     // alert(file.upload.filename+" is not match 525*295");
+            //     i++;
+            //     sizeStatus = false;
+            // }
+            // else if(file.width > 800 || file.width < 400)
+            // {
+            //   alertSize[i] = file.upload.filename+" is not match width min - 400 to max - 800";
+            //   i++;
+            //     // alert(file.upload.filename+" is not match width 525");
+            //     sizeStatus = false;
+            // }
+            // else if(file.height > 900 || file.height < 500)
+            // {
+            //   alertSize[i] = file.upload.filename+" is not match height min - 500 to max - 900";
+            //   i++;
+            //     // alert(file.upload.filename+" is not match height 295");
+            //     sizeStatus = false;
+            // }
+            // else if(file.height <= 900 || file.height >= 500 && file.width <= 800 || file.width >= 400)
+            // {
+            //      sizeStatus = true;
+            // }
+            // });
              // alert(sizeStatus);
-             if(sizeStatus == false)
-            {
-              alert(alertSize);
+            //  if(sizeStatus == false)
+            // {
+            //   alert(alertSize);
 
-            }
+            // }
 
-            if(sizeStatus == true)
-            {
+            // if(sizeStatus == true)
+            // {
             axios.post('/store_top',formData,config)
             .then(function (response){
                 // alert("your item is successfully uploaded");
@@ -413,7 +413,7 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
             .catch(function (error){
                 // alert("wrong");
             })
-        }
+        // }
         },
 
         template: function () {

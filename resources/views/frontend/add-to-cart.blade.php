@@ -179,6 +179,7 @@
     }
     $(document).ready(function () {
       var user_id = @json($user_id);
+      
       var user_info = @json($user_info);
       if(user_info.city == null)
       {

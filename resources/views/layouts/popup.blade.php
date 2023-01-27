@@ -307,7 +307,7 @@
                     //store temporary data for user start
                     if(response.data.has_step == null)
                     {
-                      alert("do store temporary");
+                      // alert("do store temporary");
 
                       $.ajax({
                         type: 'POST',
@@ -337,7 +337,7 @@
                           "suit_piece" : sessionStorage.getItem('suit_piece'),
                           "jacket_in" :sessionStorage.getItem('jacket_in'),
                           "vest_in" : sessionStorage.getItem('vest_in'),
-                          "pant_in" : sessionStorage.getItem('pants_in'),
+                          "pant_in" : sessionStorage.getItem('pant_in'),
                           "package_price" : sessionStorage.getItem('package_price'),
                           "texture_price" : sessionStorage.getItem('texture_price'),
                           "cus_total_price" : sessionStorage.getItem('cus_total_price'),
@@ -651,7 +651,7 @@
                                   else
                                   {
                                     var pant_in = data.get_step_data.pant_in
-                                    sessionStorage.setItem('pants_in',pant_in);
+                                    sessionStorage.setItem('pant_in',pant_in);
                                   }
                                   if(data.get_step_data.package_price == null)
                                   {

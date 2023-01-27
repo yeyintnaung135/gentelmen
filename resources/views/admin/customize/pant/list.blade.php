@@ -50,7 +50,7 @@
                     <td><img class="rounded-5 shadow-sm" src="{{'/assets/images/customize/pant/'. $pant->photo_one}}" alt="" width="100px" height="60px"/></td>
                     <td>{{$pant->style}}</td>
                     <td>{{$pant->color}}</td>
-                    <td>{{$pant->size}}</td>
+                    <!-- <td>{{$pant->size}}</td> -->
                     <td>{{$pant->description}}</td>
                     <td>{{$pant->price}}</td>
                     <td>
@@ -100,6 +100,13 @@
 @endsection
 @push('datatables-scripts')
 <script>
+      if(sessionStorage.getItem('reload_additional_list') == 1)
+    {
+      // alert();
+      window.location.reload();
+      sessionStorage.removeItem('reload_additional_list');
+    }
+
  $(function () {
     $('#example2').DataTable({
       "paging": true,

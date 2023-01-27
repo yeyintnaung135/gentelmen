@@ -163,6 +163,12 @@ function vest_infinite_scroll_start(style)
         $('.auto-load').hide();
 
         $("#vest-lapel").append(response.res);
+        //checked if vest is checked start
+        if(sessionStorage.getItem('vest_id') != '' && sessionStorage.getItem('vest_id') != null)
+        {
+          $('#choose_vest'+sessionStorage.getItem('vest_id')).attr('checked',true);
+        }
+        //checked if vest is checked end
         // $("#grand_space").fadeIn(3000);
         // console.log("fade")
         // $("#myModal").modal()

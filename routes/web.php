@@ -27,6 +27,7 @@ use App\FaqQuestion;
 use App\FaqTitle;
 use App\ReadyToWear;
 // use App\Style_Category;
+use App\TemporaryCustomizeStep;
 use App\Order;
 use App\CartOrder;
 
@@ -493,6 +494,10 @@ Route::get('customize', function (Request $request) {
     $carts = AddToCart::where('user_id',Session::get('user_id'))->get();
     $packages = Package::all();
     $customize_cates = CustomizeCategory::all();
+    $jacket_customize_cate = CustomizeCategory::find(1);
+    $vest_customize_cate = CustomizeCategory::find(2);
+    $pant_customize_cate = CustomizeCategory::find(3);
+    $suit_customize_cate = CustomizeCategory::find(9);
     $style_cates = Style_Category::all();
     $styles = Style::all();
     // return dd($styles);
@@ -1312,8 +1317,11 @@ Route::get('customize', function (Request $request) {
     // dd($additionals);
     $grand_textures = Texture::all();
     $shippings = Shipping::all();
+    $temporary_id = Session::get('has_step');
+    $temporary = TemporaryCustomizeStep::find($temporary_id);
+    // dd($temporary);
     // dd($shippings);
-    return view('frontend.customize',compact('shippings','grand_textures','additionals','not_unique_pants','pants','not_unique_vests','vests','not_unique_tops','jacket_buttons','top_cates','tops','styles','style_cates','favs','carts','packages','customize_cates','user','user_info','upper','lower','Grands', 'textures', 'subs','colors', 'patterns'));
+    return view('frontend.customize',compact('temporary','jacket_customize_cate','vest_customize_cate','pant_customize_cate','suit_customize_cate','shippings','grand_textures','additionals','not_unique_pants','pants','not_unique_vests','vests','not_unique_tops','jacket_buttons','top_cates','tops','styles','style_cates','favs','carts','packages','customize_cates','user','user_info','upper','lower','Grands', 'textures', 'subs','colors', 'patterns'));
 
 
 });
