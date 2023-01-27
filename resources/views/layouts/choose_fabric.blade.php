@@ -1,6 +1,6 @@
-<div class="col-9 col-md-8 pt-3 px-2 px-md-0 content" id="fabric">
+<div class="content" id="fabric">
   <div class="filter-offcanva d-lg-none">
-    <button class="ms-2 mb-4 filter-btn" type="button" data-bs-toggle="offcanvas"
+    <button class="mb-4 filter-btn" type="button" data-bs-toggle="offcanvas"
             data-bs-target="#sideFilter">
       <i class='bx bx-filter-alt'></i>Filter
     </button>
@@ -28,23 +28,6 @@
                   </li>
 
                 @endforeach
-                {{-- <li class="dropdown-item">
-                  <input type="checkbox" class="form-check-input me-3 m-0" id="red" name="colour">
-                  <label class="form-check-label" for="red">red</label>
-                </li>
-                <li class="dropdown-item">
-                  <input type="checkbox" class="form-check-input me-3 m-0" id="green" name="colour">
-                  <label class="form-check-label" for="green">Green</label>
-                </li>
-                <li class="dropdown-item">
-                  <input type="checkbox" class="form-check-input me-3 m-0" id="white" name="colour">
-                  <label class="form-check-label" for="white">White</label>
-                </li>
-                <li class="dropdown-item">
-                  <input type="checkbox" class="form-check-input me-3 m-0" id="silver"
-                         name="colour">
-                  <label class="form-check-label" for="silver">Silver</label>
-                </li> --}}
               </ul>
             </div>
           </div>
@@ -65,51 +48,7 @@
                            for="ontexture{{$texture->id}}">{{$texture->name}}</label>
                   </li>
                 @endforeach
-                {{-- <li class="dropdown-item">
-                  <input type="checkbox" class="form-check-input me-3 m-0" id="pwool"
-                         name="fabrics">
-                  <label class="form-check-label" for="pwool">Pure Wool</label>
-                </li>
-                <li class="dropdown-item">
-                  <input type="checkbox" class="form-check-input me-3 m-0" id="cashmere"
-                         name="fabrics">
-                  <label class="form-check-label" for="cashmere">Cashmere</label>
-                </li>
-                <li class="dropdown-item">
-                  <input type="checkbox" class="form-check-input me-3 m-0" id="flannel"
-                         name="fabrics">
-                  <label class="form-check-label" for="flannel">Flannel</label>
-                </li>
-                <li class="dropdown-item">
-                  <input type="checkbox" class="form-check-input me-3 m-0" id="linen"
-                         name="fabrics">
-                  <label class="form-check-label" for="linen">linen</label>
-                </li>
-                <li class="dropdown-item">
-                  <input type="checkbox" class="form-check-input me-3 m-0" id="cotton"
-                         name="fabrics">
-                  <label class="form-check-label" for="cotton">cotton</label>
-                </li>
-                <li class="dropdown-item">
-                  <input type="checkbox" class="form-check-input me-3 m-0" id="tweet"
-                         name="fabrics">
-                  <label class="form-check-label" for="tweet">tweet</label>
-                </li>
-                <li class="dropdown-item">
-                  <input type="checkbox" class="form-check-input me-3 m-0" id="velvet"
-                         name="fabrics">
-                  <label class="form-check-label" for="velvet">velvet</label>
-                </li>
-                <li class="dropdown-item">
-                  <input type="checkbox" class="form-check-input me-3 m-0" id="seesucker"
-                         name="fabrics">
-                  <label class="form-check-label" for="seesucker">seesucker</label>
-                </li>
-                <li class="dropdown-item">
-                  <input type="checkbox" class="form-check-input me-3 m-0" id="rcarpet"
-                         name="fabrics">
-                  <label class="form-check-label" for="rcarpet">red carpet</label>
-                </li> --}}
+
               </ul>
             </div>
           </div>
@@ -131,31 +70,7 @@
                            for="onpattern{{$pattern->id}}">{{$pattern->name}}</label>
                   </li>
                 @endforeach
-                {{-- <li class="dropdown-item">
-                  <input type="checkbox" class="form-check-input me-3 m-0" id="plaids"
-                         name="fabrics">
-                  <label class="form-check-label" for="plaids">plaids</label>
-                </li>
-                <li class="dropdown-item">
-                  <input type="checkbox" class="form-check-input me-3 m-0" id="herringbone"
-                         name="fabrics">
-                  <label class="form-check-label" for="herringbone">herringbone</label>
-                </li>
-                <li class="dropdown-item">
-                  <input type="checkbox" class="form-check-input me-3 m-0" id="houndstooth"
-                         name="fabrics">
-                  <label class="form-check-label" for="houndstooth">houndstooth</label>
-                </li>
-                <li class="dropdown-item">
-                  <input type="checkbox" class="form-check-input me-3 m-0" id="donegal"
-                         name="fabrics">
-                  <label class="form-check-label" for="donegal">donegal</label>
-                </li>
-                <li class="dropdown-item">
-                  <input type="checkbox" class="form-check-input me-3 m-0" id="pattern"
-                         name="fabrics">
-                  <label class="form-check-label" for="pattern">pattern</label>
-                </li> --}}
+
               </ul>
             </div>
           </div>
@@ -177,31 +92,7 @@
                            for="onpackage{{$package->id}}">{{$package->title}}</label>
                   </li>
                 @endforeach
-                {{-- <li class="dropdown-item">
-                  <input type="checkbox" class="form-check-input me-3 m-0" id="plaids"
-                         name="fabrics">
-                  <label class="form-check-label" for="plaids">plaids</label>
-                </li>
-                <li class="dropdown-item">
-                  <input type="checkbox" class="form-check-input me-3 m-0" id="herringbone"
-                         name="fabrics">
-                  <label class="form-check-label" for="herringbone">herringbone</label>
-                </li>
-                <li class="dropdown-item">
-                  <input type="checkbox" class="form-check-input me-3 m-0" id="houndstooth"
-                         name="fabrics">
-                  <label class="form-check-label" for="houndstooth">houndstooth</label>
-                </li>
-                <li class="dropdown-item">
-                  <input type="checkbox" class="form-check-input me-3 m-0" id="donegal"
-                         name="fabrics">
-                  <label class="form-check-label" for="donegal">donegal</label>
-                </li>
-                <li class="dropdown-item">
-                  <input type="checkbox" class="form-check-input me-3 m-0" id="pattern"
-                         name="fabrics">
-                  <label class="form-check-label" for="pattern">pattern</label>
-                </li> --}}
+
               </ul>
             </div>
           </div>
@@ -224,11 +115,6 @@
                          name="fabrics" value="1">
                   <label class="form-check-label" for="high">highest to lowest</label>
                 </li>
-                {{-- <li class="dropdown-item">
-                  <input type="checkbox" class="form-check-input me-3 m-0" id="legacy"
-                         name="fabrics">
-                  <label class="form-check-label" for="legacy">legacy</label>
-                </li> --}}
               </ul>
             </div>
           </div>
@@ -241,7 +127,7 @@
       </div>
     </div>
   </div>
-  <div class="row g-0 g-md-5 me-2" id="grand-space" style="max-width:1200px">
+  <div class="fabric-wrapper" id="grand-space">
 
   </div>
   <div class="auto-load text-center">

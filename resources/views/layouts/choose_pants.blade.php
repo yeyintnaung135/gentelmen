@@ -1,5 +1,5 @@
-<div class="col-9 col-md-8 pt-3 px-4 px-md-0 content" id="pant">
-  <div class="row g-0 g-md-5 me-2">
+<div class="content" id="pant">
+  <div class="row g-0 g-md-5">
     <div class="col-md-4 sticky-md-top sticky-height pt-3">
       <div class="nav flex-column text-uppercase">
         <h6 class="ff-mont text-white mb-3">customize</h6>

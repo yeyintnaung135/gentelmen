@@ -1157,7 +1157,7 @@ Route::get('customize', function (Request $request) {
                 // logger($grand);
                 logger("texture infinite scrolllllllllllllll");
                   $texture_articles .= '
-                  <div class="col-6 col-md-4 mb-3 mb-md-0 px-2">
+                  <div class="">
                   <div class="radio-group fabric-group">
                   <input type="radio" name="test" value="" id="texture_check_'.$grand->id.'" class="form-check-input"/>
                     <div class="cursor-pointer" data-bs-toggle="modal"
@@ -1200,7 +1200,7 @@ Route::get('customize', function (Request $request) {
                         '.$pant->description.'
                         </span>
                       </span>
-                  <span class="col-md-6 jacket">
+                  <span class="col-12 col-md-6 jacket">
                       <span class="fit-img-container">
                         <img src="'.$public_path_pant.$pant->photo_one.'" alt="" class="">
                       </span>
@@ -1233,7 +1233,7 @@ Route::get('customize', function (Request $request) {
                         '.$vest->description.'
                         </span>
                       </span>
-                  <span class="col-md-6 jacket">
+                  <span class="col-12 col-md-6 jacket">
                       <span class="fit-img-container">
                         <img src="'.$public_path_vest.$vest->photo_one.'" alt="" class="">
                       </span>
@@ -1268,7 +1268,7 @@ Route::get('customize', function (Request $request) {
                       '.$top->description.'
                       </span>
                     </span>
-                <span class="col-md-6 jacket">
+                <span class="col-12 col-md-6 jacket">
                     <span class="">
                       <img src="'.$public_path_jacket.$top->photo_one.'" alt="" class="">
                     </span>

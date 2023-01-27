@@ -29,8 +29,6 @@
         @include('layouts/choose_vest')
         @include('layouts/choose_pants')
         @include('layouts/choose_jacket')
-        @include('layouts/choose_vest')
-        @include('layouts/choose_pants')
       </div>
       <div class="summery">
         <div class="three_four_price d-none d-md-block">
