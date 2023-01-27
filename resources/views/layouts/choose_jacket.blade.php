@@ -93,6 +93,7 @@ function jacket_infinite_scroll_start(style)
   })
   function infinteLoadMoreJacket(page,style) {
     // alert("kfdjfdk");
+
     var jacket_status = 1;
     var pant_status = 0;
     var vest_status = 0;
@@ -122,6 +123,14 @@ function jacket_infinite_scroll_start(style)
         $('.auto-load').hide();
 
         $("#jacket-style").append(response.res);
+
+        //checked if jacket is checked start
+        if(sessionStorage.getItem('jacket_id') != '' && sessionStorage.getItem('jacket_id') != null)
+        {
+          // alert("choose jacket done");
+          $('#choose_jacket'+sessionStorage.getItem('jacket_id')).attr('checked',true);
+        }
+        //checked if jacket is checked end
         // $("#grand_space").fadeIn(3000);
         // console.log("fade")
         // $("#myModal").modal()

@@ -1,7 +1,13 @@
 <div class="col-9 col-md-8 pt-3 px-2 px-md-0 content" id="fabric">
+  <input type="hidden" id="color_filter_status" value="oncolor">
+  <input type="hidden" id="fabric_filter_status" value="ontexture">
+  <input type="hidden" id="pattern_filter_status" value="onpattern">
+  <input type="hidden" id="package_filter_status" value="onpackage">
+  <input type="hidden" id="low_price_filter_status" value="low">
+  <input type="hidden" id="high_price_filter_status" value="high">
   <div class="filter-offcanva d-lg-none">
     <button class="ms-2 mb-4 filter-btn" type="button" data-bs-toggle="offcanvas"
-            data-bs-target="#sideFilter">
+            data-bs-target="#sideFilter" onclick="mobile_filter_status()">
       <i class='bx bx-filter-alt'></i>Filter
     </button>
   </div>
@@ -339,17 +345,17 @@
                     </div> --}}
                     <div class="form-check my-3 jacket_in" id="jacket_in">
                       <input type="checkbox" id="jacket{{$grand->id}}" name="select"
-                             class="form-check-input me-3 input_jacket_in">
+                             class="form-check-input me-3 input_jacket_in" disabled>
                       <label for="jacket{{$grand->id}}" class="form-check-label">JACKET</label>
                     </div>
                     <div class="form-check vest_in my-3" id="vest_in">
                       <input type="checkbox" id="vest{{$grand->id}}" name="select"
-                             class="form-check-input me-3 input_vest_in">
+                             class="form-check-input me-3 input_vest_in" disabled>
                       <label for="vest{{$grand->id}}" class="form-check-label">VEST</label>
                     </div>
                     <div class="form-check pants_in my-3" id="pants_in">
                       <input type="checkbox" id="pants{{$grand->id}}" name="select"
-                             class="form-check-input me-3 input_pants_in">
+                             class="form-check-input me-3 input_pants_in" disabled>
                       <label for="pants{{$grand->id}}" class="form-check-label">PANTS</label>
                     </div>
                   </div>
@@ -383,12 +389,14 @@
         <div class="fil-content">
           <h6 class="content-title">Fabric Type</h6>
           <div class="content-options collapsed" id="fabric_type">
+            @foreach($textures as $texture)
             <div class="content-option">
-              <input class="form-check-input" type="checkbox" id="cashmere"
-                     name="type" value="">
-              <label for="cashmere" class="form-check-label">Cashmere</label>
+              <input class="form-check-input" type="checkbox"
+                     name="type" id="ontexture_mobile{{$texture->id}}" value="{{$texture->id}}">
+              <label for="ontexture_mobile{{$texture->id}}" class="form-check-label">{{$texture->name}}</label>
             </div>
-            <div class="content-option">
+            @endforeach
+            {{-- <div class="content-option">
               <input class="form-check-input" type="checkbox" id="wool"
                      name="type"
                      value="">
@@ -399,7 +407,7 @@
                      name="type"
                      value="">
               <label for="polyester" class="form-check-label">Polyester</label>
-            </div>
+            </div> --}}
             <div class='list-toggle'>
               <p class="expand">See More...</p>
               <p class="collapse">See Less...</p>
@@ -409,12 +417,14 @@
         <div class="fil-content">
           <h6 class="content-title">Package</h6>
           <div class="content-options packages">
+            @foreach($packages as $package)
             <div class="content-option">
-              <input class="form-check-input price-check d-none" type="radio" id="classic"
-                     name="package-type" value="">
-              <label for="classic" class="package-label">Classic</label>
+              <input class="form-check-input price-check d-none" type="radio" id="onpackage_mobile{{$package->id}}"
+                     name="package-type" value="{{$package->id}}">
+              <label for="onpackage_mobile{{$package->id}}" class="package-label">{{$package->title}}</label>
             </div>
-            <div class="content-option">
+            @endforeach
+            {{-- <div class="content-option">
               <input class="form-check-input price-check d-none" type="radio" id="legacy"
                      name="package-type" value="">
               <label for="legacy" class="package-label">Legacy</label>
@@ -423,19 +433,21 @@
               <input class="form-check-input price-check d-none" type="radio" id="premium"
                      name="package-type" value="">
               <label for="premium" class="package-label">Premium</label>
-            </div>
+            </div> --}}
           </div>
         </div>
         <div class="fil-content">
           <h6 class="content-title">Colour</h6>
           <div class="content-options collapsed" id="color">
+            @foreach($colors as $color)
             <div class="content-option">
-              <input class="form-check-input" type="checkbox" id="black"
+              <input class="form-check-input" type="checkbox" id="oncolor_mobile{{$color->id}}"
                      name="type"
-                     value="">
-              <label for="black" class="form-check-label">Black</label>
+                     value="{{$color->id}}">
+              <label for="oncolor_mobile{{$color->id}}" class="form-check-label">{{$color->name}}</label>
             </div>
-            <div class="content-option">
+            @endforeach
+            {{-- <div class="content-option">
               <input class="form-check-input" type="checkbox" id="red"
                      name="type" value="">
               <label for="red" class="form-check-label">Red</label>
@@ -463,7 +475,7 @@
                      name="type"
                      value="">
               <label for="pink" class="form-check-label">Pink</label>
-            </div>
+            </div> --}}
             <div class='list-toggle'>
               <p class="expand">See More...</p>
               <p class="collapse">See Less...</p>
@@ -473,13 +485,15 @@
         <div class="fil-content">
           <h6 class="content-title">Pattern</h6>
           <div class="content-options collapsed" id="pattern">
+            @foreach($patterns as $pattern)
             <div class="content-option">
-              <input class="form-check-input" type="checkbox" id="striped"
+              <input class="form-check-input" type="checkbox" id="onpattern_mobile{{$pattern->id}}"
                      name="type"
-                     value="">
-              <label for="striped" class="form-check-label">striped</label>
+                     value="{{$pattern->id}}">
+              <label for="onpattern_mobile{{$pattern->id}}" class="form-check-label">striped</label>
             </div>
-            <div class="content-option">
+            @endforeach
+            {{-- <div class="content-option">
               <input class="form-check-input" type="checkbox" id="pattern1"
                      name="type" value="">
               <label for="pattern1" class="form-check-label">pattern 1</label>
@@ -507,7 +521,7 @@
             <div class='list-toggle'>
               <p class="expand">See More...</p>
               <p class="collapse">See Less...</p>
-            </div>
+            </div> --}}
           </div>
         </div>
         <div class="fil-content">
@@ -533,7 +547,7 @@
         <button class="action-btn" data-bs-dismiss="offcanvas"
                 aria-label="Close"><a href="#">Cancel</a></button>
         <button class="action-btn apply" data-bs-dismiss="offcanvas"
-                aria-label="Close"><a href="#">Apply</a></button>
+                aria-label="Close" onclick="advance_mobile_filter()"><a href="#">Apply</a></button>
       </div>
     </div>
   </div>
@@ -545,19 +559,32 @@
 
     function select_fabric(value, price) {
         // alert("juju");
+        var package_price = parseInt(sessionStorage.getItem('package_price'));
+        var jacket_total_4 = 0;
+        var vest_total_4 = 0;
+        var pant_total_4 = 0;
 
-        // $('.input_jacket_in').prop('checked',false);
-        // $('.input_vest_in').prop('checked',false);
-        // $('.input_pants_in').prop('checked',false);
         sessionStorage.setItem('texture_id', value);
         sessionStorage.setItem('texture_price', price);
-        // alert($('#jacket'+value).prop("checked"));
+
         var html_total = "";
-        if (sessionStorage.getItem('texture_id') != null && sessionStorage.getItem('texture_id') != '') {
-            var total4 = parseInt(sessionStorage.getItem('package_price')) + parseInt(sessionStorage.getItem('texture_price'))
-        } else {
-            var total4 = sessionStorage.getItem('package_price')
+        if(sessionStorage.getItem('jacket_id') != null)
+        {
+          // alert("1");
+           jacket_total_4 = parseInt(sessionStorage.getItem('jacket_price'));
         }
+        if(sessionStorage.getItem('vest_id') != null)
+        {
+          // alert("2");
+           vest_total_4 = parseInt(sessionStorage.getItem('vest_price'));
+        }
+        if(sessionStorage.getItem('pant_id') != null)
+        {
+          // alert("3");
+           pant_total_4 = parseInt(sessionStorage.getItem('pant_price'));
+        }
+
+        var total4 = package_price+jacket_total_4+vest_total_4+pant_total_4+parseInt(sessionStorage.getItem('texture_price'));
         html_total += `
     <span class="me-3 text-gold fs-5">$</span><h4 class="d-inline ff-mont ls-0" id="step2_and_fabric_total">${total4}</h4>
     `;
@@ -576,14 +603,18 @@
             sessionStorage.setItem('vest_in', false);
         }
         if ($('#pants' + value).prop("checked") == true) {
-            sessionStorage.setItem('pants_in', true);
+            sessionStorage.setItem('pant_in', true);
         } else {
-            sessionStorage.setItem('pants_in', false);
+            sessionStorage.setItem('pant_in', false);
         }
     }
 </script>
 @push('script_fabric_infinite')
   <script>
+    function mobile_filter_status()
+    {
+
+    }
       // begin fabric  infinite scroll
       var ENDPOINT = "{{ url('/') }}";
       var page = 1;
@@ -625,40 +656,41 @@
           var i = 0;
 
           for (i = 0; i < colorjs.length; i++) {
-              if ($('#oncolor' + colorjs[i].id).is(":checked")) {
+              if ($('#'+$('#color_filter_status').val() + colorjs[i].id).is(":checked")) {
                   // it is checked
                   colorjs_arr.push($('#oncolor' + colorjs[i].id).val());
               }
           }
           for (i = 0; i < texturejs.length; i++) {
-              if ($('#ontexture' + texturejs[i].id).is(":checked")) {
-                  // it is checked
+            // alert("texture loop");
+              if ($('#'+$('#fabric_filter_status').val() + texturejs[i].id).is(":checked")) {
+                  // alert("it is checked texture");
                   texturejs_arr.push($('#ontexture' + texturejs[i].id).val());
               }
           }
           for (i = 0; i < patternjs.length; i++) {
-              if ($('#onpattern' + patternjs[i].id).is(":checked")) {
+              if ($('#'+$('#pattern_filter_status').val() + patternjs[i].id).is(":checked")) {
                   // it is checked
                   patternjs_arr.push($('#onpattern' + patternjs[i].id).val());
               }
           }
           for (i = 0; i < packagejs.length; i++) {
-              if ($('#onpackage' + packagejs[i].id).is(":checked")) {
+              if ($('#'+$('#package_filter_status').val() + packagejs[i].id).is(":checked")) {
                   // it is checked
                   packagejs_arr.push($('#onpackage' + packagejs[i].id).val());
               }
           }
-          if ($('#low').is(":checked")) {
+          if ($('#'+$('#low_price_filter_status').val()).is(":checked")) {
               // it is checked
               pricejs_arr.push($('#low').val());
           }
-          if ($('#high').is(":checked")) {
+          if ($('#'+$('#high_price_filter_status').val()).is(":checked")) {
               // it is checked
               pricejs_arr.push($('#high').val());
           }
           // console.log(packagejs_arr);
           // console.log(colorjs_arr);
-          // console.log(texturejs_arr);
+          console.log(texturejs_arr);
           // console.log(patternjs_arr);
           // console.log(pricejs_arr);
           var jacket_status = 0;
@@ -712,11 +744,39 @@
       }
 
       function advance_filter() {
+        alert("advance");
+        $('#fabric_filter_status').val('ontexture');
+        $('#color_filter_status').val('oncolor');
+        $('#pattern_filter_status').val('onpattern');
+        $('#package_filter_status').val('onpackage');
+        $('#low_price_filter_status').val('low');
+          $('#high_price_filter_status').val('high');
           $('#grand-space').html("");
           page = 1;
           start = 0;
           infinteLoadMore(page);
       }
+
+      function advance_mobile_filter() {
+      alert("advance mobile");
+      // <input type="hidden" id="color_filter_status" value="oncolor">
+      //   <input type="hidden" id="fabric_filter_status" value="ontexture">
+      //   <input type="hidden" id="pattern_filter_status" value="onpattern">
+      //   <input type="hidden" id="package_filter_status" value="onpackage">
+      //   <input type="hidden" id="low_price_filter_status" value="low">
+      //   <input type="hidden" id="high_price_filter_status" value="high">
+        $('#fabric_filter_status').val('ontexture_mobile');
+        $('#color_filter_status').val('oncolor_mobile');
+        $('#pattern_filter_status').val('onpattern_mobile');
+        $('#package_filter_status').val('onpackage_mobile');
+        $('#low_price_filter_status').val('low_height');
+        $('#high_price_filter_status').val('height_low');
+
+        $('#grand-space').html("");
+        page = 1;
+        start = 0;
+        infinteLoadMore(page);
+    }
   </script>
 
 @endpush

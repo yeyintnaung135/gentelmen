@@ -149,6 +149,13 @@ function pant_infinite_scroll_start(style)
         $('.auto-load').hide();
 
         $("#pleat-selection").append(response.res);
+        //checked if pant is checked start
+        if(sessionStorage.getItem('pant_id') != '' && sessionStorage.getItem('pant_id') != null)
+        {
+          // alert("choose pant done");
+          $('#choose_pant'+sessionStorage.getItem('pant_id')).attr('checked',true);
+        }
+        //checked if pant is checked end
         // $("#grand_space").fadeIn(3000);
         // console.log("fade")
         // $("#myModal").modal()

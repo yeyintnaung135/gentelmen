@@ -139,7 +139,16 @@
       if(sessionStorage.getItem('customize_category_id') == null)
       {
         // alert("yes");
-        var from = @json(Session::get('from_reset'));
+        if(@json($temporary) != null)
+        {
+          var from = @json(Session::get('from_reset'));
+        }
+        else
+        {
+          var from = 0;
+        }
+
+
       }
       else if(sessionStorage.getItem('customize_category_id') != null)
       {
@@ -150,11 +159,13 @@
       // var from = @json(Session::get('from_reset'));
       var has_step = @json(Session::get('has_step'));
       var user_id = @json(Session::get('user_id'));
+      // alert(has_step);
       if(from == 1)
       {
+        sessionStorage.setItem('has_step',has_step);
       if(has_step == null)
       {
-        alert("do store temporary when no old");
+        // alert("do store temporary when no old");
         $.ajax({
           type: 'POST',
           url: '/store_customize_step_data',
@@ -170,8 +181,11 @@
             "fitting" : sessionStorage.getItem('fitting'),
             "texture_id" : sessionStorage.getItem('texture_id'),
             "jacket_id" : sessionStorage.getItem('jacket_id'),
+            "jacket_price" : sessionStorage.getItem('jacket_price'),
             "vest_id" : sessionStorage.getItem('vest_id'),
+            "vest_price" : sessionStorage.getItem('vest_price'),
             "pant_id" : sessionStorage.getItem('pant_id'),
+            "pant_price" : sessionStorage.getItem('pant_price'),
             "upper_id" : sessionStorage.getItem('upper_id'),
             "lower_id" : sessionStorage.getItem('lower_id'),
             "order_id" : sessionStorage.getItem('order_id'),
@@ -361,6 +375,15 @@
                       var jacket_id = data.get_step_data.jacket_id;
                       sessionStorage.setItem('jacket_id',jacket_id);
                     }
+                    if(data.get_step_data.jacket_price == null)
+                    {
+                      var jacket_price = 0
+                    }
+                    else
+                    {
+                      var jacket_price = data.get_step_data.jacket_price;
+                      sessionStorage.setItem('jacket_price',jacket_price);
+                    }
                     if(data.get_step_data.vest_id == null)
                     {
                       var vest_id = ''
@@ -370,6 +393,15 @@
                       var vest_id = data.get_step_data.vest_id
                       sessionStorage.setItem('vest_id',vest_id);
                     }
+                    if(data.get_step_data.vest_price == null)
+                    {
+                      var vest_price = 0
+                    }
+                    else
+                    {
+                      var vest_price = data.get_step_data.vest_price;
+                      sessionStorage.setItem('vest_price',vest_price);
+                    }
                     if(data.get_step_data.pant_id == null)
                     {
                       var pant_id = ''
@@ -378,6 +410,15 @@
                     {
                       var pant_id = data.get_step_data.pant_id;
                       sessionStorage.setItem('pant_id',pant_id);
+                    }
+                    if(data.get_step_data.pant_price == null)
+                    {
+                      var pant_price = 0
+                    }
+                    else
+                    {
+                      var pant_price = data.get_step_data.pant_price;
+                      sessionStorage.setItem('pant_price',pant_price);
                     }
                     if(data.get_step_data.upper_id == null)
                     {
@@ -558,8 +599,12 @@
     $('#next-unconfirm').hide();
 
     $('.box-menu a').click(function (e) {
+      if(sessionStorage.getItem('fitting') != null && sessionStorage.getItem('fitting') != '')
+      {
       let current_link = $(this);
+      // alert(current_link);
       let current_link_href = current_link.attr('href');
+      // alert(current_link_href);
       let cfTitle = $('#cfTitle')
       console.log(current_link_href)
       if (current_link_href === '#fitting') {
@@ -567,6 +612,7 @@
           window.scrollTo({ top: 0, behavior: 'smooth' })
       }
       if (current_link_href === '#fabric') {
+        // alert("ffaa");
         $('#fabric-filter').show();
         cfTitle.html('Fabric')
           window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -595,7 +641,15 @@
 
       $('.content').hide();
       $(current_link_href).show();
-
+    }
+    else
+    {
+      swal({
+          title: "Error",
+          text : "Need to choose Fitting!",
+          icon : "error",
+      })
+    }
       /*
       // current_index = items.indexOf(current_link_href);
       // $('#next-step').attr('href', items.at(current_index+1));
@@ -1041,16 +1095,11 @@
               sessionStorage.removeItem('suit_piece');
               if(sessionStorage.getItem('texture_id') != null && sessionStorage.getItem('texture_id') != '')
               {
-                sessionStorage.setItem('jacket_in',false);
-                sessionStorage.setItem('vest_in',false);
-                sessionStorage.setItem('pants_in',false);
-              }
-              else
-              {
                 sessionStorage.removeItem('jacket_in');
                 sessionStorage.removeItem('vest_in');
-                sessionStorage.removeItem('pants_in');
+                sessionStorage.removeItem('pant_in');
               }
+
 
               // sessionStorage.removeItem('style_id');
               // sessionStorage.removeItem('style_name');
@@ -1212,6 +1261,7 @@
                     $('.input_vest_in').attr('checked',true);
                     sessionStorage.setItem('pant_in',true);
                     $('.input_pants_in').attr('checked',true);
+                    alert("all show ccc");
                     $('.jacket_in').show();
                     $('.pants_in').show();
                     $('.vest_in').show();
@@ -1225,7 +1275,7 @@
                       sessionStorage.setItem('vest_in',false);
                     $('.input_vest_in').attr('checked',false);
                     // alert("radio 2 show");
-
+                    alert("j p show");
                       $('.vest_in').hide();
                       $('.jacket_in').show();
                     $('.pants_in').show();
@@ -1233,7 +1283,7 @@
                   else
                   {
                     // alert("bmbm");
-
+                    alert("all hide ccc");
                     $('.all_in').hide();
                     $('.jacket_in').hide();
                     $('.pants_in').hide();
@@ -2813,7 +2863,7 @@
     }
     function store_temporary()
     {
-
+      // alert("forget store temporary");
       var user = @json($user);
       $.ajax({
         type: 'POST',
@@ -2969,7 +3019,7 @@
         if(sessionStorage.getItem('jacket_id') != '' && sessionStorage.getItem('jacket_id') != null)
         {
           // alert("choose jacket done");
-          $('#choose_jacket15').attr('checked',true);
+          $('#choose_jacket'+sessionStorage.getItem('jacket_id')).attr('checked',true);
         }
         if(sessionStorage.getItem('vest_id') != '' && sessionStorage.getItem('vest_id') != null)
         {
