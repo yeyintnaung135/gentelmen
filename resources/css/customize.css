@@ -785,6 +785,10 @@ h1,h2,h3,h4,h5,h6 {
   flex-shrink: 0;
 }
 
+.menu__item > button {
+all: unset;
+}
+
 @media screen and (max-width: 480px) {
   .measurement > div {
     width: 100%;
