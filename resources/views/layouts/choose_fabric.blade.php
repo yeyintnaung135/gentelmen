@@ -344,18 +344,18 @@
                       <label for="full-suit" class="form-check-label">FULL SUITS</label>
                     </div> --}}
                     <div class="form-check my-3 jacket_in" id="jacket_in">
-                      <input type="checkbox" id="jacket{{$grand->id}}" name="select"
-                             class="form-check-input me-3 input_jacket_in" disabled>
+                      {{-- <input type="checkbox" id="jacket{{$grand->id}}" name="select"
+                             class="form-check-input me-3 input_jacket_in" disabled> --}}
                       <label for="jacket{{$grand->id}}" class="form-check-label">JACKET</label>
                     </div>
                     <div class="form-check vest_in my-3" id="vest_in">
-                      <input type="checkbox" id="vest{{$grand->id}}" name="select"
-                             class="form-check-input me-3 input_vest_in" disabled>
+                      {{-- <input type="checkbox" id="vest{{$grand->id}}" name="select"
+                             class="form-check-input me-3 input_vest_in" disabled> --}}
                       <label for="vest{{$grand->id}}" class="form-check-label">VEST</label>
                     </div>
                     <div class="form-check pants_in my-3" id="pants_in">
-                      <input type="checkbox" id="pants{{$grand->id}}" name="select"
-                             class="form-check-input me-3 input_pants_in" disabled>
+                      {{-- <input type="checkbox" id="pants{{$grand->id}}" name="select"
+                             class="form-check-input me-3 input_pants_in" disabled> --}}
                       <label for="pants{{$grand->id}}" class="form-check-label">PANTS</label>
                     </div>
                   </div>
@@ -490,7 +490,7 @@
               <input class="form-check-input" type="checkbox" id="onpattern_mobile{{$pattern->id}}"
                      name="type"
                      value="{{$pattern->id}}">
-              <label for="onpattern_mobile{{$pattern->id}}" class="form-check-label">striped</label>
+              <label for="onpattern_mobile{{$pattern->id}}" class="form-check-label">{{$pattern->name}}</label>
             </div>
             @endforeach
             {{-- <div class="content-option">
@@ -711,6 +711,7 @@
                   "jacket_status": jacket_status,
                   "vest_status": vest_status,
                   "pant_status": pant_status,
+                  "texture_id" : sessionStorage.getItem('texture_id'),
                   "start": start
               },
               beforeSend: function () {
@@ -732,7 +733,8 @@
                   // pageNo = response.page_no;
                   $('.auto-load').hide();
                   $("#grand-space").append(response.res)
-
+                  // $('#texture_check_'+sessionStorage.getItem('texture_id')).attr('checked',true);
+                  // alert("dkdk");
                   // $("#myModal").modal()
               })
 
@@ -758,7 +760,7 @@
       }
 
       function advance_mobile_filter() {
-      alert("advance mobile");
+      // alert("advance mobile");
       // <input type="hidden" id="color_filter_status" value="oncolor">
       //   <input type="hidden" id="fabric_filter_status" value="ontexture">
       //   <input type="hidden" id="pattern_filter_status" value="onpattern">
@@ -783,7 +785,7 @@
 @push('script_tag')
   <script>
 
-      function get_swiper(texture_id) {
+      function get_texture_swiper(texture_id) {
           var html = "";
           $.ajax({
               type: 'POST',

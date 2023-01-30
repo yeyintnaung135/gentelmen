@@ -126,6 +126,11 @@
   if(sessionStorage.getItem('reload_texture_list') == 1)
   {
     window.location.reload();
+    sessionStorage.setItem('reload_texture_list',0)
+  }
+  else if(sessionStorage.getItem('reload_texture_list') == 0)
+  {
+    
   }
     function delete_texture_confirm(value){
         // alert(value);

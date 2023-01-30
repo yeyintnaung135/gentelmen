@@ -2094,9 +2094,17 @@
               var pieces = v.pieces;
               console.log(pieces);
               style_n += `<div class="col-6 col-md-4">
-              <div class="radio-group">
-              <input type="radio" name="test" id="style_check${v.id}" class="form-check-input"/>
-                  <div class="cursor-pointer" data-bs-toggle="modal"
+              <div class="radio-group">`;
+              if(v.id == sessionStorage.getItem('style_id'))
+              {
+                style_n +=`<input type="radio" name="test" id="style_check${v.id}" class="form-check-input" checked/>`;
+              }
+              else
+              {
+                style_n +=`<input type="radio" name="test" id="style_check${v.id}" class="form-check-input"/>`;
+              }
+
+                 style_n+=` <div class="cursor-pointer" data-bs-toggle="modal"
                       data-bs-target="#myCategory${v.id}" onclick="get_swiper(${v.id})">
                     <img src="{{'/assets/images/categories/style/${photo}'}}" alt=""
                         class="cus-img-res">
@@ -2107,6 +2115,8 @@
 
             })
             $('#style_card').html(style_n);
+            // $('#style_check'+sessionStorage.getItem('style_id')).prop("checked",true);
+            // alert("dodo");
             if(name == 2){
               // alert("2two");
               $('#cus1_jacket').show();
@@ -2170,8 +2180,16 @@
               var pieces = v.pieces;
               console.log(pieces);
               style_n += `<div class="col-6 col-md-4">
-              <div class="radio-group ">
-              <input type="radio" name="test" id="style_check${v.id}" class="form-check-input"/>
+              <div class="radio-group ">`;
+                if(v.id == sessionStorage.getItem('style_id'))
+                {
+                  style_n+=`<input type="radio" name="test" id="style_check${v.id}" class="form-check-input" checked/>`;
+                }
+                else
+                {
+                  style_n+=`<input type="radio" name="test" id="style_check${v.id}" class="form-check-input"/>`;
+                }
+              style_n+=`
                   <div class="cursor-pointer" data-bs-toggle="modal"
                       data-bs-target="#myCategory${v.id}" onclick="get_swiper(${v.id})">
                     <img src="{{'/assets/images/categories/style/${photo}'}}" alt=""
@@ -2207,7 +2225,7 @@
     }
     function style_nav_reload()
     {
-      // alert("style nav reload");
+      alert("style nav reload");
 
       // alert("hello");
       $.ajax({
@@ -2230,8 +2248,16 @@
               var photo = v.photo_one;
               console.log(name);
               style_n += ` <div class="col-md-4">
-              <div class="radio-group ">
-              <input type="radio" name="test" id="style_check${v.id}" class="form-check-input"/>
+              <div class="radio-group ">`;
+              if(v.id == sessionStorage.getItem('style_id'))
+              {
+                style_n+=`<input type="radio" name="test" id="style_check${v.id}" class="form-check-input" checked/>`;
+              }
+              else
+              {
+                style_n+=`<input type="radio" name="test" id="style_check${v.id}" class="form-check-input"/>`;
+              }
+              style_n+=`
                   <div class="cursor-pointer" data-bs-toggle="modal"
                       data-bs-target="#myCategory${v.id}" onclick="get_swiper(${v.id})">
                     <img src="{{'/assets/images/categories/style/${photo}'}}" alt=""
@@ -2254,7 +2280,7 @@
 
     }
     function style_nav(name,id) {
-      // alert("style nav");
+      alert("style nav");
       $('#style_rec_cate_id').val(id);
       sessionStorage.setItem('style_cate_name',name);
       sessionStorage.setItem('style_cate_id',id);

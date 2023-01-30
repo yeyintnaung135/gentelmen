@@ -1155,18 +1155,29 @@ Route::get('customize', function (Request $request) {
 
 
         if ($request->ajax()) {
-
+          logger("Texture-ID====".$request->texture_id);
           if($request->jacket_status == 0 && $request->pant_status == 0 && $request->vest_status == 0)
           {
             foreach ($Grands as $grand) {
-                // logger($grand);
+
                 logger("texture infinite scrolllllllllllllll");
                   $texture_articles .= '
                   <div class="col-6 col-md-4 mb-3 mb-md-0 px-2">
-                  <div class="radio-group fabric-group">
-                  <input type="radio" name="test" value="" id="texture_check_'.$grand->id.'" class="form-check-input"/>
+                  <div class="radio-group fabric-group">';
+                  if($grand->id == $request->texture_id)
+                  {
+                    $texture_articles .='
+                    <input type="radio" name="test" value="" id="texture_check_'.$grand->id.'" class="form-check-input" checked/>';
+                  }
+                  else
+                  {
+                    $texture_articles .='
+                    <input type="radio" name="test" value="" id="texture_check_'.$grand->id.'" class="form-check-input"/>';
+                  }
+
+                  $texture_articles .='
                     <div class="cursor-pointer" data-bs-toggle="modal"
-                         data-bs-target="#myFabric' . $grand->id .'" onclick="get_swiper(' . $grand->id . ')">
+                         data-bs-target="#myFabric' . $grand->id .'" onclick="get_texture_swiper(' . $grand->id . ')">
                       <div class="img-container mb-1">
                         <img src="' . $public_path_texture . $grand->photo_one . '"
                              alt="" class="img-responsive">
