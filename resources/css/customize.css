@@ -1141,3 +1141,211 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+/*Customize Step 5*/
+/*measurements */
+
+.measure {
+  padding: 10px 0 60px 0;
+}
+
+.measure-types {
+  /*background: rgba(240, 173, 78, 0.42);*/
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.measure-type a {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.measure-types.nav-pills .nav-link.active:after {
+  content: '';
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 0;
+  border: 1px solid var(--clr-gold-0);
+  margin-top: 10px;
+}
+
+.measure-type {
+  /*height: 30px;*/
+}
+
+/*measure unit*/
+.unit-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin: 30px 0;
+}
+
+
+.unit-label-wrapper .unit-label {
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  padding: 7px 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  /*font-size: 11px;*/
+  width: 60px;
+  height: 40px;
+  text-align: center;
+}
+
+.unit-check:checked + .unit-label {
+  border: 1px solid var(--clr-gold-0);
+  color: var(--clr-gold-0);
+}
+
+
+/*measurement items*/
+.measure-items {
+  margin: 30px 0;
+  /*border: 1px solid #ddd;*/
+  display: flex;
+  justify-content: flex-start;
+  gap: 5px;
+  overflow-x: auto;
+}
+
+.measure-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  flex-shrink: 0;
+}
+
+.measure-item > img {
+  width: 50px;
+}
+
+.measure-item > p {
+  letter-spacing: 1px !important;
+  text-transform: capitalize;
+  font-size: 14px;
+  margin-top: 10px;
+  line-height: 1.2 !important;
+  text-align: center;
+}
+
+#suits .measure-item > p {
+  width: 100px;
+}
+
+.measure-item.active-link > p {
+  color: var(--clr-gold-0) !important;
+}
+
+/*.content {
+  max-width: 800px;
+  margin: auto;
+}*/
+.measure-img-wrapper {
+  max-width: 100%;
+  margin: auto;
+}
+
+.measure-img-wrapper img {
+  width: 100%;
+  /*for demo purpose*/
+  /*height: 400px;
+  object-fit: cover;*/
+  /*end*/
+  display: block;
+  border-radius: 10px;
+}
+
+.measure-input-wrapper {
+  margin-top: 10%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.measure-input-group {
+  /*background: #0a53be;*/
+  width: 200px;
+  display: flex;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.measure-input-group input[type="text"] {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.6);
+  outline: none;
+  color: white;
+  font-size: 28px;
+  padding: 0 20px;
+}
+
+.measure-input-group input[type="text"]::placeholder {
+  font-size: 28px !important;
+}
+
+.measure-input-group p {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 22px;
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+
+  .measure-type a {
+    font-size: 14px;
+  }
+
+  .measure-items {
+    margin: 50px 0;
+    gap: 0;
+  }
+
+  .measure-item > p {
+    font-size: 16px;
+  }
+
+  .measure-input-wrapper {
+    margin-top: 5%;
+  }
+
+}
+
+@media screen and (min-width: 992px) {
+
+  .measure-types {
+    justify-content: center;
+    gap: 50px;
+  }
+
+  .measure-type a {
+    font-size: 16px;
+  }
+
+  .measure-items {
+    margin: 50px 0;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  #suits .measure-item > p {
+    width: 120px;
+  }
+
+  .measure-item > p {
+    font-size: 16px;
+  }
+
+  .measure-input-wrapper {
+    margin-top: 5%;
+  }
+
+}

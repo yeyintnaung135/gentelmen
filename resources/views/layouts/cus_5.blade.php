@@ -5,218 +5,404 @@
   <div class="alert alert-dark alert-dismissible d-none" id="login_error">
     Need to login first!!!
   </div>
-  <p class="text-decoration-underline text-center text-md-end my-3" id="store">
-    <a href="#">Save measurement</a></p>
-  <h6 class="text-white ff-mont">Personal Information</h6>
-  <div class="d-flex justify-content-center measurement mb-5 mt-3 my-md-5">
-
-    <div class="center-flex log-form mx-2">
-      <label for="height" class="d-block form-label">AGE</label>
-
-      <div class="d-flex align-items-end justify-content-center inp-grp">
-        @if($user == null || $user_info->age == null)
-          <input type="number" id="age" class="form-control text-center" onmouseup="change_text()">
-        @else
-          <input type="number" id="age" class="form-control text-center" value="{{$user_info->age}}"
-                 onmouseup="change_text()">
-        @endif
-        <span class="age--year">Year</span>
+  <div class="measure">
+    <p class="text-decoration-underline text-center my-3" id="store">
+      <a href="#">Save measurement</a></p>
+    {{-- Body Types --}}
+    <div class="measure-types nav-pills" role="tablist">
+      <div class="measure-type">
+        <a class="nav-link active" data-bs-toggle="tab" href="#body">BODY</a>
+      </div>
+      <div class="measure-type">
+        <a class="nav-link" data-bs-toggle="tab" href="#suits">SUITS</a>
+      </div>
+      <div class="measure-type">
+        <a class="nav-link" data-bs-toggle="tab" href="#info">INFO</a>
       </div>
     </div>
-    <div class="center-flex log-form mx-2">
-      <label for="height" class="d-block form-label">HEIGHT</label>
-      <div class="center-flex flex-row with-select">
-        @if($user == null || $user_info->height == null)
-          <div class="center-flex flex-row with-select h-100">
-            <input type="number" min="2" id="height_value" class="form-control" onmouseup="change_text()">
-            <select name="height_type" id="height_type" class="htype">
-              <option selected value="0">ft</option>
-              <option value="1">cm</option>
-            </select>
-          </div>
-        @else
-          <div class="center-flex flex-row with-select h-100">
-            <input type="number" min="2" id="height_value" value="{{$user_info->height}}"
-                   class="form-control" onmouseup="change_text()">
-            @if($user_info->height_type == 0)
-            <select name="height_type" id="height_type" class="htype">
-              <option selected value="0">ft</option>
-              <option value="1">cm</option>
-            </select>
-            @else
-            <select name="height_type" id="height_type" class="htype">
-              <option  value="0">ft</option>
-              <option selected value="1">cm</option>
-            </select>
-            @endif
-          </div>
-        @endif
+    <div class="unit-wrapper">
+      <div class="unit-label-wrapper">
+        <input type="radio" id="in" name="measure_unit" class="unit-check d-none" value="in"
+               checked>
+        <label for="in" class="unit-label">in</label>
       </div>
-    </div>
-    <div class="center-flex log-form mx-2">
-      <label for="weight" class="d-block form-label">WEIGHT</label>
-      <div class="center-flex flex-row with-select">
-        @if($user == null || $user_info->weight == null)
-          <input type="number" id="weight" class="form-control" onmouseup="change_text()">
-          <select name="weight_type" id="weight_type" class="type">
-            <option selected value="lb">lb</option>
-            <option value="kg">kg</option>
-          </select>
-        @else
-          <input type="number" id="weight" class="form-control" value="{{$user_info->weight}}"
-                 onmouseup="change_text()">
-          @if($user_info->weight_type == "lb")
-            <select name="weight_type" id="weight_type" class="type">
-              <option selected value="lb">lb</option>
-              <option value="kg">kg</option>
-            </select>
-          @else
-            <select name="weight_type" id="weight_type" class="type">
-              <option value="lb">lb</option>
-              <option selected value="kg">kg</option>
-            </select>
-          @endif
-        @endif
-      </div>
-    </div>
-  </div>
-  <div class="">
-    <div class="measure-unit">
-      <h6 class="text-white ff-mont mb-3 fs-5">Choose Desire Unit for measurement</h6>
-      <div class="d-flex">
-      <div class="unit-radio-group me-3">
+      <div class="unit-label-wrapper">
+        <input type="radio" id="cm" name="measure_unit" class="unit-check d-none" value="cm">
         <label for="cm" class="unit-label">Cm</label>
-        <input type="radio" value="cm" name="measure_unit" id="cm" class="form-check-input" checked onclick="get_measure_unit(this.value)">
-      </div>
-      <div class="unit-radio-group">
-        <label for="in" class="unit-label">Inches</label>
-        <input type="radio" value="in" name="measure_unit" id="in" class="form-check-input" onclick="get_measure_unit(this.value)">
-      </div>
       </div>
     </div>
-    <div class="d-flex d-block d-md-none">
-      <p class="me-4" id="jacket">Upper Body</p>
-      <p id="pants">Lower Body</p>
-    </div>
-    <div class="row pt-5">
-
-      <div class="col-4 col-md-4 px-3 px-md-5 jacket-vessel">
-        @include('layouts/cus_5_jacket')
-      </div>
-      <div class="col-8 col-md-4 d-flex flex-column justify-content-center image-vessel">
-        <img alt="Size Image" src="{{asset('/assets/images/customize/measure-desktop.png')}}"
-             id="measureImage">
-      </div>
-      <div class="col-4 col-md-4 px-3 px-md-5 pants-vessel d-none d-md-block">
-        @include('layouts/cus_5_pants')
-      </div>
-    </div>
-  </div>
-  <div class="d-none">
-    <div class="nav nav-pills">
-      <a class="nav-link active text-white-50 me-4" data-bs-toggle="pill"
-         href="#jacket">Jacket/Vest</a>
-      <a class="nav-link text-white-50" data-bs-toggle="pill" href="#pants">Pant</a>
-    </div>
-    <!-- Tab panes -->
+    {{-- content --}}
     <div class="tab-content">
-      <div class="tab-pane container active" id="jacket">
-        <div class="row">
-          <div class="col-4">
-            @include('layouts/cus_5_jacket')
+      <div id="body" class="tab-pane active">
+        <div class="measure-items">
+          <a class="measure-item active-link" href="#chest">
+            <img src="{{asset("assets/images/customize/measurement/chest.png")}}" alt="chest">
+            <p>Chest</p>
+          </a>
+          <a class="measure-item" href="#waist">
+            <img src="{{asset("assets/images/customize/measurement/waist.png")}}" alt="waist">
+            <p>Waist</p>
+          </a>
+          <a class="measure-item" href="#hips">
+            <img src="{{asset("assets/images/customize/measurement/hips.png")}}" alt="hips">
+            <p>hips</p>
+          </a>
+          <a class="measure-item" href="#shoulder">
+            <img src="{{asset("assets/images/customize/measurement/shoulder.png")}}" alt="shoulder">
+            <p>shoulder</p>
+          </a>
+          <a class="measure-item" href="#biceps">
+            <img src="{{asset("assets/images/customize/measurement/biceps.png")}}" alt="biceps">
+            <p>biceps</p>
+          </a>
+          <a class="measure-item" href="#forearm">
+            <img src="{{asset("assets/images/customize/measurement/forearm.png")}}" alt="forearm">
+            <p>forearm</p>
+          </a>
+          <a class="measure-item" href="#neck">
+            <img src="{{asset("assets/images/customize/measurement/neck.png")}}" alt="neck">
+            <p>neck</p>
+          </a>
+          <a class="measure-item" href="#knees">
+            <img src="{{asset("assets/images/customize/measurement/knees.png")}}" alt="knees">
+            <p>knees</p>
+          </a>
+          <a class="measure-item" href="#thighs">
+            <img src="{{asset("assets/images/customize/measurement/thighs.png")}}" alt="thighs">
+            <p>thighs</p>
+          </a>
+          <a class="measure-item" href="#stomach">
+            <img src="{{asset("assets/images/customize/measurement/stomach.png")}}" alt="stomach">
+            <p>stomach</p>
+          </a>
+        </div>
+        <div class="measure-item-content">
+          <div id="chest" class="content">
+            <div class="measure-img-wrapper">
+              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                   alt="chest">
+            </div>
+            <div class="measure-input-wrapper">
+              <div class="measure-input-group">
+                <input type="text" placeholder="0.0" id="chest_input">
+                <p class="unit">In</p>
+              </div>
+            </div>
           </div>
-          <div class="col-8 d-flex align-items-center">
-            <img src="{{asset('/assets/images/customize/measure-jacket.png')}}" alt="">
+          <div id="waist" class="content">
+            <div class="measure-img-wrapper">
+              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                   alt="chest">
+            </div>
+            <div class="measure-input-wrapper">
+              <div class="measure-input-group">
+                <input type="text" placeholder="0.0" id="waist_input">
+                <p class="unit">In</p>
+              </div>
+            </div>
+          </div>
+          <div id="hips" class="content">
+            <div class="measure-img-wrapper">
+              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                   alt="chest">
+            </div>
+            <div class="measure-input-wrapper">
+              <div class="measure-input-group">
+                <input type="text" placeholder="0.0" id="hips_input">
+                <p class="unit">In</p>
+              </div>
+            </div>
+          </div>
+          <div id="shoulder" class="content">
+            <div class="measure-img-wrapper">
+              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                   alt="chest">
+            </div>
+            <div class="measure-input-wrapper">
+              <div class="measure-input-group">
+                <input type="text" placeholder="0.0" id="shoulder_input">
+                <p class="unit">In</p>
+              </div>
+            </div>
+          </div>
+          <div id="biceps" class="content">
+            <div class="measure-img-wrapper">
+              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                   alt="chest">
+            </div>
+            <div class="measure-input-wrapper">
+              <div class="measure-input-group">
+                <input type="text" placeholder="0.0" id="biceps_input">
+                <p class="unit">In</p>
+              </div>
+            </div>
+          </div>
+          <div id="forearm" class="content">
+            <div class="measure-img-wrapper">
+              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                   alt="chest">
+            </div>
+            <div class="measure-input-wrapper">
+              <div class="measure-input-group">
+                <input type="text" placeholder="0.0" id="forearm_input">
+                <p class="unit">In</p>
+              </div>
+            </div>
+          </div>
+          <div id="neck" class="content">
+            <div class="measure-img-wrapper">
+              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                   alt="chest">
+            </div>
+            <div class="measure-input-wrapper">
+              <div class="measure-input-group">
+                <input type="text" placeholder="0.0" id="neck_input">
+                <p class="unit">In</p>
+              </div>
+            </div>
+          </div>
+          <div id="knees" class="content">
+            <div class="measure-img-wrapper">
+              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                   alt="chest">
+            </div>
+            <div class="measure-input-wrapper">
+              <div class="measure-input-group">
+                <input type="text" placeholder="0.0" id="knees_input">
+                <p class="unit">In</p>
+              </div>
+            </div>
+          </div>
+          <div id="thighs" class="content">
+            <div class="measure-img-wrapper">
+              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                   alt="chest">
+            </div>
+            <div class="measure-input-wrapper">
+              <div class="measure-input-group">
+                <input type="text" placeholder="0.0" id="thighs_input">
+                <p class="unit">In</p>
+              </div>
+            </div>
+          </div>
+          <div id="stomach" class="content">
+            <div class="measure-img-wrapper">
+              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                   alt="chest">
+            </div>
+            <div class="measure-input-wrapper">
+              <div class="measure-input-group">
+                <input type="text" placeholder="0.0" id="stomach_input">
+                <p class="unit">In</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="tab-pane container fade" id="pants">
-        <div class="row">
-          <div class="col-4">
-            @include('layouts/cus_5_pants')
+      <div id="suits" class="tab-pane">
+        <div class="measure-items">
+          <a class="measure-item active-link" href="#j_length">
+            <img src="{{asset("assets/images/customize/measurement/chest.png")}}"
+                 alt="j_length">
+            <p>Jacket Front Length</p>
+          </a>
+          <a class="measure-item" href="#jacket_shoulder_bottom">
+            <img src="{{asset("assets/images/customize/measurement/waist.png")}}"
+                 alt="jacket_shoulder_bottom">
+            <p>Jacket Shoulder to Bottom</p>
+          </a>
+          <a class="measure-item" href="#sleeve_length_Right">
+            <img src="{{asset("assets/images/customize/measurement/hips.png")}}"
+                 alt="sleeve_length_Right">
+            <p>Sleeve Length Right</p>
+          </a>
+          <a class="measure-item" href="#sleeve_length_left">
+            <img src="{{asset("assets/images/customize/measurement/shoulder.png")}}"
+                 alt="sleeve_length_left">
+            <p>Sleeve Length Left</p>
+          </a>
+          <a class="measure-item" href="#vest_length">
+            <img src="{{asset("assets/images/customize/measurement/biceps.png")}}"
+                 alt="vest_length">
+            <p>Vest Length</p>
+          </a>
+          <a class="measure-item" href="#shirt_length">
+            <img src="{{asset("assets/images/customize/measurement/forearm.png")}}"
+                 alt="shirt_length">
+            <p>Shirt Length</p>
+          </a>
+          <a class="measure-item" href="#pants_length">
+            <img src="{{asset("assets/images/customize/measurement/neck.png")}}" alt="pants_length">
+            <p>Pants Length</p>
+          </a>
+          <a class="measure-item" href="#bottom_length">
+            <img src="{{asset("assets/images/customize/measurement/knees.png")}}" alt="bottom_length">
+            <p>Bottom Length</p>
+          </a>
+          <a class="measure-item" href="#r_low">
+            <img src="{{asset("assets/images/customize/measurement/thighs.png")}}" alt="r_low">
+            <p>R.Low</p>
+          </a>
+        </div>
+        <div class="measure-item-content">
+          <div id="j_length" class="content">
+            <div class="measure-img-wrapper">
+              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                   alt="chest">
+            </div>
+            <div class="measure-input-wrapper">
+              <div class="measure-input-group">
+                <input type="text" placeholder="0.0" id="chest_input" >
+                <p class="unit">In</p>
+              </div>
+            </div>
           </div>
-          <div class="col-8 d-flex align-items-center">
-            <img src="{{asset('/assets/images/customize/measure-pant.png')}}" alt="">
+          <div id="jacket_shoulder_bottom" class="content">
+            <div class="measure-img-wrapper">
+              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                   alt="chest">
+            </div>
+            <div class="measure-input-wrapper">
+              <div class="measure-input-group">
+                <input type="text" placeholder="0.0" id="waist_input">
+                <p class="unit">In</p>
+              </div>
+            </div>
+          </div>
+          <div id="sleeve_length_Right" class="content">
+            <div class="measure-img-wrapper">
+              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                   alt="chest">
+            </div>
+            <div class="measure-input-wrapper">
+              <div class="measure-input-group">
+                <input type="text" placeholder="0.0" id="hips_input">
+                <p class="unit">In</p>
+              </div>
+            </div>
+          </div>
+          <div id="sleeve_length_left" class="content">
+            <div class="measure-img-wrapper">
+              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                   alt="chest">
+            </div>
+            <div class="measure-input-wrapper">
+              <div class="measure-input-group">
+                <input type="text" placeholder="0.0" id="shoulder_input">
+                <p class="unit">In</p>
+              </div>
+            </div>
+          </div>
+          <div id="vest_length" class="content">
+            <div class="measure-img-wrapper">
+              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                   alt="chest">
+            </div>
+            <div class="measure-input-wrapper">
+              <div class="measure-input-group">
+                <input type="text" placeholder="0.0" id="biceps_input">
+                <p class="unit">In</p>
+              </div>
+            </div>
+          </div>
+          <div id="shirt_length" class="content">
+            <div class="measure-img-wrapper">
+              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                   alt="chest">
+            </div>
+            <div class="measure-input-wrapper">
+              <div class="measure-input-group">
+                <input type="text" placeholder="0.0" id="forearm_input">
+                <p class="unit">In</p>
+              </div>
+            </div>
+          </div>
+          <div id="pants_length" class="content">
+            <div class="measure-img-wrapper">
+              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                   alt="chest">
+            </div>
+            <div class="measure-input-wrapper">
+              <div class="measure-input-group">
+                <input type="text" placeholder="0.0" id="neck_input">
+                <p class="unit">In</p>
+              </div>
+            </div>
+          </div>
+          <div id="bottom_length" class="content">
+            <div class="measure-img-wrapper">
+              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                   alt="chest">
+            </div>
+            <div class="measure-input-wrapper">
+              <div class="measure-input-group">
+                <input type="text" placeholder="0.0" id="knees_input">
+                <p class="unit">In</p>
+              </div>
+            </div>
+          </div>
+          <div id="r_low" class="content">
+            <div class="measure-img-wrapper">
+              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                   alt="chest">
+            </div>
+            <div class="measure-input-wrapper">
+              <div class="measure-input-group">
+                <input type="text" placeholder="0.0" id="thighs_input">
+                <p class="unit">In</p>
+              </div>
+            </div>
           </div>
         </div>
-
+      </div>
+      <div id="info" class="tab-pane">
+        <p>Info</p>
       </div>
     </div>
-  </div>
-  <div class=" d-flex justify-content-center justify-content-md-end custom mb-5">
-    <button class="btn p-0 px-3 mt-5" id="next">NEXT STEP</button>
   </div>
 </section>
 <script>
+    $('#body .content').first().slideDown();
+    $('#body .measure-items .measure-item').click(function (e) {
+        let current_link = $(this);
+        let current_link_href = current_link.attr('href');
 
-  $(document).ready(() => {
-    let category = "in";
-    $("input[name='measure_unit'], label#unit-label").click(function() {
-      category = this.value;
-      // alert(category);
-      if(category === "cm") {
-        $('.unit').html("cm")
-      }
-      if(category === "in") {
-        $('.unit').html("in")
-      }
+        $('#body .measure-items .measure-item').removeClass('active-link');
+        $(this).addClass('active-link');
+
+        $('#body .content').slideUp();
+        $(current_link_href).slideDown();
+
+        e.preventDefault();
     });
-  })
 
-  const jacket = $('#jacket');
-  const pants = $('#pants');
-  const pants_vessel = $('.pants-vessel');
-  const jacket_vessel = $('.jacket-vessel');
-  const image_vessel = $('.image-vessel');
-  const measureImage = $('#measureImage');
+    $('#suits .content').first().slideDown();
+    $('#suits .measure-items .measure-item').click(function (e) {
+        let current_link = $(this);
+        let current_link_href = current_link.attr('href');
 
-  jacket.click(() => {
-    measureImage.attr('src', '/assets/images/customize/measure-jacket.png')
-    jacket_vessel.show();
-    pants_vessel.hide();
-    pants_vessel.addClass('d-none d-md-block')
-  })
-  pants.click(() => {
-    measureImage.attr('src', '/assets/images/customize/measure-pant.png')
-    jacket_vessel.hide()
-    pants_vessel.show()
-    pants_vessel.addClass('order-1 order-md-3')
-    image_vessel.addClass('order-2')
-    pants_vessel.removeClass('d-none d-md-block')
-  })
+        $('#suits .measure-items .measure-item').removeClass('active-link');
+        $(this).addClass('active-link');
 
-  let inputs = $('#upper_measure_space input, #lower_measure_space input');
-  inputs.click(function () {
-    let current_input = $(this);
-    let current_input_id = current_input.attr('id');
-    measureImage.attr('src', 'assets/images/customize/cus5images/' + current_input_id + '.png')
-  })
-  inputs.focus(function () {
-    let current_input = $(this);
-    let current_input_id = current_input.attr('id');
-    measureImage.attr('src', 'assets/images/customize/cus5images/' + current_input_id + '.png')
-  })
+        $('#suits .content').slideUp();
+        $(current_link_href).slideDown();
 
-  $(document).ready(function () {
-    chgImg()
-  })
+        e.preventDefault();
+    });
 
-  $(window).resize(function () {
-    chgImg()
-  })
-
-  const chgImg = () => {
-    const WindowWidth = $(window).width();
-    if (WindowWidth < 767) {
-      measureImage.attr('src', '/assets/images/customize/measure-jacket.png')
-    } else if (WindowWidth > 767) {
-      jacket_vessel.show()
-      measureImage.attr('src', '/assets/images/customize/measure-desktop.png')
-      pants_vessel.addClass('d-block')
-      pants_vessel.removeClass('order-1')
-      image_vessel.removeClass('order-2')
-    }
-  }
+    $(document).ready(() => {
+        let category = "in";
+        $("input[name='measure_unit']").click(function() {
+            category = this.value;
+            // alert(category);
+            if(category === "cm") {
+                $('.unit').html("Cm")
+            }
+            if(category === "in") {
+                $('.unit').html("In")
+            }
+        });
+    })
 
 
 </script>
