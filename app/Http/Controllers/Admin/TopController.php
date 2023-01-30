@@ -198,6 +198,7 @@ class TopController extends Controller
         $edit_top->color = $request->color;
         // $edit_top->size = $request->size;
         $edit_top->price = $request->price;
+        $edit_top->description = $request->description;
         $edit_top->type = $request->type;
 
         if($request->remove_count > 0)

@@ -22,6 +22,15 @@
                                     v-model="pant.style_id" name="btn_text">
                                         <option selected hidden>Choose Style</option>
                                         <option :value="pant.style_id">{{pant.style_id}}</option>
+                                        <option value="JACKET STYLE">PLEAR SELECTION</option>
+                                        <option value="STYLE OF LAPELS">BOTTOM SHAPE</option>
+                                        <option value="LAPEL BUTTON HOLE">CREASE SELECTION</option>
+                                        <option value="LAPEL STITCHING">SIDE POCKETS</option>
+                                        <option value="BELOW POCKET">CUFF STYLE</option>
+                                        <option value="TICKET POCKETS">BACK POCKETS</option>
+                                        <option value="SLEEVE BUTTONS">BELL LOOPS</option>
+                                        <option value="BACK VENTS">EXTENDER STYLE</option>
+                                        <option value="MONOGRAM FRONT">TUXEDO SIDE SATIN</option>
                                     </select>
                                 </div>
                             </div>

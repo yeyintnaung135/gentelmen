@@ -67,6 +67,20 @@
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
+                                    <label>Description</label>
+                                    <textarea type="text" class="form-control" 
+                                    v-bind:class="{
+                                            'border-danger': forrequire(
+                                                this.requireerroryk.description,
+                                                this.top.description
+                                            ),
+                                        }"
+                                    name="" id="" v-model="top.description">
+                                    </textarea>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
                                     <label>Choose Button</label>
                                     <select class="form-control"
                                     v-bind:class="{
@@ -171,7 +185,8 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
             style_id:"",
             customize_cate_id:"",
             jacket_button_id:"",
-            price:""
+            price:"",
+            description:"",
         },
                 //forerror
         requireerroryk: {
@@ -180,6 +195,7 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
             customize_cate_id:false,
             jacket_button_id:false,
             price: false,
+            description: false,
             photoerror: false
         },
             //forerror
@@ -228,6 +244,7 @@ headers: { 'content-type': 'multipart/form-data' }
             let formData = new FormData();
                 // formData.append('file', this.fit_suit.files);
                 formData.append('price', this.top.price);
+                formData.append('description', this.top.description);
                 formData.append('style', this.top.style_id);
                 formData.append('color', this.top.jacket_button_id);
                 // formData.append('texture', this.top.texture_id);
@@ -282,6 +299,11 @@ headers: { 'content-type': 'multipart/form-data' }
                 tmperrorcounts += 1;
             } else {this.requireerroryk.price = false;}
 
+            if (this.top.description == "") {
+                this.requireerroryk.description = true;
+                tmperrorcounts += 1;
+            } else {this.requireerroryk.description = false;}
+
             //if input field has no error continue to check min 3 file need to upload
 
             // if (this.$refs.myVueDropzone.getAcceptedFiles().length < 1) {
@@ -313,6 +335,10 @@ headers: { 'content-type': 'multipart/form-data' }
                 }
                 if(this.requireerroryk.price) {
                   alertText[i] = "need to select the price";
+                  i++;
+                }
+                if(this.requireerroryk.description) {
+                  alertText[i] = "need to select the descripton";
                   i++;
                 }
                 if(this.requireerroryk.customize_cate_id) {
@@ -347,6 +373,7 @@ headers: { 'content-type': 'multipart/form-data' }
                 formData.append('remove_count', this.removeCount);
                 formData.append('upload_count', this.uploadCount);  
                 formData.append('price', this.top.price);
+                formData.append('description', this.top.description);
                 formData.append('style', this.top.style_id);
                 formData.append('color', this.top.jacket_button_id);
                 // formData.append('texture', this.top.texture_id);
@@ -583,7 +610,8 @@ headers: { 'content-type': 'multipart/form-data' }
                 this.top.style_id = response.data.tops.style,
                 this.top.customize_cate_id = response.data.tops.type,   
                 this.top.jacket_button_id = response.data.tops.color,
-                this.top.price = response.data.tops.price
+                this.top.price = response.data.tops.price,
+                this.top.description = response.data.tops.description
                 // window.location.reload();
                     if(response.data.tops.photo_one != null)
                   {
