@@ -1162,17 +1162,18 @@ Route::get('customize', function (Request $request) {
 
                 logger("texture infinite scrolllllllllllllll");
                   $texture_articles .= '
+
                   <div class="col-6 col-md-4 mb-3 mb-md-0 px-2">
                   <div class="radio-group fabric-group">';
                   if($grand->id == $request->texture_id)
                   {
                     $texture_articles .='
-                    <input type="radio" name="test" value="" id="texture_check_'.$grand->id.'" class="form-check-input" checked/>';
+                    <input type="radio" name="FABRIC" value="" id="texture_check_'.$grand->id.'" class="form-check-input" checked/>';
                   }
                   else
                   {
                     $texture_articles .='
-                    <input type="radio" name="test" value="" id="texture_check_'.$grand->id.'" class="form-check-input"/>';
+                    <input type="radio" name="FABRIC" value="" id="texture_check_'.$grand->id.'" class="form-check-input"/>';
                   }
 
                   $texture_articles .='
@@ -1369,7 +1370,7 @@ Route::get('ready-to-wear', function (Request $request) {
   // dd($user_detail);
   $favs = Favourite::where('user_id',Session::get('user_id'))->get();
   $carts = AddToCart::where('user_id',Session::get('user_id'))->get();
-
+  $popup_readys = ReadyToWear::all();
   $styles = Style::all();
   $style_cates = Style_Category::all();
   $packages = Package::all();
@@ -1632,7 +1633,7 @@ Route::get('ready-to-wear', function (Request $request) {
     }
     return response()->json(['res' => $articles, 'page_no' => 8]);
   }
-    return view('frontend.readyToWear',compact('main_textures','user','user_detail','favs','carts','readys','styles','packages','textures','style_cates'));
+    return view('frontend.readyToWear',compact('popup_readys','main_textures','user','user_detail','favs','carts','readys','styles','packages','textures','style_cates'));
 });
 Route::get('suit-tips', function (Request $request) {
     $features = SuitTips::where('feature',"Yes")->get();

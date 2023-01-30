@@ -87,8 +87,8 @@
       </div>
     </div>
     {{-- modal start --}}
-    @foreach($readys as $ready)
-      <div class="modal fade addi__modal" id="myready{{$ready->id}}">
+    @foreach($popup_readys as $ready)
+      <div class="modal fade" id="myready{{$ready->id}}">
         <div
           class="modal-dialog modal-dialog-scrollable modal-xl modal-dialog-centered modal-fullscreen-lg-down">
           <div class="fabric-pop modal-content" style="width: 80rem !important;
@@ -115,10 +115,10 @@
                         <i class="bx bx-check text-gold me-3"></i>
                         <p class="smaller-text">Made in : {{$ready->made_in}}</p>
                       </div>
-                      {{-- <div class="d-flex align-items-center mb-4">
+                       <div class="d-flex align-items-center mb-4">
                         <i class="bx bx-check text-gold me-3"></i>
                         <p class="smaller-text">colour : -</p>
-                      </div> --}}
+                      </div>
 
                     </div>
                     <div class="col-md-6">
@@ -171,7 +171,7 @@
 @endsection
 @section('js')
   <script>
-    {{--See more See less filter--}}
+    // {{--See more See less filter--}}
     /*$(document).ready(function () {
 
       //style filter
