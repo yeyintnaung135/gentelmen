@@ -51,7 +51,17 @@
                                         }"
                                     v-model="top.style_id" name="btn_text">
                                         <option selected hidden>Choose Style</option>
-                                        <option v-for="(style,index) in styles" :key="index" :value="style.name">{{style.name}}</option>
+                                        <option  :value="top.style_id">{{top.style_id}}</option>
+                                        <option value="JACKET STYLE">JACKET STYLE</option>
+                                        <option value="STYLE OF LAPELS">STYLE OF LAPELS</option>
+                                        <option value="LAPEL BUTTON HOLE">LAPEL BUTTON HOLE</option>
+                                        <option value="LAPEL STITCHING">LAPEL STITCHING</option>
+                                        <option value="BELOW POCKET">BELOW POCKET</option>
+                                        <option value="TICKET POCKETS">TICKET POCKETS</option>
+                                        <option value="SLEEVE BUTTONS">SLEEVE BUTTONS</option>
+                                        <option value="BACK VENTS">BACK VENTS</option>
+                                        <option value="MONOGRAM FRONT">MONOGRAM FRONT</option>
+                                        <option value="TRIMMING LAPEL">TRIMMING LAPEL</option>
                                     </select>
                                 </div>
                             </div>

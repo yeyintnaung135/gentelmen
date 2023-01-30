@@ -21,11 +21,11 @@
                                         }"
                                     v-model="pant.style_id" name="btn_text">
                                         <option selected hidden>Choose Style</option>
-                                        <option v-for="(style,index) in styles" :key="index" :value="style.id">{{style.name}}</option>
+                                        <option :value="pant.style_id">{{pant.style_id}}</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <!-- <div class="col-6">
                                 <div class="form-group">
                                     <label>Choose Color</label>
 
@@ -42,7 +42,7 @@
                                         <option v-for="(color,index) in colors" :key="index" :value="color.id">{{color.name}}</option>
                                     </select>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="col-6">
                                 <div class="form-group">
                                     <label>Description</label>
