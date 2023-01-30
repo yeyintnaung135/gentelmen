@@ -26,8 +26,11 @@
           <img class="item__img" src="{{'/assets/images/suit_tip/'. $latest_suit_tip->photo}}" alt="">
           <div class="item__texts">
             <span class="text-white-50">Emperor of Asia -{{ \Carbon\Carbon::parse($latest_suit_tip->created_at)->format('M d Y')}}</span>
-            <h6>How to Measure Upper Body</h6>
+            <h6>{{$latest_suit_tip->title}}</h6>
             <p class="more">{{$latest_suit_tip->description}}</p>
+            <button class="pop-up__button mt-4">
+              <a href="/suit-tips-detail/{{$latest_suit_tip->id}}">Detail</a>
+            </button>
           </div>
         </div>
         @endforeach

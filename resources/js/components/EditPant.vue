@@ -21,11 +21,20 @@
                                         }"
                                     v-model="pant.style_id" name="btn_text">
                                         <option selected hidden>Choose Style</option>
-                                        <option v-for="(style,index) in styles" :key="index" :value="style.id">{{style.name}}</option>
+                                        <option :value="pant.style_id">{{pant.style_id}}</option>
+                                        <option value="JACKET STYLE">PLEAR SELECTION</option>
+                                        <option value="STYLE OF LAPELS">BOTTOM SHAPE</option>
+                                        <option value="LAPEL BUTTON HOLE">CREASE SELECTION</option>
+                                        <option value="LAPEL STITCHING">SIDE POCKETS</option>
+                                        <option value="BELOW POCKET">CUFF STYLE</option>
+                                        <option value="TICKET POCKETS">BACK POCKETS</option>
+                                        <option value="SLEEVE BUTTONS">BELL LOOPS</option>
+                                        <option value="BACK VENTS">EXTENDER STYLE</option>
+                                        <option value="MONOGRAM FRONT">TUXEDO SIDE SATIN</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <!-- <div class="col-6">
                                 <div class="form-group">
                                     <label>Choose Color</label>
 
@@ -42,6 +51,34 @@
                                         <option v-for="(color,index) in colors" :key="index" :value="color.id">{{color.name}}</option>
                                     </select>
                                 </div>
+                            </div> -->
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <textarea type="text" class="form-control" 
+                                    v-bind:class="{
+                                            'border-danger': forrequire(
+                                                this.requireerroryk.description,
+                                                this.pant.description
+                                            ),
+                                        }"
+                                    name="" id="" v-model="pant.description">
+                                    </textarea>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label>Price</label>
+                                    <input type="text" class="form-control" 
+                                    v-bind:class="{
+                                            'border-danger': forrequire(
+                                                this.requireerroryk.price,
+                                                this.pant.price
+                                            ),
+                                        }"
+                                    name="" id="" v-model="pant.price">
+                                    
+                                </div>
                             </div>
                         </div>
                         Drag and Drop Here
@@ -53,9 +90,9 @@
                                 ),
                             }"
                         >
-                        <label style="font-size: 15px" class="text-danger"
+                        <!-- <label style="font-size: 15px" class="text-danger"
                                 >Upload Min One Photo(MinWidth:400px to MaxWidth:800px and MinHeight:500px to MaxHeight:900px)</label
-                            >
+                            > -->
                         </div>
                         <vue-dropzone ref="myVueDropzone"  id="customdropzone"
                         :options="dropzoneOptions"
@@ -116,7 +153,10 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
             pant:{
             files:[],
             style_id:"",
+            pant_pleat_id:"",
             color:"",
+            description:"",
+            price:"",
             
         },
         name:"",
@@ -125,6 +165,8 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
         requireerroryk: {
             style_id:false,
             color:false,
+            description: false,
+            price: false,
             photoerror: false
         },
             //forerror
@@ -207,7 +249,15 @@ headers: { 'content-type': 'multipart/form-data' }
             } else {this.requireerroryk.color = false;}
 
 
-           
+            if (this.pant.description == "") {
+                this.requireerroryk.description = true;
+                tmperrorcounts += 1;
+            } else {this.requireerroryk.description = false;}
+
+            if (this.pant.price == "") {
+                this.requireerroryk.price = true;
+                tmperrorcounts += 1;
+            } else {this.requireerroryk.price = false;}
 
             //if input field has no error continue to check min 3 file need to upload
 
@@ -233,6 +283,15 @@ headers: { 'content-type': 'multipart/form-data' }
                 }
                 if(this.requireerroryk.color) {
                   alertText[i] = "need to select the color";
+                  i++;
+                }
+
+                if(this.requireerroryk.description) {
+                  alertText[i] = "need to select the description";
+                  i++;
+                }
+                if(this.requireerroryk.price) {
+                  alertText[i] = "need to select the price";
                   i++;
                 }
                
@@ -265,6 +324,8 @@ headers: { 'content-type': 'multipart/form-data' }
                 formData.append('upload_count', this.uploadCount);  
                 formData.append('style', this.pant.style_id);
                 formData.append('color', this.pant.color);
+                formData.append('description', this.pant.description);
+                formData.append('price', this.pant.price);
                 formData.append('images', this.$refs.myVueDropzone.getQueuedFiles());
                 this.$refs.myVueDropzone.getQueuedFiles().forEach(file => {
                 formData.append('images[]', file, file.upload.name);
@@ -277,42 +338,42 @@ headers: { 'content-type': 'multipart/form-data' }
             let sizeStatus = false;
             var alertSize = new Array();
             var i = 0;
-            this.$refs.myVueDropzone.getQueuedFiles().forEach(file => {
-            // alert(file.upload.filename);
-            if(file.height > 900 || file.height < 500 && file.width > 800 || file.width < 400)
-            {
-                alertSize[i] = file.upload.filename+" is not match with width min - 400 to max - 800 and height min - 500 to max - 900";
+            // this.$refs.myVueDropzone.getQueuedFiles().forEach(file => {
+            // // alert(file.upload.filename);
+            // if(file.height > 900 || file.height < 500 && file.width > 800 || file.width < 400)
+            // {
+            //     alertSize[i] = file.upload.filename+" is not match with width min - 400 to max - 800 and height min - 500 to max - 900";
 
-                // alert(file.upload.filename+" is not match 525*295");
-                i++;
-                sizeStatus = false;
-            }
-            else if(file.width > 800 || file.width < 400)
-            {
-              alertSize[i] = file.upload.filename+" is not match width min - 400 to max - 800";
-              i++;
-                // alert(file.upload.filename+" is not match width 525");
-                sizeStatus = false;
-            }
-            else if(file.height > 900 || file.height < 500)
-            {
-              alertSize[i] = file.upload.filename+" is not match height min - 500 to max - 900";
-              i++;
-                // alert(file.upload.filename+" is not match height 295");
-                sizeStatus = false;
-            }
-            else if(file.height <= 900 || file.height >= 500 && file.width <= 800 || file.width >= 400)
-            {
-                 sizeStatus = true;
-            }
-            });
-            if(sizeStatus == false)
-            {
-              alert(alertSize);
+            //     // alert(file.upload.filename+" is not match 525*295");
+            //     i++;
+            //     sizeStatus = false;
+            // }
+            // else if(file.width > 800 || file.width < 400)
+            // {
+            //   alertSize[i] = file.upload.filename+" is not match width min - 400 to max - 800";
+            //   i++;
+            //     // alert(file.upload.filename+" is not match width 525");
+            //     sizeStatus = false;
+            // }
+            // else if(file.height > 900 || file.height < 500)
+            // {
+            //   alertSize[i] = file.upload.filename+" is not match height min - 500 to max - 900";
+            //   i++;
+            //     // alert(file.upload.filename+" is not match height 295");
+            //     sizeStatus = false;
+            // }
+            // else if(file.height <= 900 || file.height >= 500 && file.width <= 800 || file.width >= 400)
+            // {
+            //      sizeStatus = true;
+            // }
+            // });
+            // if(sizeStatus == false)
+            // {
+            //   alert(alertSize);
 
-            }
-            if(sizeStatus == true)
-            {
+            // }
+            // if(sizeStatus == true)
+            // {
             axios.post('/store_edit_pant',formData,config)
 
             .then(function (response){
@@ -324,6 +385,8 @@ headers: { 'content-type': 'multipart/form-data' }
                     icon: "success"
                 }).then(function() {
                     window.history.back();
+                    // location.reload(true);
+                    sessionStorage.setItem('reload_additional_list',1);
                 });
 
                
@@ -334,7 +397,7 @@ headers: { 'content-type': 'multipart/form-data' }
                 // alert("wrong");
                 console.log(error);
             })
-        }
+        // }
         },
 
         removeThisFile (file) {
@@ -470,7 +533,9 @@ headers: { 'content-type': 'multipart/form-data' }
                 // alert("access");
                 console.log(response.data.pants.pant);
                 this.pant.style_id = response.data.pants.style,
-                this.pant.color = response.data.pants.color
+                this.pant.color = response.data.pants.color,
+                this.pant.description = response.data.pants.description,
+                this.pant.price = response.data.pants.price
                 // window.location.reload();
                 if(response.data.pants.photo_one != null)
                   {

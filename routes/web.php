@@ -1176,6 +1176,7 @@ Route::get('customize', function (Request $request) {
                   }
 
                   $texture_articles .='
+
                     <div class="cursor-pointer" data-bs-toggle="modal"
                          data-bs-target="#myFabric' . $grand->id .'" onclick="get_texture_swiper(' . $grand->id . ')">
                       <div class="img-container mb-1">
@@ -1216,7 +1217,7 @@ Route::get('customize', function (Request $request) {
                         '.$pant->description.'
                         </span>
                       </span>
-                  <span class="col-md-6 jacket">
+                  <span class="col-12 col-md-6 jacket">
                       <span class="fit-img-container">
                         <img src="'.$public_path_pant.$pant->photo_one.'" alt="" class="">
                       </span>
@@ -1249,7 +1250,7 @@ Route::get('customize', function (Request $request) {
                         '.$vest->description.'
                         </span>
                       </span>
-                  <span class="col-md-6 jacket">
+                  <span class="col-12 col-md-6 jacket">
                       <span class="fit-img-container">
                         <img src="'.$public_path_vest.$vest->photo_one.'" alt="" class="">
                       </span>
@@ -1284,7 +1285,7 @@ Route::get('customize', function (Request $request) {
                       '.$top->description.'
                       </span>
                     </span>
-                <span class="col-md-6 jacket">
+                <span class="col-12 col-md-6 jacket">
                     <span class="">
                       <img src="'.$public_path_jacket.$top->photo_one.'" alt="" class="">
                     </span>

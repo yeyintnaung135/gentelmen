@@ -142,7 +142,7 @@ class PantController extends Controller
         }
 
         $pant = Pant::create([
-            'texture' => $request->texture,
+            // 'texture' => $request->texture,
             'style' => $request->style,
             'color' => $request->color,
             'price' =>$request->price,
@@ -164,7 +164,7 @@ class PantController extends Controller
     public function show_list()
     {
         $pants = Pant::all();
-        // dd($fits);
+    //    return dd($pants);
         return view('admin.customize.pant.list',compact('pants'));
     }
 
@@ -195,7 +195,7 @@ class PantController extends Controller
     {
         logger($request->all());
         $edit_pant = Pant::find($request->pant_id);
-        $edit_pant->texture = $request->texture;
+        // $edit_pant->texture = $request->texture;
         $edit_pant->style = $request->style;
         $edit_pant->color = $request->color;
         $edit_pant->price = $request->price;

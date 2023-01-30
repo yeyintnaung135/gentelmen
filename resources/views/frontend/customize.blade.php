@@ -598,7 +598,7 @@
     $('.content').first().show();
     $('#next-unconfirm').hide();
 
-    $('.box-menu a').click(function (e) {
+    $('.circle-wrapper a').click(function (e) {
       if(sessionStorage.getItem('fitting') != null && sessionStorage.getItem('fitting') != '')
       {
       let current_link = $(this);
@@ -636,7 +636,7 @@
       }
       console.log(current_link)
       console.log(current_link_href)
-      $('.box-menu a').removeClass('box-select');
+      $('.circle-wrapper a').removeClass('box-select');
       $(this).addClass('box-select');
 
       $('.content').hide();

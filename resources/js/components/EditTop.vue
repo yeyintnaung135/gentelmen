@@ -23,7 +23,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <!-- <div class="col-6">
                                 <div class="form-group">
                                     <label>Texture</label>
                                     <select class="form-control"
@@ -38,7 +38,7 @@
                                         <option v-for="(texture,index) in textures" :key="index" :value="texture.name">{{texture.name}}</option>
                                     </select>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="col-6">
                                 <div class="form-group">
                                     <label>Choose Style</label>
@@ -51,8 +51,32 @@
                                         }"
                                     v-model="top.style_id" name="btn_text">
                                         <option selected hidden>Choose Style</option>
-                                        <option v-for="(style,index) in styles" :key="index" :value="style.name">{{style.name}}</option>
+                                        <option  :value="top.style_id">{{top.style_id}}</option>
+                                        <option value="JACKET STYLE">JACKET STYLE</option>
+                                        <option value="STYLE OF LAPELS">STYLE OF LAPELS</option>
+                                        <option value="LAPEL BUTTON HOLE">LAPEL BUTTON HOLE</option>
+                                        <option value="LAPEL STITCHING">LAPEL STITCHING</option>
+                                        <option value="BELOW POCKET">BELOW POCKET</option>
+                                        <option value="TICKET POCKETS">TICKET POCKETS</option>
+                                        <option value="SLEEVE BUTTONS">SLEEVE BUTTONS</option>
+                                        <option value="BACK VENTS">BACK VENTS</option>
+                                        <option value="MONOGRAM FRONT">MONOGRAM FRONT</option>
+                                        <option value="TRIMMING LAPEL">TRIMMING LAPEL</option>
                                     </select>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <textarea type="text" class="form-control" 
+                                    v-bind:class="{
+                                            'border-danger': forrequire(
+                                                this.requireerroryk.description,
+                                                this.top.description
+                                            ),
+                                        }"
+                                    name="" id="" v-model="top.description">
+                                    </textarea>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -94,9 +118,9 @@
                                 ),
                             }"
                         >
-                        <label style="font-size: 15px" class="text-danger"
+                        <!-- <label style="font-size: 15px" class="text-danger"
                                 >Upload Min One Photo(MinWidth:400px to MaxWidth:800px and MinHeight:500px to MaxHeight:900px)</label
-                            >
+                            > -->
                         </div>
                         <vue-dropzone ref="myVueDropzone"  id="customdropzone"
                         :options="dropzoneOptions"
@@ -137,7 +161,7 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
             uploadCount:0,
             removeCount:0,
 
-            textures:{},
+            // textures:{},
             colors:{},
             styles:{},
             customize_cates:{},
@@ -161,7 +185,8 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
             style_id:"",
             customize_cate_id:"",
             jacket_button_id:"",
-            price:""
+            price:"",
+            description:"",
         },
                 //forerror
         requireerroryk: {
@@ -170,6 +195,7 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
             customize_cate_id:false,
             jacket_button_id:false,
             price: false,
+            description: false,
             photoerror: false
         },
             //forerror
@@ -218,9 +244,10 @@ headers: { 'content-type': 'multipart/form-data' }
             let formData = new FormData();
                 // formData.append('file', this.fit_suit.files);
                 formData.append('price', this.top.price);
+                formData.append('description', this.top.description);
                 formData.append('style', this.top.style_id);
                 formData.append('color', this.top.jacket_button_id);
-                formData.append('texture', this.top.texture_id);
+                // formData.append('texture', this.top.texture_id);
                 formData.append('type', this.top.customize_cate_id);
                 formData.append('images', this.$refs.myVueDropzone.getQueuedFiles());
                 this.$refs.myVueDropzone.getQueuedFiles().forEach(file => {
@@ -229,7 +256,7 @@ headers: { 'content-type': 'multipart/form-data' }
 
             axios.post('/store_top',formData,config)
             .then(function (response){
-                alert("access");
+                // alert("access");
                 window.location.reload();
             })
             .catch(function (error){
@@ -272,6 +299,11 @@ headers: { 'content-type': 'multipart/form-data' }
                 tmperrorcounts += 1;
             } else {this.requireerroryk.price = false;}
 
+            if (this.top.description == "") {
+                this.requireerroryk.description = true;
+                tmperrorcounts += 1;
+            } else {this.requireerroryk.description = false;}
+
             //if input field has no error continue to check min 3 file need to upload
 
             // if (this.$refs.myVueDropzone.getAcceptedFiles().length < 1) {
@@ -289,10 +321,10 @@ headers: { 'content-type': 'multipart/form-data' }
                 var alertText = new Array();
                 var i = 0;
 
-                if(this.requireerroryk.texture_id) {
-                  alertText[i] = "need to select the texture";
-                  i++;
-                }
+                // if(this.requireerroryk.texture_id) {
+                //   alertText[i] = "need to select the texture";
+                //   i++;
+                // }
                 if(this.requireerroryk.style_id) {
                   alertText[i] = "need to select the style";
                   i++;
@@ -303,6 +335,10 @@ headers: { 'content-type': 'multipart/form-data' }
                 }
                 if(this.requireerroryk.price) {
                   alertText[i] = "need to select the price";
+                  i++;
+                }
+                if(this.requireerroryk.description) {
+                  alertText[i] = "need to select the descripton";
                   i++;
                 }
                 if(this.requireerroryk.customize_cate_id) {
@@ -337,9 +373,10 @@ headers: { 'content-type': 'multipart/form-data' }
                 formData.append('remove_count', this.removeCount);
                 formData.append('upload_count', this.uploadCount);  
                 formData.append('price', this.top.price);
+                formData.append('description', this.top.description);
                 formData.append('style', this.top.style_id);
                 formData.append('color', this.top.jacket_button_id);
-                formData.append('texture', this.top.texture_id);
+                // formData.append('texture', this.top.texture_id);
                 formData.append('type', this.top.customize_cate_id);
                 formData.append('images', this.$refs.myVueDropzone.getQueuedFiles());
                 this.$refs.myVueDropzone.getQueuedFiles().forEach(file => {
@@ -352,42 +389,42 @@ headers: { 'content-type': 'multipart/form-data' }
             let sizeStatus = false;
             var alertSize = new Array();
             var i = 0;
-            this.$refs.myVueDropzone.getQueuedFiles().forEach(file => {
-            // alert(file.upload.filename);
-            if(file.height > 900 || file.height < 500 && file.width > 800 || file.width < 400)
-            {
-                alertSize[i] = file.upload.filename+" is not match with width min - 400 to max - 800 and height min - 500 to max - 900";
+            // this.$refs.myVueDropzone.getQueuedFiles().forEach(file => {
+            // // alert(file.upload.filename);
+            // if(file.height > 900 || file.height < 500 && file.width > 800 || file.width < 400)
+            // {
+            //     alertSize[i] = file.upload.filename+" is not match with width min - 400 to max - 800 and height min - 500 to max - 900";
 
-                // alert(file.upload.filename+" is not match 525*295");
-                i++;
-                sizeStatus = false;
-            }
-            else if(file.width > 800 || file.width < 400)
-            {
-              alertSize[i] = file.upload.filename+" is not match width min - 400 to max - 800";
-              i++;
-                // alert(file.upload.filename+" is not match width 525");
-                sizeStatus = false;
-            }
-            else if(file.height > 900 || file.height < 500)
-            {
-              alertSize[i] = file.upload.filename+" is not match height min - 500 to max - 900";
-              i++;
-                // alert(file.upload.filename+" is not match height 295");
-                sizeStatus = false;
-            }
-            else if(file.height <= 900 || file.height >= 500 && file.width <= 800 || file.width >= 400)
-            {
-                 sizeStatus = true;
-            }
-            });
-            if(sizeStatus == false)
-            {
-              alert(alertSize);
+            //     // alert(file.upload.filename+" is not match 525*295");
+            //     i++;
+            //     sizeStatus = false;
+            // }
+            // else if(file.width > 800 || file.width < 400)
+            // {
+            //   alertSize[i] = file.upload.filename+" is not match width min - 400 to max - 800";
+            //   i++;
+            //     // alert(file.upload.filename+" is not match width 525");
+            //     sizeStatus = false;
+            // }
+            // else if(file.height > 900 || file.height < 500)
+            // {
+            //   alertSize[i] = file.upload.filename+" is not match height min - 500 to max - 900";
+            //   i++;
+            //     // alert(file.upload.filename+" is not match height 295");
+            //     sizeStatus = false;
+            // }
+            // else if(file.height <= 900 || file.height >= 500 && file.width <= 800 || file.width >= 400)
+            // {
+            //      sizeStatus = true;
+            // }
+            // });
+            // if(sizeStatus == false)
+            // {
+            //   alert(alertSize);
 
-            }
-            if(sizeStatus == true)
-            {
+            // }
+            // if(sizeStatus == true)
+            // {
             axios.post('/store_edit_top',formData,config)
 
             .then(function (response){
@@ -399,6 +436,8 @@ headers: { 'content-type': 'multipart/form-data' }
                     icon: "success"
                 }).then(function() {
                     window.history.back();
+                    // location.reload(true);
+                    sessionStorage.setItem('reload_additional_list',1);
                 });
 
                
@@ -408,7 +447,7 @@ headers: { 'content-type': 'multipart/form-data' }
                 // alert("wrong");
                 console.log(error);
             })
-        }
+        // }
         },
 
         removeThisFile (file) {
@@ -566,12 +605,13 @@ headers: { 'content-type': 'multipart/form-data' }
             axios.post('/get_edit_top',topID)
             .then( (response) => {
                 // alert("access");
-                console.log(response.color);
-                this.top.texture_id =  response.data.tops.texture,
+                console.log(response.data.tops.style);
+                // this.top.texture_id =  response.data.tops.texture,
                 this.top.style_id = response.data.tops.style,
-                this.top.customize_cate_id = response.data.tops.type,
+                this.top.customize_cate_id = response.data.tops.type,   
                 this.top.jacket_button_id = response.data.tops.color,
-                this.top.price = response.data.tops.price
+                this.top.price = response.data.tops.price,
+                this.top.description = response.data.tops.description
                 // window.location.reload();
                     if(response.data.tops.photo_one != null)
                   {
