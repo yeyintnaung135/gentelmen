@@ -392,8 +392,9 @@
               <div class="info-input-group">
                 <select name="shoulder_type">
                   <option value="">Select</option>
-                  <option value="kg">Kg</option>
-                  <option value="lp">Lb</option>
+                  <option value="structure">Structure</option>
+                  <option value="square">Square</option>
+                  <option value="slopped">Slopped</option>
                 </select>
               </div>
             </div>
@@ -402,8 +403,8 @@
               <div class="info-input-group">
                 <select name="dropped_shoulder">
                   <option value="">Select</option>
-                  <option value="kg">Kg</option>
-                  <option value="lp">Lb</option>
+                  <option value="left">Left</option>
+                  <option value="right">Right</option>
                 </select>
               </div>
             </div>
@@ -412,8 +413,9 @@
               <div class="info-input-group">
                 <select name="arms_position">
                   <option value="">Select</option>
-                  <option value="kg">Kg</option>
-                  <option value="lp">Lb</option>
+                  <option value="average">Average</option>
+                  <option value="forward">Forward</option>
+                  <option value="backward">Backward</option>
                 </select>
               </div>
             </div>
@@ -422,8 +424,10 @@
               <div class="info-input-group">
                 <select name="body_shape">
                   <option value="">Select</option>
-                  <option value="kg">Kg</option>
-                  <option value="lp">Lb</option>
+                  <option value="average">Average</option>
+                  <option value="thin">Thin</option>
+                  <option value="muscular">Muscular</option>
+                  <option value="fuller">Fuller</option>
                 </select>
               </div>
             </div>
@@ -434,8 +438,9 @@
               <div class="info-input-group">
                 <select name="neck_type">
                   <option value="">Select</option>
-                  <option value="kg">Kg</option>
-                  <option value="lp">Lb</option>
+                  <option value="standard">Standard</option>
+                  <option value="short">Short</option>
+                  <option value="long">Long</option>
                 </select>
               </div>
             </div>
@@ -444,8 +449,9 @@
               <div class="info-input-group">
                 <select name="stomach_shape">
                   <option value="">Select</option>
-                  <option value="kg">Kg</option>
-                  <option value="lp">Lb</option>
+                  <option value="average">Average</option>
+                  <option value="flat">Flat</option>
+                  <option value="extended">Extended</option>
                 </select>
               </div>
             </div>
@@ -454,8 +460,8 @@
               <div class="info-input-group">
                 <select name="upper_body_shape">
                   <option value="">Select</option>
-                  <option value="kg">Kg</option>
-                  <option value="lp">Lb</option>
+                  <option value="straight">Straight</option>
+                  <option value="scooped">Scooped</option>
                 </select>
               </div>
             </div>
@@ -464,8 +470,9 @@
               <div class="info-input-group">
                 <select name="pant_line">
                   <option value="">Select</option>
-                  <option value="kg">Kg</option>
-                  <option value="lp">Lb</option>
+                  <option value="regular">Regular</option>
+                  <option value="low">Low</option>
+                  <option value="under-belly">Under Belly</option>
                 </select>
               </div>
             </div>
@@ -474,8 +481,9 @@
               <div class="info-input-group">
                 <select name="seat">
                   <option value="">Select</option>
-                  <option value="kg">Kg</option>
-                  <option value="lp">Lb</option>
+                  <option value="regular">Regular</option>
+                  <option value="flat">Flat</option>
+                  <option value="prominent">Prominent</option>
                 </select>
               </div>
             </div>
@@ -516,15 +524,17 @@
 
     $(document).ready(() => {
         let category = "in";
+        $('.unit').html("In")
         $("input[name='measure_unit']").click(function() {
             category = this.value;
-            // alert(category);
-            if(category === "cm") {
-                $('.unit').html("Cm")
-            }
+            alert(category);
             if(category === "in") {
                 $('.unit').html("In")
             }
+            if(category === "cm") {
+                $('.unit').html("Cm")
+            }
+
         });
     })
 
