@@ -75,11 +75,29 @@
             <img src="{{asset("assets/images/customize/measurement/stomach.png")}}" alt="stomach">
             <p>stomach</p>
           </a>
+          <a class="measure-item" href="#cuffs">
+            <img src="{{asset("assets/images/customize/measurement/stomach.png")}}" alt="cuffs">
+            <p>cuffs</p>
+          </a>
+          <a class="measure-item" href="#chest-front">
+            <img src="{{asset("assets/images/customize/measurement/stomach.png")}}" alt="chest
+            front">
+            <p>chest front width</p>
+          </a>
+          <a class="measure-item" href="#chest-back">
+            <img src="{{asset("assets/images/customize/measurement/stomach.png")}}" alt="chest
+            back">
+            <p>chest Back width</p>
+          </a>
+          <a class="measure-item" href="#crotch">
+            <img src="{{asset("assets/images/customize/measurement/stomach.png")}}" alt="crotch">
+            <p>crotch</p>
+          </a>
         </div>
         <div class="measure-item-content">
           <div id="chest" class="content">
             <div class="measure-img-wrapper">
-              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+              <img src="{{asset('assets/images/customize/measurement/_MG_0002.JPG')}}"
                    alt="chest">
             </div>
             <div class="measure-input-wrapper">
@@ -91,7 +109,7 @@
           </div>
           <div id="waist" class="content">
             <div class="measure-img-wrapper">
-              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+              <img src="{{asset('assets/images/customize/measurement/_MG_0003.JPG')}}"
                    alt="chest">
             </div>
             <div class="measure-input-wrapper">
@@ -103,7 +121,7 @@
           </div>
           <div id="hips" class="content">
             <div class="measure-img-wrapper">
-              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+              <img src="{{asset('assets/images/customize/measurement/_MG_0011.JPG')}}"
                    alt="chest">
             </div>
             <div class="measure-input-wrapper">
@@ -197,6 +215,54 @@
               </div>
             </div>
           </div>
+          <div id="cuffs" class="content">
+            <div class="measure-img-wrapper">
+              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                   alt="cuffs">
+            </div>
+            <div class="measure-input-wrapper">
+              <div class="measure-input-group">
+                <input type="text" placeholder="0.0" id="cuffs_input">
+                <p class="unit">In</p>
+              </div>
+            </div>
+          </div>
+          <div id="chest-front" class="content">
+            <div class="measure-img-wrapper">
+              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                   alt="chest front">
+            </div>
+            <div class="measure-input-wrapper">
+              <div class="measure-input-group">
+                <input type="text" placeholder="0.0" id="chest_front_input">
+                <p class="unit">In</p>
+              </div>
+            </div>
+          </div>
+          <div id="chest-back" class="content">
+            <div class="measure-img-wrapper">
+              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                   alt="chest back">
+            </div>
+            <div class="measure-input-wrapper">
+              <div class="measure-input-group">
+                <input type="text" placeholder="0.0" id="chest_back_input">
+                <p class="unit">In</p>
+              </div>
+            </div>
+          </div>
+          <div id="crotch" class="content">
+            <div class="measure-img-wrapper">
+              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                   alt="crotch">
+            </div>
+            <div class="measure-input-wrapper">
+              <div class="measure-input-group">
+                <input type="text" placeholder="0.0" id="crotch_input">
+                <p class="unit">In</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div id="suits" class="tab-pane">
@@ -242,6 +308,15 @@
           <a class="measure-item" href="#r_low">
             <img src="{{asset("assets/images/customize/measurement/thighs.png")}}" alt="r_low">
             <p>R.Low</p>
+          </a>
+          <a class="measure-item" href="#l_low">
+            <img src="{{asset("assets/images/customize/measurement/thighs.png")}}" alt="l_low">
+            <p>L.Low</p>
+          </a>
+          <a class="measure-item" href="#skirt_length">
+            <img src="{{asset("assets/images/customize/measurement/thighs.png")}}"
+                 alt="skirt_length">
+            <p>Skirt Length</p>
           </a>
         </div>
         <div class="measure-item-content">
@@ -342,6 +417,30 @@
             </div>
           </div>
           <div id="r_low" class="content">
+            <div class="measure-img-wrapper">
+              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                   alt="chest">
+            </div>
+            <div class="measure-input-wrapper">
+              <div class="measure-input-group">
+                <input type="text" placeholder="0.0" id="thighs_input">
+                <p class="unit">In</p>
+              </div>
+            </div>
+          </div>
+          <div id="l_low" class="content">
+            <div class="measure-img-wrapper">
+              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                   alt="chest">
+            </div>
+            <div class="measure-input-wrapper">
+              <div class="measure-input-group">
+                <input type="text" placeholder="0.0" id="thighs_input">
+                <p class="unit">In</p>
+              </div>
+            </div>
+          </div>
+          <div id="skirt_length" class="content">
             <div class="measure-img-wrapper">
               <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
                    alt="chest">

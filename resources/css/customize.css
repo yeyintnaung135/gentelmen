@@ -1232,9 +1232,6 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 10px;
   line-height: 1.2 !important;
   text-align: center;
-}
-
-#suits .measure-item > p {
   width: 100px;
 }
 
@@ -1252,11 +1249,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .measure-img-wrapper img {
-  width: 100%;
+  width: 300px;
   /*for demo purpose*/
   /*height: 400px;
   object-fit: cover;*/
   /*end*/
+  margin: auto;
   display: block;
   border-radius: 10px;
 }
@@ -1405,12 +1403,9 @@ h1, h2, h3, h4, h5, h6 {
     gap: 0;
   }
 
-  #suits .measure-item > p {
-    width: 120px;
-  }
-
   .measure-item > p {
     font-size: 16px;
+    width: 120px;
   }
 
   .measure-input-wrapper {
