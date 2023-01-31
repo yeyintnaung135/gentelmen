@@ -1163,7 +1163,7 @@ Route::get('customize', function (Request $request) {
                 logger("texture infinite scrolllllllllllllll");
                   $texture_articles .= '
 
-                  <div class="col-6 col-md-4 mb-3 mb-md-0 px-2">
+                  <div class="mb-3 mb-md-0 px-2">
                   <div class="radio-group fabric-group">';
                   if($grand->id == $request->texture_id)
                   {

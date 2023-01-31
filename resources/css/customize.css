@@ -1072,6 +1072,7 @@ h1, h2, h3, h4, h5, h6 {
   .cus-steps-spacing {
     margin: 0;
   }
+
   .cus-4-wrapper {
     margin: 20px;
     grid-template-areas:
@@ -1128,6 +1129,7 @@ h1, h2, h3, h4, h5, h6 {
     gap: 20px 30px;
   }
 }
+
 @media screen and (min-width: 993px) {
   .fitting-wrapper {
     grid-template-columns: 1fr 1fr;
@@ -1297,6 +1299,68 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 22px;
 }
 
+/*Info*/
+.information {
+  display: grid;
+  grid-template-columns: 1fr;
+  /*gap: 20px;*/
+}
+
+.info-div {
+  /*border: 1px solid #f0ad4e;*/
+  width: 100%;
+}
+
+.info-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 50px;
+  align-items: center;
+}
+
+.info-input-group{
+  display: flex;
+  position: relative;
+}
+
+.info-input-group input,
+.info-input-group select {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #0c525d;
+  outline: 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+}
+
+.info-input-group input {
+  width: 100%;
+}
+
+.info-input-group input::placeholder {
+  font-size: 16px !important;
+}
+
+.info-input-group select {
+  /*width: 30%; for desk and tab */
+  width: 100%;
+}
+
+.info-input-group select option {
+  background: var(--clr-navy);
+  color: #FFFFFF;
+}
+
+.info-input-group p {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+
 
 @media screen and (min-width: 768px) and (max-width: 992px) {
 
@@ -1315,6 +1379,11 @@ h1, h2, h3, h4, h5, h6 {
 
   .measure-input-wrapper {
     margin-top: 5%;
+  }
+
+  .information {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
   }
 
 }
@@ -1346,6 +1415,21 @@ h1, h2, h3, h4, h5, h6 {
 
   .measure-input-wrapper {
     margin-top: 5%;
+  }
+
+  .information {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 150px;
+  }
+
+  .info-input-group input {
+    width: 100%;
+  }
+
+  .info-input-group select[name="age"],
+  .info-input-group select[name="weight"] {
+    /*width: 30%; for desk and tab */
+    width: 40%;
   }
 
 }

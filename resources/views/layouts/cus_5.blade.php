@@ -356,7 +356,131 @@
         </div>
       </div>
       <div id="info" class="tab-pane">
-        <p>Info</p>
+        <div class="information">
+          <div class="info-div">
+            <!--p-->
+            <div class="info-group">
+              <label for="age">Age</label>
+              <div class="info-input-group">
+                <input type="text" id="age" placeholder="0">
+                <p>Year</p>
+              </div>
+            </div>
+            <!--select-->
+            <div class="info-group">
+              <label for="age">Height</label>
+              <div class="info-input-group">
+                <input type="text" id="age" placeholder="0">
+                <select name="age">
+                  <option value="cm">CM</option>
+                  <option value="in">IN</option>
+                </select>
+              </div>
+            </div>
+            <div class="info-group">
+              <label for="age">Weight</label>
+              <div class="info-input-group">
+                <input type="text" id="weight" placeholder="0">
+                <select name="weight">
+                  <option value="kg">KG</option>
+                  <option value="lp">LB</option>
+                </select>
+              </div>
+            </div>
+            <div class="info-group">
+              <label for="age">Shoulder Type</label>
+              <div class="info-input-group">
+                <select name="shoulder_type">
+                  <option value="">Select</option>
+                  <option value="kg">Kg</option>
+                  <option value="lp">Lb</option>
+                </select>
+              </div>
+            </div>
+            <div class="info-group">
+              <label for="age">Dropped Shoulder</label>
+              <div class="info-input-group">
+                <select name="dropped_shoulder">
+                  <option value="">Select</option>
+                  <option value="kg">Kg</option>
+                  <option value="lp">Lb</option>
+                </select>
+              </div>
+            </div>
+            <div class="info-group">
+              <label for="age">Arms Position</label>
+              <div class="info-input-group">
+                <select name="arms_position">
+                  <option value="">Select</option>
+                  <option value="kg">Kg</option>
+                  <option value="lp">Lb</option>
+                </select>
+              </div>
+            </div>
+            <div class="info-group">
+              <label for="age">Body Shape</label>
+              <div class="info-input-group">
+                <select name="body_shape">
+                  <option value="">Select</option>
+                  <option value="kg">Kg</option>
+                  <option value="lp">Lb</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="info-div">
+            <div class="info-group">
+              <label for="age">Neck Type</label>
+              <div class="info-input-group">
+                <select name="neck_type">
+                  <option value="">Select</option>
+                  <option value="kg">Kg</option>
+                  <option value="lp">Lb</option>
+                </select>
+              </div>
+            </div>
+            <div class="info-group">
+              <label for="age">Stomach Shape</label>
+              <div class="info-input-group">
+                <select name="stomach_shape">
+                  <option value="">Select</option>
+                  <option value="kg">Kg</option>
+                  <option value="lp">Lb</option>
+                </select>
+              </div>
+            </div>
+            <div class="info-group">
+              <label for="age">Upper Body Shape</label>
+              <div class="info-input-group">
+                <select name="upper_body_shape">
+                  <option value="">Select</option>
+                  <option value="kg">Kg</option>
+                  <option value="lp">Lb</option>
+                </select>
+              </div>
+            </div>
+            <div class="info-group">
+              <label for="age">Pant Line</label>
+              <div class="info-input-group">
+                <select name="pant_line">
+                  <option value="">Select</option>
+                  <option value="kg">Kg</option>
+                  <option value="lp">Lb</option>
+                </select>
+              </div>
+            </div>
+            <div class="info-group">
+              <label for="age">Seat</label>
+              <div class="info-input-group">
+                <select name="seat">
+                  <option value="">Select</option>
+                  <option value="kg">Kg</option>
+                  <option value="lp">Lb</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
