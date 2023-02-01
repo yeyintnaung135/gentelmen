@@ -1163,7 +1163,7 @@ Route::get('customize', function (Request $request) {
                 logger("texture infinite scrolllllllllllllll");
                   $texture_articles .= '
 
-                  <div class="mb-3 mb-md-0 px-2">
+                  <div class="mb-3 mb-md-0">
                   <div class="radio-group fabric-group">';
                   if($grand->id == $request->texture_id)
                   {
@@ -1200,7 +1200,7 @@ Route::get('customize', function (Request $request) {
             foreach($not_unique_pants as $pant)
             {
                 $pant_articles .= '
-                <label class="row cursor-pointer mb-5" for="sb1">
+                <label class="row cursor-pointer mb-5" for="choose_pant'.$pant->id.'">
                       <span class="col-md-6 mb-2 d-flex flex-column justify-content-center">
                         <span class="row g-0 mb-2">
                           <span class="col-1 mt-1">
@@ -1268,7 +1268,7 @@ Route::get('customize', function (Request $request) {
             foreach($not_unique_tops as $top)
             {
               $jacket_articles .='
-              <label class="row cursor-pointer mb-5" for="sb1">
+              <label class="row cursor-pointer mb-5" for="choose_jacket'.$top->id.'">
                     <span class="col-md-6 mb-2 d-flex flex-column justify-content-center">
                       <span class="row g-0 mb-2">
                         <span class="col-1 mt-1">

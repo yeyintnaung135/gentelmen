@@ -731,6 +731,13 @@ h1, h2, h3, h4, h5, h6 {
   color: #000;
 }
 
+
+
+.final-price {
+  margin-top: 35px;
+}
+
+
 /*See more See less*/
 #fabric_type.content-options.collapsed > .content-option:nth-child(n+3),
 #color.content-options.collapsed > .content-option:nth-child(n+5),
@@ -878,7 +885,7 @@ h1, h2, h3, h4, h5, h6 {
 
   .radio-group input[type="radio"] {
     bottom: 55px;
-    right: 1px;
+    right: 15px;
   }
 
   .small-line {
@@ -1005,7 +1012,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /*cus step spacing*/
 .cus-steps-spacing {
-  margin: 15px 15px;
+  margin: 15px 25px;
 }
 
 /*Cus 4 layout*/
@@ -1095,12 +1102,17 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     justify-content: normal;
     gap: 20px;
+    padding-top: 35px;
   }
 
   .summery {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .action-next {
+    margin-bottom: 100px;
   }
 }
 

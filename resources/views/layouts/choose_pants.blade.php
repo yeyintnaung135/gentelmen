@@ -4,7 +4,7 @@
       <div class="nav flex-column text-uppercase">
         <h6 class="ff-mont text-white mb-3">customize</h6>
         @foreach($pants as $pant)
-        <a onclick="pant_pleat('{{$pant->style}}')" class="pill-menu-cus-link py-2 active" data-bs-toggle="pill"
+        <a onclick="pant_pleat('{{$pant->style}}')" class="pill-menu-cus-link py-2" data-bs-toggle="pill"
            href="#pleat-selection">
           <span>{{$pant->style}}</span>
           <i class='bx bx-plus'></i>
