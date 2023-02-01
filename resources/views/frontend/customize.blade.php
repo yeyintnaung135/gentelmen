@@ -888,62 +888,7 @@
       $('#step_title').html('style customization');
       step4_selected();
       set_measure_unit();
-      // if(sessionStorage.getItem('fitting') != '' && sessionStorage.getItem('fitting') != null)
-      // {
-      //   // alert("4in");
-      //   if(sessionStorage.getItem('fitting') == 1)
-      //   {
-      //     $('#esf').attr('checked',true);
-      //   }
-      //   else if(sessionStorage.getItem('fitting') == 2)
-      //   {
-      //     $('#sf').attr('checked',true);
-      //   }
-      //   else if(sessionStorage.getItem('fitting') == 3)
-      //   {
-      //     $('#rf').attr('checked',true);
-      //   }
-      //   else if(sessionStorage.getItem('fitting') == 4)
-      //   {
-      //     $('#lf').attr('checked',true);
-      //   }
-      //   if(sessionStorage.getItem('suit_piece') == 3)
-      //   {
-      //     $('.jacket_in').show();
-      //     $('.pants_in').show();
-      //     $('.vest_in').show();
-      //   }
-      //   else if(sessionStorage.getItem('suit_piece') == 2)
-      //   {
-      //       $('.vest_in').hide();
-      //       $('.jacket_in').show();
-      //       $('.pants_in').show();
-      //   }
-      //   else
-      //   {
-      //       $('.all_in').hide();
-      //       $('.jacket_in').hide();
-      //       $('.pants_in').hide();
-      //       $('.vest_in').hide();
-      //   }
-      //   if(sessionStorage.getItem('jacket_in') == 'true')
-      //   {
-      //     $('#jacket'+sessionStorage.getItem('texture_id')).attr('checked',true);
-      //   }
-      //   if(sessionStorage.getItem('vest_in') == 'true')
-      //   {
-      //     $('#vest'+sessionStorage.getItem('texture_id')).attr('checked',true);
-      //   }
-      //   if(sessionStorage.getItem('pants_in') == 'true')
-      //   {
-      //     $('#pants'+sessionStorage.getItem('texture_id')).attr('checked',true);
-      //   }
-      //   if(sessionStorage.getItem('pant_id') != '' && sessionStorage.getItem('pant_id') != null)
-      //   {
-      //     $('#choose_pant'+sessionStorage.getItem('pant_id')).attr('checked',true);
-      //   }
-      // }
-      // //end choosed fitting
+      
     }
     else if(sessionStorage.getItem('customize_category_id') != null && sessionStorage.getItem('package_id') != null && sessionStorage.getItem('style_id') != null && sessionStorage.getItem('fitting') != null && sessionStorage.getItem('measure_step') != null && sessionStorage.getItem('order_id') != null)
     {
