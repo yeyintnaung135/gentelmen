@@ -380,7 +380,7 @@
 
 
 
-  <div class="d-none">
+  <div class="">
     <button class="filter-btn" type="button" data-bs-toggle="offcanvas"
             data-bs-target="#sideFilter">
       <i class='bx bx-filter-alt'></i>Filter

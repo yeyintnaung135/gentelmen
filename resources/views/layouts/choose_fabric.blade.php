@@ -362,10 +362,7 @@
                      value="">
               <label for="pink" class="form-check-label">Pink</label>
             </div> --}}
-            <div class='list-toggle'>
-              <p class="expand">See More...</p>
-              <p class="collapse">See Less...</p>
-            </div>
+
           </div>
         </div>
         <div class="fil-content">
@@ -408,6 +405,10 @@
               <p class="expand">See More...</p>
               <p class="collapse">See Less...</p>
             </div> --}}
+              <div class='list-toggle'>
+                <p class="expand">See More...</p>
+                <p class="collapse">See Less...</p>
+              </div>
           </div>
         </div>
         <div class="fil-content">

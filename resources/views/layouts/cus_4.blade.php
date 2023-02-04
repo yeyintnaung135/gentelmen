@@ -31,11 +31,11 @@
         @include('layouts/choose_jacket')
       </div>
       <div class="summery">
-        <div class="three_four_price d-none d-md-block">
+        <div class="three_four_price d-none d-md-block final-price">
           <span class="me-1 text-gold fs-5">$</span><h4 class="d-inline ff-mont ls-0"
                                                         id="step2_and_fabric_total">100</h4>
         </div>
-        <div class="action">
+        <div class="action action-next">
           <a href="#" class="btn bg-gold lh-sm text-navy text-uppercase rounded-0" id="next">Next Step</a>
         </div>
       </div>
