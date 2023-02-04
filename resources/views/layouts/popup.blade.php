@@ -307,7 +307,7 @@
                     //store temporary data for user start
                     if(response.data.has_step == null)
                     {
-                      // alert("do store temporary");
+                      alert("do store temporary");
 
                       $.ajax({
                         type: 'POST',
@@ -329,9 +329,7 @@
                           "vest_price" : sessionStorage.getItem('vest_price'),
                           "pant_id" : sessionStorage.getItem('pant_id'),
                           "pant_price" : sessionStorage.getItem('pant_price'),
-                          "upper_id" : sessionStorage.getItem('upper_id'),
-                          "lower_id" : sessionStorage.getItem('lower_id'),
-                          "order_id" : sessionStorage.getItem('order_id'),
+
                           "step_no" : sessionStorage.getItem('step_no'),
                           "measured" : sessionStorage.getItem('measure_step'),
                           "suit_piece" : sessionStorage.getItem('suit_piece'),
@@ -341,13 +339,22 @@
                           "package_price" : sessionStorage.getItem('package_price'),
                           "texture_price" : sessionStorage.getItem('texture_price'),
                           "cus_total_price" : sessionStorage.getItem('cus_total_price'),
-                          "measure_type" : sessionStorage.getItem('measure_unit'),
+
                           "suit_code" : sessionStorage.getItem('suit_code'),
                           "shipping_id" : sessionStorage.getItem('shipping_id'),
                           "shipping_price" : sessionStorage.getItem('shipping_price'),
+
+                          "measure_unit" : sessionStorage.getItem('measure_unit'),
                           },
                         success: function (data) {
                           sessionStorage.setItem('has_step',data.has_step);
+                          if(sessionStorage.getItem('store_m_status') != null || sessionStorage.getItem('store_m_status') != '')
+                          {
+                            sessionStorage.setItem('from_store_temporary_user',response.data.user_id)
+                              store_measurement_overall();
+                              window.location.reload();
+                          }
+
                         }
                       });
                     }
@@ -435,7 +442,7 @@
                               swal("Cancelled", "Your previous customize session data are successfully recover :)", "success");
                               //get start --
                               console.log(data.get_step_data);
-                              if(data.get_step_data.texture_id == null)
+                                  if(data.get_step_data.texture_id == null)
                                   {
                                       var texture_id = ''
                                   }
@@ -443,7 +450,6 @@
                                   {
                                     var texture_id = data.get_step_data.texture_id;
                                     sessionStorage.setItem('texture_id',texture_id);
-
                                   }
                                   if(data.get_step_data.customize_category_id == null)
                                   {
@@ -563,36 +569,11 @@
                                     var pant_price = data.get_step_data.pant_price;
                                     sessionStorage.setItem('pant_price',pant_price);
                                   }
-                                  if(data.get_step_data.upper_id == null)
-                                  {
-                                    var upper_id = ''
-                                  }
-                                  else
-                                  {
-                                    var upper_id = data.get_step_data.upper_id;
-                                    sessionStorage.setItem('upper_id',upper_id);
-                                  }
-                                  if(data.get_step_data.lower_id == null)
-                                  {
-                                    var lower_id = ''
-                                  }
-                                  else
-                                  {
-                                    var lower_id = data.get_step_data.lower_id
-                                    sessionStorage.setItem('lower_id',lower_id);
-                                  }
-                                  if(data.get_step_data.order_id == null)
-                                  {
-                                    var order_id = ''
-                                  }
-                                  else
-                                  {
-                                    var order_id = data.get_step_data.order_id
-                                    sessionStorage.setItem('order_id',order_id);
-                                  }
+
                                   if(data.get_step_data.shipping_id == null)
                                   {
-                                    var shipping_id = ''
+                                    var shipping_id = 0
+                                    sessionStorage.setItem('shipping_id',shipping_id);
                                   }
                                   else
                                   {
@@ -671,16 +652,16 @@
                                     var texture_price = data.get_step_data.texture_price
                                     sessionStorage.setItem('texture_price',texture_price);
                                   }
-                                  if(data.get_step_data.suit_code == null)
-                                  {
-                                    var suit_code = "start";
-                                  }
-                                  else
-                                  {
-                                    var suit_code = data.get_step_data.suit_code;
-                                    // alert(data.get_step_data.suit_code);
-                                    sessionStorage.setItem('suit_code',suit_code);
-                                  }
+                                  // if(data.get_step_data.suit_code == null)
+                                  // {
+                                  //   var suit_code = "start";
+                                  // }
+                                  // else
+                                  // {
+                                  //   var suit_code = data.get_step_data.suit_code;
+                                  //   // alert(data.get_step_data.suit_code);
+                                  //   sessionStorage.setItem('suit_code',suit_code);
+                                  // }
                                   if(data.get_step_data.cus_total_price == null)
                                   {
                                     // alert("ctp-0");
@@ -693,25 +674,48 @@
                                     var cus_total_price = data.get_step_data.cus_total_price
                                     sessionStorage.setItem('cus_total_price',cus_total_price);
                                   }
-                                  if(data.get_step_data.measure_type == 'cm')
+                                  // if(data.get_step_data.measure_type == 'cm')
+                                  // {
+                                  //   // alert("in cm");
+                                  //   var measure_unit = "cm";
+                                  //   sessionStorage.setItem('measure_unit',measure_unit);
+                                  // }
+                                  // else if(data.get_step_data.measure_type == 'in')
+                                  // {
+                                  //   // alert("in in");
+                                  //   var measure_unit = "in";
+                                  //   sessionStorage.setItem('measure_unit',measure_unit);
+                                  // }
+                                  // else
+                                  // {
+                                  //   // alert("null unit");
+                                  //   sessionStorage.setItem('measure_unit','cm');
+
+                                  // }
+                                  if(data.get_step_data.suit_code == null)
                                   {
-                                    // alert("in cm");
-                                    var measure_unit = "cm";
-                                    sessionStorage.setItem('measure_unit',measure_unit);
+                                    // alert("ctp-0");
+                                    var suit_code = 0;
+
                                   }
-                                  else if(data.get_step_data.measure_type == 'in')
+                                  else
                                   {
-                                    // alert("in in");
-                                    var measure_unit = "in";
+                                    // alert("ctp-have");
+                                    var suit_code = data.get_step_data.suit_code
+                                    sessionStorage.setItem('suit_code',suit_code);
+                                  }
+                                  if(data.get_step_data.measure_unit == null)
+                                  {
+                                    // alert("ctp-0");
+                                    var measure_unit = 'in';
                                     sessionStorage.setItem('measure_unit',measure_unit);
                                   }
                                   else
                                   {
-                                    // alert("null unit");
-                                    sessionStorage.setItem('measure_unit','cm');
-
+                                    // alert("ctp-have");
+                                    var measure_unit = data.get_step_data.measure_unit;
+                                    sessionStorage.setItem('measure_unit',measure_unit);
                                   }
-
                                   if(data.user == null)
                                   {
                                     var address = ''

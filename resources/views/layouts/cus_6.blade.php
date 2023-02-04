@@ -106,7 +106,7 @@
         <div class="d-flex flex-column flex-md-row gap-3 align-items-md-center">
           <p class=""><span class="text-gold">THAILAND</span> TO:</p>
           <select name="country" id="country" class="country" onchange="get_shipping_price(this.value)">
-            <option value="0">Select the country</option>
+            <option value="0" selected disabled>Select the country</option>
             @foreach($shippings as $ship)
             <option value="{{$ship->id}}">{{$ship->country}} - ${{$ship->price}}</option>
             @endforeach
@@ -118,10 +118,12 @@
            data-bs-target="#checkout">
           View My Order Summary
         </p>
+
         <button class="btn bg-gold rounded-0 px-2 py-1 text-uppercase
-      ls-0" onclick="available_payment()">CheckOut
+      ls-0" onclick="available_payment()">CheckOuts
           Now
         </button>
+
       </div>
     </div>
     <div class="col-md-5 d-none d-md-block ps-5">
@@ -271,48 +273,43 @@
 
 <script>
   $(document).ready(function () {
+    // alert("hide");
     $("#paypal-button-container").hide();
   });
 
   function available_payment() {
     // alert($('#country').val());
-  if(sessionStorage.getItem('address') != null && sessionStorage.getItem('address') != '' && $('#country').val() != 0)
-  {
-    if ($('#hidden_total').val() != '') {
-      $("#paypal-button-container").show();
-    } else {
-      // alert("what");
-      $("#paypal-button-container").hide();
+    var user = @json($user);
+    if(user != null)
+    {
+      if(sessionStorage.getItem('address') != null && sessionStorage.getItem('address') != '' && $('#country').val() != null)
+      {
+        // alert("wwwwwwwwffffffffffff");
+          $("#paypal-button-container").show();
+          update_temporary();
+      }else if($('#country').val() == 0 || $('#country').val() == null){
+        swal({
+            title: "Error",
+            text : "Need to Choose Shipping Country",
+            icon : "error",
+        }).then(function() {
+        });
+      }
+      else
+      {
+        swal({
+            title: "Error",
+            text : "Need to fill Address",
+            icon : "error",
+        }).then(function() {
+        });
+      }
     }
-    $.ajax({
-    type: 'POST',
-    url: '/store_chekout_address_ajax',
-    data: {
-      "_token": "{{csrf_token()}}",
-      "order_id": sessionStorage.getItem('order_id'),
-      "address":sessionStorage.getItem('address')
-    },
-    success: function (data) {
-
+    else
+    {
+      // alert("login");
+      $('#exampleModal').modal('show');
     }
-  });
-  }else if($('#country').val() == 0){
-    swal({
-        title: "Error",
-        text : "Need to Choose Shipping Country",
-        icon : "error",
-    }).then(function() {
-    });
-  }
-  else
-  {
-    swal({
-        title: "Error",
-        text : "Need to fill Address",
-        icon : "error",
-    }).then(function() {
-    });
-  }
 
   }
   function store_address(value)
@@ -334,14 +331,13 @@ function get_shipping_price(ship_id)
     data: {
       "_token": "{{csrf_token()}}",
       "shipping_id": ship_id,
-      "order_id" : sessionStorage.getItem('order_id')
     },
     success: function (data) {
       console.log("ajax shipping cost");
       html="";
       html2="";
       html += data.shipping.price;
-      html2 += data.total;
+      html2 += parseInt(data.shipping.price)+parseInt(sessionStorage.getItem('cus_total_price'))+2;
       $('#shipping_fee').html(html);
       $('#total').html(html2);
 

@@ -179,7 +179,7 @@
     }
     $(document).ready(function () {
       var user_id = @json($user_id);
-      
+
       var user_info = @json($user_info);
       if(user_info.city == null)
       {
@@ -595,6 +595,7 @@
           icon: "success",
         });
         $('#total_cart_qty').html(0);
+        $("#paypal-button-container").hide();
         // nav_cart_total_qty();
         showmodal(user_id);
       });

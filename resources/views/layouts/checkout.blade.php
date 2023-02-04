@@ -34,19 +34,34 @@
 <script src="https://www.paypal.com/sdk/js?client-id=ATCq7eYmZSx55GfZFkLJlY4WZSX1aCZxQjm1DHi3kHA1eAyYqAiRiuYDwjZvxLhlTzi9mn_7N2y1x-bK&currency=USD&disable-funding=paylater" data-namespace="paypal_sdk"></script>
 
 <script>
-
+    var user_id = @json($user);
     // Render the PayPal button into #paypal-button-container
     paypal_sdk.Buttons({
 
         // Call your server to set up the transaction
         createOrder: function(data, actions) {
-          var order_id = $('#order_id').val();
             return fetch('api/paypal/order/create/', {
                 method: 'post',
                 body:JSON.stringify({
                     "cart"  : 0,
-                    "value" : order_id,
-
+                    "user_id" : user_id,
+                    "suit_code" : sessionStorage.getItem('suit_code'),
+                    "cus_cate_id" : sessionStorage.getItem('customize_category_id'),
+                    "package_id" : sessionStorage.getItem('package_id'),
+                    "style_id" : sessionStorage.getItem('style_id'),
+                    "pant_id" : sessionStorage.getItem('pant_id'),
+                    "jacket_id" : sessionStorage.getItem('jacket_id'),
+                    "vest_id" : sessionStorage.getItem('vest_id'),
+                    "texture_id" : sessionStorage.getItem('texture_id'),
+                    "suit_piece" : sessionStorage.getItem('suit_piece'),
+                    "jacket_in" : sessionStorage.getItem('jacket_in'),
+                    "vest_in" : sessionStorage.getItem('vest_in'),
+                    "pant_in" : sessionStorage.getItem('pant_in'),
+                    "shipping_id" : sessionStorage.getItem('shipping_id'),
+                    "shipping_price" : sessionStorage.getItem('shipping_price'),
+                    "fitting" : sessionStorage.getItem('fitting'),
+                    "suit_total" : sessionStorage.getItem('cus_total_price'),
+                    "address" : sessionStorage.getItem('address'),
                 })
             }).then(function(res) {
                 return res.json();

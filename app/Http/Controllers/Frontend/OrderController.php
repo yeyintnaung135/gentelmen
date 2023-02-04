@@ -129,32 +129,22 @@ class OrderController extends Controller
     }
     public function store_order_address(Request $request)
     {
-        $order = Order::find($request->order_id);
-        $order->address = $request->address;
-        $order->save();
+        // $order = Order::find($request->order_id);
+        // $order->address = $request->address;
+        // $order->save();
         return response()->json("success");
     }
     public function update_order_shipping(Request $request)
     {
 
       $shipping = Shipping::find($request->shipping_id);
-      $order = Order::find($request->order_id);
-      $order->shipping_id = $request->shipping_id;
-      $order->shipping_price = $shipping->price;
-      if($order->shipping_price != null)
-      {
-        $order->total = 0;
-        $order->total += $order->suit_total + $shipping->price+2;
-      }
-      else
-      {
-        $order->total += $shipping->price+2;
-      }
 
-      $order->save();
+
+
+
       return response()->json([
         'shipping' => $shipping,
-        'total' => $order->total,
+
 
       ]);
     }

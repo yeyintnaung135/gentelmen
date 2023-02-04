@@ -9,17 +9,23 @@ class UpperMeasurement extends Model
     //
     protected $fillable = [
       'user_id',
-      'top_id',
+      'stomach',
+      'biceps',
+      'forearm',
+      'cuffs',
+      'chest_front_width',
+      'chest_back_width',
+      'jacket_front_length',
       'chest',
       'waist',
       'hips',
       'shoulder',
-      'sleeve',
-      'front',
-      'back',
+      'sleeve_length_right',
+      'sleeve_length_left',
+      'vest_length',
+      'jacket_back_length',
       'neck',
-      'jacket_length',
-      'measure_type'
+      'measure_type',
   ];
   public function user() {
     return $this->belongsTo('App\User','user_id');

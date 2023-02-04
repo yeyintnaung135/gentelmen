@@ -19,8 +19,7 @@ class TemporaryCustomizeStepData extends Model
       'jacket_id',
       'vest_id',
       'pant_id',
-      'upper_id',
-      'lower_id',
+
       'order_id',
       'style_cate_id',
       'style_cate_name',
@@ -32,12 +31,14 @@ class TemporaryCustomizeStepData extends Model
       'package_price',
       'texture_price',
       'cus_total_price',
-      'measure_type',
       'suit_code',
       'shipping_id',
       'shipping_price',
       'jacket_price',
       'vest_price',
-      'pant_price'
+      'pant_price',
+
+      'shipping_id',
+      'measure_unit'
   ];
 }

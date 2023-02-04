@@ -8,6 +8,8 @@ use App\Order;
 use App\Payment;
 use App\CartOrder;
 use App\CartOrderProduct;
+use App\UpperMeasurement;
+use App\LowerMeasurement;
 use Session;
 use Srmklive\Paypal\Service\Paypal;
 
@@ -16,26 +18,63 @@ class PaypalController extends Controller
     //
     public function create(Request $request)
     {
-
-        // logger("paypal first step--".$request->all());
         $data = json_decode($request->getContent(),true);
-        // logger("user_id === ".$data['user_id']);
         logger($data);
-        // Init PayPal
-        // $order = Order::find($data['value']);
         if($data['cart'] != 1)
         {
-        $order = Order::latest()->first();
-        logger($order);
-        $order->status = 1;
-        $order->save();
-        $total = $order->total;
+        $upper = UpperMeasurement::where('user_id',$data['user_id'])->first();
+        if($upper != null)
+        {
+          $upper_id = $upper->id;
+        }
+        else
+        {
+          $upper_id = null;
+        }
+        $lower = LowerMeasurement::where('user_id',$data['user_id'])->first();
+        if($lower != null)
+        {
+          $lower_id = $lower->id;
+        }
+        else
+        {
+          $lower_id = null;
+        }
+        $date = date('Y-m-d');
+        $store_order = Order::create([
+          'user_id' => $data['user_id'],
+          'address' => $data['address'],
+          'suit_code' => $data['suit_code'],
+          'cus_cate_id' => $data['cus_cate_id'],
+          'package_id' => $data['package_id'],
+          'style_id' => $data['style_id'],
+          'pant_id' => $data['pant_id'],
+          'jacket_id' => $data['jacket_id'],
+          'fitting' => $data['fitting'],
+          'vest_id' => $data['vest_id'],
+          'texture_id' => $data['texture_id'],
+          'upper_measure_id' => $upper_id,
+          'lower_measure_id' => $lower_id,
+          'suit_piece' => $data['suit_piece'],
+          'jacket_in' => $data['jacket_in'],
+          'vest_in' => $data['vest_in'],
+          'pant_in' => $data['pant_in'],
+          'shipping_id' => $data['shipping_id'],
+          'shipping_price' => $data['shipping_price'],
+          'suit_total' => $data['suit_total'],
+          'status' => 0,
+
+        ]);
+        $store_order->order_code = $date."-".$store_order->id;
+        $total = $store_order->suit_total + $store_order->shipping_price + 2;
+        $store_order->total = $total;
+        $store_order->save();
+
         }
         elseif($data['cart'] == 1)
         {
           logger("from cart");
           $total = $data['value'];
-
         }
         logger("enddddllll");
         $provider = \PayPal::setProvider();
@@ -124,7 +163,8 @@ class PaypalController extends Controller
       logger("Order ID = ".$orderId);
 
       $order = Order::latest()->first();
-
+      $order->status = 1;
+      $order->save();
       // Init PayPal
       $provider = \PayPal::setProvider();
       $provider->setApiCredentials(config('paypal'));

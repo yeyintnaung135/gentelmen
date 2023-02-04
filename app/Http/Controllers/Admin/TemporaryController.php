@@ -53,6 +53,7 @@ class TemporaryController extends Controller
             'jacket_price' => $request->jacket_price,
             'vest_price' => $request->vest_price,
             'pant_price' => $request->pant_price,
+            'measure_unit' => $request->measure_unit,
           ]);
         }
         return response()->json([
@@ -92,8 +93,8 @@ class TemporaryController extends Controller
         $update_step_data->jacket_id = $request->jacket_id;
         $update_step_data->vest_id = $request->vest_id;
         $update_step_data->pant_id = $request->pant_id;
-        $update_step_data->upper_id = $upper_id;
-        $update_step_data->lower_id = $lower_id;
+        // $update_step_data->upper_id = $upper_id;
+        // $update_step_data->lower_id = $lower_id;
         $update_step_data->order_id = $request->order_id;
         $update_step_data->style_cate_id = $request->style_cate_id;
         $update_step_data->style_cate_name = $request->style_cate_name;
@@ -105,12 +106,27 @@ class TemporaryController extends Controller
         $update_step_data->package_price = $request->package_price;
         $update_step_data->texture_price = $request->texture_price;
         $update_step_data->cus_total_price = $request->cus_total_price;
-        $update_step_data->measure_type = $request->measure_type;
+        // $update_step_data->measure_type = $request->measure_type;
         $update_step_data->jacket_price = $request->jacket_price;
         $update_step_data->vest_price = $request->vest_price;
         $update_step_data->pant_price = $request->pant_price;
+        $update_step_data->shipping_id = $request->shipping_id;
+        $update_step_data->shipping_price = $request->shipping_price;
+        $update_step_data->measure_unit = $request->measure_unit;
         $update_step_data->save();
-        return response()->json("success");
+        if($update_step_data->shipping_id != null)
+        {
+          $all_total = $update_step_data->cus_total_price + $update_step_data->shipping_price + 2;
+        }
+        else
+        {
+          $all_total = $update_step_data->cus_total_price + 2;
+        }
+
+        return response()->json([
+          'suit_total' => $update_step_data->cus_total_price,
+          'total' => $all_total
+        ]);
 
     }
     public function get_customize_step_data_in(Request $request)
@@ -128,17 +144,20 @@ class TemporaryController extends Controller
     }
     public function delete_customize_step_data_in(Request $request)
     {
-      logger("delete");
+      logger("delete temporary data");
         $delete_step_data = TemporaryCustomizeStepData::where('temporary_id',$request->temporary_id)->delete();
         $delete_step = TemporaryCustomizeStep::find($request->temporary_id)->delete();
+        logger("success");
         return response()->json("success");
     }
     public function store_suit_code_step6_ajax_in(Request $request)
     {
-      // logger($request->all());
+      logger("store suit code-----------");
+      logger($request->all());
+      logger("end store suit code----------");
       $for_suit_code = TemporaryCustomizeStepData::where('user_id',$request->user_id)->first();
 
-      if($request->suit_code == "start")
+      if($request->suit_code == "start" || $request->suit_code == 'null')
       {
         logger("has suit code");
         $gene = random_int(1000, 9999);
@@ -152,10 +171,19 @@ class TemporaryController extends Controller
         $suit_code = $for_suit_code->suit_code;
       }
 
-      logger("outtttt");
+      logger("outtttt------%%%%%@@@@");
+      logger($suit_code);
       return response()->json([
         'suit_code' => $suit_code,
         'suit_total' => $for_suit_code->cus_total_price
+      ]);
+    }
+    function store_suit_code_step6_for_guest_ajax_in()
+    {
+      $gene = random_int(1000, 9999);
+      $suit_code = "SUC-".sprintf('%03s', $gene);
+      return response()->json([
+        'suit_code' => $suit_code,
       ]);
     }
 }

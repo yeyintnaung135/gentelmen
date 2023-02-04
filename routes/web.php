@@ -399,6 +399,7 @@ Route::post('/get_customize_step_data', 'Admin\TemporaryController@get_customize
 Route::post('/delete_customize_step_data', 'Admin\TemporaryController@delete_customize_step_data_in')->name('delete_customize_step_data');
 
 Route::post('/store_suit_code_step6_ajax', 'Admin\TemporaryController@store_suit_code_step6_ajax_in')->name('store_suit_code_step6_ajax');
+Route::post('/store_suit_code_step6_for_guest_ajax', 'Admin\TemporaryController@store_suit_code_step6_for_guest_ajax_in')->name('store_suit_code_step6_for_guest_ajax');
 
 
 
@@ -1323,7 +1324,7 @@ Route::get('customize', function (Request $request) {
         $jacket_buttons = Jacket_button::all();
         // return view('frontend.choose-fabric', compact('upper','lower','user','Grands', 'textures', 'subs','colors', 'patterns', 'favs', 'carts','packages')
     //end scroll controller
-    // dd($upper);
+    // dd($lower);
 
     // dd($style_cates);
         $additionals = Additional::orderBy('popular_count','desc')->limit(4)->get();
@@ -1334,6 +1335,7 @@ Route::get('customize', function (Request $request) {
     $temporary = TemporaryCustomizeStep::find($temporary_id);
     // dd($temporary);
     // dd($shippings);
+    // dd($upper);
     return view('frontend.customize',compact('temporary','jacket_customize_cate','vest_customize_cate','pant_customize_cate','suit_customize_cate','shippings','grand_textures','additionals','not_unique_pants','pants','not_unique_vests','vests','not_unique_tops','jacket_buttons','top_cates','tops','styles','style_cates','favs','carts','packages','customize_cates','user','user_info','upper','lower','Grands', 'textures', 'subs','colors', 'patterns'));
 
 

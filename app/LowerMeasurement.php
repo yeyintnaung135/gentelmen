@@ -9,14 +9,16 @@ class LowerMeasurement extends Model
     //
     protected $fillable = [
       'user_id',
-      'pant_id',
+      'waist',
+      'stomach',
+      'hips',
       'crotch',
       'thighs',
+      'knees',
+      'calf',
+      'shorts',
       'length',
       'bottom',
-      'knee',
-      'shorts',
-      'stomach',
       'measure_type'
   ];
   public function user() {
