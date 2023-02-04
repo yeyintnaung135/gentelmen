@@ -1200,10 +1200,12 @@ class FrontendController extends Controller
   }
   public function store_measure_data(Request $request)
   {
-    logger($request->all());
+    logger("store measure data fuckkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
+    // logger($request->all());
     $user_id = Session::get('user_id');
     //start edit user info
     $user_edit = User::find($user_id);
+
     $user_edit->age = $request->age;
     $user_edit->weight = $request->weight;
     $user_edit->weight_type = $request->weight_type;
@@ -1219,6 +1221,7 @@ class FrontendController extends Controller
     $user_edit->pant_line = $request->pant_line;
     $user_edit->seat = $request->seat;
     $user_edit->save();
+
     //end edit user info
 
     if($request->cus_cate_id == 1 || $request->cus_cate_id == 2)
@@ -1295,6 +1298,7 @@ class FrontendController extends Controller
         'stomach' => $request->pstomach,
         'shorts' => $request->pshort,
         'hips' => $request->phips,
+        'measure_type' => $request->measure_type
       ]);
       }
       else
@@ -1311,6 +1315,7 @@ class FrontendController extends Controller
         $lower->stomach = $request->pstomach;
         $lower->shorts = $request->pshort;
         $lower->hips = $request->phips;
+        $lower->measure_type = $request->measure_type;
         $lower->save();
       }
     }
@@ -1353,6 +1358,7 @@ class FrontendController extends Controller
           'stomach' => $request->pstomach,
           'shorts' => $request->pshort,
           'hips' => $request->phips,
+          'measure_type' => $request->measure_type
         ]);
       }
       elseif($upper_check == null && $lower_check != null)
@@ -1389,6 +1395,7 @@ class FrontendController extends Controller
         $lower->stomach = $request->pstomach;
         $lower->shorts = $request->pshort;
         $lower->hips = $request->phips;
+        $lower->measure_type = $request->measure_type;
         $lower->save();
       }
       elseif($upper_check != null && $lower_check == null)
@@ -1425,6 +1432,7 @@ class FrontendController extends Controller
           'stomach' => $request->pstomach,
           'shorts' => $request->pshort,
           'hips' => $request->phips,
+          'measure_type' => $request->measure_type
         ]);
       }
       else
@@ -1461,6 +1469,7 @@ class FrontendController extends Controller
         $lower->stomach = $request->pstomach;
         $lower->shorts = $request->pshort;
         $lower->hips = $request->phips;
+        $lower->measure_type = $request->measure_type;
         $lower->save();
       }
 
@@ -1758,7 +1767,10 @@ public function store_user_profile_data(Request $request)
     $user->tsp_street = $request->address;
     // $user->email = $request->email;
     $user->save();
-    return response()->json("success");
+    return response()->json([
+      "msg" => "success",
+      "user_info" => $user
+    ]);
 }
 public function get_style_for_ready_ajax_data(Request $request)
 {

@@ -54,7 +54,7 @@ class UserRegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-
+       
         Auth::guard('web')->logout();
         if(Auth::guard('web')->attempt(['email' => $data['email'], 'password' => $data['password']])) {
 
@@ -63,7 +63,9 @@ class UserRegisterController extends Controller
                 //    return redirect()->back()->with('success','Successfully register your account!');
                 // dd(Auth::guard('web')->user()->id);
                 Session::put('user_id',Auth::guard('web')->user()->id);
-                return response()->json(['status' => 'success']);
+                logger("Register user id ".Auth::guard('web')->user()->id);
+
+                return response()->json(['status' => 'success','user_id' => Auth::guard('web')->user()->id ]);
                }else{
                 //    return redirect()->back()->with('message','Login Fail');
                 return response()->json(['status' => 'fail']);

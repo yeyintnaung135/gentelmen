@@ -135,7 +135,7 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                <input type="text" id="upper_has_id" style="color:white" value="{{$upper->id}}">
+                <input type="hidden" id="upper_has_id" style="color:white" value="{{$upper->id}}">
                 <input type="text" id="neck_input" value="{{$upper->neck}}" onmousedown="clear_upper_required()" onkeydown="clear_pass_measure_required()">
                 @else
                 <input type="text" id="upper_has_id" style="color:white" value="0">
@@ -481,7 +481,7 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
-                <input type="text" id="lower_has_id" style="color:white" value="{{$lower->id}}">
+                <input type="hidden" id="lower_has_id" style="color:white" value="{{$lower->id}}">
                 <input type="text" placeholder="0.0" value="{{$lower->waist}}" id="waist_lower_input" onmousedown="clear_lower_required()" onkeydown="clear_pass_measure_required()">
                 @else
                 <input type="text" id="lower_has_id" style="color:white" value="0">
@@ -1446,7 +1446,7 @@
 <script>
 
   function store_measurement_overall(){
-
+    // alert("ghhhhhhhhhhhhhhhhhhggggggggggggggg");
     if(sessionStorage.getItem('from_store_temporary_user') == null || sessionStorage.getItem('from_store_temporary_user') == '')
     {
       var user_id = @json($user);

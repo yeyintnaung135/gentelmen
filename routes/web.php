@@ -1336,6 +1336,8 @@ Route::get('customize', function (Request $request) {
     // dd($temporary);
     // dd($shippings);
     // dd($upper);
+    // dd($user_info);
+    // dd($user);
     return view('frontend.customize',compact('temporary','jacket_customize_cate','vest_customize_cate','pant_customize_cate','suit_customize_cate','shippings','grand_textures','additionals','not_unique_pants','pants','not_unique_vests','vests','not_unique_tops','jacket_buttons','top_cates','tops','styles','style_cates','favs','carts','packages','customize_cates','user','user_info','upper','lower','Grands', 'textures', 'subs','colors', 'patterns'));
 
 

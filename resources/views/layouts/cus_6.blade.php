@@ -34,11 +34,9 @@
           <p class="col-md-3">Address :</p>
           <!--          <p class="col-md-9">No.143, Zayyardipa 1st Street, 31 ward, North Dagon.</p>-->
           <div class="col-md-9">
-            @if(!empty($user_info))
-            <textarea type="text" class="form-control" rows="2" id="order_address" autofocus onkeyup="store_address(this.value)">{{$user_info->city}} {{$user_info->tsp_street}}</textarea>
-            @else
-            <textarea type="text" class="form-control" rows="2" id="order_address" autofocus>No.143, Zayyardipa 1st Street, 31 ward, North Dagon.</textarea>
-            @endif
+
+            <textarea type="text" class="form-control" rows="2" id="order_address" autofocus></textarea>
+
           </div>
         </div>
       </div>
@@ -274,6 +272,30 @@
 <script>
   $(document).ready(function () {
     // alert("hide");
+    var user_info = @json($user_info);
+    if(user_info != null)
+    {
+      // alert("jkjjkjk");
+      if(user_info.city != null && user_info.tsp_street == null)
+      {
+        let location = user_info.city;
+      }
+      else if(user_info.city == null && user_info.tsp_street != null)
+      {
+        let location = user_info.tsp_street;
+      }
+      else if(user_info.city != null && user_info.tsp_street != null)
+      {
+        let location = user_info.city+' '+user_info.tsp_street;
+      }
+      else
+      {
+        let location = '';
+      }
+
+      sessionStorage.setItem('address',location);
+    }
+
     $("#paypal-button-container").hide();
   });
 

@@ -13,8 +13,9 @@ class TemporaryController extends Controller
     //
     public function store_customize_step_data_in(Request $request)
     {
-        // logger("Temporary");
-        // logger($request->all());
+      logger("store-------temporary-----------data--------start");
+        logger($request->all());
+        logger("store-------temporary-----------data--------end");
         if($request->step_no != null)
         {
           $store_step = TemporaryCustomizeStep::create([
@@ -54,6 +55,7 @@ class TemporaryController extends Controller
             'vest_price' => $request->vest_price,
             'pant_price' => $request->pant_price,
             'measure_unit' => $request->measure_unit,
+            'suit_code' => $request->suit_code,
           ]);
         }
         return response()->json([
@@ -81,8 +83,8 @@ class TemporaryController extends Controller
           $upper_id = $request->upper_id;
         }
         $update_step = TemporaryCustomizeStep::find($request->has_step);
-        $update_step->step = $request->step_no;
-        $update_step->save();
+        // $update_step->step = 1;
+        // $update_step->save();
         $update_step_data = TemporaryCustomizeStepData::where('temporary_id',$update_step->id)->first();
         $update_step_data->customize_category_id = $request->cus_cate_id;
         $update_step_data->package_id = $request->package_id;

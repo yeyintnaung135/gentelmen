@@ -914,13 +914,32 @@
             },
           success: function (data) {
             console.log(data);
-            if(data == "success")
+            if(data.msg == "success")
             {
               swal({
                   title: "Success",
                   text : "Successfully Stored User Info",
                   icon : "success",
               }).then(function() {
+                if(data.user_info.city != null && data.user_info.tsp_street == null)
+                {
+                  var location = data.user_info.city;
+                }
+                else if(data.user_info.city == null && data.user_info.tsp_street != null)
+                {
+                  var location = data.user_info.tsp_street;
+                }
+                else if(data.user_info.city != null && data.user_info.tsp_street != null)
+                {
+                  var location = data.user_info.city+' '+data.user_info.tsp_street;
+                }
+                else
+                {
+                  var location = '';
+                }
+                  
+                  sessionStorage.setItem('address',location);
+
                 window.location.reload();
               });
             }
@@ -1225,7 +1244,7 @@ getData();
        $("#wishlist").addClass("active show");
        $('#wishlist').show();
        $("#profile").removeClass("active");
-    
+
       }
 </script>
 @endpush
@@ -1254,7 +1273,7 @@ getData();
             // alert( window.userID )
           if(v.user_id == user_id)
           {
-            
+
             // html += `${arrayLength}`;
             $('#fav-space').html(arrayLength);
           }else{

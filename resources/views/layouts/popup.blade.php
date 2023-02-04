@@ -722,8 +722,23 @@
                                   }
                                   else
                                   {
-                                    var address = data.user.address
-                                    sessionStorage.setItem('address',data.user.city+'/'+data.user.tsp_street);
+                                    if(data.user.city != null && data.user.tsp_street == null)
+                                    {
+                                      var address = data.user.city
+                                    }
+                                    else if (data.user.city == null && data.user.tsp_street != null)
+                                    {
+                                      var address = data.user.tsp_street;
+                                    }
+                                    else if (data.user.city != null && data.user.tsp_street != null)
+                                    {
+                                      var address = data.user.city+' '+data.user.tsp_street;
+                                    }
+                                    else
+                                    {
+                                      var address = '';
+                                    }
+                                    sessionStorage.setItem('address',address);
                                   }
                                    sessionStorage.setItem('step_no',data.get_step.step);
                                    window.location.reload();
@@ -824,7 +839,7 @@
                 'password': $("#reg-password").val(),
                 'password_confirmation': $("#password-confirm").val(),
             }).then(response => {
-
+                // alert("register");
                 console.log(response.data);
 
                 // if user validate fail
@@ -922,15 +937,76 @@
 
                 }else if(response.data['status'] == 'success'){
 
-                    // alert("login success");
+                    // alert(response.data['user_id']);
 
+                    if(sessionStorage.getItem('measure_unit') != null)
+                    {
+                      // alert("suit code is not null and so store measure");
+                      store_measurement_overall();
+                    }
                     swal({
                         title: "Your Register was successfull!",
                         text: "",
                         type: "success",
                         icon: "success"
                     }).then(function() {
+                      $.ajax({
+                          type: 'POST',
+                          url: '/store_customize_step_data',
+                          data: {
+                            "_token": "{{csrf_token()}}",
+                            "user_id":response.data['user_id'],
+                            "cus_cate_id": sessionStorage.getItem('customize_category_id'),
+                            "package_id" : sessionStorage.getItem('package_id'),
+                            "style_id" : sessionStorage.getItem('style_id'),
+                            "style_name" : sessionStorage.getItem('style_name'),
+                            "style_cate_name" : sessionStorage.getItem('style_cate_name'),
+                            "style_cate_id" : sessionStorage.getItem('style_cate_id'),
+                            "fitting" : sessionStorage.getItem('fitting'),
+                            "texture_id" : sessionStorage.getItem('texture_id'),
+                            "jacket_id" : sessionStorage.getItem('jacket_id'),
+                            "jacket_price" : sessionStorage.getItem('jacket_price'),
+                            "vest_id" : sessionStorage.getItem('vest_id'),
+                            "vest_price" : sessionStorage.getItem('vest_price'),
+                            "pant_id" : sessionStorage.getItem('pant_id'),
+                            "pant_price" : sessionStorage.getItem('pant_price'),
+
+                            "step_no" : sessionStorage.getItem('step_no'),
+                            "measured" : sessionStorage.getItem('measure_step'),
+                            "suit_piece" : sessionStorage.getItem('suit_piece'),
+                            "jacket_in" :sessionStorage.getItem('jacket_in'),
+                            "vest_in" : sessionStorage.getItem('vest_in'),
+                            "pant_in" : sessionStorage.getItem('pant_in'),
+                            "package_price" : sessionStorage.getItem('package_price'),
+                            "texture_price" : sessionStorage.getItem('texture_price'),
+                            "cus_total_price" : sessionStorage.getItem('cus_total_price'),
+
+                            "suit_code" : sessionStorage.getItem('suit_code'),
+                            "shipping_id" : sessionStorage.getItem('shipping_id'),
+                            "shipping_price" : sessionStorage.getItem('shipping_price'),
+
+                            "measure_unit" : sessionStorage.getItem('measure_unit'),
+                            },
+                          success: function (data) {
+                            // alert("registerd and go 1");
+                            sessionStorage.setItem('has_step',data.has_step);
+                            if(sessionStorage.getItem('suit_code') != null)
+                            {
+                              // alert("suit code is not null and so store measure");
+                              store_measurement_overall();
+                            }
+                            if(sessionStorage.getItem('store_m_status') != null || sessionStorage.getItem('store_m_status') != '')
+                            {
+                              // alert("registerd and go 2");
+                              sessionStorage.setItem('from_store_temporary_user',response.data['user_id'])
+                                store_measurement_overall();
+                                window.location.reload();
+                            }
+
+                          }
+                        });
                         window.location.reload();
+
                     });
                 }
 

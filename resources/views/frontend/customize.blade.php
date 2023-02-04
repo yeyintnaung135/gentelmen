@@ -573,8 +573,24 @@
                   }
                   else
                   {
-                    var address = data.user.address
-                    sessionStorage.setItem('address',data.user.city+'/'+data.user.tsp_street);
+
+                    if(data.user.city != null && data.user.tsp_street == null)
+                    {
+                      var address = data.user.city
+                    }
+                    else if (data.user.city == null && data.user.tsp_street != null)
+                    {
+                      var address = data.user.tsp_street;
+                    }
+                    else if (data.user.city != null && data.user.tsp_street != null)
+                    {
+                      var address = data.user.city+' '+data.user.tsp_street;
+                    }
+                    else
+                    {
+                      var address = '';
+                    }
+                    sessionStorage.setItem('address',address);
                   }
                    sessionStorage.setItem('step_no',data.get_step.step);
                    window.location.reload();
@@ -745,6 +761,7 @@
       //if shipping fee start
       if(sessionStorage.getItem('shipping_id') != null || sessionStorage.getItem('shipping_id') != '')
       {
+        // alert("shipping cost");
         get_shipping_price(sessionStorage.getItem('shipping_id'));
         $('#country').val(sessionStorage.getItem('shipping_id'));
       }
@@ -961,13 +978,17 @@
 
         if(sessionStorage.getItem('suit_code') == null || sessionStorage.getItem('suit_code') == '')
         {
-
+          // alert("ok one");
           store_suit_code();
         }
         else
         {
+          // alert("ok two");
           var html = "";
+          var html1 = "";
           html+=sessionStorage.getItem('suit_code');
+          html1+= sessionStorage.getItem('cus_total_price');
+          $('#suitTotal').html(html1);
           $('#suitCode').html(html);
           $('#suit_code').val(sessionStorage.getItem('suit_code'));
         }
@@ -1299,6 +1320,7 @@
 
                   if($.trim('address') != null)
                   {
+                    // alert("what loca");
                     sessionStorage.setItem('address',address);
                   }
 
@@ -1354,7 +1376,7 @@
             // alert(user);
             if(user != null)
             {
-              // alert("st-6 has user store suit code");
+              alert("st-6 has user store suit code");
               store_suit_code();
             }
 
@@ -1431,7 +1453,7 @@
             // alert("st-6");
             if(user != null)
             {
-              alert("suit code");
+              // alert("suit code");
 
               store_suit_code();
             }
@@ -2006,7 +2028,7 @@
     }
     function style_nav_reload()
     {
-      alert("style nav reload");
+      // alert("style nav reload");
 
       // alert("hello");
       $.ajax({
@@ -2413,7 +2435,7 @@
       // store suit code start
       // alert("sc"+$('#suit_code').val());
       var user_id = @json($user);
-      alert("store_suit_code=="+user_id);
+      // alert("store_suit_code=="+user_id);
       $.ajax({
         type: 'POST',
         url: '/store_suit_code_step6_ajax',
@@ -2438,11 +2460,13 @@
           html="";
           html2 = "";
           html3 = "";
+          html5 = ""
           html += hsc;
           html2 += data.suit_total;
           html3 += data.suit_total;
+          html5+=sessionStorage.getItem('cus_total_price');
           $('#suitCode').html(html);
-
+          $('#suitTotal').html(html5);
           console.log(data);
           sessionStorage.setItem('suit_code',hsc);
         }
