@@ -1455,7 +1455,7 @@
     {
       var user_id = sessionStorage.getItem('from_store_temporary_user');
     }
-    // alert(user);
+    // alert("store measure overall function in user id"+user_id);
     // alert("store measure");
     //start info data
     let store_status = true;
@@ -1934,6 +1934,7 @@
     // alert(store_status);
     if(user_id != null && store_status == true)
     {
+      // alert("win dll lay lee");
       sessionStorage.setItem('store_m_status',1);
       $.ajax({
         type: 'POST',

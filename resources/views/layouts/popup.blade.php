@@ -950,6 +950,11 @@
                         type: "success",
                         icon: "success"
                     }).then(function() {
+                      if(sessionStorage.getItem('measure_unit') != null)
+                      {
+                        alert("suit code is not null and so store measure on ajax");
+                        store_measurement_overall();
+                      }
                       $.ajax({
                           type: 'POST',
                           url: '/store_customize_step_data',
@@ -990,6 +995,13 @@
                           success: function (data) {
                             // alert("registerd and go 1");
                             sessionStorage.setItem('has_step',data.has_step);
+                            if(sessionStorage.getItem('measure_unit') != null)
+                            {
+                              // alert("gogo user_id"+response.data['user_id']);
+                              // alert("suit code is not null and so store measure in ajax");
+                              sessionStorage.setItem('from_store_temporary_user',response.data['user_id'])
+                              store_measurement_overall();
+                            }
                             if(sessionStorage.getItem('suit_code') != null)
                             {
                               // alert("suit code is not null and so store measure");
@@ -998,6 +1010,7 @@
                             if(sessionStorage.getItem('store_m_status') != null || sessionStorage.getItem('store_m_status') != '')
                             {
                               // alert("registerd and go 2");
+                              // alert("User ID = "+response.data['user_id']);
                               sessionStorage.setItem('from_store_temporary_user',response.data['user_id'])
                                 store_measurement_overall();
                                 window.location.reload();
@@ -1006,13 +1019,54 @@
                           }
                         });
                         window.location.reload();
-
+                        if(sessionStorage.getItem('measure_unit') != null)
+                      {
+                        // alert("gogo user_id"+response.data['user_id']);
+                        // alert("suit code is not null and so store measure in ajax");
+                        sessionStorage.setItem('from_store_temporary_user',response.data['user_id'])
+                        store_measurement_overall();
+                      }
+                      if(sessionStorage.getItem('suit_code') != null)
+                      {
+                        // alert("suit code is not null and so store measure");
+                        store_measurement_overall();
+                      }
+                      if(sessionStorage.getItem('store_m_status') != null || sessionStorage.getItem('store_m_status') != '')
+                      {
+                        // alert("registerd and go 2");
+                        // alert("User ID = "+response.data['user_id']);
+                        sessionStorage.setItem('from_store_temporary_user',response.data['user_id'])
+                          store_measurement_overall();
+                          window.location.reload();
+                      }
                     });
                 }
 
 
 
             });
+            if(sessionStorage.getItem('measure_unit') != null)
+          {
+            // alert("outside1");
+            // alert("gogo user_id"+response.data['user_id']);
+            // alert("suit code is not null and so store measure in ajax");
+            sessionStorage.setItem('from_store_temporary_user',response.data['user_id'])
+            store_measurement_overall();
+          }
+          if(sessionStorage.getItem('suit_code') != null)
+          {
+            // alert("suit code is not null and so store measure");
+            // alert("outside2");
+            store_measurement_overall();
+          }
+          if(sessionStorage.getItem('store_m_status') != null || sessionStorage.getItem('store_m_status') != '')
+          {
+            // alert("registerd and go 2 outside");
+            // alert("User ID = "+response.data['user_id']);
+            sessionStorage.setItem('from_store_temporary_user',response.data['user_id'])
+              store_measurement_overall();
+              window.location.reload();
+          }
         }
 
           $("#register-valid").click(function () {
