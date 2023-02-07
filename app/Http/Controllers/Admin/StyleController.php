@@ -216,6 +216,7 @@ class StyleController extends Controller
         $edit_style->type = $request->type;
         $edit_style->name = $request->name;
         $edit_style->pieces = $request->pieces;
+        $edit_style->colour = $request->colour;
         if($request->remove_count > 0)
         {
             if($request->remove_count == 1)
@@ -496,7 +497,9 @@ class StyleController extends Controller
         }
         }
     }
+
         $edit_style->save();
+        logger("style update data ------------------");
         return response()->json("success");
     }
     public function delete_style_data(Request $request)

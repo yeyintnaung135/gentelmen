@@ -197,11 +197,11 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
         return {
             uploadCount:0,
             removeCount:0,
-            
+
             style_cates:{},
             customize_cates:{},
             testimg:[],
-           
+
             url1:null,
             url2:null,
             url3:null,
@@ -277,7 +277,7 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
       methods: {
 
         piecesChange: function() {
-        
+
         if(this.style.customize_cate_id == "Suits"){
              this.piecesplay = true;
         }else{
@@ -297,40 +297,40 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
         //     }
         // },
         // when click submit button
-        edit_store_style(){
-            console.log(this.$refs.myVueDropzone.getQueuedFiles());
-            const config = {
+        // edit_store_style(){
+        //     console.log(this.$refs.myVueDropzone.getQueuedFiles());
+        //     const config = {
 
-        headers: { 'content-type': 'multipart/form-data' }
+        // headers: { 'content-type': 'multipart/form-data' }
 
-        }
-            let formData = new FormData();
-                // formData.append('file', this.texture.files);
-                formData.append('category', this.style.style_cate_id);
-                formData.append('type', this.style.customize_cate_id);
-                formData.append('name', this.style.name);
-                formData.append('colour', this.style.colour);
-                formData.append('fabric', this.style.fabric);
-                formData.append('fabric_type', this.style.fabric_type);
-                formData.append('compostition', this.style.compostition);
-                formData.append('softness', this.style.softness);
-                formData.append('description', this.style.description);
-                formData.append('pieces', this.style.pieces);
-                formData.append('images', this.$refs.myVueDropzone.getQueuedFiles());
-                this.$refs.myVueDropzone.getQueuedFiles().forEach(file => {
-                formData.append('images[]', file, file.upload.name);
-            });
+        // }
+        //     let formData = new FormData();
+        //         // formData.append('file', this.texture.files);
+        //         formData.append('category', this.style.style_cate_id);
+        //         formData.append('type', this.style.customize_cate_id);
+        //         formData.append('name', this.style.name);
+        //         formData.append('colour', this.style.colour);
+        //         formData.append('fabric', this.style.fabric);
+        //         formData.append('fabric_type', this.style.fabric_type);
+        //         formData.append('compostition', this.style.compostition);
+        //         formData.append('softness', this.style.softness);
+        //         formData.append('description', this.style.description);
+        //         formData.append('pieces', this.style.pieces);
+        //         formData.append('images', this.$refs.myVueDropzone.getQueuedFiles());
+        //         this.$refs.myVueDropzone.getQueuedFiles().forEach(file => {
+        //         formData.append('images[]', file, file.upload.name);
+        //     });
 
-            axios.post('/store_style',formData,config)
-            .then(function (response){
-                alert("access");
-                window.location.reload();
-            })
-            .catch(function (error){
+        //     axios.post('/store_style',formData,config)
+        //     .then(function (response){
+        //         alert("access");
+        //         window.location.reload();
+        //     })
+        //     .catch(function (error){
 
-                // alert("wrong");
-            })
-        },
+        //         // alert("wrong");
+        //     })
+        // },
         edit_store_style()
 
         {
@@ -490,7 +490,7 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
                 formData.append('photo9', this.url9);
                 formData.append('photo10', this.url10);
                 formData.append('remove_count', this.removeCount);
-                formData.append('upload_count', this.uploadCount);  
+                formData.append('upload_count', this.uploadCount);
                 formData.append('category', this.style.style_cate_id);
                 formData.append('type', this.style.customize_cate_id);
                 formData.append('name', this.style.name);

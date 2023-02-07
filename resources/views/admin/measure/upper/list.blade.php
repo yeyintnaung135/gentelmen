@@ -35,15 +35,20 @@
                     <th>No</th>
                     <th>Customer</th>
                     {{-- <th>Name</th> --}}
+                    <th>Neck</th>
                     <th>Chest</th>
                     <th>Waist</th>
                     <th>Hips</th>
                     <th>Shoulder</th>
-                    <th>Sleeve</th>
-                    <th>Front</th>
-                    <th>Back</th>
-                    <th>Neck</th>
-                    <th>Jacket Length</th>
+                    <th>Sleeve Right</th>
+                    <th>Sleeve Left</th>
+                    <th>Stomach</th>
+                    <th>Biceps</th>
+                    <th>Forearm</th>
+                    <th>Cuffs</th>
+                    <th>Chest Front/Back Width</th>
+                    <th>Jacket Front/Back Length</th>
+                    <th>Vest Length</th>
                     <th>Action</th>
                   </tr>
                   </thead>
@@ -54,26 +59,33 @@
                       <td>{{$i++}}</td>
                       <td>{{$upper->user->name}}</td>
                       {{-- <td>{{$upper->top_id}}</td> --}}
-                      <td>{{$upper->chest}}{{$upper->measure_type}}</td>
+                      <td>{{$upper->neck}}{{$upper->measure_type}}</td>
+                      <th>{{$upper->chest}}{{$upper->measure_type}}</th>
                       <th>{{$upper->waist}}{{$upper->measure_type}}</th>
                       <th>{{$upper->hips}}{{$upper->measure_type}}</th>
                       <th>{{$upper->shoulder}}{{$upper->measure_type}}</th>
-                      <th>{{$upper->sleeve}}{{$upper->measure_type}}</th>
-                      <th>{{$upper->front}}{{$upper->measure_type}}</th>
-                      <th>{{$upper->back}}{{$upper->measure_type}}</th>
-                      <th>{{$upper->neck}}{{$upper->measure_type}}</th>
-                      <th>{{$upper->jacket_length}}{{$upper->measure_type}}</th>
+                      <th>{{$upper->sleeve_length_right}}{{$upper->measure_type}}</th>
+                      <th>{{$upper->sleeve_length_left}}{{$upper->measure_type}}</th>
+                      <th>{{$upper->stomach}}{{$upper->measure_type}}</th>
+                      <td>{{$upper->biceps}}{{$upper->measure_type}}</td>
+                      <th>{{$upper->forearm}}{{$upper->measure_type}}</th>
+                      <th>{{$upper->cuffs}}{{$upper->measure_type}}</th>
+                      <th>{{$upper->chest_front_width}}/{{$upper->chest_back_width}} {{$upper->measure_type}}</th>
+                      <th>{{$upper->jacket_front_length}}/{{$upper->jacket_back_length}} {{$upper->measure_type}}</th>
+                      <th>{{$upper->vest_length}}{{$upper->measure_type}}</th>
+
+
 
                       <td>
                       <div style="
                           display: flex;
                       ">
-                         <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-primary{{$upper->id}}" style="
+                         {{-- <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-primary{{$upper->id}}" style="
                             width: 40%;
                         ">
 
                          <span class="fa fa-edit"></span>
-                         </a>
+                         </a> --}}
                         <a type="button" onclick="delete_confirm('{{$upper->id}}')" class="btn btn-block btn-danger" style="
                             width: 40%;
                             margin-top: 0rem;
@@ -89,16 +101,20 @@
                   <tr>
                     <th>No</th>
                     <th>Customer</th>
-                    {{-- <th>Name</th> --}}
+                    <th>Neck</th>
                     <th>Chest</th>
                     <th>Waist</th>
                     <th>Hips</th>
                     <th>Shoulder</th>
-                    <th>Sleeve</th>
-                    <th>Front</th>
-                    <th>Back</th>
-                    <th>Neck</th>
-                    <th>Jacket Length</th>
+                    <th>Sleeve Right</th>
+                    <th>Sleeve Left</th>
+                    <th>Stomach</th>
+                    <th>Biceps</th>
+                    <th>Forearm</th>
+                    <th>Cuffs</th>
+                    <th>Chest Front/Back Width</th>
+                    <th>Jacket Front/Back Length</th>
+                    <th>Vest Length</th>
                     <th>Action</th>
                   </tr>
                   </tfoot>

@@ -36,13 +36,16 @@
                     <th>Customer</th>
                     {{-- <th>Name</th> --}}
 
-                    <th>Crotch</th>
-                    <th>Thights</th>
-                    <th>Length</th>
-                    <th>Bottom</th>
-                    <th>Knee</th>
-
+                    <th>Waist</th>
                     <th>Stomach</th>
+                    <th>Hips</th>
+                    <th>Crotch</th>
+                    <th>Thighs</th>
+                    <th>Knees</th>
+                    <th>Calf</th>
+                    <th>Pant Shorts</th>
+                    <th>Pant Length</th>
+                    <th>Bottom Length</th>
                     <th>Action</th>
                   </tr>
                   </thead>
@@ -52,25 +55,27 @@
                     <tr>
                       <td>{{$i++}}</td>
                       <td>{{$lower->user->name}}</td>
-                      {{-- <td>{{$lower->pant_id}}</td> --}}
 
+                      <th>{{$lower->waist}}{{$lower->measure_type}}</th>
+                      <th>{{$lower->stomach}}{{$lower->measure_type}}</th>
+                      <th>{{$lower->hips}}{{$lower->measure_type}}</th>
                       <th>{{$lower->crotch}}{{$lower->measure_type}}</th>
                       <th>{{$lower->thighs}}{{$lower->measure_type}}</th>
+                      <th>{{$lower->knees}}{{$lower->measure_type}}</th>
+                      <th>{{$lower->calf}}{{$lower->measure_type}}</th>
                       <th>{{$lower->length}}{{$lower->measure_type}}</th>
                       <th>{{$lower->bottom}}{{$lower->measure_type}}</th>
-                      <th>{{$lower->knee}}{{$lower->measure_type}}</th>
 
-                      <th>{{$lower->stomach}}cm</th>
                       <td>
                       <div style="
                           display: flex;
                       ">
-                         <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-primary{{$lower->id}}" style="
+                         {{-- <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-primary{{$lower->id}}" style="
                             width: 40%;
                         ">
 
                          <span class="fa fa-edit"></span>
-                         </a>
+                         </a> --}}
                         <a type="button" onclick="delete_confirm('{{$lower->id}}')" class="btn btn-block btn-danger" style="
                             width: 40%;
                             margin-top: 0rem;
@@ -86,15 +91,16 @@
                   <tr>
                     <th>No</th>
                     <th>Customer</th>
-                    {{-- <th>Name</th> --}}
-
-                    <th>Crotch</th>
-                    <th>Thights</th>
-                    <th>Length</th>
-                    <th>Bottom</th>
-                    <th>Knee</th>
-
+                    <th>Waist</th>
                     <th>Stomach</th>
+                    <th>Hips</th>
+                    <th>Crotch</th>
+                    <th>Thighs</th>
+                    <th>Knees</th>
+                    <th>Calf</th>
+                    <th>Pant Shorts</th>
+                    <th>Pant Length</th>
+                    <th>Bottom Length</th>
                     <th>Action</th>
                   </tr>
                   </tfoot>

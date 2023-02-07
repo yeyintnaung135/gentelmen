@@ -24,7 +24,7 @@
                             margin-bottom: 10px;
                         ">Style</h3> -->
                       </div>
-                    
+
                       <a  href="{{route('style')}}" type="button" class="btn btn-primary">Create</a>
                   </div>
               </div>
@@ -36,7 +36,7 @@
                     <th>No</th>
                     <th>Photo</th>
                     <th>Type</th>
-                    <th>Category</th>
+                    {{-- <th>Category</th> --}}
                     <th>Pieces</th>
                     <th>Name</th>
                     <th>Colour</th>
@@ -44,7 +44,7 @@
                     <th>Fabric Type</th>
                     <th>Composition</th>
                     <th>Softness</th>
-                    <th>Description</th>
+                    {{-- <th>Description</th> --}}
                     <th>Action</th>
                   </tr>
                   </thead>
@@ -55,7 +55,7 @@
                     <td>{{$i++}}</td>
                     <td><img class="rounded-5 shadow-sm" src="{{'/assets/images/categories/style/'. $style->photo_one}}" alt="" width="150px" height="60px"/></td>
                     <td>{{$style->type}}</td>
-                    <td>{{$style->category}}</td>
+                    {{-- <td>{{$style->category}}</td> --}}
                     <td>{{$style->pieces}}</td>
                     <td>{{$style->name}}</td>
                     <td>{{$style->colour}}</td>
@@ -63,7 +63,7 @@
                     <td>{{$style->fabric_type}}</td>
                     <td>{{$style->compostition}}</td>
                     <td>{{$style->softness}}</td>
-                    <td>{{$style->description}}</td>
+                    {{-- <td>{{$style->description}}</td> --}}
                     <td>
                     <div style="
                         display: flex;
@@ -115,7 +115,7 @@
       <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-    
+
 {{-- edit modal --}}
 @endsection
 
@@ -191,10 +191,10 @@
     //     "_token": "{{ csrf_token() }}",
     //   },
     //   success: function(){
-       
+
     //   }
     // })
-    
+
 </script>
 
 @endsection

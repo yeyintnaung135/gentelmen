@@ -38,6 +38,7 @@
                     <th>Age</th>
                     <th>Weight</th>
                     <th>Height</th>
+                    <th>Address</th>
                     <th>Action</th>
                   </tr>
                   </thead>
@@ -64,24 +65,28 @@
                       <th>-</th>
                       @else
                       <th>{{$info->height}}
-                      @if($info->height_type == 1)
-                      ft
-                      @elseif($info->height_type == 2)
-                      in
-                      @endif
+                      {{$info->height_type}}
                       </th>
                       @endif
-
+                      @if($info->city != null && $info->tsp_street == null)
+                      <td>{{$info->city}}</td>
+                      @elseif($info->city == null && $info->tsp_street != null)
+                      <td>{{$info->tsp_street}}</td>
+                      @elseif($info->city != null && $info->tsp_street != null)
+                      <td>{{$info->city}} / {{$info->tsp_street}}</td>
+                      @else
+                      <td>-</td>
+                      @endif
                       <td>
                       <div style="
                           display: flex;
                       ">
-                         <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-primary{{$info->id}}" style="
+                         {{-- <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-primary{{$info->id}}" style="
                             width: 40%;
                         ">
 
                          <span class="fa fa-edit"></span>
-                         </a>
+                         </a> --}}
                         <a type="button" onclick="delete_confirm('{{$info->id}}')" class="btn btn-block btn-danger" style="
                             width: 40%;
                             margin-top: 0rem;

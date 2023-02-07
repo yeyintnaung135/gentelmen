@@ -19,7 +19,7 @@ class AdditionalController extends Controller
     public function store_main_additional_data(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
+            'name' => 'required', 
         ]);
         if ($validator->fails()) {
             return redirect('add_main_additional')
