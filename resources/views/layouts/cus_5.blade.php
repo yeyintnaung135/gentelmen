@@ -38,88 +38,88 @@
     <div class="tab-content">
       <div id="upper" class="tab-pane active">
         <div class="measure-items">
-          <a class="measure-item active-link" href="#neck">
+          <a class="measure-item circle active-link" href="#neck">
             <img src="{{asset("assets/images/customize/measurement/neck.png")}}" alt="neck">
             <p>neck</p>
             <span class="badge text-bg-danger upper_errors d-none" id="neck_error">Require</span>
           </a>
-          <a class="measure-item" href="#chest">
+          <a class="measure-item circle" href="#chest">
             <img src="{{asset("assets/images/customize/measurement/chest.png")}}" alt="chest">
             <p>Chest</p>
             <span class="badge text-bg-danger upper_errors d-none" id="chest_error">Require</span>
           </a>
-          <a class="measure-item" href="#waist_upper">
+          <a class="measure-item circle" href="#waist_upper">
             <img src="{{asset("assets/images/customize/measurement/waist.png")}}" alt="waist">
             <p>Waist (Upper Waist)</p>
             <span class="badge text-bg-danger upper_errors d-none" id="waist_error">Require</span>
           </a>
-          <a class="measure-item" href="#hips_upper">
+          <a class="measure-item circle" href="#hips_upper">
             <img src="{{asset("assets/images/customize/measurement/hips.png")}}" alt="hips">
             <p>hips</p>
             <span class="badge text-bg-danger upper_errors d-none" id="hips_error">Require</span>
           </a>
-          <a class="measure-item" href="#shoulder">
+          <a class="measure-item circle" href="#shoulder">
             <img src="{{asset("assets/images/customize/measurement/shoulder.png")}}" alt="shoulder">
             <p>shoulder</p>
             <span class="badge text-bg-danger upper_errors d-none" id="shoulder_error">Require</span>
           </a>
-          <a class="measure-item" href="#sleeve_length_Right">
+          <a class="measure-item circle" href="#sleeve_length_Right">
             <img src="{{asset("assets/images/customize/measurement/hips.png")}}"
                  alt="sleeve_length_Right">
             <p>Sleeve Length Right</p>
             <span class="badge text-bg-danger upper_errors d-none" id="sleeve_r_error">Require</span>
           </a>
-          <a class="measure-item" href="#sleeve_length_left">
+          <a class="measure-item circle" href="#sleeve_length_left">
             <img src="{{asset("assets/images/customize/measurement/shoulder.png")}}"
                  alt="sleeve_length_left">
             <p>Sleeve Length Left</p>
             <span class="badge text-bg-danger upper_errors d-none" id="sleeve_l_error">Require</span>
           </a>
-          <a class="measure-item" href="#stomach_upper">
+          <a class="measure-item circle" href="#stomach_upper">
             <img src="{{asset("assets/images/customize/measurement/stomach.png")}}" alt="stomach">
             <p>stomach</p>
             <span class="badge text-bg-danger upper_errors d-none" id="stomach_error">Require</span>
           </a>
-          <a class="measure-item" href="#biceps">
+          <a class="measure-item circle" href="#biceps">
             <img src="{{asset("assets/images/customize/measurement/biceps.png")}}" alt="biceps">
             <p>biceps</p>
             <span class="badge text-bg-danger upper_errors d-none" id="biceps_error">Require</span>
           </a>
-          <a class="measure-item" href="#forearm">
+          <a class="measure-item circle" href="#forearm">
             <img src="{{asset("assets/images/customize/measurement/forearm.png")}}" alt="forearm">
             <p>forearm</p>
             <span class="badge text-bg-danger upper_errors d-none" id="forearm_error">Require</span>
           </a>
-          <a class="measure-item" href="#cuffs">
+          <a class="measure-item circle" href="#cuffs">
             <img src="{{asset("assets/images/customize/measurement/stomach.png")}}" alt="cuffs">
             <p>cuffs</p>
             <span class="badge text-bg-danger upper_errors d-none" id="cuffs_error">Require</span>
           </a>
-          <a class="measure-item" href="#chest_front">
+          <a class="measure-item circle" href="#chest_front">
             <img src="{{asset("assets/images/customize/measurement/stomach.png")}}" alt="chest
             front">
             <p>chest front width</p>
             <span class="badge text-bg-danger upper_errors d-none" id="chest_f_error">Require</span>
           </a>
-          <a class="measure-item" href="#chest_back">
+          <a class="measure-item circle" href="#chest_back">
             <img src="{{asset("assets/images/customize/measurement/stomach.png")}}" alt="chest
             back">
             <p>chest Back width</p>
             <span class="badge text-bg-danger upper_errors d-none" id="chest_b_error">Require</span>
           </a>
-          <a class="measure-item" href="#jacket_front">
+          <a class="measure-item circle" href="#jacket_front">
             <img src="{{asset("assets/images/customize/measurement/biceps.png")}}"
                  alt="jacket_front_length">
             <p>Jacket Front Length</p>
             <span class="badge text-bg-danger upper_errors d-none" id="jacket_f_error">Require</span>
           </a>
-          <a class="measure-item" href="#jacket_back">
+          <a class="measure-item circle" href="#jacket_back">
             <img src="{{asset("assets/images/customize/measurement/biceps.png")}}"
                  alt="jacket_back_length">
             <p>Jacket Back Length</p>
             <span class="badge text-bg-danger upper_errors d-none" id="jacket_b_error">Require</span>
           </a>
-          <a class="measure-item" href="#vest_length">
+          <a class="measure-item circle" href="#vest_length">
             <img src="{{asset("assets/images/customize/measurement/biceps.png")}}"
                  alt="vest_length">
             <p>Vest Length</p>
@@ -391,64 +391,69 @@
       </div>
       <div id="lower" class="tab-pane">
         <div class="measure-items">
-          <a class="measure-item active-link" href="#waist_lower">
+          <a class="measure-item circle active-link" href="#waist_lower">
             <img src="{{asset("assets/images/customize/measurement/waist.png")}}" alt="waist_lower">
             <p>Waist (Lower Waist)</p>
             <span class="badge text-bg-danger lower_errors d-none" id="pwaist_error">Require</span>
           </a>
-          <a class="measure-item" href="#stomach_lower">
+<!--          <a class="measure-item" href="#stomach_lower">
+            <img src="{{asset("assets/images/customize/measurement/stomach.png")}}" alt="stomach_lower">
+            <p>stomach</p>
+            <span class="badge text-bg-danger lower_errors d-none" id="pstomach_error">Require</span>
+          </a>-->
+          <a class="measure-item circle" href="#stomach_lower">
             <img src="{{asset("assets/images/customize/measurement/stomach.png")}}" alt="stomach_lower">
             <p>stomach</p>
             <span class="badge text-bg-danger lower_errors d-none" id="pstomach_error">Require</span>
           </a>
-          <a class="measure-item" href="#hips_lower">
+          <a class="measure-item circle" href="#hips_lower">
             <img src="{{asset("assets/images/customize/measurement/hips.png")}}" alt="hips_lower">
             <p>hips</p>
             <span class="badge text-bg-danger lower_errors d-none" id="phips_error">Require</span>
           </a>
-          <a class="measure-item" href="#crotch">
+          <a class="measure-item circle" href="#crotch">
             <img src="{{asset("assets/images/customize/measurement/stomach.png")}}" alt="crotch">
             <p>crotch</p>
             <span class="badge text-bg-danger lower_errors d-none" id="pcrotch_error">Require</span>
           </a>
-          <a class="measure-item" href="#thighs">
+          <a class="measure-item circle" href="#thighs">
             <img src="{{asset("assets/images/customize/measurement/thighs.png")}}" alt="thighs">
             <p>thighs</p>
             <span class="badge text-bg-danger lower_errors d-none" id="pthighs_error">Require</span>
           </a>
-          <a class="measure-item" href="#knees">
+          <a class="measure-item circle" href="#knees">
             <img src="{{asset("assets/images/customize/measurement/knees.png")}}" alt="knees">
             <p>knees</p>
             <span class="badge text-bg-danger lower_errors d-none" id="pknees_error">Require</span>
           </a>
-          <a class="measure-item" href="#calf">
+          <a class="measure-item circle" href="#calf">
             <img src="{{asset("assets/images/customize/measurement/knees.png")}}" alt="calf">
             <p>Calf</p>
             <span class="badge text-bg-danger lower_errors d-none" id="pcalf_error">Require</span>
           </a>
-          <a class="measure-item" href="#pants_short">
+          <a class="measure-item circle" href="#pants_short">
             <img src="{{asset("assets/images/customize/measurement/neck.png")}}" alt="pants_short">
             <p>Pants Short</p>
             <span class="badge text-bg-danger lower_errors d-none" id="pshort_error">Require</span>
           </a>
-          <a class="measure-item" href="#pants_length">
+          <a class="measure-item circle" href="#pants_length">
             <img src="{{asset("assets/images/customize/measurement/neck.png")}}" alt="pants_length">
             <p>Pants Length</p>
             <span class="badge text-bg-danger lower_errors d-none" id="plength_error">Require</span>
           </a>
-          <a class="measure-item" href="#bottom_length">
+          <a class="measure-item circle" href="#bottom_length">
             <img src="{{asset("assets/images/customize/measurement/knees.png")}}"
                  alt="bottom_length">
             <p>Bottom Length</p>
             <span class="badge text-bg-danger lower_errors d-none" id="pbottom_error">Require</span>
           </a>
           <!--
-          <a class="measure-item" href="#j_length">
+          <a class="measure-item circle" href="#j_length">
             <img src="{{asset("assets/images/customize/measurement/chest.png")}}"
                  alt="j_length">
             <p>Jacket Front Length</p>
           </a>
-          <a class="measure-item" href="#jacket_shoulder_bottom">
+          <a class="measure-item circle" href="#jacket_shoulder_bottom">
             <img src="{{asset("assets/images/customize/measurement/waist.png")}}"
                  alt="jacket_shoulder_bottom">
             <p>Jacket Shoulder to Bottom</p>

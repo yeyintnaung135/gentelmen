@@ -1217,10 +1217,11 @@ h1, h2, h3, h4, h5, h6 {
 /*measurement items*/
 .measure-items {
   margin: 30px 0;
+  padding-bottom: 20px;
   /*border: 1px solid #ddd;*/
   display: flex;
   justify-content: flex-start;
-  gap: 5px;
+  gap: 7px;
   overflow-x: auto;
 }
 
@@ -1232,6 +1233,39 @@ h1, h2, h3, h4, h5, h6 {
   padding: 5px 10px;
   flex-shrink: 0;
 }
+
+/*For circle*/
+.measure-item.circle {
+  background: #fff;
+  width: 80px;
+  height: 80px;
+  position: relative;
+}
+
+.measure-item.circle img {
+  display: none;
+}
+
+.measure-item.circle p {
+  margin-top: 0;
+  color: #000;
+  width: 100%;
+}
+
+.measure-item.circle span {
+  margin-top: 3px;
+  position: absolute;
+  bottom: 0;
+}
+
+.measure-item.circle.active-link {
+  background: var(--clr-gold-0);
+}
+
+.measure-item.circle.active-link > p {
+  color: var(--clr-navy) !important;
+}
+
 
 .measure-item > img {
   width: 50px;
@@ -1380,7 +1414,13 @@ h1, h2, h3, h4, h5, h6 {
 
   .measure-items {
     margin: 50px 0;
-    gap: 0;
+    gap: 10px;
+  }
+
+  /*for circle*/
+  .measure-item.circle {
+    width: 100px;
+    height: 100px;
   }
 
   .measure-item > p {
@@ -1412,7 +1452,13 @@ h1, h2, h3, h4, h5, h6 {
   .measure-items {
     margin: 50px 0;
     justify-content: space-between;
-    gap: 0;
+    gap: 15px;
+  }
+
+  /*for circle*/
+  .measure-item.circle {
+    width: 100px;
+    height: 100px;
   }
 
   .measure-item > p {
