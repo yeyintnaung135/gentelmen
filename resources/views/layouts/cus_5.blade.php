@@ -1130,6 +1130,9 @@
       </div>
     </div>
   </div>
+  <div class=" d-flex justify-content-center justify-content-md-end custom mb-5">
+    <button class="btn p-0 px-3 mt-5" id="next">NEXT STEP</button>
+  </div>
 </section>
 <script>
     $('#upper .content').first().slideDown();
