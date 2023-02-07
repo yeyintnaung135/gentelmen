@@ -197,7 +197,7 @@
           </div>
           <div id="shoulder" class="content">
             <div class="measure-img-wrapper">
-              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+              <img src="{{asset('assets/images/customize/measurement/shoulder-content.jpg')}}"
                    alt="shoulder">
             </div>
             <div class="measure-input-wrapper">
