@@ -148,7 +148,7 @@
                   <input type="text" id="neck_input" value="{{$upper->neck}}"
                          >
                 @else
-                  <input type="text" id="upper_has_id" style="color:white" value="0">
+                  <input type="hidden" id="upper_has_id" style="color:white" value="0">
                   <input type="text" placeholder="0.0" id="neck_input"
                          >
                 @endif
@@ -535,7 +535,7 @@
                   <input type="text" placeholder="0.0" value="{{$lower->waist}}"
                          id="waist_lower_input" >
                 @else
-                  <input type="text" id="lower_has_id" style="color:white" value="0">
+                  <input type="hidden" id="lower_has_id" style="color:white" value="0">
                   <input type="text" placeholder="0.0" id="waist_lower_input"
                          >
                 @endif

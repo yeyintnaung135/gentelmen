@@ -307,7 +307,7 @@
                     //store temporary data for user start
                     if(response.data.has_step == null)
                     {
-                      alert("do store temporary");
+                      // alert("do store temporary");
 
                       $.ajax({
                         type: 'POST',
