@@ -22,7 +22,7 @@
         <a class="nav-link" data-bs-toggle="tab" href="#lower" id="lower_tab">LOWER</a>
       </div>
       <div class="measure-type">
-        <a class="nav-link" data-bs-toggle="tab" href="#info">INFO</a>
+        <a class="nav-link" data-bs-toggle="tab" href="#info" id="info_tab">INFO</a>
       </div>
     </div>
     <div class="unit-wrapper">
@@ -1288,10 +1288,21 @@
   </div>
 </section>
 <script>
+
     $(document).ready(() => {
         $('#upper .content').first().show();
         document.getElementById('neck_input').focus();
     });
+
+    $('#info_tab').click(() => {
+        $('.unit-wrapper').css("display", "none");
+        $('#info').css("margin-top", "100px");
+    })
+
+    $('#upper_tab, #lower_tab').click(() => {
+        $('.unit-wrapper').css("display", "flex");
+        $('#info').css("margin-top", "0");
+    })
 
     $("#upper_tab").click(function () {
         $('#upper .measure-items .measure-item').first().click();

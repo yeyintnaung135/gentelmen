@@ -39,7 +39,7 @@
             Wishlist
           </a>
           <a class="d-flex align-items-center mb-4" style="height: 20px;"
-             data-bs-toggle="pill" href="#measurements">
+             data-bs-toggle="pill" href="#measurements" id="pmeasurement">
             <img src="{{asset('assets/images/profile/icon/measurement.png')}}"
                  width="20px" alt="" class="me-3">
             Measurements
@@ -68,7 +68,7 @@
             My Wishlist
           </a>
           <a class=""
-             data-bs-toggle="pill" href="#measurements">
+             data-bs-toggle="pill" href="#measurements" id="pmeasurement">
             My Measurements
           </a>
           <a class=""
@@ -314,7 +314,7 @@
                      id="lower_tab">LOWER</a>
                 </div>
                 <div class="measure-type">
-                  <a class="nav-link" data-bs-toggle="tab" href="#info">INFO</a>
+                  <a class="nav-link" data-bs-toggle="tab" href="#info" id="info_tab">INFO</a>
                 </div>
               </div>
               <div class="unit-wrapper">
@@ -1703,30 +1703,59 @@
 @section('js')
   <script>
 
-      $('#upper .content').first().slideDown();
+      $('#info_tab').click(() => {
+        $('.unit-wrapper').css("display", "none");
+        $('#info').css("margin-top", "100px");
+      })
+
+      $('#upper_tab, #lower_tab').click(() => {
+        $('.unit-wrapper').css("display", "flex");
+          $('#info').css("margin-top", "0");
+      })
+
+      $('#pmeasurement, #upper_tab').click(() => {
+          $('#upper .content').first().show();
+          document.getElementById('neck_input').focus();
+      });
+
+
+      $/*("#pmeasurement").click(function () {
+          $('#upper .measure-items .measure-item').first().click();
+          document.getElementById('neck_input').focus();
+      })*/
+
+      $("#lower_tab").click(function () {
+          $('#lower .measure-items .measure-item').first().click();
+          document.getElementById('waist_lower_input').focus();
+      })
+
       $('#upper .measure-items .measure-item').click(function (e) {
           let current_link = $(this);
           let current_link_href = current_link.attr('href');
+          let input_id = current_link_href.substr(1) + "_input";
+
 
           $('#upper .measure-items .measure-item').removeClass('active-link');
           $(this).addClass('active-link');
 
-          $('#upper .content').slideUp();
-          $(current_link_href).slideDown();
+          $('#upper .content').hide();
+          $(current_link_href).show();
+          document.getElementById(input_id).focus();
 
           e.preventDefault();
       });
-
-      $('#lower .content').first().slideDown();
+      $('#lower .content').first().show();
       $('#lower .measure-items .measure-item').click(function (e) {
           let current_link = $(this);
           let current_link_href = current_link.attr('href');
+          let input_id = current_link_href.substr(1) + "_input";
 
           $('#lower .measure-items .measure-item').removeClass('active-link');
           $(this).addClass('active-link');
 
-          $('#lower .content').slideUp();
-          $(current_link_href).slideDown();
+          $('#lower .content').hide();
+          $(current_link_href).show();
+          document.getElementById(input_id).focus();
 
           e.preventDefault();
       });
