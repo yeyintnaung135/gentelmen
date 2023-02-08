@@ -1288,7 +1288,21 @@
   </div>
 </section>
 <script>
-    $('#upper .content').first().slideDown();
+    $(document).ready(() => {
+        $('#upper .content').first().show();
+        document.getElementById('neck_input').focus();
+    });
+
+    $("#upper_tab").click(function () {
+        $('#upper .measure-items .measure-item').first().click();
+        document.getElementById('neck_input').focus();
+    })
+
+    $("#lower_tab").click(function () {
+        $('#lower .measure-items .measure-item').first().click();
+        document.getElementById('waist_lower_input').focus();
+    })
+
     $('#upper .measure-items .measure-item').click(function (e) {
         let current_link = $(this);
         let current_link_href = current_link.attr('href');
@@ -1298,14 +1312,13 @@
         $('#upper .measure-items .measure-item').removeClass('active-link');
         $(this).addClass('active-link');
 
-        $('#upper .content').slideUp();
-        $(current_link_href).slideDown();
+        $('#upper .content').hide();
+        $(current_link_href).show();
         document.getElementById(input_id).focus();
 
         e.preventDefault();
     });
-
-    $('#lower .content').first().slideDown();
+        $('#lower .content').first().show();
     $('#lower .measure-items .measure-item').click(function (e) {
         let current_link = $(this);
         let current_link_href = current_link.attr('href');
@@ -1314,8 +1327,8 @@
         $('#lower .measure-items .measure-item').removeClass('active-link');
         $(this).addClass('active-link');
 
-        $('#lower .content').slideUp();
-        $(current_link_href).slideDown();
+        $('#lower .content').hide();
+        $(current_link_href).show();
         document.getElementById(input_id).focus();
 
         e.preventDefault();
