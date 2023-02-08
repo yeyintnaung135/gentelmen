@@ -1198,6 +1198,187 @@ class FrontendController extends Controller
     $pant_pleat = Pant::where('style',$request->style)->get();
     return response()->json($pant_pleat);
   }
+  public function store_measure_profile_data(Request $request)
+  {
+    logger("Measurement Data From Profile");
+    logger($request->all());
+    logger("Measurement Data From Profile End -------");
+    //start edit user info
+    $user_edit = User::find($request->user_id);
+    $user_edit->age = $request->age;
+    $user_edit->weight = $request->weight;
+    $user_edit->weight_type = $request->weight_type;
+    $user_edit->height = $request->height;
+    $user_edit->height_type = $request->height_type;
+    $user_edit->shoulder_type = $request->shoulder_type;
+    $user_edit->drop_shoulder = $request->drop_shoulder;
+    $user_edit->arms_position = $request->arms_position;
+    $user_edit->body_shape = $request->body_shape;
+    $user_edit->neck_type = $request->neck_type;
+    $user_edit->stomach_shape = $request->stomach_shape;
+    $user_edit->upper_body_shape = $request->upper_body_shape;
+    $user_edit->pant_line = $request->pant_line;
+    $user_edit->seat = $request->seat;
+    $user_edit->save();
+    //end edit user info
+    //upper and lower start
+    $upper_check = UpperMeasurement::where("user_id",$request->user_id)->first();
+    $lower_check = LowerMeasurement::where("user_id",$request->user_id)->first();
+    if($upper_check == null && $lower_check == null)
+    {
+      logger("jacket/vest new measurement &&& pant new measurement");
+      $upper = UpperMeasurement::create([
+        'user_id' => $user_edit->id,
+        'stomach' => $request->stomach ,
+        'biceps' => $request->biceps ,
+        'forearm' => $request->forearm ,
+        'cuffs' => $request->cuffs ,
+        'chest_front_width' => $request->chest_front ,
+        'chest_back_width' => $request->chest_back ,
+        'jacket_front_length' => $request->jacket_front ,
+        'chest' => $request->chest ,
+        'waist' => $request->waist ,
+        'hips' => $request->hips ,
+        'shoulder' => $request->shoulder ,
+        'sleeve_length_right' => $request->sleeve_right ,
+        'sleeve_length_left' => $request->sleeve_left ,
+        'vest_length' => $request->vest_len ,
+        'jacket_back_length' => $request->jacket_back ,
+        'neck' => $request->neck ,
+        'measure_type' => $request->measure_type
+      ]);
+      $lower = LowerMeasurement::create([
+        'user_id' => $user_edit->id,
+        'crotch' => $request->pcrotch,
+        'thighs' => $request->pthighs,
+        'length' => $request->plength,
+        'bottom' => $request->pbottom,
+        'waist' => $request->pwaist,
+        'calf' => $request->pcalf,
+        'knees' => $request->pknees,
+        'stomach' => $request->pstomach,
+        'shorts' => $request->pshort,
+        'hips' => $request->phips,
+        'measure_type' => $request->measure_type
+      ]);
+    }
+    elseif($upper_check == null && $lower_check != null)
+    {
+      logger("jacket new measurement &&& pant update measurement");
+      $upper = UpperMeasurement::create([
+        'user_id' => $user_edit->id,
+        'stomach' => $request->stomach ,
+        'biceps' => $request->biceps ,
+        'forearm' => $request->forearm ,
+        'cuffs' => $request->cuffs ,
+        'chest_front_width' => $request->chest_front ,
+        'chest_back_width' => $request->chest_back ,
+        'jacket_front_length' => $request->jacket_front ,
+        'chest' => $request->chest ,
+        'waist' => $request->waist ,
+        'hips' => $request->hips ,
+        'shoulder' => $request->shoulder ,
+        'sleeve_length_right' => $request->sleeve_right ,
+        'sleeve_length_left' => $request->sleeve_left ,
+        'vest_length' => $request->vest_len ,
+        'jacket_back_length' => $request->jacket_back ,
+        'neck' => $request->neck ,
+        'measure_type' => $request->measure_type
+      ]);
+      $lower = LowerMeasurement::find($lower_check->id);
+      $lower->crotch =  $request->pcrotch;
+      $lower->thighs =  $request->pthighs;
+      $lower->length = $request->plength;
+      $lower->bottom = $request->pbottom;
+      $lower->waist = $request->pwaist;
+      $lower->calf = $request->pcalf;
+      $lower->knees = $request->pknees;
+      $lower->stomach = $request->pstomach;
+      $lower->shorts = $request->pshort;
+      $lower->hips = $request->phips;
+      $lower->measure_type = $request->measure_type;
+      $lower->save();
+    }
+    elseif($upper_check != null && $lower_check == null)
+    {
+      logger("jacket update measurement &&& pant new measurement");
+      $upper = UpperMeasurement::find($request->upper_id);
+      $upper->stomach = $request->stomach;
+      $upper->biceps = $request->biceps;
+      $upper->forearm = $request->forearm;
+      $upper->cuffs = $request->cuffs;
+      $upper->chest_front_width = $request->chest_front;
+      $upper->chest_back_width = $request->chest_back;
+      $upper->jacket_front_length =$request->jacket_front;
+      $upper->chest = $request->chest;
+      $upper->waist = $request->waist;
+      $upper->hips = $request->hips;
+      $upper->shoulder = $request->shoulder;
+      $upper->sleeve_length_right = $request->sleeve_right;
+      $upper->sleeve_length_left = $request->sleeve_left;
+      $upper->vest_length = $request->vest_len;
+      $upper->jacket_back_length = $request->jacket_back;
+      $upper->neck = $request->neck;
+      $upper->measure_type = $request->measure_type;
+      $upper->save();
+      $lower = LowerMeasurement::create([
+        'user_id' => $user_edit->id,
+        'crotch' => $request->pcrotch,
+        'thighs' => $request->pthighs,
+        'length' => $request->plength,
+        'bottom' => $request->pbottom,
+        'waist' => $request->pwaist,
+        'calf' => $request->pcalf,
+        'knees' => $request->pknees,
+        'stomach' => $request->pstomach,
+        'shorts' => $request->pshort,
+        'hips' => $request->phips,
+        'measure_type' => $request->measure_type
+      ]);
+    }
+    else
+    {
+      logger("jacket update measurement &&& pant update measurement");
+      $upper = UpperMeasurement::find($upper_check->id);
+      $upper->stomach = $request->stomach;
+      $upper->biceps = $request->biceps;
+      $upper->forearm = $request->forearm;
+      $upper->cuffs = $request->cuffs;
+      $upper->chest_front_width = $request->chest_front;
+      $upper->chest_back_width = $request->chest_back;
+      $upper->jacket_front_length =$request->jacket_front;
+      $upper->chest = $request->chest;
+      $upper->waist = $request->waist;
+      $upper->hips = $request->hips;
+      $upper->shoulder = $request->shoulder;
+      $upper->sleeve_length_right = $request->sleeve_right;
+      $upper->sleeve_length_left = $request->sleeve_left;
+      $upper->vest_length = $request->vest_len;
+      $upper->jacket_back_length = $request->jacket_back;
+      $upper->neck = $request->neck;
+      $upper->measure_type = $request->measure_type;
+      $upper->save();
+
+      $lower = LowerMeasurement::find($lower_check->id);
+      $lower->crotch =  $request->pcrotch;
+      $lower->thighs =  $request->pthighs;
+      $lower->length = $request->plength;
+      $lower->bottom = $request->pbottom;
+      $lower->waist = $request->pwaist;
+      $lower->calf = $request->pcalf;
+      $lower->knees = $request->pknees;
+      $lower->stomach = $request->pstomach;
+      $lower->shorts = $request->pshort;
+      $lower->hips = $request->phips;
+      $lower->measure_type = $request->measure_type;
+      $lower->save();
+    }
+    //upper and lower end
+
+    return response()->json([
+      "msg" => "success",
+    ]);
+  }
   public function store_measure_data(Request $request)
   {
     logger("store measure data fuckkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");

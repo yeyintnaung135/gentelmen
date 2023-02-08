@@ -146,13 +146,11 @@
                 @if($user != null && $upper != null)
                   <input type="hidden" id="upper_has_id" style="color:white" value="{{$upper->id}}">
                   <input type="text" id="neck_input" value="{{$upper->neck}}"
-                         onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @else
                   <input type="text" id="upper_has_id" style="color:white" value="0">
                   <input type="text" placeholder="0.0" id="neck_input"
-                         onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @endif
                 <p class="unit">In</p>
               </div>
@@ -168,13 +166,11 @@
                 @if($user != null && $upper != null)
 
                   <input type="text" placeholder="0.0" id="chest_input" value="{{$upper->chest}}"
-                         onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @else
 
                   <input type="text" placeholder="0.0" id="chest_input"
-                         onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @endif
                 <p class="unit">In</p>
               </div>
@@ -189,12 +185,10 @@
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
                   <input type="text" placeholder="0.0" id="waist_upper_input"
-                         value="{{$upper->waist}}" onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         value="{{$upper->waist}}" >
                 @else
                   <input type="text" placeholder="0.0" id="waist_upper_input"
-                         onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @endif
                 <p class="unit">In</p>
               </div>
@@ -209,12 +203,10 @@
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
                   <input type="text" placeholder="0.0" id="hips_upper_input"
-                         value="{{$upper->hips}}" onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         value="{{$upper->hips}}" >
                 @else
                   <input type="text" placeholder="0.0" id="hips_upper_input"
-                         onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @endif
                 <p class="unit">In</p>
               </div>
@@ -229,12 +221,10 @@
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
                   <input type="text" placeholder="0.0" id="shoulder_input"
-                         value="{{$upper->shoulder}}" onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         value="{{$upper->shoulder}}" >
                 @else
                   <input type="text" placeholder="0.0" id="shoulder_input"
-                         onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @endif
                 <p class="unit">In</p>
               </div>
@@ -250,12 +240,10 @@
                 @if($user != null && $upper != null)
                   <input type="text" placeholder="0.0" id="sleeve_length_Right_input"
                          value="{{$upper->sleeve_length_right}}"
-                         onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @else
                   <input type="text" placeholder="0.0" id="sleeve_length_Right_input"
-                         onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @endif
                 <p class="unit">In</p>
               </div>
@@ -270,12 +258,10 @@
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
                   <input type="text" placeholder="0.0" id="sleeve_length_left_input"
-                         value="{{$upper->sleeve_length_left}}" onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         value="{{$upper->sleeve_length_left}}" >
                 @else
                   <input type="text" placeholder="0.0" id="sleeve_length_left_input"
-                         onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @endif
                 <p class="unit">In</p>
               </div>
@@ -290,12 +276,10 @@
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
                   <input type="text" placeholder="0.0" id="stomach_upper_input"
-                         value="{{$upper->stomach}}" onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         value="{{$upper->stomach}}" >
                 @else
                   <input type="text" placeholder="0.0" id="stomach_upper_input"
-                         onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @endif
                 <p class="unit">In</p>
               </div>
@@ -310,12 +294,10 @@
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
                   <input type="text" placeholder="0.0" id="biceps_input" value="{{$upper->biceps}}"
-                         onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @else
                   <input type="text" placeholder="0.0" id="biceps_input"
-                         onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @endif
                 <p class="unit">In</p>
               </div>
@@ -330,12 +312,10 @@
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
                   <input type="text" placeholder="0.0" id="forearm_input"
-                         value="{{$upper->forearm}}" onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         value="{{$upper->forearm}}" >
                 @else
                   <input type="text" placeholder="0.0" id="forearm_input"
-                         onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @endif
                 <p class="unit">In</p>
               </div>
@@ -350,12 +330,10 @@
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
                   <input type="text" placeholder="0.0" id="cuffs_input" value="{{$upper->cuffs}}"
-                         onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @else
                   <input type="text" placeholder="0.0" id="cuffs_input"
-                         onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @endif
                 <p class="unit">In</p>
               </div>
@@ -370,12 +348,10 @@
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
                   <input type="text" placeholder="0.0" id="chest_front_input"
-                         value="{{$upper->chest_front_width}}" onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         value="{{$upper->chest_front_width}}" >
                 @else
                   <input type="text" placeholder="0.0" id="chest_front_input"
-                         onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @endif
                 <p class="unit">In</p>
               </div>
@@ -390,12 +366,10 @@
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
                   <input type="text" placeholder="0.0" id="chest_back_input"
-                         value="{{$upper->chest_back_width}}" onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         value="{{$upper->chest_back_width}}" >
                 @else
                   <input type="text" placeholder="0.0" id="chest_back_input"
-                         onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @endif
                 <p class="unit">In</p>
               </div>
@@ -411,12 +385,10 @@
                 @if($user != null && $upper != null)
                   <input type="text" placeholder="0.0" id="jacket_front_input"
                          value="{{$upper->jacket_front_length}}"
-                         onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @else
                   <input type="text" placeholder="0.0" id="jacket_front_input"
-                         onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @endif
                 <p class="unit">In</p>
               </div>
@@ -431,12 +403,10 @@
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
                   <input type="text" placeholder="0.0" id="jacket_back_input"
-                         value="{{$upper->jacket_back_length}}" onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         value="{{$upper->jacket_back_length}}" >
                 @else
                   <input type="text" placeholder="0.0" id="jacket_back_input"
-                         onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @endif
                 <p class="unit">In</p>
               </div>
@@ -451,12 +421,10 @@
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
                   <input type="text" placeholder="0.0" id="vest_length_input"
-                         value="{{$upper->vest_length}}" onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         value="{{$upper->vest_length}}" >
                 @else
                   <input type="text" placeholder="0.0" id="vest_length_input"
-                         onmousedown="clear_upper_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @endif
                 <p class="unit">In</p>
               </div>
@@ -565,13 +533,11 @@
                 @if($user != null && $lower != null)
                   <input type="hidden" id="lower_has_id" style="color:white" value="{{$lower->id}}">
                   <input type="text" placeholder="0.0" value="{{$lower->waist}}"
-                         id="waist_lower_input" onmousedown="clear_lower_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         id="waist_lower_input" >
                 @else
                   <input type="text" id="lower_has_id" style="color:white" value="0">
                   <input type="text" placeholder="0.0" id="waist_lower_input"
-                         onmousedown="clear_lower_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @endif
                 <p class="unit">In</p>
               </div>
@@ -586,12 +552,10 @@
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
                   <input type="text" placeholder="0.0" value="{{$lower->stomach}}"
-                         id="stomach_lower_input" onmousedown="clear_lower_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         id="stomach_lower_input" >
                 @else
                   <input type="text" placeholder="0.0" id="stomach_lower_input"
-                         onmousedown="clear_lower_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @endif
                 <p class="unit">In</p>
               </div>
@@ -606,12 +570,10 @@
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
                   <input type="text" placeholder="0.0" value="{{$lower->hips}}"
-                         id="hips_lower_input" onmousedown="clear_lower_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         id="hips_lower_input" >
                 @else
                   <input type="text" placeholder="0.0" id="hips_lower_input"
-                         onmousedown="clear_lower_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @endif
                 <p class="unit">In</p>
               </div>
@@ -626,12 +588,10 @@
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
                   <input type="text" placeholder="0.0" value="{{$lower->crotch}}" id="crotch_input"
-                         onmousedown="clear_lower_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @else
                   <input type="text" placeholder="0.0" id="crotch_input"
-                         onmousedown="clear_lower_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @endif
                 <p class="unit">In</p>
               </div>
@@ -646,12 +606,10 @@
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
                   <input type="text" placeholder="0.0" value="{{$lower->thighs}}" id="thighs_input"
-                         onmousedown="clear_lower_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @else
                   <input type="text" placeholder="0.0" id="thighs_input"
-                         onmousedown="clear_lower_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @endif
                 <p class="unit">In</p>
               </div>
@@ -666,12 +624,10 @@
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
                   <input type="text" placeholder="0.0" id="knees_input" value="{{$lower->knees}}"
-                         onmousedown="clear_lower_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @else
                   <input type="text" placeholder="0.0" id="knees_input"
-                         onmousedown="clear_lower_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @endif
                 <p class="unit">In</p>
               </div>
@@ -686,12 +642,10 @@
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
                   <input type="text" placeholder="0.0" id="calf_input" value="{{$lower->calf}}"
-                         onmousedown="clear_lower_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @else
                   <input type="text" placeholder="0.0" id="calf_input"
-                         onmousedown="clear_lower_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @endif
                 <p class="unit">In</p>
               </div>
@@ -706,12 +660,10 @@
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
                   <input type="text" placeholder="0.0" id="pants_short_input"
-                         value="{{$lower->shorts}}" onmousedown="clear_lower_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         value="{{$lower->shorts}}" >
                 @else
                   <input type="text" placeholder="0.0" id="pants_short_input"
-                         onmousedown="clear_lower_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @endif
                 <p class="unit">In</p>
               </div>
@@ -726,12 +678,10 @@
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
                   <input type="text" placeholder="0.0" id="pants_length_input"
-                         value="{{$lower->length}}" onmousedown="clear_lower_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         value="{{$lower->length}}" >
                 @else
                   <input type="text" placeholder="0.0" id="pants_length_input"
-                         onmousedown="clear_lower_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @endif
                 <p class="unit">In</p>
               </div>
@@ -746,12 +696,10 @@
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
                   <input type="text" placeholder="0.0" id="bottom_length_input"
-                         value="{{$lower->bottom}}" onmousedown="clear_lower_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         value="{{$lower->bottom}}" >
                 @else
                   <input type="text" placeholder="0.0" id="bottom_length_input"
-                         onmousedown="clear_lower_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         >
                 @endif
                 <p class="unit">In</p>
               </div>

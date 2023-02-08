@@ -479,6 +479,8 @@ Route::get('/fabrics','Frontend\FrontendController@show_fabrics')->name('fabrics
 Route::get('/additional','Frontend\FrontendController@show_additional')->name('additional');
 
 Route::post('/store_measure_ajax', 'Frontend\FrontendController@store_measure_data')->name('store_measure_ajax');
+Route::post('/store_measure_from_profile_ajax', 'Frontend\FrontendController@store_measure_profile_data')->name('store_measure_from_profile_ajax');
+
 
 Route::post('/store_user_info_measure_ajax', 'Frontend\FrontendController@store_user_info_measure_ajax_data')->name('store_user_info_measure_ajax');
 
@@ -1710,6 +1712,7 @@ Route::get('profile', function () {
   $cus_orders = Order::where('user_id',$user)->get();
   $cart_orders = CartOrder::where('user_id',$user)->get();
   $cart_order_products = CartOrderProduct::all();
+  // dd($user_detail);
   return view('frontend.profile',compact('cart_order_products','favs','carts','user_detail','upper','lower','cus_orders','cart_orders'));
 })->name('profile');
 

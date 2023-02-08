@@ -296,8 +296,7 @@
             <!-- start -->
             <!-- new customize -->
             <div class="measure">
-              <p class="text-decoration-underline text-center my-3" id="store"
-                 onclick="store_measurement_overall()">
+              <p class="text-decoration-underline text-center my-3" id="save_measurement">
                 <a href="#">Save measurement</a></p>
               <div class="alert alert-danger d-flex justify-content-center d-none"
                    role="alert" id="info_error_alert"
@@ -319,6 +318,7 @@
                 </div>
               </div>
               <div class="unit-wrapper">
+                <input type="hidden" id="measure_type" value="in">
                 <div class="unit-label-wrapper">
                   <input type="radio" id="in" name="measure_unit"
                          class="unit-check d-none" value="in"
@@ -340,115 +340,99 @@
                       <img src="{{asset("assets/images/customize/measurement/neck.png")}}"
                            alt="neck">
                       <p>neck</p>
-                      <span class="badge text-bg-danger upper_errors d-none"
-                            id="neck_error">Require</span>
+
                     </a>
                     <a class="measure-item circle" href="#chest_upper">
                       <img src="{{asset("assets/images/customize/measurement/chest.png")}}"
                            alt="chest">
                       <p>Chest</p>
-                      <span class="badge text-bg-danger upper_errors d-none"
-                            id="chest_error">Require</span>
+
                     </a>
                     <a class="measure-item circle" href="#waist_upper">
                       <img src="{{asset("assets/images/customize/measurement/waist.png")}}"
                            alt="waist">
                       <p>Waist (Upper Waist)</p>
-                      <span class="badge text-bg-danger upper_errors d-none"
-                            id="waist_error">Require</span>
+
                     </a>
                     <a class="measure-item circle" href="#hips_upper">
                       <img src="{{asset("assets/images/customize/measurement/hips.png")}}"
                            alt="hips">
                       <p>hips</p>
-                      <span class="badge text-bg-danger upper_errors d-none"
-                            id="hips_error">Require</span>
+
                     </a>
                     <a class="measure-item circle" href="#shoulder_upper">
                       <img src="{{asset("assets/images/customize/measurement/shoulder.png")}}"
                            alt="shoulder">
                       <p>shoulder</p>
-                      <span class="badge text-bg-danger upper_errors d-none"
-                            id="shoulder_error">Require</span>
+
                     </a>
                     <a class="measure-item circle" href="#sleeve_length_Right">
                       <img src="{{asset("assets/images/customize/measurement/hips.png")}}"
                            alt="sleeve_length_Right">
                       <p>Sleeve Length Right</p>
-                      <span class="badge text-bg-danger upper_errors d-none"
-                            id="sleeve_r_error">Require</span>
+
                     </a>
                     <a class="measure-item circle" href="#sleeve_length_left">
                       <img src="{{asset("assets/images/customize/measurement/shoulder.png")}}"
                            alt="sleeve_length_left">
                       <p>Sleeve Length Left</p>
-                      <span class="badge text-bg-danger upper_errors d-none"
-                            id="sleeve_l_error">Require</span>
+
                     </a>
                     <a class="measure-item circle" href="#stomach_upper">
                       <img src="{{asset("assets/images/customize/measurement/stomach.png")}}"
                            alt="stomach">
                       <p>stomach</p>
-                      <span class="badge text-bg-danger upper_errors d-none"
-                            id="stomach_error">Require</span>
+
                     </a>
                     <a class="measure-item circle" href="#biceps">
                       <img src="{{asset("assets/images/customize/measurement/biceps.png")}}"
                            alt="biceps">
                       <p>biceps</p>
-                      <span class="badge text-bg-danger upper_errors d-none"
-                            id="biceps_error">Require</span>
+
                     </a>
                     <a class="measure-item circle" href="#forearm">
                       <img src="{{asset("assets/images/customize/measurement/forearm.png")}}"
                            alt="forearm">
                       <p>forearm</p>
-                      <span class="badge text-bg-danger upper_errors d-none"
-                            id="forearm_error">Require</span>
+
                     </a>
                     <a class="measure-item circle" href="#cuffs">
                       <img src="{{asset("assets/images/customize/measurement/stomach.png")}}"
                            alt="cuffs">
                       <p>cuffs</p>
-                      <span class="badge text-bg-danger upper_errors d-none"
-                            id="cuffs_error">Require</span>
+
                     </a>
                     <a class="measure-item circle" href="#chest_front">
                       <img src="{{asset("assets/images/customize/measurement/stomach.png")}}"
                            alt="chest
             front">
                       <p>chest front width</p>
-                      <span class="badge text-bg-danger upper_errors d-none"
-                            id="chest_f_error">Require</span>
+
                     </a>
                     <a class="measure-item circle" href="#chest_back">
                       <img src="{{asset("assets/images/customize/measurement/stomach.png")}}"
                            alt="chest
             back">
                       <p>chest Back width</p>
-                      <span class="badge text-bg-danger upper_errors d-none"
-                            id="chest_b_error">Require</span>
+
                     </a>
                     <a class="measure-item circle" href="#jacket_front">
                       <img src="{{asset("assets/images/customize/measurement/biceps.png")}}"
                            alt="jacket_front_length">
                       <p>Jacket Front Length</p>
-                      <span class="badge text-bg-danger upper_errors d-none"
-                            id="jacket_f_error">Require</span>
+
                     </a>
                     <a class="measure-item circle" href="#jacket_back">
                       <img src="{{asset("assets/images/customize/measurement/biceps.png")}}"
                            alt="jacket_back_length">
                       <p>Jacket Back Length</p>
-                      <span class="badge text-bg-danger upper_errors d-none"
-                            id="jacket_b_error">Require</span>
+
                     </a>
                     <a class="measure-item circle" href="#vest_length">
                       <img src="{{asset("assets/images/customize/measurement/biceps.png")}}"
                            alt="vest_length">
                       <p>Vest Length</p>
-                      <span class="badge text-bg-danger upper_errors d-none"
-                            id="vest_len_error">Require</span>
+
                     </a>
                   </div>
                   <div class="measure-item-content">
@@ -459,8 +443,13 @@
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
+                        @if($upper != null && $upper->neck != null)
                           <input type="text" placeholder="0.0"
-                                 id="neck_input">
+                                 id="neck_input" value="{{$upper->neck}}">
+                        @else
+                        <input type="text" placeholder="0.0"
+                         id="neck_input">
+                        @endif
                           <p class="unit">In</p>
                         </div>
                       </div>
@@ -472,8 +461,13 @@
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
+                          @if($upper != null && $upper->chest != null)
                           <input type="text" placeholder="0.0"
-                                 id="chest_input">
+                                 id="chest_input" value="{{$upper->chest}}">
+                          @else
+                          <input type="text" placeholder="0.0"
+                           id="chest_input">
+                          @endif
                           <p class="unit">In</p>
                         </div>
                       </div>
@@ -485,8 +479,13 @@
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
+                          @if($upper != null && $upper->waist != null)
                           <input type="text" placeholder="0.0"
-                                 id="waist_upper_input">
+                                 id="waist_upper_input" value="{{$upper->waist}}">
+                          @else
+                          <input type="text" placeholder="0.0"
+                           id="waist_upper_input">
+                          @endif
                           <p class="unit">In</p>
                         </div>
                       </div>
@@ -498,9 +497,13 @@
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
-
+                          @if($upper != null && $upper->hips != null)
                           <input type="text" placeholder="0.0"
-                                 id="hips_upper_input">
+                                 id="hips_upper_input" value="{{$upper->hips}}">
+                          @else
+                          <input type="text" placeholder="0.0"
+                           id="hips_upper_input">
+                          @endif
                           <p class="unit">In</p>
                         </div>
                       </div>
@@ -512,8 +515,13 @@
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
+                          @if($upper != null && $upper->shoulder != null)
                           <input type="text" placeholder="0.0"
-                                 id="shoulder_input">
+                                 id="shoulder_input" value="{{$upper->shoulder}}">
+                          @else
+                          <input type="text" placeholder="0.0"
+                           id="shoulder_input">
+                          @endif
                           <p class="unit">In</p>
                         </div>
                       </div>
@@ -525,8 +533,13 @@
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
+                          @if($upper != null && $upper->sleeve_length_right != null)
                           <input type="text" placeholder="0.0"
-                                 id="sleeve_length_Right_input">
+                                 id="sleeve_length_Right_input" value="{{$upper->sleeve_length_right }}">
+                          @else
+                          <input type="text" placeholder="0.0"
+                           id="sleeve_length_Right_input">
+                          @endif
                           <p class="unit">In</p>
                         </div>
                       </div>
@@ -538,10 +551,13 @@
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
-
+                          @if($upper != null && $upper->sleeve_length_left != null)
                           <input type="text" placeholder="0.0"
-                                 id="sleeve_length_left_input">
-
+                                 id="sleeve_length_left_input" value="{{$upper->sleeve_length_left}}">
+                          @else
+                          <input type="text" placeholder="0.0"
+                           id="sleeve_length_left_input">
+                          @endif
                           <p class="unit">In</p>
                         </div>
                       </div>
@@ -553,8 +569,13 @@
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
+                          @if($upper != null && $upper->stomach != null)
                           <input type="text" placeholder="0.0"
-                                 id="stomach_upper_input">
+                                 id="stomach_upper_input" value="{{$upper->stomach}}">
+                          @else
+                          <input type="text" placeholder="0.0"
+                           id="stomach_upper_input">
+                          @endif
                           <p class="unit">In</p>
                         </div>
                       </div>
@@ -566,10 +587,13 @@
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
-
+                          @if($upper != null && $upper->biceps != null)
                           <input type="text" placeholder="0.0"
-                                 id="biceps_input">
-
+                                 id="biceps_input" value="{{$upper->biceps}}">
+                          @else
+                          <input type="text" placeholder="0.0"
+                           id="biceps_input">
+                          @endif
                           <p class="unit">In</p>
                         </div>
                       </div>
@@ -581,9 +605,13 @@
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
+                          @if($upper != null && $upper->forearm != null)
                           <input type="text" placeholder="0.0"
-                                 id="forearm_input">
-
+                                 id="forearm_input" value="{{$upper->forearm}}">
+                          @else
+                          <input type="text" placeholder="0.0"
+                           id="forearm_input">
+                          @endif
                           <p class="unit">In</p>
                         </div>
                       </div>
@@ -595,10 +623,13 @@
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
-
+                          @if($upper != null && $upper->cuffs != null)
                           <input type="text" placeholder="0.0"
-                                 id="cuffs_input">
-
+                                 id="cuffs_input" value="{{$upper->cuffs}}">
+                          @else
+                          <input type="text" placeholder="0.0"
+                           id="cuffs_input">
+                          @endif
                           <p class="unit">In</p>
                         </div>
                       </div>
@@ -610,10 +641,13 @@
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
-
+                          @if($upper != null && $upper->chest_front_width != null)
                           <input type="text" placeholder="0.0"
-                                 id="chest_front_input">
-
+                                 id="chest_front_input" value="{{$upper->chest_front_width}}">
+                          @else
+                          <input type="text" placeholder="0.0"
+                           id="chest_front_input">
+                          @endif
                           <p class="unit">In</p>
                         </div>
                       </div>
@@ -625,10 +659,13 @@
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
-
+                          @if($upper != null && $upper->chest_back_width != null)
                           <input type="text" placeholder="0.0"
-                                 id="chest_back_input">
-
+                                 id="chest_back_input" value="{{$upper->chest_back_width}}">
+                          @else
+                          <input type="text" placeholder="0.0"
+                           id="chest_back_input">
+                          @endif
                           <p class="unit">In</p>
                         </div>
                       </div>
@@ -640,10 +677,13 @@
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
-
+                          @if($upper != null && $upper->jacket_front_length != null)
                           <input type="text" placeholder="0.0"
-                                 id="jacket_front_input">
-
+                                 id="jacket_front_input" value="{{$upper->jacket_front_length}}">
+                          @else
+                          <input type="text" placeholder="0.0"
+                           id="jacket_front_input">
+                          @endif
                           <p class="unit">In</p>
                         </div>
                       </div>
@@ -655,9 +695,13 @@
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
+                          @if($upper != null && $upper->jacket_back_length != null)
                           <input type="text" placeholder="0.0"
-                                 id="jacket_back_input">
-
+                                 id="jacket_back_input" value="{{$upper->jacket_back_length}}">
+                          @else
+                          <input type="text" placeholder="0.0"
+                           id="jacket_back_input">
+                          @endif
                           <p class="unit">In</p>
                         </div>
                       </div>
@@ -669,10 +713,13 @@
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
-
+                          @if($upper != null && $upper->vest_length != null)
                           <input type="text" placeholder="0.0"
-                                 id="vest_length_input">
-
+                                 id="vest_length_input" value="{{$upper->vest_length}}">
+                          @else
+                          <input type="text" placeholder="0.0"
+                           id="vest_length_input">
+                          @endif
                           <p class="unit">In</p>
                         </div>
                       </div>
@@ -686,8 +733,7 @@
                       <img src="{{asset("assets/images/customize/measurement/waist.png")}}"
                            alt="waist_lower">
                       <p>Waist (Lower Waist)</p>
-                      <span class="badge text-bg-danger lower_errors d-none"
-                            id="pwaist_error">Require</span>
+
                     </a>
                     <!--          <a class="measure-item" href="#stomach_lower">
             <img src="{{asset("assets/images/customize/measurement/stomach.png")}}" alt="stomach_lower">
@@ -698,64 +744,55 @@
                       <img src="{{asset("assets/images/customize/measurement/stomach.png")}}"
                            alt="stomach_lower">
                       <p>stomach</p>
-                      <span class="badge text-bg-danger lower_errors d-none"
-                            id="pstomach_error">Require</span>
+
                     </a>
                     <a class="measure-item circle" href="#hips_lower">
                       <img src="{{asset("assets/images/customize/measurement/hips.png")}}"
                            alt="hips_lower">
                       <p>hips</p>
-                      <span class="badge text-bg-danger lower_errors d-none"
-                            id="phips_error">Require</span>
+
                     </a>
                     <a class="measure-item circle" href="#crotch">
                       <img src="{{asset("assets/images/customize/measurement/stomach.png")}}"
                            alt="crotch">
                       <p>crotch</p>
-                      <span class="badge text-bg-danger lower_errors d-none"
-                            id="pcrotch_error">Require</span>
+
                     </a>
                     <a class="measure-item circle" href="#thighs">
                       <img src="{{asset("assets/images/customize/measurement/thighs.png")}}"
                            alt="thighs">
                       <p>thighs</p>
-                      <span class="badge text-bg-danger lower_errors d-none"
-                            id="pthighs_error">Require</span>
+
                     </a>
                     <a class="measure-item circle" href="#knees">
                       <img src="{{asset("assets/images/customize/measurement/knees.png")}}"
                            alt="knees">
                       <p>knees</p>
-                      <span class="badge text-bg-danger lower_errors d-none"
-                            id="pknees_error">Require</span>
+
                     </a>
                     <a class="measure-item circle" href="#calf">
                       <img src="{{asset("assets/images/customize/measurement/knees.png")}}"
                            alt="calf">
                       <p>Calf</p>
-                      <span class="badge text-bg-danger lower_errors d-none"
-                            id="pcalf_error">Require</span>
+
                     </a>
                     <a class="measure-item circle" href="#pants_short">
                       <img src="{{asset("assets/images/customize/measurement/neck.png")}}"
                            alt="pants_short">
                       <p>Pants Short</p>
-                      <span class="badge text-bg-danger lower_errors d-none"
-                            id="pshort_error">Require</span>
+
                     </a>
                     <a class="measure-item circle" href="#pants_length">
                       <img src="{{asset("assets/images/customize/measurement/neck.png")}}"
                            alt="pants_length">
                       <p>Pants Length</p>
-                      <span class="badge text-bg-danger lower_errors d-none"
-                            id="plength_error">Require</span>
+
                     </a>
                     <a class="measure-item circle" href="#bottom_length">
                       <img src="{{asset("assets/images/customize/measurement/knees.png")}}"
                            alt="bottom_length">
                       <p>Bottom Length</p>
-                      <span class="badge text-bg-danger lower_errors d-none"
-                            id="pbottom_error">Require</span>
+
                     </a>
                     <!--
           <a class="measure-item circle" href="#j_length">
@@ -795,10 +832,13 @@
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
-
+                          @if($lower != null && $lower->waist != null)
                           <input type="text" placeholder="0.0"
-                                 id="waist_lower_input">
-
+                                 id="waist_lower_input" value="{{$lower->waist}}">
+                          @else
+                          <input type="text" placeholder="0.0"
+                           id="waist_lower_input">
+                          @endif
                           <p class="unit">In</p>
                         </div>
                       </div>
@@ -810,10 +850,13 @@
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
-
+                          @if($lower != null && $lower->stomach != null)
                           <input type="text" placeholder="0.0"
-                                 id="stomach_lower_input">
-
+                                 id="stomach_lower_input" value="{{$lower->stomach}}">
+                          @else
+                          <input type="text" placeholder="0.0"
+                           id="stomach_lower_input">
+                          @endif
                           <p class="unit">In</p>
                         </div>
                       </div>
@@ -825,9 +868,13 @@
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
+                          @if($lower != null && $lower->hips != null)
                           <input type="text" placeholder="0.0"
-                                 id="hips_lower_input">
-
+                                 id="hips_lower_input" value="{{$lower->hips}}">
+                          @else
+                          <input type="text" placeholder="0.0"
+                           id="hips_lower_input">
+                          @endif
                           <p class="unit">In</p>
                         </div>
                       </div>
@@ -839,9 +886,13 @@
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
+                          @if($lower != null && $lower->crotch != null)
                           <input type="text" placeholder="0.0"
-                                 id="crotch_input">
-
+                                 id="crotch_input" value="{{$lower->cortch}}">
+                          @else
+                          <input type="text" placeholder="0.0"
+                           id="crotch_input">
+                          @endif
                           <p class="unit">In</p>
                         </div>
                       </div>
@@ -853,10 +904,13 @@
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
-
+                          @if($lower != null && $lower->thighs != null)
                           <input type="text" placeholder="0.0"
-                                 id="thighs_input">
-
+                                 id="thighs_input" value="{{$lower->thighs}}">
+                          @else
+                          <input type="text" placeholder="0.0"
+                           id="thighs_input">
+                          @endif
                           <p class="unit">In</p>
                         </div>
                       </div>
@@ -868,9 +922,13 @@
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
-
+                          @if($lower != null && $lower->knees != null)
                           <input type="text" placeholder="0.0"
-                                 id="knees_input">
+                                 id="knees_input" value="{{$lower->knees}}">
+                          @else
+                          <input type="text" placeholder="0.0"
+                           id="knees_input">
+                          @endif
                           <p class="unit">In</p>
                         </div>
                       </div>
@@ -882,9 +940,13 @@
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
-
+                          @if($lower != null && $lower->calf != null)
                           <input type="text" placeholder="0.0"
-                                 id="calf_input">
+                                 id="calf_input" value="{{$lower->calf}}">
+                          @else
+                          <input type="text" placeholder="0.0"
+                           id="calf_input">
+                          @endif
                           <p class="unit">In</p>
                         </div>
                       </div>
@@ -896,10 +958,13 @@
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
-
+                          @if($lower != null && $lower->shorts != null)
                           <input type="text" placeholder="0.0"
-                                 id="pants_short_input">
-
+                                 id="pants_short_input" value="{{$lower->shorts}}">
+                          @else
+                          <input type="text" placeholder="0.0"
+                           id="pants_short_input">
+                          @endif
                           <p class="unit">In</p>
                         </div>
                       </div>
@@ -911,10 +976,13 @@
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
-
+                          @if($lower != null && $lower->length != null)
                           <input type="text" placeholder="0.0"
-                                 id="pants_length_input">
-
+                                 id="pants_length_input" value="{{$lower->length}}">
+                          @else
+                          <input type="text" placeholder="0.0"
+                           id="pants_length_input">
+                          @endif
                           <p class="unit">In</p>
                         </div>
                       </div>
@@ -926,8 +994,13 @@
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
+                          @if($lower != null && $lower->bottom != null)
                           <input type="text" placeholder="0.0"
-                                 id="bottom_length_input">
+                                 id="bottom_length_input" value="{{$lower->bottom}}">
+                          @else
+                          <input type="text" placeholder="0.0"
+                           id="bottom_length_input">
+                          @endif
                           <p class="unit">In</p>
                         </div>
                       </div>
@@ -941,245 +1014,384 @@
                       <div class="info-group">
                         <label for="age">Age</label>
                         <div class="info-input-group">
+                          @if($user_detail->age != null)
+                          <input type="text" id="age" placeholder="0" value="{{$user_detail->age}}">
+                          @else
                           <input type="text" id="age" placeholder="0">
+                          @endif
                           <p>Year</p>
                         </div>
-                        <span class="alert alert-danger font-weight-bold info_errors d-none"
-                              role="alert" id="age_error"
-                              style="background-color:red !important;color:whitesmoke !important">
-                Need To Fill Age
-              </span>
+
                       </div>
                       <!--select-->
                       <div class="info-group">
                         <label for="age">Height</label>
                         <div class="info-input-group">
+                          @if($user_detail->height != null)
+                          <input type="text" id="height" placeholder="0" value="{{$user_detail->height}}">
+                            @if($user_detail->height_type == 'cm')
+                            <select name="age" id="height_type">
+                              <option value="cm" selected>CM</option>
+                              <option value="in">IN</option>
+                            </select>
+                            @else
+                            <select name="age" id="height_type">
+                              <option value="cm" >CM</option>
+                              <option value="in" selected>IN</option>
+                            </select>
+                            @endif
+                          @else
                           <input type="text" id="height" placeholder="0">
-
-                          <select name="age" id="height_type">
-                            <option value="cm" selected>CM
-                            </option>
-                            <option value="in">IN</option>
-                          </select>
+                            <select name="age" id="height_type">
+                              <option value="cm" selected>CM</option>
+                              <option value="in">IN</option>
+                            </select>
+                          @endif
 
                         </div>
-                        <span class="alert alert-danger font-weight-bold info_errors d-none"
-                              role="alert" id="height_error"
-                              style="background-color:red !important;color:whitesmoke !important">
-                Need To Fill Height
-              </span>
                       </div>
                       <div class="info-group">
                         <label for="age">Weight</label>
                         <div class="info-input-group">
+                          @if($user_detail->weight != null)
+                          <input type="text" id="weight" placeholder="0" value="{{$user_detail->weight}}">
+                            @if($user_detail->weight_type == 'kg')
+                            <select name="weight" id="weight_type">
+                              <option value="kg" selected>KG</option>
+                              <option value="lb">LB</option>
+                            </select>
+                            @else
+                            <select name="weight" id="weight_type">
+                              <option value="kg" >KG</option>
+                              <option value="lb" selected>LB</option>
+                            </select>
+                            @endif
+                          @else
                           <input type="text" id="weight" placeholder="0">
                           <select name="weight" id="weight_type">
-                            <option value="kg" selected>KG
-                            </option>
+                            <option value="kg" selected>KG</option>
                             <option value="lb">LB</option>
                           </select>
-
+                          @endif
                         </div>
-                        <span class="alert alert-danger font-weight-bold info_errors d-none"
-                              role="alert" id="weight_error"
-                              style="background-color:red !important;color:whitesmoke !important">
-                Need To Fill Weight
-              </span>
                       </div>
                       <div class="info-group">
                         <label for="age">Shoulder Type</label>
                         <div class="info-input-group">
-
-                          <select name="shoulder_type"
-                                  id="shoulder_type">
-                            <option value="0">Select</option>
-                            <option value="structure" selected>
-                              Structure
-                            </option>
-                            <option value="square">Square
-                            </option>
-                            <option value="slopped">Slopped
-                            </option>
+                          @if($user_detail->shoulder_type != null)
+                            @if($user_detail->shoulder_type == 'structure')
+                            <select name="shoulder_type" id="shoulder_type">
+                              <option value="">Select</option>
+                              <option value="structure" selected>Structure</option>
+                              <option value="square">Square</option>
+                              <option value="slopped">Slopped</option>
+                            </select>
+                            @elseif($user_detail->shoulder_type == 'square')
+                            <select name="shoulder_type" id="shoulder_type">
+                              <option value="">Select</option>
+                              <option value="structure">Structure</option>
+                              <option value="square" selected>Square</option>
+                              <option value="slopped">Slopped</option>
+                            </select>
+                            @elseif($user_detail->shoulder_type == 'slopped')
+                            <select name="shoulder_type" id="shoulder_type">
+                              <option value="">Select</option>
+                              <option value="structure">Structure</option>
+                              <option value="square">Square</option>
+                              <option value="slopped" selected>Slopped</option>
+                            </select>
+                            @endif
+                          @else
+                          <select name="shoulder_type" id="shoulder_type">
+                            <option value="">Select</option>
+                            <option value="structure">Structure</option>
+                            <option value="square">Square</option>
+                            <option value="slopped">Slopped</option>
                           </select>
-
+                          @endif
                         </div>
-                        <span class="alert alert-danger font-weight-bold info_errors d-none"
-                              role="alert" id="st_error"
-                              style="background-color:red !important;color:whitesmoke !important">
-                Need To Fill Shoulder Type
-              </span>
                       </div>
                       <div class="info-group">
                         <label for="age">Dropped Shoulder</label>
                         <div class="info-input-group">
-
-                          <select name="dropped_shoulder"
-                                  id="dropped_shoulder">
-                            <option value="0">Select</option>
-                            <option value="left" selected>Left
-                            </option>
+                          @if($user_detail->drop_shoulder != null)
+                            @if($user_detail->drop_shoulder == 'left')
+                            <select name="dropped_shoulder" id="dropped_shoulder">
+                              <option value="">Select</option>
+                              <option value="left" selected>Left</option>
+                              <option value="right">Right</option>
+                            </select>
+                            @elseif($user_detail->drop_shoulder == 'right')
+                            <select name="dropped_shoulder" id="dropped_shoulder">
+                              <option value="">Select</option>
+                              <option value="left">Left</option>
+                              <option value="right" selected>Right</option>
+                            </select>
+                            @endif
+                          @else
+                          <select name="dropped_shoulder" id="dropped_shoulder">
+                            <option value="">Select</option>
+                            <option value="left">Left</option>
                             <option value="right">Right</option>
                           </select>
-
+                          @endif
                         </div>
-                        <span class="alert alert-danger font-weight-bold info_errors d-none"
-                              role="alert" id="ds_error"
-                              style="background-color:red !important;color:whitesmoke !important">
-                Need To Fill Dropped Shoulder
-              </span>
                       </div>
                       <div class="info-group">
                         <label for="age">Arms Position</label>
                         <div class="info-input-group">
-                          <select name="arms_position"
-                                  id="arms_position">
-                            <option value="0">Select</option>
-                            <option value="average" selected>
-                              Average
-                            </option>
-                            <option value="forward">Forward
-                            </option>
-                            <option value="backward">Backward
-                            </option>
+                          @if($user_detail->arms_position != null)
+                            @if($user_detail->arms_position == 'average')
+                            <select name="arms_position" id="arms_position">
+                              <option value="">Select</option>
+                              <option value="average" selected>Average</option>
+                              <option value="forward">Forward</option>
+                              <option value="backward">Backward</option>
+                            </select>
+                            @elseif($user_detail->arms_position == 'forward')
+                            <select name="arms_position" id="arms_position">
+                              <option value="">Select</option>
+                              <option value="average">Average</option>
+                              <option value="forward" selected>Forward</option>
+                              <option value="backward">Backward</option>
+                            </select>
+                            @elseif($user_detail->arms_position == 'backward')
+                            <select name="arms_position" id="arms_position">
+                              <option value="">Select</option>
+                              <option value="average">Average</option>
+                              <option value="forward">Forward</option>
+                              <option value="backward" selected>Backward</option>
+                            </select>
+                            @endif
+                          @else
+                          <select name="arms_position" id="arms_position">
+                            <option value="">Select</option>
+                            <option value="average">Average</option>
+                            <option value="forward">Forward</option>
+                            <option value="backward">Backward</option>
                           </select>
-
+                          @endif
                         </div>
-                        <span class="alert alert-danger font-weight-bold info_errors d-none"
-                              role="alert" id="ap_error"
-                              style="background-color:red !important;color:whitesmoke !important">
-                Need To Fill Arms Position
-              </span>
                       </div>
                       <div class="info-group">
                         <label for="age">Body Shape</label>
                         <div class="info-input-group">
-
-                          <select name="body_shape"
-                                  id="body_shape">
-                            <option value="0">Select</option>
-                            <option value="average" selected>
-                              Average
-                            </option>
+                          @if($user_detail->body_shape != null)
+                            @if($user_detail->body_shape == 'average')
+                            <select name="body_shape" id="body_shape">
+                              <option value="">Select</option>
+                              <option value="average" selected>Average</option>
+                              <option value="thin">Thin</option>
+                              <option value="muscular">Muscular</option>
+                              <option value="fuller">Fuller</option>
+                            </select>
+                            @elseif($user_detail->body_shape == 'thin')
+                            <select name="body_shape" id="body_shape">
+                              <option value="">Select</option>
+                              <option value="average">Average</option>
+                              <option value="thin" selected>Thin</option>
+                              <option value="muscular">Muscular</option>
+                              <option value="fuller">Fuller</option>
+                            </select>
+                            @elseif($user_detail->body_shape == 'muscular')
+                            <select name="body_shape" id="body_shape">
+                              <option value="">Select</option>
+                              <option value="average">Average</option>
+                              <option value="thin">Thin</option>
+                              <option value="muscular" selected>Muscular</option>
+                              <option value="fuller">Fuller</option>
+                            </select>
+                            @elseif($user_detail->body_shape == 'fuller')
+                            <select name="body_shape" id="body_shape">
+                              <option value="">Select</option>
+                              <option value="average">Average</option>
+                              <option value="thin">Thin</option>
+                              <option value="muscular">Muscular</option>
+                              <option value="fuller" selected>Fuller</option>
+                            </select>
+                            @endif
+                          @else
+                          <select name="body_shape" id="body_shape">
+                            <option value="">Select</option>
+                            <option value="average">Average</option>
                             <option value="thin">Thin</option>
-                            <option value="muscular">Muscular
-                            </option>
-                            <option value="fuller">Fuller
-                            </option>
+                            <option value="muscular">Muscular</option>
+                            <option value="fuller">Fuller</option>
                           </select>
-
+                          @endif
                         </div>
-                        <span class="alert alert-danger font-weight-bold info_errors d-none"
-                              role="alert" id="b_shape_error"
-                              style="background-color:red !important;color:whitesmoke !important">
-                Need To Fill Body Shape
-              </span>
                       </div>
                     </div>
                     <div class="info-div">
                       <div class="info-group">
                         <label for="age">Neck Type</label>
                         <div class="info-input-group">
-
+                          @if($user_detail->neck_type != null)
+                            @if($user_detail->neck_type != 'standard')
+                            <select name="neck_type" id="neck_type">
+                              <option value="">Select</option>
+                              <option value="standard" selected>Standard</option>
+                              <option value="short">Short</option>
+                              <option value="long">Long</option>
+                            </select>
+                            @elseif($user_detail->neck_type != 'short')
+                            <select name="neck_type" id="neck_type">
+                              <option value="">Select</option>
+                              <option value="standard">Standard</option>
+                              <option value="short" selected>Short</option>
+                              <option value="long">Long</option>
+                            </select>
+                            @elseif($user_detail->neck_type != 'long')
+                            <select name="neck_type" id="neck_type">
+                              <option value="">Select</option>
+                              <option value="standard">Standard</option>
+                              <option value="short">Short</option>
+                              <option value="long" selected>Long</option>
+                            </select>
+                            @endif
+                          @else
                           <select name="neck_type" id="neck_type">
-                            <option value="0">Select</option>
-                            <option value="standard" selected>
-                              Standard
-                            </option>
+                            <option value="">Select</option>
+                            <option value="standard">Standard</option>
                             <option value="short">Short</option>
                             <option value="long">Long</option>
                           </select>
+                          @endif
                         </div>
-                        <span class="alert alert-danger font-weight-bold info_errors d-none"
-                              role="alert" id="nt_error"
-                              style="background-color:red !important;color:whitesmoke !important">
-                Need To Fill Neck Type
-              </span>
                       </div>
                       <div class="info-group">
                         <label for="age">Stomach Shape</label>
                         <div class="info-input-group">
-
-                          <select name="stomach_shape"
-                                  id="stomach_shape">
-                            <option value="0">Select</option>
-                            <option value="average" selected>
-                              Average
-                            </option>
+                          @if($user_detail->stomach_shape != null)
+                            @if($user_detail->stomach_shape == 'average')
+                            <select name="stomach_shape"  id="stomach_shape">
+                              <option value="">Select</option>
+                              <option value="average" selected>Average</option>
+                              <option value="flat">Flat</option>
+                              <option value="extended">Extended</option>
+                            </select>
+                            @elseif($user_detail->stomach_shape == 'flat')
+                            <select name="stomach_shape"  id="stomach_shape">
+                              <option value="">Select</option>
+                              <option value="average">Average</option>
+                              <option value="flat" selected>Flat</option>
+                              <option value="extended">Extended</option>
+                            </select>
+                            @elseif($user_detail->stomach_shape == 'extended')
+                            <select name="stomach_shape"  id="stomach_shape">
+                              <option value="">Select</option>
+                              <option value="average">Average</option>
+                              <option value="flat">Flat</option>
+                              <option value="extended" selected>Extended</option>
+                            </select>
+                            @endif
+                          @else
+                          <select name="stomach_shape"  id="stomach_shape">
+                            <option value="">Select</option>
+                            <option value="average">Average</option>
                             <option value="flat">Flat</option>
-                            <option value="extended">Extended
-                            </option>
+                            <option value="extended">Extended</option>
                           </select>
-
+                          @endif
                         </div>
-                        <span class="alert alert-danger font-weight-bold info_errors d-none"
-                              role="alert" id="ss_error"
-                              style="background-color:red !important;color:whitesmoke !important">
-                Need To Fill Stomach Shape
-              </span>
                       </div>
                       <div class="info-group">
                         <label for="age">Upper Body Shape</label>
                         <div class="info-input-group">
-
-                          <select name="upper_body_shape"
-                                  id="upper_body_shape">
-                            <option value="0">Select</option>
-                            <option value="straight" selected>
-                              Straight
-                            </option>
-                            <option value="scooped">Scooped
-                            </option>
+                          @if($user_detail->upper_body_shape != null)
+                            @if($user_detail->upper_body_shape == 'straight')
+                            <select name="upper_body_shape" id="upper_body_shape">
+                              <option value="">Select</option>
+                              <option value="straight" selected>Straight</option>
+                              <option value="scooped">Scooped</option>
+                            </select>
+                            @elseif($user_detail->upper_body_shape == 'scooped')
+                            <select name="upper_body_shape" id="upper_body_shape">
+                              <option value="">Select</option>
+                              <option value="straight">Straight</option>
+                              <option value="scooped" selected>Scooped</option>
+                            </select>
+                            @endif
+                          @else
+                          <select name="upper_body_shape" id="upper_body_shape">
+                            <option value="">Select</option>
+                            <option value="straight">Straight</option>
+                            <option value="scooped">Scooped</option>
                           </select>
-
+                          @endif
                         </div>
-                        <span class="alert alert-danger font-weight-bold info_errors d-none"
-                              role="alert" id="ubs_error"
-                              style="background-color:red !important;color:whitesmoke !important">
-                Need To Fill Upper Body Shape
-              </span>
                       </div>
                       <div class="info-group">
                         <label for="age">Pant Line</label>
                         <div class="info-input-group">
+                          @if($user_detail->pant_line != null)
+                            @if($user_detail->pant_line == 'regular')
+                            <select name="pant_line" id="pant_line">
+                              <option value="">Select</option>
+                              <option value="regular" selected>Regular</option>
+                              <option value="low">Low</option>
+                              <option value="under-belly">UnderBelly</option>
+                            </select>
+                            @elseif($user_detail->pant_line == 'low')
+                            <select name="pant_line" id="pant_line">
+                              <option value="">Select</option>
+                              <option value="regular">Regular</option>
+                              <option value="low" selected>Low</option>
+                              <option value="under-belly">UnderBelly</option>
+                            </select>
+                            @elseif($user_detail->pant_line == 'under-belly')
+                            <select name="pant_line" id="pant_line">
+                              <option value="">Select</option>
+                              <option value="regular">Regular</option>
+                              <option value="low">Low</option>
+                              <option value="under-belly" selected>UnderBelly</option>
+                            </select>
+                            @endif
+                          @else
                           <select name="pant_line" id="pant_line">
-                            <option value="0">Select</option>
-                            <option value="regular" selected>
-                              Regular
-                            </option>
+                            <option value="">Select</option>
+                            <option value="regular">Regular</option>
                             <option value="low">Low</option>
-                            <option value="under-belly">Under
-                              Belly
-                            </option>
+                            <option value="under-belly">UnderBelly</option>
                           </select>
-
+                          @endif
                         </div>
-                        <span class="alert alert-danger font-weight-bold info_errors d-none"
-                              role="alert" id="pl_error"
-                              style="background-color:red !important;color:whitesmoke !important">
-                Need To Fill Pant Line
-              </span>
                       </div>
                       <div class="info-group">
                         <label for="age">Seat</label>
                         <div class="info-input-group">
-
+                          @if($user_detail->seat != null)
+                            @if($user_detail->seat == 'regular')
+                            <select name="seat" id="seat">
+                              <option value="">Select</option>
+                              <option value="regular" selected>Regular</option>
+                              <option value="flat">Flat</option>
+                              <option value="prominent">Prominent</option>
+                            </select>
+                            @elseif($user_detail->seat == 'flat')
+                            <select name="seat" id="seat">
+                              <option value="">Select</option>
+                              <option value="regular">Regular</option>
+                              <option value="flat" selected>Flat</option>
+                              <option value="prominent">Prominent</option>
+                            </select>
+                            @elseif($user_detail->seat == 'prominent')
+                            <select name="seat" id="seat">
+                              <option value="">Select</option>
+                              <option value="regular">Regular</option>
+                              <option value="flat">Flat</option>
+                              <option value="prominent" selected>Prominent</option>
+                            </select>
+                            @endif
+                          @else
                           <select name="seat" id="seat">
-                            <option value="0">Select</option>
-                            <option value="regular" selected>
-                              Regular
-                            </option>
+                            <option value="">Select</option>
+                            <option value="regular">Regular</option>
                             <option value="flat">Flat</option>
-                            <option value="prominent">
-                              Prominent
-                            </option>
+                            <option value="prominent">Prominent</option>
                           </select>
-
+                          @endif
                         </div>
-                        <span class="alert alert-danger font-weight-bold info_errors d-none"
-                              role="alert" id="seat_error"
-                              style="background-color:red !important;color:whitesmoke !important">
-                Need To Fill Seat
-              </span>
                       </div>
                     </div>
                   </div>
@@ -1521,7 +1733,41 @@
 
       $(document).ready(() => {
           let category = "in";
+          var upper = @json($upper);
+          var lower = @json($lower);
+          if(upper != null)
+          {
+            var measure_type = upper.measure_type
+            if(measure_type == 'in')
+            {
+            $('.unit').html("In")
+            $('#in').attr("checked",true);
+            }
+            else
+            {
+              $('.unit').html("Cm")
+              $('#cm').attr("checked",true);
+            }
+          }
+          else if(lower != null)
+          {
+            var measure_type = lower.measure_type
+            $('.unit').html("In")
+            if(measure_type == 'in')
+            {
+            $('.unit').html("In")
+            $('#in').attr("checked",true);
+            }
+            else
+            {
+              $('.unit').html("Cm")
+              $('#cm').attr("checked",true);
+            }
+          }
+          else if(upper == null && lower == null)
+          {
           $('.unit').html("In")
+          }
           $("input[name='measure_unit']").click(function () {
               category = this.value;
               // alert(category);
@@ -1708,121 +1954,127 @@
 @endpush
 @push('script_tag')
   <script>
-
+      function get_measure_unit(value)
+      {
+        $('#measure_type').val(value);
+      }
       $('#save_measurement').click(function () {
           var user_id = $('#user_id').val();
-          // alert(user_id);
-          //  alert("helll");
-
-          var upper_id = $('#upper_id').val();
-          var lower_id = $('#lower_id').val();
-          //Jacket-Vest data
-          var neck = $('#neck').val();
-          var chest = $('#chest').val();
-          var waist = $('#waist').val();
-          var hips = $('#hips').val();
-          var shoulder = $('#shoulder').val();
-          var sleeve = $('#sleeve').val();
-          var front = $('#front').val();
-          var back = $('#back_back').val();
-          var length = $('#jlength').val();
-
-          //Pant data
-          var crotch = $('#pcrotch').val();
-          var thighs = $('#pthighs').val();
-          var stomach = $('#pstomach').val();
-          var bottom = $('#pbottom').val();
-          var knee = $('#pknee').val();
-          var plength = $('#plength').val();
-          alert(crotch);
-          var fill_upper = false;
-          var fill_lower = false;
-          if ($.trim(neck) != '') {
-              fill_upper = true;
-          }
-          if ($.trim(chest) != '') {
-              fill_upper = true;
-          }
-          if ($.trim(waist) != '') {
-              fill_upper = true;
-          }
-          if ($.trim(hips) != '') {
-              fill_upper = true;
-          }
-          if ($.trim(shoulder) != '') {
-              fill_upper = true;
-          }
-          if ($.trim(sleeve) != '') {
-              fill_upper = true;
-          }
-          if ($.trim(front) != '') {
-              fill_upper = true;
-          }
-          if ($.trim(back) != '') {
-              fill_upper = true;
-          }
-          if ($.trim(length) != '') {
-              fill_upper = true;
-          }
-
-          if ($.trim(crotch) != '') {
-              fill_lower = true;
-          }
-          if ($.trim(thighs) != '') {
-              fill_lower = true;
-          }
-          if ($.trim(stomach) != '') {
-              fill_lower = true;
-          }
-          if ($.trim(bottom) != '') {
-              fill_lower = true;
-          }
-          if ($.trim(knee) != '') {
-              fill_lower = true;
-          }
-          if ($.trim(plength) != '') {
-              fill_lower = true;
-          }
-          alert(fill_upper);
-          alert(fill_lower);
+          alert(user_id);
+          var measure_type = $('#measure_type').val();
+          alert(measure_type);
+          //start user info data
+          var age = $('#age').val();
+          var height = $('#height').val();
+          var height_type = $('#height_type').val();
+          var weight = $('#weight').val();
+          var weight_type = $('#weight_type').val();
+          var shoulder_type = $('#shoulder_type').val();
+          var drop_shoulder = $('#dropped_shoulder').val();
+          var arms_position = $('#arms_position').val();
+          var body_shape = $('#body_shape').val();
+          var neck_type = $('#neck_type').val();
+          var stomach_shape = $('#stomach_shape').val();
+          var upper_body_shape = $('#upper_body_shape').val();
+          var pant_line = $('#pant_line').val();
+          var seat = $('#seat').val();
+          //end user info data
+          //start upper data
+          var neck = $('#neck_input').val();
+          var chest = $('#chest_input').val();
+          var waist = $('#waist_upper_input').val();
+          var hips = $('#hips_upper_input').val();
+          var shoulder = $('#shoulder_input').val();
+          var sleeve_right = $('#sleeve_length_Right_input').val();
+          var sleeve_left = $('#sleeve_length_left_input').val();
+          var stomach = $('#stomach_upper_input').val();
+          var biceps = $('#biceps_input').val();
+          var forearm = $('#forearm_input').val();
+          var cuffs = $('#cuffs_input').val();
+          var chest_front = $('#chest_front_input').val();
+          var chest_back = $('#chest_back_input').val();
+          var jacket_front = $('#jacket_front_input').val();
+          var jacket_back = $('#jacket_back_input').val();
+          var vest_len = $('#vest_length_input').val();
+          //end upper data
+          //start lower data
+          var pwaist = $('#waist_lower_input').val();
+          var pstomach = $('#stomach_lower_input').val();
+          var phips = $('#hips_lower_input').val();
+          var pcrotch = $('#crotch_input').val();
+          var pthighs = $('#thighs_input').val();
+          var pknees = $('#knees_input').val();
+          var pcalf = $('#calf_input').val();
+          var pshort = $('#pants_short_input').val();
+          var plength = $('#pants_length_input').val();
+          var pbottom = $('#bottom_length_input').val();
+          //end lower data
+          //start store all measurement data
           $.ajax({
               type: 'POST',
-              url: '/store_user_info_measure_ajax',
+              url: '/store_measure_from_profile_ajax',
               data: {
                   "_token": "{{csrf_token()}}",
                   "user_id": user_id,
-                  "upper_id": upper_id,
-                  "lower_id": lower_id,
+                  "measure_type" : measure_type,
+                  "age": age,
+                  "height": height,
+                  "height_type": height_type,
+                  "weight": weight,
+                  "weight_type": weight_type,
+                  "shoulder_type": shoulder_type,
+                  "drop_shoulder": drop_shoulder,
+                  "arms_position": arms_position,
+                  "body_shape": body_shape,
+                  "neck_type": neck_type,
+                  "stomach_shape": stomach_shape,
+                  "upper_body_shape": upper_body_shape,
+                  "pant_line": pant_line,
+                  "seat": seat,
+
+
                   "neck": neck,
                   "chest": chest,
                   "waist": waist,
                   "hips": hips,
                   "shoulder": shoulder,
-                  "sleeve": sleeve,
-                  "front": front,
-                  "back": back,
-                  "length": length,
-                  "fill_upper": fill_upper,
-
-                  "fill_lower": fill_lower,
-                  "crotch": crotch,
-                  "thighs": thighs,
+                  "sleeve_right": sleeve_right,
+                  "sleeve_left": sleeve_left,
                   "stomach": stomach,
-                  "bottom": bottom,
-                  "knee": knee,
-                  "plength": plength,
+                  "biceps": biceps,
+                  "forearm": forearm,
+                  "cuffs": cuffs,
+                  "chest_front": chest_front,
+                  "chest_back": chest_back,
+                  "jacket_front": jacket_front,
+                  "jacket_back": jacket_back,
+                  "vest_len": vest_len,
 
+
+                  "pwaist": pwaist,
+                  "pstomach": pstomach,
+                  "phips": phips,
+                  "pcrotch": pcrotch,
+                  "pthighs": pthighs,
+                  "pknees": pknees,
+                  "pcalf": pcalf,
+                  "pshort": pshort,
+                  "plength": plength,
+                  "pbottom": pbottom
               },
               success: function (data) {
-                  $('#upper_id').val(data.upper_id);
-                  swal({
-                      title: "Success",
-                      text: "Successfully Saved Measurement",
-                      icon: "success",
-                  }).then(function () {
-                  });
+                  if (data.msg == 'success') {
+                      swal({
+                          title: "Success",
+                          text: "Successfully Save For Measurement",
+                          icon: "success",
+                      });
+                  }
+
               }
           });
+
+          //end store all measurement data
       });
   </script>
 @endpush
