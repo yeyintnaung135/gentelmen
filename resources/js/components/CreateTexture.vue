@@ -88,7 +88,7 @@
                                     }"
                                 >
                                 <label style="font-size: 15px" class="text-danger"
-                                      >Upload Min One Photo(MinWidth:400px to MaxWidth:800px and MinHeight:500px to MaxHeight:900px)</label
+                                      >Upload Min One Photo</label
                                   >
                                 </div>
                                 <vue-dropzone ref="myVueDropzone"  id="customdropzone"
@@ -595,50 +595,51 @@ Vue.use(VueSimpleAlert);
                 formData.append('images[]', file, file.upload.name);
             });
             console.log(this.$refs.myVueDropzone.getQueuedFiles());
-            let sizeStatus = false;
-            var alertSize = new Array();
-            var i = 0;
-            this.$refs.myVueDropzone.getQueuedFiles().forEach(file => {
-            // alert(file.upload.filename);
-            if(file.height > 900 || file.height < 500 && file.width > 800 || file.width < 400)
-            {
-                alertSize[i] = file.upload.filename+" is not match with width min - 400 to max - 800 and height min - 500 to max - 900";
+            // let sizeStatus = false;
+            // var alertSize = new Array();
+            // var i = 0;
+            // this.$refs.myVueDropzone.getQueuedFiles().forEach(file => {
+            // // alert(file.upload.filename);
+            // if(file.height > 900 || file.height < 500 && file.width > 800 || file.width < 400)
+            // {
+            //     alertSize[i] = file.upload.filename+" is not match with width min - 400 to max - 800 and height min - 500 to max - 900";
 
-                // alert(file.upload.filename+" is not match 525*295");
-                i++;
-                sizeStatus = false;
-            }
-            else if(file.width > 800 || file.width < 400)
-            {
-              alertSize[i] = file.upload.filename+" is not match width min - 400 to max - 800";
-              i++;
-                // alert(file.upload.filename+" is not match width 525");
-                sizeStatus = false;
-            }
-            else if(file.height > 900 || file.height < 500)
-            {
-              alertSize[i] = file.upload.filename+" is not match height min - 500 to max - 900";
-              i++;
-                // alert(file.upload.filename+" is not match height 295");
-                sizeStatus = false;
-            }
-            else if(file.height <= 900 || file.height >= 500 && file.width <= 800 || file.width >= 400)
-            {
-                 sizeStatus = true;
-            }
-            });
-            // alert(sizeStatus);
-            if(sizeStatus == false && alertSize[0] != null)
-            {
-              console.log("rrr"+alertSize);
-              alert("ddd"+alertSize);
+            //     // alert(file.upload.filename+" is not match 525*295");
+            //     i++;
+            //     sizeStatus = false;
+            // }
+            // else if(file.width > 800 || file.width < 400)
+            // {
+            //   alertSize[i] = file.upload.filename+" is not match width min - 400 to max - 800";
+            //   i++;
+            //     // alert(file.upload.filename+" is not match width 525");
+            //     sizeStatus = false;
+            // }
+            // else if(file.height > 900 || file.height < 500)
+            // {
+            //   alertSize[i] = file.upload.filename+" is not match height min - 500 to max - 900";
+            //   i++;
+            //     // alert(file.upload.filename+" is not match height 295");
+            //     sizeStatus = false;
+            // }
+            // else if(file.height <= 900 || file.height >= 500 && file.width <= 800 || file.width >= 400)
+            // {
+            //      sizeStatus = true;
+            // }
+            // });
+            // // alert(sizeStatus);
+            // if(sizeStatus == false && alertSize[0] != null)
+            // {
+            //   console.log("rrr"+alertSize);
+            //   alert("ddd"+alertSize);
 
-            }
+            // }
             if(this.percentageStatus == true)
             {
               alert("Condition Value greater than 100%");
             }
-            if(sizeStatus == true && this.percentageStatus == false)
+            // if(sizeStatus == true && this.percentageStatus == false)
+            if(this.percentageStatus == false)
             {
               // alert("hellllll");
                 axios.post('store_texture',formData,config)
