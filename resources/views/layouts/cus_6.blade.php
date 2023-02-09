@@ -35,7 +35,7 @@
           <!--          <p class="col-md-9">No.143, Zayyardipa 1st Street, 31 ward, North Dagon.</p>-->
           <div class="col-md-9">
 
-            <textarea type="text" class="form-control" rows="2" id="order_address" autofocus></textarea>
+            <textarea type="text" class="form-control" rows="2" id="order_address" autofocus onkeydown="store_address(this.value)"></textarea>
 
           </div>
         </div>
@@ -335,6 +335,7 @@
   }
   function store_address(value)
   {
+    console.log("Address = "+value);
     sessionStorage.setItem('address',value);
     $("#paypal-button-container").hide();
   }
