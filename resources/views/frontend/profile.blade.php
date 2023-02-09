@@ -1989,9 +1989,9 @@
       }
       $('#save_measurement').click(function () {
           var user_id = $('#user_id').val();
-          alert(user_id);
+          // alert(user_id);
           var measure_type = $('#measure_type').val();
-          alert(measure_type);
+          // alert(measure_type);
           //start user info data
           var age = $('#age').val();
           var height = $('#height').val();
