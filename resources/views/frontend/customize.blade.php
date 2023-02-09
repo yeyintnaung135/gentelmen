@@ -1376,7 +1376,7 @@
             // alert(user);
             if(user != null)
             {
-              alert("st-6 has user store suit code");
+              // alert("st-6 has user store suit code");
               store_suit_code();
             }
 
