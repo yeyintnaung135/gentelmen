@@ -309,6 +309,7 @@
                     {
                       // alert("do store temporary");
 
+                      
                       $.ajax({
                         type: 'POST',
                         url: '/store_customize_step_data',
