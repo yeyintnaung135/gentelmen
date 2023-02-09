@@ -155,11 +155,11 @@
 
                 $.ajax({
                     type:'POST',
-                    url:'delete_texture',
+                    url:'delete_ready_to_wear',
                     dataType:'json',
                     data:{
                       "_token": "{{ csrf_token() }}",
-                      "texture_id": value,
+                      "rtw_id": value,
                     },
 
                     success: function(){

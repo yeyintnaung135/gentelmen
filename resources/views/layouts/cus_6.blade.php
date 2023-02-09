@@ -273,29 +273,29 @@
   $(document).ready(function () {
     // alert("hide");
     var user_info = @json($user_info);
+    var address = '';
     if(user_info != null)
     {
       // alert("jkjjkjk");
       if(user_info.city != null && user_info.tsp_street == null)
       {
-        let location = user_info.city;
+        address = user_info.city;
       }
       else if(user_info.city == null && user_info.tsp_street != null)
       {
-        let location = user_info.tsp_street;
+        address = user_info.tsp_street;
       }
       else if(user_info.city != null && user_info.tsp_street != null)
       {
-        let location = user_info.city+' '+user_info.tsp_street;
+        address = user_info.city+' '+user_info.tsp_street;
       }
       else
       {
-        let location = '';
+        address = '';
       }
 
-      sessionStorage.setItem('address',location);
+      sessionStorage.setItem('address',address);
     }
-
     $("#paypal-button-container").hide();
   });
 

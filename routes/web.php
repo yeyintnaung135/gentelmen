@@ -133,6 +133,8 @@ Route::post('/store_edit_ready_to_wear', 'Admin\ReadyController@store_edit_ready
 Route::post('/get_style_for_ready_ajax', 'Frontend\FrontendController@get_style_for_ready_ajax_data')->name('get_style_for_ready_ajax');
 Route::get('/get_style_category', 'Admin\ReadyController@get_style_category_data')->name('get_style_category');
 
+Route::post('/delete_ready_to_wear', 'Admin\ReadyController@delete_ready_to_wear_data')->name('delete_ready_to_wear');
+
 Route::post('/get_swiper_photo_ready', 'Admin\ReadyController@get_swiper_photo_ready_data')->name('get_swiper_photo_ready');
 Route::post('/get_swiper_style_ajax', 'Admin\StyleController@get_swiper_style_ajax_data')->name('get_swiper_style_ajax');
 
@@ -1612,11 +1614,11 @@ Route::get('ready-to-wear', function (Request $request) {
             if(!empty($user))
             {
 
-            $artcles.='
+            $artciles.='
               <button id="wishlist'.$ready->id.'" onclick="whishlist('.$user.','.$ready->id.','.$ready->photo_one.','.$ready->name.','.$ready->price.')>
               <i class='.'bx bx-heart'.'></i>
               </button>
-              <button id="delete{{$ready->id}}" onclick="deletedata('.$user.','.$ready->id.','.$ready->photo_one.','.$ready->name.','.$ready->price.'" style="display: none;">
+              <button id="delete'.$ready->id.'" onclick="deletedata('.$user.','.$ready->id.','.$ready->photo_one.','.$ready->name.','.$ready->price.')" style="display: none;">
               <i class="bx bx-heart"></i>
               </button>';
             }

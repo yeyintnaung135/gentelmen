@@ -371,4 +371,9 @@ class ReadyController extends Controller
             'readys' => $readys
         ]);
     }
+    public function delete_ready_to_wear_data(Request $request)
+    {
+      $ready = ReadyToWear::find($request->rtw_id)->delete();
+      return response()->json("success");
+    }
 }
