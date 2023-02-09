@@ -138,7 +138,7 @@
         <div class="measure-item-content">
           <div id="neck" class="content">
             <div class="measure-img-wrapper">
-              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+              <img src="{{asset("assets/images/customize/cus5images/neck.jpg")}}"
                    alt="neck">
             </div>
             <div class="measure-input-wrapper">
@@ -158,7 +158,7 @@
           </div>
           <div id="chest" class="content">
             <div class="measure-img-wrapper">
-              <img src="{{asset('assets/images/customize/measurement/_MG_0002.JPG')}}"
+              <img src="{{asset("assets/images/customize/cus5images/chest.jpg")}}"
                    alt="chest">
             </div>
             <div class="measure-input-wrapper">
@@ -178,7 +178,7 @@
           </div>
           <div id="waist_upper" class="content">
             <div class="measure-img-wrapper">
-              <img src="{{asset('assets/images/customize/measurement/_MG_0003.JPG')}}"
+              <img src="{{asset("assets/images/customize/cus5images/waist.jpg")}}"
                    alt="waist_upper">
             </div>
             <div class="measure-input-wrapper">
@@ -196,7 +196,7 @@
           </div>
           <div id="hips_upper" class="content">
             <div class="measure-img-wrapper">
-              <img src="{{asset('assets/images/customize/measurement/_MG_0011.JPG')}}"
+              <img src="{{asset("assets/images/customize/cus5images/hip.jpg")}}"
                    alt="hips_upper">
             </div>
             <div class="measure-input-wrapper">
@@ -214,7 +214,7 @@
           </div>
           <div id="shoulder" class="content">
             <div class="measure-img-wrapper">
-              <img src="{{asset('assets/images/customize/measurement/shoulder-content.jpg')}}"
+              <img src="{{asset('assets/images/customize/cus5images/shoulder.jpg')}}"
                    alt="shoulder">
             </div>
             <div class="measure-input-wrapper">
@@ -232,7 +232,7 @@
           </div>
           <div id="sleeve_length_Right" class="content">
             <div class="measure-img-wrapper">
-              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+              <img src="{{asset("assets/images/customize/cus5images/sleeve-length-rl.jpg")}}"
                    alt="sleeve_length_Right">
             </div>
             <div class="measure-input-wrapper">
@@ -251,7 +251,7 @@
           </div>
           <div id="sleeve_length_left" class="content">
             <div class="measure-img-wrapper">
-              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+              <img src="{{asset("assets/images/customize/cus5images/sleeve-length-rl.jpg")}}"
                    alt="sleeve_length_left">
             </div>
             <div class="measure-input-wrapper">
@@ -269,7 +269,7 @@
           </div>
           <div id="stomach_upper" class="content">
             <div class="measure-img-wrapper">
-              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+              <img src="{{asset("assets/images/customize/cus5images/stomach.jpg")}}"
                    alt="stomach_upper">
             </div>
             <div class="measure-input-wrapper">
@@ -287,7 +287,7 @@
           </div>
           <div id="biceps" class="content">
             <div class="measure-img-wrapper">
-              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+              <img src="{{asset("assets/images/customize/cus5images/biceps.jpg")}}"
                    alt="biceps">
             </div>
             <div class="measure-input-wrapper">
@@ -305,7 +305,7 @@
           </div>
           <div id="forearm" class="content">
             <div class="measure-img-wrapper">
-              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+              <img src="{{asset("assets/images/customize/cus5images/forearm.jpg")}}"
                    alt="forearm">
             </div>
             <div class="measure-input-wrapper">
@@ -323,7 +323,7 @@
           </div>
           <div id="cuffs" class="content">
             <div class="measure-img-wrapper">
-              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+              <img src="{{asset("assets/images/customize/cus5images/cuff.jpg")}}"
                    alt="cuffs">
             </div>
             <div class="measure-input-wrapper">
@@ -341,7 +341,7 @@
           </div>
           <div id="chest_front" class="content">
             <div class="measure-img-wrapper">
-              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+              <img src="{{asset("assets/images/customize/cus5images/chest-front-width.jpg")}}"
                    alt="chest front">
             </div>
             <div class="measure-input-wrapper">
@@ -359,7 +359,7 @@
           </div>
           <div id="chest_back" class="content">
             <div class="measure-img-wrapper">
-              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+              <img src="{{asset("assets/images/customize/cus5images/chest-back-width.jpg")}}"
                    alt="chest back">
             </div>
             <div class="measure-input-wrapper">
@@ -377,7 +377,7 @@
           </div>
           <div id="jacket_front" class="content">
             <div class="measure-img-wrapper">
-              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+              <img src="{{asset("assets/images/customize/cus5images/jacket-length.jpg")}}"
                    alt="jacket_front">
             </div>
             <div class="measure-input-wrapper">
@@ -396,7 +396,7 @@
           </div>
           <div id="jacket_back" class="content">
             <div class="measure-img-wrapper">
-              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+              <img src="{{asset("assets/images/customize/cus5images/jacket-length.jpg")}}"
                    alt="jacket_back">
             </div>
             <div class="measure-input-wrapper">
@@ -525,7 +525,7 @@
         <div class="measure-item-content">
           <div id="waist_lower" class="content">
             <div class="measure-img-wrapper">
-              <img src="{{asset('assets/images/customize/measurement/_MG_0003.JPG')}}"
+              <img src="{{asset("assets/images/customize/cus5images/waist.jpg")}}"
                    alt="waist lower">
             </div>
             <div class="measure-input-wrapper">
@@ -545,7 +545,7 @@
           </div>
           <div id="stomach_lower" class="content">
             <div class="measure-img-wrapper">
-              <img src="{{asset('assets/images/customize/measurement/_MG_0003.JPG')}}"
+              <img src="{{asset("assets/images/customize/cus5images/stomach.jpg")}}"
                    alt="stomach_lower">
             </div>
             <div class="measure-input-wrapper">
@@ -563,7 +563,7 @@
           </div>
           <div id="hips_lower" class="content">
             <div class="measure-img-wrapper">
-              <img src="{{asset('assets/images/customize/measurement/_MG_0003.JPG')}}"
+              <img src="{{asset("assets/images/customize/cus5images/hip.jpg")}}"
                    alt="hips_lower">
             </div>
             <div class="measure-input-wrapper">
@@ -581,7 +581,7 @@
           </div>
           <div id="crotch" class="content">
             <div class="measure-img-wrapper">
-              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+              <img src="{{asset("assets/images/customize/cus5images/crotch.jpg")}}"
                    alt="crotch">
             </div>
             <div class="measure-input-wrapper">
@@ -599,7 +599,7 @@
           </div>
           <div id="thighs" class="content">
             <div class="measure-img-wrapper">
-              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+              <img src="{{asset("assets/images/customize/cus5images/thighs.jpg")}}"
                    alt="thighs">
             </div>
             <div class="measure-input-wrapper">
@@ -617,7 +617,7 @@
           </div>
           <div id="knees" class="content">
             <div class="measure-img-wrapper">
-              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+              <img src="{{asset("assets/images/customize/cus5images/knees.jpg")}}"
                    alt="knees">
             </div>
             <div class="measure-input-wrapper">
@@ -635,7 +635,7 @@
           </div>
           <div id="calf" class="content">
             <div class="measure-img-wrapper">
-              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+              <img src="{{asset("assets/images/customize/cus5images/calf.jpg")}}"
                    alt="calf">
             </div>
             <div class="measure-input-wrapper">
@@ -689,7 +689,7 @@
           </div>
           <div id="bottom_length" class="content">
             <div class="measure-img-wrapper">
-              <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+              <img src="{{asset("assets/images/customize/cus5images/bottom-leg.jpg")}}"
                    alt="bottom_length">
             </div>
             <div class="measure-input-wrapper">

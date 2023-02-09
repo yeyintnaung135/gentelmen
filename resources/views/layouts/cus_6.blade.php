@@ -7,33 +7,33 @@
       address</p>
       <div class="ms-0 ms-md-4 mb-5">
         <div class="row mb-1">
-          <p class="col-md-3">Name :</p>
+          <p class="col-md-3 mb-1"><strong>Name :</strong></p>
           @if(!empty($user_info))
-          <p class="col-md-9">{{$user_info->name}}</p>
+          <p class="col-md-9 mb-3">{{$user_info->name}}</p>
           @else
-          <p class="col-md-9">-</p>
+          <p class="col-md-9 mb-3">-</p>
           @endif
         </div>
         <div class="row mb-1">
-          <p class="col-md-3">Phone No :</p>
+          <p class="col-md-3 mb-1"><strong>Phone No :</strong></p>
           @if(!empty($user_info))
-          <p class="col-md-9">{{$user_info->phone}}</p>
+          <p class="col-md-9 mb-3">{{$user_info->phone}}</p>
           @else
-          <p class="col-md-9">-</p>
+          <p class="col-md-9 mb-3">-</p>
           @endif
         </div>
         <div class="row mb-1">
-          <p class="col-md-3">Email :</p>
+          <p class="col-md-3 mb-1"><strong>Email :</strong></p>
           @if(!empty($user_info))
-          <p class="col-md-9">{{$user_info->email}}</p>
+          <p class="col-md-9 mb-3">{{$user_info->email}}</p>
           @else
-          <p class="col-md-9">-</p>
+          <p class="col-md-9 mb-3">-</p>
           @endif
         </div>
         <div class="row mb-1">
-          <p class="col-md-3">Address :</p>
+          <p class="col-md-3 mb-1"><strong>Address :</strong></p>
           <!--          <p class="col-md-9">No.143, Zayyardipa 1st Street, 31 ward, North Dagon.</p>-->
-          <div class="col-md-9">
+          <div class="col-md-9 mb-3">
 
             <textarea type="text" class="form-control" rows="2" id="order_address" autofocus onkeydown="store_address(this.value)"></textarea>
 
