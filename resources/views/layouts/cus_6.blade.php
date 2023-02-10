@@ -33,10 +33,8 @@
         <div class="row mb-1">
           <p class="col-md-3 mb-1"><strong>Address :</strong></p>
           <!--          <p class="col-md-9">No.143, Zayyardipa 1st Street, 31 ward, North Dagon.</p>-->
-          <div class="col-md-9 mb-3">
-
+          <div class="col-md-9 mb-3" id="address_space">
             <textarea type="text" class="form-control" rows="2" id="order_address" autofocus onkeydown="store_address(this.value)"></textarea>
-
           </div>
         </div>
       </div>
@@ -294,6 +292,11 @@
       }
 
       sessionStorage.setItem('address',address);
+      var html = "";
+      html+=`
+      <textarea type="text" class="form-control" rows="2" id="order_address" autofocus onkeyup="store_address(this.value)">${address}</textarea>
+      `;
+      $('#address_space').html(html);
     }
     $("#paypal-button-container").hide();
   });
