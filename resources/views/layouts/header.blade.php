@@ -58,4 +58,7 @@
 @stack('whishlist-scripts-additional')
 @stack('whishlist-nav')
 
+@stack('desktop-paypal')
+@stack('mobile-paypal')
+
 

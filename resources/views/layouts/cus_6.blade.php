@@ -114,9 +114,9 @@
            data-bs-target="#checkout">
           View My Order Summary
         </p>
-
+        <div id="paypal-button-container"></div>
         <button class="btn bg-gold rounded-0 px-2 py-1 text-uppercase
-      ls-0" onclick="available_payment()">CheckOuts
+      ls-0" onclick="available_payment()">CheckOut
           Now
         </button>
 
@@ -298,7 +298,9 @@
       `;
       $('#address_space').html(html);
     }
-    $("#paypal-button-container").hide();
+    // $("#desktop_paypal_space").hide();
+    $('#paypal-button-container').hide();
+    // $("#mobile_paypal_space").hide();
   });
 
   function available_payment() {
@@ -309,7 +311,9 @@
       if(sessionStorage.getItem('address') != null && sessionStorage.getItem('address') != '' && $('#country').val() != null)
       {
         // alert("wwwwwwwwffffffffffff");
-          $("#paypal-button-container").show();
+          // $("#desktop_paypal_space").show();
+          $('#paypal-button-container').show();
+          // $("#mobile_paypal_space").show();
           update_temporary();
       }else if($('#country').val() == 0 || $('#country').val() == null){
         swal({
@@ -340,7 +344,9 @@
   {
     console.log("Address = "+value);
     sessionStorage.setItem('address',value);
-    $("#paypal-button-container").hide();
+    // $("#desktop_paypal_space").hide();
+    $('#paypal-button-container').hide();
+    // $("#mobile_paypal_space").hide();
   }
 </script>
 @push('script_tag')
@@ -364,7 +370,9 @@ function get_shipping_price(ship_id)
       html += data.shipping.price;
       html2 += parseInt(data.shipping.price)+parseInt(sessionStorage.getItem('cus_total_price'))+2;
       $('#shipping_fee').html(html);
+      $('#mobile_shipping_fee').html(html);
       $('#total').html(html2);
+      $('#mobile_total').html(html2);
 
       console.log(data);
       sessionStorage.setItem('shipping_id',data.shipping.id);
@@ -489,6 +497,8 @@ function increase_count(value) {
       //end swiper
     }
   });
+
 }
+
 </script>
 @endpush

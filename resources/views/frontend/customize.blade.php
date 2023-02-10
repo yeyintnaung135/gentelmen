@@ -734,6 +734,7 @@
           var html = "";
           html+=sessionStorage.getItem('suit_code');
           $('#suitCode').html(html);
+          $('#mobile_suitCode').html(html);
           $('#suit_code').val(sessionStorage.getItem('suit_code'));
         }
       }
@@ -752,10 +753,14 @@
           html+=sessionStorage.getItem('suit_code');
           $('#suit_code').val(sessionStorage.getItem('suit_code'));
           $('#suitCode').html(html);
+          $('#mobile_suitCode').html(html);
           html2 += sessionStorage.getItem('cus_total_price');
           html3 += parseInt(sessionStorage.getItem('cus_total_price'))+2;
           $('#suitTotal').html(html2);
+          $('#mobile_suitTotal').html(html2);
           $('#total').html(html3);
+          alert("mobile_total 762");
+          $('#mobile_total').html(html3);
         }
       }
       //if shipping fee start
@@ -946,6 +951,8 @@
     else if(sessionStorage.getItem('customize_category_id') != null && sessionStorage.getItem('package_id') != null && sessionStorage.getItem('style_id') != null && sessionStorage.getItem('fitting') != null && sessionStorage.getItem('measure_step') != null && sessionStorage.getItem('suit_code') != null)
     {
         // alert("reload payment step 6");
+        // $("#paypal-button-container").hide();
+        // $("#mobile-paypal-button-container").hide();
         var count = 6;
         $('#step_title').html('Payment For Your Suit')
         var prev = count - 1;
@@ -990,7 +997,10 @@
           html1+= sessionStorage.getItem('cus_total_price');
           $('#suitTotal').html(html1);
           $('#suitCode').html(html);
+          $('#mobile_suitCode').html(html);
+          $('#mobile_suitTotal').html(html1);
           $('#suit_code').val(sessionStorage.getItem('suit_code'));
+          // alert('dkdkdk');
         }
       }
       else
@@ -1008,10 +1018,14 @@
           html+=sessionStorage.getItem('suit_code');
           $('#suit_code').val(sessionStorage.getItem('suit_code'));
           $('#suitCode').html(html);
+          $('#mobile_suitCode').html(html);
           html2 += sessionStorage.getItem('cus_total_price');
           html3 += parseInt(sessionStorage.getItem('cus_total_price'))+2;
           $('#suitTotal').html(html2);
+          $('#mobile_suitTotal').html(html2);
           $('#total').html(html3);
+          alert("mobile_total 1023");
+          $('#mobile_total').html(html3);
         }
       }
       //if shipping fee start
@@ -1299,10 +1313,14 @@
                         html+=sessionStorage.getItem('suit_code');
                         $('#suit_code').val(sessionStorage.getItem('suit_code'));
                         $('#suitCode').html(html);
+                        $('#mobile_suitCode').html(html);
                         html2 += sessionStorage.getItem('cus_total_price');
                         html3 += parseInt(sessionStorage.getItem('cus_total_price'))+2;
                         $('#suitTotal').html(html2);
+                        $('#mobile_suitTotal').html(html2);
                         $('#total').html(html3);
+                        alert("mobile_total 1318");
+                        $('#mobile_total').html(html3);
                       }
 
                     }
@@ -1416,7 +1434,8 @@
       })
 
       $('#back').click(function () {
-        $("#paypal-button-container").hide();
+        $("#desktop_paypal_space").hide();
+        $("#mobile_paypal_space").hide();
         $('#next-arrow').show();
         // alert(count);
         if (count != 1) {
@@ -2466,7 +2485,9 @@
           html3 += data.suit_total;
           html5+=sessionStorage.getItem('cus_total_price');
           $('#suitCode').html(html);
+          $('#mobile_suitCode').html(html);
           $('#suitTotal').html(html5);
+          $('#mobile_suitTotal').html(html5);
           console.log(data);
           sessionStorage.setItem('suit_code',hsc);
         }
@@ -2489,10 +2510,13 @@
           html += data.suit_code;
 
           $('#suitCode').html(html);
+          $('#mobile_suitCode').html(html);
           html2 += sessionStorage.getItem('cus_total_price');
           html3 += parseInt(sessionStorage.getItem('cus_total_price'))+2;
           $('#suitTotal').html(html2);
           $('#total').html(html3);
+          alert("mobile_total 2513");
+          $('#mobile_total').html(html3);
           console.log(data);
           sessionStorage.setItem('suit_code',data.suit_code);
           $('#suit_code').val(sessionStorage.getItem('suit_code'));
@@ -2713,6 +2737,8 @@
           html3 += data.total;
           $('#suitTotal').html(html2);
           $('#total').html(html3);
+          $('#mobile_suitTotal').html(html2);
+          $('#mobile_total').html(html3);
         }
       });
     }

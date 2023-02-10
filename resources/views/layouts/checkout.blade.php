@@ -28,10 +28,14 @@
       <p class="mb-2">$ <span id="total"></span></p>
     </div>
   </div>
-  <div id="paypal-button-container"></div>
+
+    <div id="paypal-button-container"></div>
+ 
+
 </div>
+@push('script_tag')
 <!-- Include the PayPal JavaScript SDK -->
-<script src="https://www.paypal.com/sdk/js?client-id=ATCq7eYmZSx55GfZFkLJlY4WZSX1aCZxQjm1DHi3kHA1eAyYqAiRiuYDwjZvxLhlTzi9mn_7N2y1x-bK&currency=USD&disable-funding=paylater" data-namespace="paypal_sdk"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=ATCq7eYmZSx55GfZFkLJlY4WZSX1aCZxQjm1DHi3kHA1eAyYqAiRiuYDwjZvxLhlTzi9mn_7N2y1x-bK&currency=USD&disable-funding=paylater" data-sdk-integration-source="button-factory" data-namespace="paypal_sdk"></script>
 
 <script>
     var user_id = @json($user);
@@ -139,3 +143,4 @@
     }).render('#paypal-button-container');
 
 </script>
+@endpush

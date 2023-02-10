@@ -48,7 +48,7 @@
                   pick this style
                 </label>
               </div>
-              <div class="col-md-6 order-1 order-md-2" id="swiper-space{{$style->id}}">
+              <div class="col-md-6 order-1 order-md-2" id="style-swiper-space{{$style->id}}">
 
               </div>
             </div>
@@ -149,7 +149,7 @@
                 </div>
             </div>
             `;
-          $('#swiper-space'+value).html(html);
+          $('#style-swiper-space'+value).html(html);
           const swiper = new Swiper("#mySwiper" + value, {
             // loop: true,
             spaceBetween: 10,

@@ -1154,7 +1154,7 @@ Route::get('customize', function (Request $request) {
         $style_articles = '';
         $public_path_vest = 'http://localhost:8000/assets/images/customize/shirt_button/';
         $public_path_pant = 'http://localhost:8000/assets/images/customize/pant/';
-        $public_path_jacket = 'http://localhost:8000/assets/images/customize/';
+        $public_path_jacket = 'http://localhost:8000/assets/images/customize/top/';
         $public_path_texture = 'http://localhost:8000/assets/images/categories/texture/';
         $public_path_style = 'http://localhost:8000/assets/images/categories/style/';
 
@@ -1614,7 +1614,7 @@ Route::get('ready-to-wear', function (Request $request) {
             if(!empty($user))
             {
 
-            $artciles.='
+            $articles.='
               <button id="wishlist'.$ready->id.'" onclick="whishlist('.$user.','.$ready->id.','.$ready->photo_one.','.$ready->name.','.$ready->price.')>
               <i class='.'bx bx-heart'.'></i>
               </button>
