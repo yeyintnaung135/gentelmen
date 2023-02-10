@@ -808,7 +808,19 @@ h1, h2, h3, h4, h5, h6 {
   all: unset;
 }
 
+/*Paypal*/
+.paypal-container {
+  width: 50% !important;
+  margin-inline: auto !important;
+}
+
+
 @media screen and (max-width: 480px) {
+
+  /*Paypal*/
+  .paypal-container {
+    width: 100% !important;
+  }
   .measurement > div {
     width: 100%;
   }
@@ -939,6 +951,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media screen and (min-width: 481px) and (max-width: 1024px) {
+
+  /*Paypal*/
+  .paypal-container {
+    width: 100% !important;
+  }
   .radio-label > img {
     /*height: 160px;*/
   }

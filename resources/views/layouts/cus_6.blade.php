@@ -114,7 +114,8 @@
            data-bs-target="#checkout">
           View My Order Summary
         </p>
-        <div id="paypal-button-container"></div>
+        <hr>
+        <div id="paypal-button-container" class="paypal-container"></div>
         <button class="btn bg-gold rounded-0 px-2 py-1 text-uppercase
       ls-0" onclick="available_payment()">CheckOut
           Now

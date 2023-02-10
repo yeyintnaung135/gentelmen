@@ -3,8 +3,8 @@
   <div class="ready__filter--item">
     @foreach($style_cates as $style_cate)
     <div class="ready__input--group">
-      <input type="checkbox" name="style_check" id="" value="{{$style_cate->id}}" class="form-check-input me-3" onclick="getstyle(this.value,0)">
-      <label for="business">{{$style_cate->name}}</label>
+      <input type="checkbox" name="style_check" id="{{$style_cate->id}}" value="{{$style_cate->id}}" class="form-check-input me-3" onclick="getstyle(this.value,0)">
+      <label for="{{$style_cate->id}}">{{$style_cate->name}}</label>
     </div>
     @endforeach
     {{-- <div class="ready__input--group mb-2">
@@ -30,8 +30,9 @@
   <div class="ready__filter--item">
     @foreach($main_textures as $main_texture)
     <div class="ready__input--group">
-      <input type="checkbox" id="wool" value="{{$main_texture->id}}" class="form-check-input me-3" onclick="getstyle(0,this.value,0)">
-      <label for="wool">{{$main_texture->name}}</label>
+      <input type="checkbox" id="{{$main_texture->id}}1" value="{{$main_texture->id}}"
+             class="form-check-input me-3" onclick="getstyle(0,this.value,0)">
+      <label for="{{$main_texture->id}}1">{{$main_texture->name}}</label>
     </div>
     @endforeach
     {{-- <div class="ready__input--group mb-2">
@@ -57,10 +58,11 @@
     <div class="ready__input--group">
       <div class="row g-0">
         <div class="col-1">
-          <input type="checkbox" id="classic" value="{{$package->id}}" class="form-check-input me-3" onclick="getstyle(0,0,this.value)">
+          <input type="checkbox" id="{{$package->id}}2" value="{{$package->id}}"
+                 class="form-check-input me-3" onclick="getstyle(0,0,this.value)">
         </div>
         <div class="col-11 ps-4">
-          <label for="classic">{{$package->title}} ($300 - $500)</label>
+          <label for="{{$package->id}}2">{{$package->title}} ($300 - $500)</label>
         </div>
       </div>
     </div>
