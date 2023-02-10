@@ -258,7 +258,7 @@
   <div class="modal" id="checkout">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content bg-navy">
-        @include('layouts/checkout')
+        @include('layouts/checkout-mobile')
       </div>
     </div>
   </div>
