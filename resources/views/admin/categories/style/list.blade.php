@@ -69,13 +69,13 @@
                         display: flex;
                     ">
                        <a href="{{route('edit_style',$style->id)}}" type="button" class="btn btn-primary" style="
-                          width: 15%;
+                          width: 40%;
                       ">
 
                        <span class="fa fa-edit"></span>
                        </a>
                       <a type="button" href="#" onclick="delete_style_confirm('{{$style->id}}')" class="btn btn-block btn-danger" style="
-                          width: 15%;
+                          width: 40%;
                           margin-top: 0rem;
                           margin-left: 0.3rem;
                       "><span class="fa fa-trash"></span></a>
@@ -90,7 +90,7 @@
                     <th>No</th>
                     <th>Photo</th>
                     <th>Type</th>
-                    <th>Category</th>
+                    <!-- <th>Category</th> -->
                     <th>Pieces</th>
                     <th>Name</th>
                     <th>Colour</th>
@@ -98,7 +98,7 @@
                     <th>Fabric Type</th>
                     <th>Composition</th>
                     <th>Softness</th>
-                    <th>Description</th>
+                    <!-- <th>Description</th> -->
                     <th>Action</th>
                   </tr>
                   </tfoot>
