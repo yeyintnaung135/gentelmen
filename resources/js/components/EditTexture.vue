@@ -207,8 +207,8 @@
                                     </div>
                                 </div>
                                 <div class="form-group mt-4">
-                                  <input v-if="WStatus" v-model="texture.condition" @mouseleave="check_percentage()" type="number" class="form-control" placeholder="Enter Warm Range Percentage">
-                                  <input v-if="CStatus" v-model="texture.condition" @mouseleave="check_percentage()" type="number" class="form-control" placeholder="Enter Cool Range Percentage">
+                                  <input v-if="WStatus" v-model="texture.condition" @keyup="check_percentage(texture.condition)" type="number" class="form-control" placeholder="Enter Warm Range Percentage">
+                                  <input v-if="CStatus" v-model="texture.condition" @keyup="check_percentage(texture.condition)" type="number" class="form-control" placeholder="Enter Cool Range Percentage">
                                   <strong class="text-danger" v-if="percentageStatus">Percentage Value must be less than 100%</strong>
                                 </div>
                             </div>
@@ -852,8 +852,9 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
             }
         },
 
-        check_percentage()
+        check_percentage(value)
         {
+          // alert(value);
           if(this.texture.condition > 100)
           {
             this.texture.condition = 0;
