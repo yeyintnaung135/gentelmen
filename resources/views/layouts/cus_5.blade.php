@@ -16,10 +16,10 @@
     {{-- Body Types --}}
     <div class="measure-types nav-pills" role="tablist">
       <div class="measure-type">
-        <a class="nav-link active" data-bs-toggle="tab" href="#upper" id="upper_tab">UPPER</a>
+        <a class="nav-link active" data-bs-toggle="tab" href="#upper" id="upper_tab">UPPER BODY</a>
       </div>
       <div class="measure-type">
-        <a class="nav-link" data-bs-toggle="tab" href="#lower" id="lower_tab">LOWER</a>
+        <a class="nav-link" data-bs-toggle="tab" href="#lower" id="lower_tab">LOWER BODY</a>
       </div>
       <div class="measure-type">
         <a class="nav-link" data-bs-toggle="tab" href="#info" id="info_tab">INFO</a>
@@ -731,7 +731,7 @@
             </div>
             <!--select-->
             <div class="info-group">
-              <label for="age">Height</label>
+              <label for="height">Height</label>
               <div class="info-input-group">
                 @if($user != null)
                   <input type="text" id="height" value="{{$user_info->height}}"
@@ -764,7 +764,7 @@
               </span>
             </div>
             <div class="info-group">
-              <label for="age">Weight</label>
+              <label for="weight">Weight</label>
               <div class="info-input-group">
                 @if($user != null)
                   <input type="text" id="weight" placeholder="0" value="{{$user_info->weight}}"
@@ -796,7 +796,7 @@
               </span>
             </div>
             <div class="info-group">
-              <label for="age">Shoulder Type</label>
+              <label for="shoulder_type">Shoulder Type</label>
               <div class="info-input-group">
                 @if($user != null)
                   @if($user_info->shoulder_type == 'structure')
@@ -853,7 +853,7 @@
               </span>
             </div>
             <div class="info-group">
-              <label for="age">Dropped Shoulder</label>
+              <label for="dropped_shoulder">Dropped Shoulder</label>
               <div class="info-input-group">
                 @if($user != null)
                   @if($user_info->drop_shoulder == 'left')
@@ -897,7 +897,7 @@
               </span>
             </div>
             <div class="info-group">
-              <label for="age">Arms Position</label>
+              <label for="arms_position">Arms Position</label>
               <div class="info-input-group">
                 @if($user != null)
                   @if($user_info->arms_position == 'average')
@@ -954,7 +954,7 @@
               </span>
             </div>
             <div class="info-group">
-              <label for="age">Body Shape</label>
+              <label for="body_shape">Body Shape</label>
               <div class="info-input-group">
                 @if($user != null)
                   @if($user_info->body_shape == 'average')
@@ -1006,8 +1006,8 @@
                 @else
                   <select name="body_shape" id="body_shape" onmousedown="clear_info_required()"
                           onkeydown="clear_pass_measure_required()">
-                    <option value="0" selected>Select</option>
-                    <option value="average">Average</option>
+                    <option value="0">Select</option>
+                    <option value="average" selected>Average</option>
                     <option value="thin">Thin</option>
                     <option value="muscular">Muscular</option>
                     <option value="fuller">Fuller</option>
@@ -1022,7 +1022,7 @@
           </div>
           <div class="info-div">
             <div class="info-group">
-              <label for="age">Neck Type</label>
+              <label for="neck_type">Neck Type</label>
               <div class="info-input-group">
                 @if($user != null)
                   @if($user_info->neck_type == 'standard')
@@ -1061,8 +1061,8 @@
                 @else
                   <select name="neck_type" id="neck_type" onmousedown="clear_info_required()"
                           onkeydown="clear_pass_measure_required()">
-                    <option value="0" selected>Select</option>
-                    <option value="standard">Standard</option>
+                    <option value="0" >Select</option>
+                    <option value="standard" selected>Standard</option>
                     <option value="short">Short</option>
                     <option value="long">Long</option>
                   </select>
@@ -1227,7 +1227,7 @@
               </span>
             </div>
             <div class="info-group">
-              <label for="age">Seat</label>
+              <label for="age">Seat / Hips</label>
               <div class="info-input-group">
                 @if($user != null)
                   @if($user_info->seat == 'regular')

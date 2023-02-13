@@ -104,7 +104,8 @@
           <p class="ls-0">Shop By</p>
       </div>-->
       <div class="menu-title me-5">
-        <p class="ls-0 text-uppercase"><a href="/customize" onclick="check_temporary()">Customise</a></p>
+        <p class="ls-0 text-uppercase"><a href="/customize" onclick="check_temporary()">Shop Now
+          </a></p>
       </div>
       <!--      <div class="menu-title me-5" id="fabric">
               <p class="ls-0"><a href="/fabrics">Fabrics & Textures</a></p>
@@ -669,7 +670,7 @@
                       <p class="ls-0"><a href="#">Home</a></p>
                   </div>-->
       <div class="mb-3">
-        <p class="ls-0"><a href="/customize">Customize</a></p>
+        <p class="ls-0"><a href="/customize">Shop Now</a></p>
       </div>
       <div class="accordion" id="accordionPanelsStayOpenExample">
         <div class="accordion-item bg-main border border-0">
