@@ -1916,12 +1916,14 @@
           var lower_id = @json($lower);
           // alert(upper_id.measure_type);
           // alert(lower_id.measure_type);
+          if(sessionStorage.getItem('customize_category_id') != 9)
+          {
           if(upper_id != null)
           {
             // alert("has upper ");
             if(sessionStorage.getItem('measure_unit') == upper_id.measure_type)
             {
-              alert("go");
+              // alert("go");
               store_measurement_overall();
             }
             else{
@@ -1953,6 +1955,11 @@
             // alert("not have both");
             store_measurement_overall();
           }
+        }
+        else if(sessionStorage.getItem('customize_category_id') == 9)
+        {
+          store_measurement_overall();
+        }
         }
         function store_measurement_overall(){
           if (sessionStorage.getItem('from_store_temporary_user') == null || sessionStorage.getItem('from_store_temporary_user') == '') {
