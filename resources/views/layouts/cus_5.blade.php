@@ -1918,7 +1918,7 @@
           // alert(lower_id.measure_type);
           if(sessionStorage.getItem('customize_category_id') != 9)
           {
-          if(upper_id != null)
+          if(upper_id != null && lower_id == null)
           {
             // alert("has upper ");
             if(sessionStorage.getItem('measure_unit') == upper_id.measure_type)
@@ -1934,7 +1934,7 @@
               });
             }
           }
-          else if(lower_id != null)
+          if(lower_id != null && upper_id == null)
           {
             // alert("has lower");
             if(sessionStorage.getItem('measure_unit') == lower_id.measure_type)
@@ -1948,6 +1948,22 @@
               swal({
                 title: "Error",
                 text: "Upper Body Measurement Unit must be same unit with Lower Body"
+              });
+            }
+          }
+          else if(upper_id != null && lower_id != null)
+          {
+            if(sessionStorage.getItem('measure_unit') == upper_id.measure_type)
+            {
+              alert("go");
+              store_measurement_overall();
+            }
+            else
+            {
+              // alert("unit error");
+              swal({
+                title: "Error",
+                text: "Upper And Lower Body Measurement Unit must be same unit"
               });
             }
           }
