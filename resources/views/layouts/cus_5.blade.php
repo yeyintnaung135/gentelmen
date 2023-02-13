@@ -7,7 +7,7 @@
   </div>
   <div class="measure">
     <p class="text-decoration-underline text-center my-3" id="store"
-       onclick="store_measurement_overall()">
+       onclick="store_measurement_overall_check_unit()">
       <a href="#">Save measurement</a></p>
     <div class="alert alert-danger d-flex justify-content-center d-none" role="alert"
          id="info_error_alert" style="background-color:red !important;color:whitesmoke !important">
@@ -1541,6 +1541,7 @@
         //end determine to go next step 6
         let category = "in";
         if (user_id == null && upper_id == null || lower_id == null) {
+
             if (sessionStorage.getItem('measure_unit') == null && sessionStorage.getItem('measure_unit') == '') {
                 $('.unit').html("In")
             } else {
@@ -1551,24 +1552,355 @@
                 }
             }
         } else if (user_id != null && upper_id != null || lower_id != null) {
+          if(sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2 || sessionStorage.getItem('customize_category_id') == 9)
+          {
+            // alert("djkad");
+            // alert(upper_id.measure_type);
+            if(upper_id != null)
+            {
+              // alert(upper_id.measure_type);
             if (upper_id.measure_type == 'in') {
                 $('.unit').html("In")
             } else if (upper_id.measure_type == 'cm') {
                 $('.unit').html("Cm")
             }
-            sessionStorage.setItem('measure_unit', upper_id.measure_type)
+            sessionStorage.setItem('measure_unit', upper_id.measure_type);
+            }
+          }
+          if(sessionStorage.getItem('customize_category_id') == 3 || sessionStorage.getItem('customize_category_id') == 9)
+            {
+              // alert(lower_id.measure_type);
+              if(lower_id != null)
+              {
+              if (lower_id.measure_type == 'in') {
+                  $('.unit').html("In")
+              } else if (lower_id.measure_type == 'cm') {
+                  $('.unit').html("Cm")
+              }
+              sessionStorage.setItem('measure_unit', lower_id.measure_type);
+              }
+            }
+
         }
 
         $("input[name='measure_unit']").click(function () {
             sessionStorage.removeItem('pass_measure');
             category = this.value;
+            var neck = $('#neck_input').val();
+            var chest = $('#chest_input').val();
+            var waist = $('#waist_upper_input').val();
+            var hips = $('#hips_upper_input').val();
+            var shoulder = $('#shoulder_input').val();
+            var sleeve_right = $('#sleeve_length_Right_input').val();
+            var sleeve_left = $('#sleeve_length_left_input').val();
+            var stomach = $('#stomach_upper_input').val();
+            var biceps = $('#biceps_input').val();
+            var forearm = $('#forearm_input').val();
+            var cuffs = $('#cuffs_input').val();
+            var chest_front = $('#chest_front_input').val();
+            var chest_back = $('#chest_back_input').val();
+            var jacket_front = $('#jacket_front_input').val();
+            var jacket_back = $('#jacket_back_input').val();
+            var vest_len = $('#vest_length_input').val();
+
+            var pwaist = $('#waist_lower_input').val();
+            var pstomach = $('#stomach_lower_input').val();
+            var phips = $('#hips_lower_input').val();
+            var pcrotch = $('#crotch_input').val();
+            var pthighs = $('#thighs_input').val();
+            var pknees = $('#knees_input').val();
+            var pcalf = $('#calf_input').val();
+            var pshort = $('#pants_short_input').val();
+            var plength = $('#pants_length_input').val();
+            var pbottom = $('#bottom_length_input').val();
             // alert(category);
             if (category === "in") {
                 $('.unit').html("In")
+                //start convert cm to in upper data
+              if(sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2 || sessionStorage.getItem('customize_category_id') == 9)
+              {
+                if ($.trim(neck) == '') {
+
+                } else {
+                  $('#neck_input').val((neck / 2.54).toFixed(2));
+                }
+                if ($.trim(chest) == '') {
+
+                } else {
+                  $('#chest_input').val((chest / 2.54).toFixed(2));
+                }
+                if ($.trim(waist) == '') {
+
+                } else {
+                  $('#waist_upper_input').val((waist / 2.54).toFixed(2));
+                }
+                if ($.trim(hips) == '') {
+
+                } else {
+                  $('#hips_upper_input').val((hips / 2.54).toFixed(2));
+                }
+                if ($.trim(shoulder) == '') {
+
+                } else {
+                  $('#shoulder_input').val( (shoulder / 2.54).toFixed(2));
+                }
+                if ($.trim(sleeve_right) == '') {
+
+                } else {
+                  $('#sleeve_length_Right_input').val( (sleeve_right / 2.54).toFixed(2));
+                }
+                if ($.trim(sleeve_left) == '') {
+
+                } else {
+                  $('#sleeve_length_left_input').val( (sleeve_left / 2.54).toFixed(2));
+                }
+                if ($.trim(stomach) == '') {
+
+                } else {
+                  $('#stomach_upper_input').val( (stomach / 2.54).toFixed(2));
+                }
+                if ($.trim(biceps) == '') {
+
+                } else {
+                  $('#biceps_input').val( (biceps / 2.54).toFixed(2));
+                }
+                if ($.trim(forearm) == '') {
+
+                } else {
+                  $('#forearm_input').val( (forearm / 2.54).toFixed(2));
+                }
+                if ($.trim(cuffs) == '') {
+
+                } else {
+                  $('#cuffs_input').val( (cuffs / 2.54).toFixed(2));
+                }
+                if ($.trim(chest_front) == '') {
+
+                } else {
+                  $('#chest_front_input').val( (chest_front / 2.54).toFixed(2));
+                }
+                if ($.trim(chest_back) == '') {
+
+                } else {
+                  $('#chest_back_input').val( (chest_back / 2.54).toFixed(2));
+                }
+                if ($.trim(jacket_front) == '') {
+
+                } else {
+                  $('#jacket_front_input').val( (jacket_front / 2.54).toFixed(2));
+                }
+                if ($.trim(jacket_back) == '') {
+
+                } else {
+                  $('#jacket_back_input').val( (jacket_back / 2.54).toFixed(2));
+                }
+                if ($.trim(vest_len) == '') {
+
+                } else {
+                  $('#vest_length_input').val( (vest_len / 2.54).toFixed(2) );
+                }
+                //end convert cm to in upper data
+              }
+              if(sessionStorage.getItem('customize_category_id') == 3 || sessionStorage.getItem('customize_category_id') == 9)
+              {
+                //start convert cm to in lower data
+                if ($.trim(pwaist) == '') {
+
+                } else {
+                  $('#waist_lower_input').val((pwaist /2.54).toFixed(2));
+                }
+                if ($.trim(pstomach) == '') {
+
+                } else {
+                  $('#stomach_lower_input').val((pstomach / 2.54).toFixed(2));
+                }
+                if ($.trim(phips) == '') {
+
+                } else {
+                  $('#hips_lower_input').val((phips /2.54).toFixed(2));
+                }
+                if ($.trim(pcrotch) == '') {
+
+                } else {
+                  $('#crotch_input').val((pcrotch / 2.54).toFixed(2));
+                }
+                if ($.trim(pthighs) == '') {
+
+                } else {
+                  $('#thighs_input').val((pthighs / 2.54).toFixed(2));
+                }
+                if ($.trim(pknees) == '') {
+
+                } else {
+                  $('#knees_input').val((pknees / 2.54).toFixed(2));
+                }
+                if ($.trim(pcalf) == '') {
+
+                } else {
+                  $('#calf_input').val((pcalf / 2.54).toFixed(2));
+                }
+                if ($.trim(pshort) == '') {
+
+                } else {
+                  $('#pants_short_input').val((pshort / 2.54).toFixed(2));
+                }
+                if ($.trim(plength) == '') {
+
+                } else {
+                  $('#pants_length_input').val((plength / 2.54).toFixed(2));
+                }
+                if ($.trim(pbottom) == '') {
+
+                } else {
+                  $('#bottom_length_input').val((pbottom /2.54).toFixed(2));
+                }
+                //end convert cm to in lower data
+              }
+
             }
             if (category === "cm") {
-                $('.unit').html("Cm")
+                $('.unit').html("Cm");
+              //start convert in to cm upper data
+            if(sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2 || sessionStorage.getItem('customize_category_id') == 9)
+            {
+              if ($.trim(neck) == '') {
+
+              } else {
+                $('#neck_input').val((neck * 2.54).toFixed(2));
+              }
+              if ($.trim(chest) == '') {
+
+              } else {
+                $('#chest_input').val((chest * 2.54).toFixed(2));
+              }
+              if ($.trim(waist) == '') {
+
+              } else {
+                $('#waist_upper_input').val((waist * 2.54).toFixed(2));
+              }
+              if ($.trim(hips) == '') {
+
+              } else {
+                $('#hips_upper_input').val((hips * 2.54).toFixed(2));
+              }
+              if ($.trim(shoulder) == '') {
+
+              } else {
+                $('#shoulder_input').val((shoulder * 2.54).toFixed(2));
+              }
+              if ($.trim(sleeve_right) == '') {
+
+              } else {
+                $('#sleeve_length_Right_input').val((sleeve_right * 2.54).toFixed(2));
+              }
+              if ($.trim(sleeve_left) == '') {
+
+              } else {
+                $('#sleeve_length_left_input').val((sleeve_left * 2.54).toFixed(2));
+              }
+              if ($.trim(stomach) == '') {
+
+              } else {
+                $('#stomach_upper_input').val((stomach * 2.54).toFixed(2));
+              }
+              if ($.trim(biceps) == '') {
+
+              } else {
+                $('#biceps_input').val((biceps * 2.54).toFixed(2));
+              }
+              if ($.trim(forearm) == '') {
+
+              } else {
+                $('#forearm_input').val((forearm * 2.54).toFixed(2));
+              }
+              if ($.trim(cuffs) == '') {
+
+              } else {
+                $('#cuffs_input').val((cuffs * 2.54).toFixed(2));
+              }
+              if ($.trim(chest_front) == '') {
+
+              } else {
+                $('#chest_front_input').val((chest_front * 2.54).toFixed(2));
+              }
+              if ($.trim(chest_back) == '') {
+
+              } else {
+                $('#chest_back_input').val((chest_back * 2.54).toFixed(2));
+              }
+              if ($.trim(jacket_front) == '') {
+
+              } else {
+                $('#jacket_front_input').val((jacket_front * 2.54).toFixed(2));
+              }
+              if ($.trim(jacket_back) == '') {
+
+              } else {
+                $('#jacket_back_input').val((jacket_back * 2.54).toFixed(2));
+              }
+              if ($.trim(vest_len) == '') {
+
+              } else {
+                $('#vest_length_input').val((vest_len * 2.54).toFixed(2));
+              }
+              //end convert in to cm upper data
             }
+            if(sessionStorage.getItem('customize_category_id') == 3 || sessionStorage.getItem('customize_category_id') == 9)
+            {
+              //start convert cm to in lower data
+              if ($.trim(pwaist) == '') {
+
+              } else {
+                $('#waist_lower_input').val((pwaist * 2.54).toFixed(2));
+              }
+              if ($.trim(pstomach) == '') {
+
+              } else {
+                $('#stomach_lower_input').val((pstomach * 2.54).toFixed(2));
+              }
+              if ($.trim(phips) == '') {
+
+              } else {
+                $('#hips_lower_input').val((phips *2.54).toFixed(2));
+              }
+              if ($.trim(pcrotch) == '') {
+
+              } else {
+                $('#crotch_input').val((pcrotch * 2.54).toFixed(2));
+              }
+              if ($.trim(pthighs) == '') {
+
+              } else {
+                $('#thighs_input').val((pthighs * 2.54).toFixed(2));
+              }
+              if ($.trim(pknees) == '') {
+
+              } else {
+                $('#knees_input').val((pknees * 2.54).toFixed(2));
+              }
+              if ($.trim(pcalf) == '') {
+
+              } else {
+                $('#calf_input').val((pcalf * 2.54).toFixed(2));
+              }
+              if ($.trim(pshort) == '') {
+
+              } else {
+                $('#pants_short_input').val((pshort * 2.54).toFixed(2));
+              }
+              if ($.trim(plength) == '') {
+
+              } else {
+                $('#pants_length_input').val((plength * 2.54).toFixed(2));
+              }
+              if ($.trim(pbottom) == '') {
+
+              } else {
+                $('#bottom_length_input').val((pbottom *2.54).toFixed(2));
+              }
+              //end convert cm to in lower data
+            }
+          }
 
         });
     })
@@ -1578,15 +1910,55 @@
 @push('script_tag')
   <script>
 
-      function store_measurement_overall() {
-          // alert("ghhhhhhhhhhhhhhhhhhggggggggggggggg");
+      function store_measurement_overall_check_unit() {
+          // alert("Step Count = "+count);
+          var upper_id = @json($upper);
+          var lower_id = @json($lower);
+          // alert(upper_id.measure_type);
+          // alert(lower_id.measure_type);
+          if(upper_id != null)
+          {
+            alert("has upper ");
+            if(sessionStorage.getItem('measure_unit') == upper_id.measure_type)
+            {
+              alert("go");
+              store_measurement_overall();
+            }
+            else{
+              alert("unit error");
+              swal({
+                title: "Error",
+                text: "Lower Body Measurement Unit must be same unit With Upper Body "
+              });
+            }
+          }
+          else if(lower_id != null)
+          {
+            alert("has lower");
+            if(sessionStorage.getItem('measure_unit') == lower_id.measure_type)
+            {
+              alert("go");
+              store_measurement_overall();
+            }
+            else
+            {
+              alert("unit error");
+              swal({
+                title: "Error",
+                text: "Upper Body Measurement Unit must be same unit with Lower Body"
+              });
+            }
+          }
+          else{
+            alert("not have both");
+          }
+        }
+        function store_measurement_overall(){
           if (sessionStorage.getItem('from_store_temporary_user') == null || sessionStorage.getItem('from_store_temporary_user') == '') {
               var user_id = @json($user);
           } else {
               var user_id = sessionStorage.getItem('from_store_temporary_user');
           }
-          // alert("store measure overall function in user id"+user_id);
-          // alert("store measure");
           //start info data
           let store_status = true;
           let info_status = true;
@@ -2005,11 +2377,14 @@
                           sessionStorage.setItem('upper_has_id', data.upper_id);
                           sessionStorage.setItem('lower_has_id', data.lower_id);
                           sessionStorage.setItem('pass_measure', 1);
+                          if(count == 5)
+                          {
                           swal({
                               title: "Success",
                               text: "Successfully Save For Measurement",
                               icon: "success",
                           });
+                          }
                       }
 
                   }
@@ -2028,11 +2403,14 @@
               } else if (sessionStorage.getItem('customize_category_id') == 3) {
                   if (lower_status == true && info_status == true) {
                       sessionStorage.setItem('store_m_status', 1);
+                      if(count == 5)
+                      {
                       swal({
                           title: "Success",
                           text: "Successfully Save For Pant Measurement As One-Time Guest",
                           icon: "success",
                       });
+                      }
                       sessionStorage.setItem('pass_measure', 1);
                   }
               } else if (sessionStorage.getItem('customize_category_id') == 9) {
