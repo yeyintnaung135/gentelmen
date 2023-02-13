@@ -1918,14 +1918,14 @@
           // alert(lower_id.measure_type);
           if(upper_id != null)
           {
-            alert("has upper ");
+            // alert("has upper ");
             if(sessionStorage.getItem('measure_unit') == upper_id.measure_type)
             {
               alert("go");
               store_measurement_overall();
             }
             else{
-              alert("unit error");
+              // alert("unit error");
               swal({
                 title: "Error",
                 text: "Lower Body Measurement Unit must be same unit With Upper Body "
@@ -1934,7 +1934,7 @@
           }
           else if(lower_id != null)
           {
-            alert("has lower");
+            // alert("has lower");
             if(sessionStorage.getItem('measure_unit') == lower_id.measure_type)
             {
               alert("go");
@@ -1942,7 +1942,7 @@
             }
             else
             {
-              alert("unit error");
+              // alert("unit error");
               swal({
                 title: "Error",
                 text: "Upper Body Measurement Unit must be same unit with Lower Body"
@@ -1950,7 +1950,8 @@
             }
           }
           else{
-            alert("not have both");
+            // alert("not have both");
+            store_measurement_overall();
           }
         }
         function store_measurement_overall(){
