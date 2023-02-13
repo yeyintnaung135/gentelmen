@@ -2444,7 +2444,7 @@
                               text: "Successfully Save For Measurement",
                               icon: "success",
                           });
-                          // window.location.reload();
+                          window.location.reload();
                           }
                       }
 
