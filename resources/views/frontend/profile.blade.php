@@ -888,7 +888,7 @@
                         <div class="measure-input-group">
                           @if($lower != null && $lower->crotch != null)
                           <input type="text" placeholder="0.0"
-                                 id="crotch_input" value="{{$lower->cortch}}">
+                                 id="crotch_input" value="{{$lower->crotch}}">
                           @else
                           <input type="text" placeholder="0.0"
                            id="crotch_input">
@@ -1799,12 +1799,308 @@
           }
           $("input[name='measure_unit']").click(function () {
               category = this.value;
+              var neck = $('#neck_input').val();
+              var chest = $('#chest_input').val();
+              var waist = $('#waist_upper_input').val();
+              var hips = $('#hips_upper_input').val();
+              var shoulder = $('#shoulder_input').val();
+              var sleeve_right = $('#sleeve_length_Right_input').val();
+              var sleeve_left = $('#sleeve_length_left_input').val();
+              var stomach = $('#stomach_upper_input').val();
+              var biceps = $('#biceps_input').val();
+              var forearm = $('#forearm_input').val();
+              var cuffs = $('#cuffs_input').val();
+              var chest_front = $('#chest_front_input').val();
+              var chest_back = $('#chest_back_input').val();
+              var jacket_front = $('#jacket_front_input').val();
+              var jacket_back = $('#jacket_back_input').val();
+              var vest_len = $('#vest_length_input').val();
+
+              var pwaist = $('#waist_lower_input').val();
+              var pstomach = $('#stomach_lower_input').val();
+              var phips = $('#hips_lower_input').val();
+              var pcrotch = $('#crotch_input').val();
+              var pthighs = $('#thighs_input').val();
+              var pknees = $('#knees_input').val();
+              var pcalf = $('#calf_input').val();
+              var pshort = $('#pants_short_input').val();
+              var plength = $('#pants_length_input').val();
+              var pbottom = $('#bottom_length_input').val();
               // alert(category);
               if (category === "in") {
-                  $('.unit').html("In")
+                  $('.unit').html("In");
+                  //start convert cm to in upper data
+                  if ($.trim(neck) == '') {
+
+                  } else {
+                    $('#neck_input').val((neck / 2.54).toFixed(2));
+                  }
+                  if ($.trim(chest) == '') {
+
+                  } else {
+                    $('#chest_input').val((chest / 2.54).toFixed(2));
+                  }
+                  if ($.trim(waist) == '') {
+
+                  } else {
+                    $('#waist_upper_input').val((waist / 2.54).toFixed(2));
+                  }
+                  if ($.trim(hips) == '') {
+
+                  } else {
+                    $('#hips_upper_input').val((hips / 2.54).toFixed(2));
+                  }
+                  if ($.trim(shoulder) == '') {
+
+                  } else {
+                    $('#shoulder_input').val( (shoulder / 2.54).toFixed(2));
+                  }
+                  if ($.trim(sleeve_right) == '') {
+
+                  } else {
+                    $('#sleeve_length_Right_input').val( (sleeve_right / 2.54).toFixed(2));
+                  }
+                  if ($.trim(sleeve_left) == '') {
+
+                  } else {
+                    $('#sleeve_length_left_input').val( (sleeve_left / 2.54).toFixed(2));
+                  }
+                  if ($.trim(stomach) == '') {
+
+                  } else {
+                    $('#stomach_upper_input').val( (stomach / 2.54).toFixed(2));
+                  }
+                  if ($.trim(biceps) == '') {
+
+                  } else {
+                    $('#biceps_input').val( (biceps / 2.54).toFixed(2));
+                  }
+                  if ($.trim(forearm) == '') {
+
+                  } else {
+                    $('#forearm_input').val( (forearm / 2.54).toFixed(2));
+                  }
+                  if ($.trim(cuffs) == '') {
+
+                  } else {
+                    $('#cuffs_input').val( (cuffs / 2.54).toFixed(2));
+                  }
+                  if ($.trim(chest_front) == '') {
+
+                  } else {
+                    $('#chest_front_input').val( (chest_front / 2.54).toFixed(2));
+                  }
+                  if ($.trim(chest_back) == '') {
+
+                  } else {
+                    $('#chest_back_input').val( (chest_back / 2.54).toFixed(2));
+                  }
+                  if ($.trim(jacket_front) == '') {
+
+                  } else {
+                    $('#jacket_front_input').val( (jacket_front / 2.54).toFixed(2));
+                  }
+                  if ($.trim(jacket_back) == '') {
+
+                  } else {
+                    $('#jacket_back_input').val( (jacket_back / 2.54).toFixed(2));
+                  }
+                  if ($.trim(vest_len) == '') {
+
+                  } else {
+                    $('#vest_length_input').val( (vest_len / 2.54).toFixed(2) );
+                  }
+                  //end convert cm to in upper data
+
+
+                  //start convert cm to in lower data
+                  if ($.trim(pwaist) == '') {
+
+                  } else {
+                    $('#waist_lower_input').val((pwaist /2.54).toFixed(2));
+                  }
+                  if ($.trim(pstomach) == '') {
+
+                  } else {
+                    $('#stomach_lower_input').val((pstomach / 2.54).toFixed(2));
+                  }
+                  if ($.trim(phips) == '') {
+
+                  } else {
+                    $('#hips_lower_input').val((phips /2.54).toFixed(2));
+                  }
+                  if ($.trim(pcrotch) == '') {
+
+                  } else {
+                    $('#crotch_input').val((pcrotch / 2.54).toFixed(2));
+                  }
+                  if ($.trim(pthighs) == '') {
+
+                  } else {
+                    $('#thighs_input').val((pthighs / 2.54).toFixed(2));
+                  }
+                  if ($.trim(pknees) == '') {
+
+                  } else {
+                    $('#knees_input').val((pknees / 2.54).toFixed(2));
+                  }
+                  if ($.trim(pcalf) == '') {
+
+                  } else {
+                    $('#calf_input').val((pcalf / 2.54).toFixed(2));
+                  }
+                  if ($.trim(pshort) == '') {
+
+                  } else {
+                    $('#pants_short_input').val((pshort / 2.54).toFixed(2));
+                  }
+                  if ($.trim(plength) == '') {
+
+                  } else {
+                    $('#pants_length_input').val((plength / 2.54).toFixed(2));
+                  }
+                  if ($.trim(pbottom) == '') {
+
+                  } else {
+                    $('#bottom_length_input').val((pbottom /2.54).toFixed(2));
+                  }
+                //end convert cm to in lower data
               }
               if (category === "cm") {
-                  $('.unit').html("Cm")
+                  $('.unit').html("Cm");
+                  if ($.trim(neck) == '') {
+
+                  } else {
+                    $('#neck_input').val((neck * 2.54).toFixed(2));
+                  }
+                  if ($.trim(chest) == '') {
+
+                  } else {
+                    $('#chest_input').val((chest * 2.54).toFixed(2));
+                  }
+                  if ($.trim(waist) == '') {
+
+                  } else {
+                    $('#waist_upper_input').val((waist * 2.54).toFixed(2));
+                  }
+                  if ($.trim(hips) == '') {
+
+                  } else {
+                    $('#hips_upper_input').val((hips * 2.54).toFixed(2));
+                  }
+                  if ($.trim(shoulder) == '') {
+
+                  } else {
+                    $('#shoulder_input').val((shoulder * 2.54).toFixed(2));
+                  }
+                  if ($.trim(sleeve_right) == '') {
+
+                  } else {
+                    $('#sleeve_length_Right_input').val((sleeve_right * 2.54).toFixed(2));
+                  }
+                  if ($.trim(sleeve_left) == '') {
+
+                  } else {
+                    $('#sleeve_length_left_input').val((sleeve_left * 2.54).toFixed(2));
+                  }
+                  if ($.trim(stomach) == '') {
+
+                  } else {
+                    $('#stomach_upper_input').val((stomach * 2.54).toFixed(2));
+                  }
+                  if ($.trim(biceps) == '') {
+
+                  } else {
+                    $('#biceps_input').val((biceps * 2.54).toFixed(2));
+                  }
+                  if ($.trim(forearm) == '') {
+
+                  } else {
+                    $('#forearm_input').val((forearm * 2.54).toFixed(2));
+                  }
+                  if ($.trim(cuffs) == '') {
+
+                  } else {
+                    $('#cuffs_input').val((cuffs * 2.54).toFixed(2));
+                  }
+                  if ($.trim(chest_front) == '') {
+
+                  } else {
+                    $('#chest_front_input').val((chest_front * 2.54).toFixed(2));
+                  }
+                  if ($.trim(chest_back) == '') {
+
+                  } else {
+                    $('#chest_back_input').val((chest_back * 2.54).toFixed(2));
+                  }
+                  if ($.trim(jacket_front) == '') {
+
+                  } else {
+                    $('#jacket_front_input').val((jacket_front * 2.54).toFixed(2));
+                  }
+                  if ($.trim(jacket_back) == '') {
+
+                  } else {
+                    $('#jacket_back_input').val((jacket_back * 2.54).toFixed(2));
+                  }
+                  if ($.trim(vest_len) == '') {
+
+                  } else {
+                    $('#vest_length_input').val((vest_len * 2.54).toFixed(2));
+                  }
+                  //end convert in to cm upper data
+                //start convert cm to in lower data
+                if ($.trim(pwaist) == '') {
+
+                } else {
+                  $('#waist_lower_input').val((pwaist * 2.54).toFixed(2));
+                }
+                if ($.trim(pstomach) == '') {
+
+                } else {
+                  $('#stomach_lower_input').val((pstomach * 2.54).toFixed(2));
+                }
+                if ($.trim(phips) == '') {
+
+                } else {
+                  $('#hips_lower_input').val((phips *2.54).toFixed(2));
+                }
+                if ($.trim(pcrotch) == '') {
+
+                } else {
+                  $('#crotch_input').val((pcrotch * 2.54).toFixed(2));
+                }
+                if ($.trim(pthighs) == '') {
+
+                } else {
+                  $('#thighs_input').val((pthighs * 2.54).toFixed(2));
+                }
+                if ($.trim(pknees) == '') {
+
+                } else {
+                  $('#knees_input').val((pknees * 2.54).toFixed(2));
+                }
+                if ($.trim(pcalf) == '') {
+
+                } else {
+                  $('#calf_input').val((pcalf * 2.54).toFixed(2));
+                }
+                if ($.trim(pshort) == '') {
+
+                } else {
+                  $('#pants_short_input').val((pshort * 2.54).toFixed(2));
+                }
+                if ($.trim(plength) == '') {
+
+                } else {
+                  $('#pants_length_input').val((plength * 2.54).toFixed(2));
+                }
+                if ($.trim(pbottom) == '') {
+
+                } else {
+                  $('#bottom_length_input').val((pbottom *2.54).toFixed(2));
+                }
+                //end convert cm to in lower data
               }
 
           });

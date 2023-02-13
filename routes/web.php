@@ -1306,6 +1306,7 @@ Route::get('customize', function (Request $request) {
         }
 
         $user = Session::get('user_id');
+        logger("USER ID =================".$user);
         if($user != null)
         {
           $user_info = User::find($user);
@@ -1318,6 +1319,8 @@ Route::get('customize', function (Request $request) {
           $upper = null;
           $lower = null;
         }
+        logger("Upper-----------------------------".$upper);
+        logger("lower-----------------------------".$lower);
         $tops = Top::all()->unique('style');
 
         $vests = Shirt_Button::all()->unique('style');

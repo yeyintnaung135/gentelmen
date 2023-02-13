@@ -1914,29 +1914,33 @@
           // alert("Step Count = "+count);
           var upper_id = @json($upper);
           var lower_id = @json($lower);
+          alert(upper_id);
+          alert(lower_id);
           // alert(upper_id.measure_type);
           // alert(lower_id.measure_type);
           if(sessionStorage.getItem('customize_category_id') != 9)
           {
+            alert("9in");
+
           if(upper_id != null && lower_id == null)
           {
-            // alert("has upper ");
+            alert("has upper ");
             if(sessionStorage.getItem('measure_unit') == upper_id.measure_type)
             {
-              // alert("go");
+              alert("go");
               store_measurement_overall();
             }
             else{
-              // alert("unit error");
+              alert("unit error");
               swal({
                 title: "Error",
                 text: "Lower Body Measurement Unit must be same unit With Upper Body "
               });
             }
           }
-          if(lower_id != null && upper_id == null)
+          else if(lower_id != null && upper_id == null)
           {
-            // alert("has lower");
+            alert("has lower");
             if(sessionStorage.getItem('measure_unit') == lower_id.measure_type)
             {
               alert("go");
@@ -1944,7 +1948,7 @@
             }
             else
             {
-              // alert("unit error");
+              alert("unit error");
               swal({
                 title: "Error",
                 text: "Upper Body Measurement Unit must be same unit with Lower Body"
@@ -1953,6 +1957,7 @@
           }
           else if(upper_id != null && lower_id != null)
           {
+            alert("have both");
             if(sessionStorage.getItem('measure_unit') == upper_id.measure_type)
             {
               alert("go");
@@ -1968,8 +1973,39 @@
             }
           }
           else{
-            // alert("not have both");
+            alert("not have both");
+            if(sessionStorage.getItem('lower_measure_unit_temp') != null && sessionStorage.getItem('upper_measure_unit_temp') == null)
+            {
+              if(sessionStorage.getItem('lower_measure_unit_temp') == sessionStorage.getItem('measure_unit'))
+              {
+                store_measurement_overall();
+              }
+              else
+              {
+                swal({
+                  title: "Error",
+                  text: "Upper Body Measurement Unit must be same unit with Lower Body"
+                });
+              }
+            }
+            else if(sessionStorage.getItem('lower_measure_unit_temp') == null && sessionStorage.getItem('upper_measure_unit_temp') != null)
+            {
+              if(sessionStorage.getItem('upper_measure_unit_temp') == sessionStorage.getItem('measure_unit'))
+              {
+                store_measurement_overall();
+              }
+              else
+              {
+                swal({
+                  title: "Error",
+                  text: "Lower Body Measurement Unit must be same unit with Upper Body"
+                });
+              }
+            }
+            else
+            {
             store_measurement_overall();
+            }
           }
         }
         else if(sessionStorage.getItem('customize_category_id') == 9)
@@ -2408,6 +2444,7 @@
                               text: "Successfully Save For Measurement",
                               icon: "success",
                           });
+                          // window.location.reload();
                           }
                       }
 
@@ -2417,18 +2454,23 @@
               if (sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2) {
                   if (upper_status == true && info_status == true) {
                       sessionStorage.setItem('store_m_status', 1);
+                      if(count == 5)
+                      {
                       swal({
                           title: "Success",
                           text: "Successfully Save For Jacket/Vest Measurement As One-Time Guest",
                           icon: "success",
                       });
+                      }
                       sessionStorage.setItem('pass_measure', 1);
+                      sessionStorage.setItem('upper_measure_unit_temp',sessionStorage.getItem('measure_unit'));
                   }
               } else if (sessionStorage.getItem('customize_category_id') == 3) {
                   if (lower_status == true && info_status == true) {
                       sessionStorage.setItem('store_m_status', 1);
                       if(count == 5)
                       {
+                        // alert("fuck count ="+count);
                       swal({
                           title: "Success",
                           text: "Successfully Save For Pant Measurement As One-Time Guest",
@@ -2436,15 +2478,19 @@
                       });
                       }
                       sessionStorage.setItem('pass_measure', 1);
+                      sessionStorage.setItem('lower_measure_unit_temp',sessionStorage.getItem('measure_unit'));
                   }
               } else if (sessionStorage.getItem('customize_category_id') == 9) {
                   if (lower_status == true && upper_status == true && info_status == true) {
                       sessionStorage.setItem('store_m_status', 1);
+                      if(count == 5)
+                      {
                       swal({
                           title: "Success",
-                          text: "Successfully Save For Pant Measurement As One-Time Guest",
+                          text: "Successfully Save For Jacket/Vest and Pant Measurement As One-Time Guest",
                           icon: "success",
                       });
+                      }
                       sessionStorage.setItem('pass_measure', 1);
                   }
               }
