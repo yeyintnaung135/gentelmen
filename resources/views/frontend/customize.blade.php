@@ -1265,6 +1265,7 @@
                   calculate_step4();
                 }
                 if (count == 5) {
+                  
                     sessionStorage.setItem('measure_step',1);
                     if(sessionStorage.getItem('measure_unit') == null)
                     {
