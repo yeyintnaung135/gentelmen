@@ -1,5 +1,5 @@
 <div class="bg-dark py-5 px-5 rounded-2">
-  <p class="h4 text-uppercase">Order Summery</p>
+  <p class="h4 text-uppercase">Order summary</p>
   <hr>
   <div class="row">
     <div class="row mb-2">
