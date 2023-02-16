@@ -44,7 +44,7 @@
                     <th>Fabric Type</th>
                     <th>Composition</th>
                     <th>Softness</th>
-                    {{-- <th>Description</th> --}}
+                    <th>Description</th>
                     <th>Action</th>
                   </tr>
                   </thead>
@@ -63,7 +63,7 @@
                     <td>{{$style->fabric_type}}</td>
                     <td>{{$style->compostition}}</td>
                     <td>{{$style->softness}}</td>
-                    {{-- <td>{{$style->description}}</td> --}}
+                    <td>{{$style->description}}</td>
                     <td>
                     <div style="
                         display: flex;
@@ -98,7 +98,7 @@
                     <th>Fabric Type</th>
                     <th>Composition</th>
                     <th>Softness</th>
-                    <!-- <th>Description</th> -->
+                    <th>Description</th>
                     <th>Action</th>
                   </tr>
                   </tfoot>
@@ -136,6 +136,12 @@
 @endpush
 @section('js')
 <script>
+       if(sessionStorage.getItem('reload_additional_list') == 1)
+    {
+      // alert();
+      window.location.reload();
+      sessionStorage.removeItem('reload_additional_list');
+    }
     function delete_style_confirm(value){
         // alert(value);
         swal({
