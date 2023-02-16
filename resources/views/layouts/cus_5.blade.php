@@ -377,7 +377,7 @@
           </div>
           <div id="jacket_front" class="content">
             <div class="measure-img-wrapper">
-              <img src="{{asset("assets/images/customize/cus5images/jacket-length.jpg")}}"
+              <img src="{{asset("assets/images/customize/cus5images/jacket-front-length.jpg")}}"
                    alt="jacket_front">
             </div>
             <div class="measure-input-wrapper">
@@ -414,7 +414,7 @@
           </div>
           <div id="vest_length" class="content">
             <div class="measure-img-wrapper">
-              <img src="{{asset("assets/images/customize/cus5images/vest.png")}}"
+              <img src="{{asset("assets/images/customize/cus5images/vest.jpg")}}"
                    alt="vest_length">
             </div>
             <div class="measure-input-wrapper">
@@ -671,7 +671,7 @@
           </div>
           <div id="pants_length" class="content">
             <div class="measure-img-wrapper">
-              <img src="{{asset("assets/images/customize/cus5images/pant-length.png")}}"
+              <img src="{{asset("assets/images/customize/cus5images/pant-length.jpg")}}"
                    alt="pants_length">
             </div>
             <div class="measure-input-wrapper">
