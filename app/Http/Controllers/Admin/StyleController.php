@@ -217,6 +217,12 @@ class StyleController extends Controller
         $edit_style->name = $request->name;
         $edit_style->pieces = $request->pieces;
         $edit_style->colour = $request->colour;
+        $edit_style->fabric = $request->fabric;
+        $edit_style->fabric_type = $request->fabric_type;
+        $edit_style->compostition = $request->compostition;
+        $edit_style->softness = $request->softness;
+        $edit_style->description = $request->description;
+        $edit_style->type_id = $request->type;
         if($request->remove_count > 0)
         {
             if($request->remove_count == 1)
