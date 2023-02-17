@@ -2666,7 +2666,7 @@
       // alert("show measure data");
       var cus_cate_id = sessionStorage.getItem('customize_category_id');
       if (cus_cate_id == 1 || cus_cate_id == 2) {
-        alert("UPPER");
+        // alert("UPPER");
         $('#lower_tab').addClass('d-none');
         $('#upper_tab').removeClass('d-none');
 
@@ -2676,9 +2676,10 @@
         $('#upper_tab').addClass('active');
         $('#lower_tab').removeClass('active');
 
-        // $('#info_tab').removeClass('active');
+        $('#info_tab').removeClass('active');
+        $('#info').removeClass('active');
       } else if (cus_cate_id == 3) {
-        alert("LOWER");
+        // alert("LOWER");
         $('#upper_tab').addClass('d-none');
         $('#lower_tab').removeClass('d-none');
 
@@ -2688,11 +2689,12 @@
         $('#upper').removeClass('active');
         $('#lower').addClass('active');
 
-        // $('#info_tab').removeClass('active');
+        $('#info_tab').removeClass('active');
+        $('#info').removeClass('active');
       }
       else if(cus_cate_id == 9)
       {
-        alert("SUITS");
+        // alert("SUITS");
         $('#lower_tab').removeClass('d-none');
         $('#upper_tab').removeClass('d-none');
 
@@ -2701,7 +2703,9 @@
 
         $('#upper_tab').addClass('active');
         $('#lower_tab').removeClass('active');
-        // $('#info_tab').removeClass('active');
+
+        $('#info_tab').removeClass('active');
+        $('#info').removeClass('active');
       }
     }
 
@@ -3501,9 +3505,9 @@
         $('#bottom_length_input_cm').val((pbottom *2.54).toFixed(2));
       }
     }
-    // function lower_change_in()
+    function lower_change_in()
     {
-      alert("upper is in and so lower (in)");
+      // alert("upper is in and so lower (in)");
       var pwaist = $('#waist_lower_input').val();
       var pstomach = $('#stomach_lower_input').val();
       var phips = $('#hips_lower_input').val();
