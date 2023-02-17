@@ -1314,6 +1314,10 @@
                         if(sessionStorage.getItem('upper_measure_unit') == null)
                         {
                         sessionStorage.setItem('upper_measure_unit','in');
+                            if(sessionStorage.getItem('customize_category_id') == 9)
+                            {
+                              sessionStorage.setItem('lower_measure_unit','in');
+                            }
                         }
                         else
                         {
