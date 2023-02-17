@@ -144,27 +144,28 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                  <input type="hidden" id="upper_has_id" style="color:white" value="{{$upper->id}}">
+                  <input type="hidden" id="upper_has_id" style="color:white"
+                         value="{{$upper->id}}" autocomplete="off">
                   <input type="text" id="neck_input" value="{{$upper->neck}}">
                 @else
                   <input type="hidden" id="upper_has_id" style="color:white" value="0">
-                  <input type="text" placeholder="0.0" id="neck_input">
+                  <input type="text" placeholder="0.0" id="neck_input" autocomplete="off">
                 @endif
                 <p class="unit">In</p>
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="neck_input_cm" value="" disabled>
+                <input type="text" id="neck_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="neck_input_cm" value="" disabled>
+                <input type="text" id="neck_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="neck_input_in" value="" disabled>
+                <input type="text" id="neck_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="neck_input_in" value="" disabled>
+                <input type="text" id="neck_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -178,25 +179,25 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                  <input type="text" placeholder="0.0" id="chest_input" value="{{$upper->chest}}">
+                  <input type="text" placeholder="0.0" id="chest_input" value="{{$upper->chest}}" autocomplete="off">
                 @else
-                  <input type="text" placeholder="0.0" id="chest_input">
+                  <input type="text" placeholder="0.0" id="chest_input autocomplete="off"">
                 @endif
                 <p class="unit">In</p>
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="chest_input_cm" value="" disabled>
+                <input type="text" id="chest_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="chest_input_cm" value="" disabled>
+                <input type="text" id="chest_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="chest_input_in" value="" disabled>
+                <input type="text" id="chest_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="chest_input_in" value="" disabled>
+                <input type="text" id="chest_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -210,25 +211,26 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                  <input type="text" placeholder="0.0" id="waist_upper_input" value="{{$upper->waist}}" >
+                  <input type="text" placeholder="0.0" id="waist_upper_input"
+                         value="{{$upper->waist}}" autocomplete="off">
                 @else
-                  <input type="text" placeholder="0.0" id="waist_upper_input">
+                  <input type="text" placeholder="0.0" id="waist_upper_input" autocomplete="off">
                 @endif
                 <p class="unit">In</p>
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="waist_upper_input_cm" value="" disabled>
+                <input type="text" id="waist_upper_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="waist_upper_input_cm" value="" disabled>
+                <input type="text" id="waist_upper_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="waist_upper_input_in" value="" disabled>
+                <input type="text" id="waist_upper_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="waist_upper_input_in" value="" disabled>
+                <input type="text" id="waist_upper_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -242,25 +244,26 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                  <input type="text" placeholder="0.0" id="hips_upper_input" value="{{$upper->hips}}" >
+                  <input type="text" placeholder="0.0" id="hips_upper_input"
+                         value="{{$upper->hips}}" autocomplete="off">
                 @else
-                  <input type="text" placeholder="0.0" id="hips_upper_input">
+                  <input type="text" placeholder="0.0" id="hips_upper_input" autocomplete="off">
                 @endif
                 <p class="unit">In</p>
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="hips_upper_input_cm" value="" disabled>
+                <input type="text" id="hips_upper_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="hips_upper_input_cm" value="" disabled>
+                <input type="text" id="hips_upper_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="hips_upper_input_in" value="" disabled>
+                <input type="text" id="hips_upper_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="hips_upper_input_in" value="" disabled>
+                <input type="text" id="hips_upper_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -274,25 +277,26 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                  <input type="text" placeholder="0.0" id="shoulder_input" value="{{$upper->shoulder}}" >
+                  <input type="text" placeholder="0.0" id="shoulder_input"
+                         value="{{$upper->shoulder}}" autocomplete="off">
                 @else
-                  <input type="text" placeholder="0.0" id="shoulder_input">
+                  <input type="text" placeholder="0.0" id="shoulder_input" autocomplete="off">
                 @endif
                 <p class="unit">In</p>
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="shoulder_input_cm" value="" disabled>
+                <input type="text" id="shoulder_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="shoulder_input_cm" value="" disabled>
+                <input type="text" id="shoulder_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="shoulder_input_in" value="" disabled>
+                <input type="text" id="shoulder_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="shoulder_input_in" value="" disabled>
+                <input type="text" id="shoulder_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -306,25 +310,26 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                  <input type="text" placeholder="0.0" id="sleeve_length_Right_input" value="{{$upper->sleeve_length_right}}" >
+                  <input type="text" placeholder="0.0" id="sleeve_length_Right_input"
+                         value="{{$upper->sleeve_length_right}}" autocomplete="off">
                 @else
-                  <input type="text" placeholder="0.0" id="sleeve_length_Right_input">
+                  <input type="text" placeholder="0.0" id="sleeve_length_Right_input" autocomplete="off">
                 @endif
                 <p class="unit">In</p>
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="sleeve_length_Right_input_cm" value="" disabled>
+                <input type="text" id="sleeve_length_Right_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="sleeve_length_Right_input_cm" value="" disabled>
+                <input type="text" id="sleeve_length_Right_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="sleeve_length_Right_input_in" value="" disabled>
+                <input type="text" id="sleeve_length_Right_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="sleeve_length_Right_input_in" value="" disabled>
+                <input type="text" id="sleeve_length_Right_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -338,25 +343,26 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                  <input type="text" placeholder="0.0" id="sleeve_length_left_input" value="{{$upper->sleeve_length_left}}" >
+                  <input type="text" placeholder="0.0" id="sleeve_length_left_input"
+                         value="{{$upper->sleeve_length_left}}" autocomplete="off">
                 @else
-                  <input type="text" placeholder="0.0" id="sleeve_length_left_input">
+                  <input type="text" placeholder="0.0" id="sleeve_length_left_input" autocomplete="off">
                 @endif
                 <p class="unit">In</p>
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="sleeve_length_left_input_cm" value="" disabled>
+                <input type="text" id="sleeve_length_left_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="sleeve_length_left_input_cm" value="" disabled>
+                <input type="text" id="sleeve_length_left_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="sleeve_length_left_input_in" value="" disabled>
+                <input type="text" id="sleeve_length_left_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="sleeve_length_left_input_in" value="" disabled>
+                <input type="text" id="sleeve_length_left_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -370,25 +376,26 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                  <input type="text" placeholder="0.0" id="stomach_upper_input" value="{{$upper->stomach}}" >
+                  <input type="text" placeholder="0.0" id="stomach_upper_input"
+                         value="{{$upper->stomach}}" autocomplete="off">
                 @else
-                  <input type="text" placeholder="0.0" id="stomach_upper_input">
+                  <input type="text" placeholder="0.0" id="stomach_upper_input" autocomplete="off">
                 @endif
                 <p class="unit">In</p>
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="stomach_upper_input_cm" value="" disabled>
+                <input type="text" id="stomach_upper_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="stomach_upper_input_cm" value="" disabled>
+                <input type="text" id="stomach_upper_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="stomach_upper_input_in" value="" disabled>
+                <input type="text" id="stomach_upper_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="stomach_upper_input_in" value="" disabled>
+                <input type="text" id="stomach_upper_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -402,25 +409,26 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                  <input type="text" placeholder="0.0" id="biceps_input" value="{{$upper->biceps}}">
+                  <input type="text" placeholder="0.0" id="biceps_input"
+                         value="{{$upper->biceps}}" autocomplete="off">
                 @else
-                  <input type="text" placeholder="0.0" id="biceps_input">
+                  <input type="text" placeholder="0.0" id="biceps_input" autocomplete="off">
                 @endif
                 <p class="unit">In</p>
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="biceps_input_cm" value="" disabled>
+                <input type="text" id="biceps_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="biceps_input_cm" value="" disabled>
+                <input type="text" id="biceps_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="biceps_input_in" value="" disabled>
+                <input type="text" id="biceps_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="biceps_input_in" value="" disabled>
+                <input type="text" id="biceps_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -434,25 +442,26 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                  <input type="text" placeholder="0.0" id="forearm_input" value="{{$upper->forearm}}" >
+                  <input type="text" placeholder="0.0" id="forearm_input"
+                         value="{{$upper->forearm}}" autocomplete="off">
                 @else
-                  <input type="text" placeholder="0.0" id="forearm_input">
+                  <input type="text" placeholder="0.0" id="forearm_input" autocomplete="off">
                 @endif
                 <p class="unit">In</p>
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="forearm_input_cm" value="" disabled>
+                <input type="text" id="forearm_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="forearm_input_cm" value="" disabled>
+                <input type="text" id="forearm_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="forearm_input_in" value="" disabled>
+                <input type="text" id="forearm_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="forearm_input_in" value="" disabled>
+                <input type="text" id="forearm_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -466,25 +475,25 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                  <input type="text" placeholder="0.0" id="cuffs_input" value="{{$upper->cuffs}}">
+                  <input type="text" placeholder="0.0" id="cuffs_input" value="{{$upper->cuffs}}" autocomplete="off">
                 @else
-                  <input type="text" placeholder="0.0" id="cuffs_input">
+                  <input type="text" placeholder="0.0" id="cuffs_input" autocomplete="off">
                 @endif
                 <p class="unit">In</p>
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="cuffs_input_cm" value="" disabled>
+                <input type="text" id="cuffs_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="cuffs_input_cm" value="" disabled>
+                <input type="text" id="cuffs_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="cuffs_input_in" value="" disabled>
+                <input type="text" id="cuffs_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="cuffs_input_in" value="" disabled>
+                <input type="text" id="cuffs_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -498,25 +507,26 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                  <input type="text" placeholder="0.0" id="chest_front_input" value="{{$upper->chest_front_width}}">
+                  <input type="text" placeholder="0.0" id="chest_front_input"
+                         value="{{$upper->chest_front_width}}" autocomplete="off">
                 @else
-                  <input type="text" placeholder="0.0" id="chest_front_input">
+                  <input type="text" placeholder="0.0" id="chest_front_input" autocomplete="off">
                 @endif
                 <p class="unit">In</p>
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="chest_front_input_cm" value="" disabled>
+                <input type="text" id="chest_front_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="chest_front_input_cm" value="" disabled>
+                <input type="text" id="chest_front_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="chest_front_input_in" value="" disabled>
+                <input type="text" id="chest_front_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="chest_front_input_in" value="" disabled>
+                <input type="text" id="chest_front_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -530,25 +540,26 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                  <input type="text" placeholder="0.0" id="chest_back_input" value="{{$upper->chest_back_width}}" >
+                  <input type="text" placeholder="0.0" id="chest_back_input"
+                         value="{{$upper->chest_back_width}}" autocomplete="off">
                 @else
-                  <input type="text" placeholder="0.0" id="chest_back_input">
+                  <input type="text" placeholder="0.0" id="chest_back_input" autocomplete="off">
                 @endif
                 <p class="unit">In</p>
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="chest_back_input_cm" value="" disabled>
+                <input type="text" id="chest_back_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="chest_back_input_cm" value="" disabled>
+                <input type="text" id="chest_back_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="chest_back_input_in" value="" disabled>
+                <input type="text" id="chest_back_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="chest_back_input_in" value="" disabled>
+                <input type="text" id="chest_back_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -563,25 +574,25 @@
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
                   <input type="text" placeholder="0.0" id="jacket_front_input"
-                         value="{{$upper->jacket_front_length}}">
+                         value="{{$upper->jacket_front_length}}" autocomplete="off">
                 @else
-                  <input type="text" placeholder="0.0" id="jacket_front_input">
+                  <input type="text" placeholder="0.0" id="jacket_front_input" autocomplete="off">
                 @endif
                 <p class="unit">In</p>
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="jacket_front_input_cm" value="" disabled>
+                <input type="text" id="jacket_front_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="jacket_front_input_cm" value="" disabled>
+                <input type="text" id="jacket_front_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="jacket_front_input_in" value="" disabled>
+                <input type="text" id="jacket_front_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="jacket_front_input_in" value="" disabled>
+                <input type="text" id="jacket_front_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -595,25 +606,26 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                  <input type="text" placeholder="0.0" id="jacket_back_input" value="{{$upper->jacket_back_length}}" >
+                  <input type="text" placeholder="0.0" id="jacket_back_input"
+                         value="{{$upper->jacket_back_length}}" autocomplete="off">
                 @else
-                  <input type="text" placeholder="0.0" id="jacket_back_input">
+                  <input type="text" placeholder="0.0" id="jacket_back_input" autocomplete="off">
                 @endif
                 <p class="unit">In</p>
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="jacket_back_input_cm" value="" disabled>
+                <input type="text" id="jacket_back_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="jacket_back_input_cm" value="" disabled>
+                <input type="text" id="jacket_back_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="jacket_back_input_in" value="" disabled>
+                <input type="text" id="jacket_back_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="jacket_back_input_in" value="" disabled>
+                <input type="text" id="jacket_back_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -627,25 +639,26 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                  <input type="text" placeholder="0.0" id="vest_length_input" value="{{$upper->vest_length}}" >
+                  <input type="text" placeholder="0.0" id="vest_length_input"
+                         value="{{$upper->vest_length}}" autocomplete="off">
                 @else
-                  <input type="text" placeholder="0.0" id="vest_length_input">
+                  <input type="text" placeholder="0.0" id="vest_length_input" autocomplete="off">
                 @endif
                 <p class="unit">In</p>
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="vest_length_input_cm" value="" disabled>
+                <input type="text" id="vest_length_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="vest_length_input_cm" value="" disabled>
+                <input type="text" id="vest_length_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="vest_length_input_in" value="" disabled>
+                <input type="text" id="vest_length_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="vest_length_input_in" value="" disabled>
+                <input type="text" id="vest_length_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -752,27 +765,29 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
-                  <input type="hidden" id="lower_has_id" style="color:white" value="{{$lower->id}}">
-                  <input type="text" placeholder="0.0" value="{{$lower->waist}}" id="waist_lower_input" >
+                  <input type="hidden" id="lower_has_id" style="color:white"
+                         value="{{$lower->id}}" autocomplete="off">
+                  <input type="text" placeholder="0.0" value="{{$lower->waist}}"
+                         id="waist_lower_input" autocomplete="off" >
                 @else
-                  <input type="hidden" id="lower_has_id" style="color:white" value="0">
-                  <input type="text" placeholder="0.0" id="waist_lower_input">
+                  <input type="hidden" id="lower_has_id" style="color:white" value="0" autocomplete="off">
+                  <input type="text" placeholder="0.0" id="waist_lower_input" autocomplete="off">
                 @endif
                 <p class="unit">In</p>
               </div>
               <div class="measure-input-group lower_show_cm d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="waist_lower_input_cm" value="" disabled>
+                <input type="text" id="waist_lower_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="waist_lower_input_cm" value="" disabled>
+                <input type="text" id="waist_lower_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group lower_show_in d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="waist_lower_input_in" value="" disabled>
+                <input type="text" id="waist_lower_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="waist_lower_input_in" value="" disabled>
+                <input type="text" id="waist_lower_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -786,25 +801,26 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
-                  <input type="text" placeholder="0.0" value="{{$lower->stomach}}" id="stomach_lower_input" >
+                  <input type="text" placeholder="0.0" value="{{$lower->stomach}}"
+                         id="stomach_lower_input" autocomplete="off">
                 @else
-                  <input type="text" placeholder="0.0" id="stomach_lower_input">
+                  <input type="text" placeholder="0.0" id="stomach_lower_input" autocomplete="off">
                 @endif
                 <p class="unit">In</p>
               </div>
               <div class="measure-input-group lower_show_cm d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="stomach_lower_input_cm" value="" disabled>
+                <input type="text" id="stomach_lower_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="stomach_lower_input_cm" value="" disabled>
+                <input type="text" id="stomach_lower_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group lower_show_in d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="stomach_lower_input_in" value="" disabled>
+                <input type="text" id="stomach_lower_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="stomach_lower_input_in" value="" disabled>
+                <input type="text" id="stomach_lower_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -818,25 +834,26 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
-                  <input type="text" placeholder="0.0" value="{{$lower->hips}}" id="hips_lower_input" >
+                  <input type="text" placeholder="0.0" value="{{$lower->hips}}"
+                         id="hips_lower_input" autocomplete="off" >
                 @else
-                  <input type="text" placeholder="0.0" id="hips_lower_input">
+                  <input type="text" placeholder="0.0" id="hips_lower_input" autocomplete="off">
                 @endif
                 <p class="unit">In</p>
               </div>
               <div class="measure-input-group lower_show_cm d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="hips_lower_input_cm" value="" disabled>
+                <input type="text" id="hips_lower_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="hips_lower_input_cm" value="" disabled>
+                <input type="text" id="hips_lower_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group lower_show_in d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="hips_lower_input_in" value="" disabled>
+                <input type="text" id="hips_lower_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="hips_lower_input_in" value="" disabled>
+                <input type="text" id="hips_lower_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -850,25 +867,26 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
-                  <input type="text" placeholder="0.0" value="{{$lower->crotch}}" id="crotch_input">
+                  <input type="text" placeholder="0.0" value="{{$lower->crotch}}"
+                         id="crotch_input" autocomplete="off">
                 @else
-                  <input type="text" placeholder="0.0" id="crotch_input">
+                  <input type="text" placeholder="0.0" id="crotch_input" autocomplete="off">
                 @endif
                 <p class="unit">In</p>
               </div>
               <div class="measure-input-group lower_show_cm d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="crotch_input_cm" value="" disabled>
+                <input type="text" id="crotch_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="crotch_input_cm" value="" disabled>
+                <input type="text" id="crotch_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group lower_show_in d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="crotch_input_in" value="" disabled>
+                <input type="text" id="crotch_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="crotch_input_in" value="" disabled>
+                <input type="text" id="crotch_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -882,25 +900,26 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
-                  <input type="text" placeholder="0.0" value="{{$lower->thighs}}" id="thighs_input">
+                  <input type="text" placeholder="0.0" value="{{$lower->thighs}}"
+                         id="thighs_input" autocomplete="off">
                 @else
-                  <input type="text" placeholder="0.0" id="thighs_input">
+                  <input type="text" placeholder="0.0" id="thighs_input" autocomplete="off">
                 @endif
                 <p class="unit">In</p>
               </div>
               <div class="measure-input-group lower_show_cm d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="thighs_input_cm" value="" disabled>
+                <input type="text" id="thighs_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="thighs_input_cm" value="" disabled>
+                <input type="text" id="thighs_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group lower_show_in d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="thighs_input_in" value="" disabled>
+                <input type="text" id="thighs_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="thighs_input_in" value="" disabled>
+                <input type="text" id="thighs_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -914,25 +933,25 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
-                  <input type="text" placeholder="0.0" id="knees_input" value="{{$lower->knees}}">
+                  <input type="text" placeholder="0.0" id="knees_input" value="{{$lower->knees}}" autocomplete="off">
                 @else
-                  <input type="text" placeholder="0.0" id="knees_input">
+                  <input type="text" placeholder="0.0" id="knees_input" autocomplete="off">
                 @endif
                 <p class="unit">In</p>
               </div>
               <div class="measure-input-group lower_show_cm d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="knees_input_cm" value="" disabled>
+                <input type="text" id="knees_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="knees_input_cm" value="" disabled>
+                <input type="text" id="knees_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group lower_show_in d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="knees_input_in" value="" disabled>
+                <input type="text" id="knees_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="knees_input_in" value="" disabled>
+                <input type="text" id="knees_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -946,25 +965,25 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
-                  <input type="text" placeholder="0.0" id="calf_input" value="{{$lower->calf}}">
+                  <input type="text" placeholder="0.0" id="calf_input" value="{{$lower->calf}}" autocomplete="off">
                 @else
-                  <input type="text" placeholder="0.0" id="calf_input">
+                  <input type="text" placeholder="0.0" id="calf_input" autocomplete="off">
                 @endif
                 <p class="unit">In</p>
               </div>
               <div class="measure-input-group lower_show_cm d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="calf_input_cm" value="" disabled>
+                <input type="text" id="calf_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="calf_input_cm" value="" disabled>
+                <input type="text" id="calf_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group lower_show_in d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="calf_input_in" value="" disabled>
+                <input type="text" id="calf_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="calf_input_in" value="" disabled>
+                <input type="text" id="calf_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -978,25 +997,26 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
-                  <input type="text" placeholder="0.0" id="pants_short_input" value="{{$lower->shorts}}" >
+                  <input type="text" placeholder="0.0" id="pants_short_input"
+                         value="{{$lower->shorts}}" autocomplete="off" >
                 @else
-                  <input type="text" placeholder="0.0" id="pants_short_input">
+                  <input type="text" placeholder="0.0" id="pants_short_input" autocomplete="off">
                 @endif
                 <p class="unit">In</p>
               </div>
               <div class="measure-input-group lower_show_cm d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="pants_short_input_cm" value="" disabled>
+                <input type="text" id="pants_short_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="pants_short_input_cm" value="" disabled>
+                <input type="text" id="pants_short_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group lower_show_in d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="pants_short_input_in" value="" disabled>
+                <input type="text" id="pants_short_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="pants_short_input_in" value="" disabled>
+                <input type="text" id="pants_short_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -1010,25 +1030,26 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
-                  <input type="text" placeholder="0.0" id="pants_length_input" value="{{$lower->length}}" >
+                  <input type="text" placeholder="0.0" id="pants_length_input"
+                         value="{{$lower->length}}" autocomplete="off" >
                 @else
-                  <input type="text" placeholder="0.0" id="pants_length_input">
+                  <input type="text" placeholder="0.0" id="pants_length_input" autocomplete="off">
                 @endif
                 <p class="unit">In</p>
               </div>
               <div class="measure-input-group lower_show_cm d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="pants_length_input_cm" value="" disabled>
+                <input type="text" id="pants_length_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="pants_length_input_cm" value="" disabled>
+                <input type="text" id="pants_length_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group lower_show_in d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="pants_length_input_in" value="" disabled>
+                <input type="text" id="pants_length_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="pants_length_input_in" value="" disabled>
+                <input type="text" id="pants_length_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -1042,25 +1063,26 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
-                  <input type="text" placeholder="0.0" id="bottom_length_input" value="{{$lower->bottom}}" >
+                  <input type="text" placeholder="0.0" id="bottom_length_input"
+                         value="{{$lower->bottom}}" autocomplete="off" >
                 @else
-                  <input type="text" placeholder="0.0" id="bottom_length_input">
+                  <input type="text" placeholder="0.0" id="bottom_length_input" autocomplete="off">
                 @endif
                 <p class="unit">In</p>
               </div>
               <div class="measure-input-group lower_show_cm d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="bottom_length_input_cm" value="" disabled>
+                <input type="text" id="bottom_length_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="bottom_length_input_cm" value="" disabled>
+                <input type="text" id="bottom_length_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group lower_show_in d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="bottom_length_input_in" value="" disabled>
+                <input type="text" id="bottom_length_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="bottom_length_input_in" value="" disabled>
+                <input type="text" id="bottom_length_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -1078,10 +1100,10 @@
                 @if($user != null)
                   <input type="text" id="age" value="{{$user_info->age}}"
                          onmousedown="clear_info_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         onkeydown="clear_pass_measure_required()" autocomplete="off">
                 @else
                   <input type="text" id="age" placeholder="0" onmousedown="clear_info_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         onkeydown="clear_pass_measure_required()" autocomplete="off">
                 @endif
                 <p>Year</p>
               </div>
@@ -1097,7 +1119,7 @@
                 @if($user != null)
                   <input type="text" id="height" value="{{$user_info->height}}"
                          onmousedown="clear_info_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         onkeydown="clear_pass_measure_required()" autocomplete="off">
                   @if($user_info->height_type == 'cm')
                     <select name="age" id="height_type">
                       <option value="cm" selected>CM</option>
@@ -1111,7 +1133,7 @@
                   @endif
                 @else
                   <input type="text" id="height" placeholder="0" onmousedown="clear_info_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         onkeydown="clear_pass_measure_required()" autocomplete="off">
                   <select name="age" id="height_type">
                     <option value="cm" selected>CM</option>
                     <option value="in">IN</option>
@@ -1130,7 +1152,7 @@
                 @if($user != null)
                   <input type="text" id="weight" placeholder="0" value="{{$user_info->weight}}"
                          onmousedown="clear_info_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         onkeydown="clear_pass_measure_required()" autocomplete="off">
                   @if($user_info->weight_type == 'kg')
                     <select name="weight" id="weight_type">
                       <option value="kg" selected>KG</option>
@@ -1144,7 +1166,7 @@
                   @endif
                 @else
                   <input type="text" id="weight" placeholder="0" onmousedown="clear_info_required()"
-                         onkeydown="clear_pass_measure_required()">
+                         onkeydown="clear_pass_measure_required()" autocomplete="off">
                   <select name="weight" id="weight_type">
                     <option value="kg" selected>KG</option>
                     <option value="lb">LB</option>
