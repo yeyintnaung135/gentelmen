@@ -16,13 +16,13 @@
     {{-- Body Types --}}
     <div class="measure-types nav-pills" role="tablist">
       <div class="measure-type">
-        <a class="nav-link active" data-bs-toggle="tab" href="#upper" id="upper_tab">UPPER BODY</a>
+        <a class="nav-link active" data-bs-toggle="tab" href="#upper" id="upper_tab" d-none>UPPER BODY</a>
       </div>
       <div class="measure-type">
-        <a class="nav-link" data-bs-toggle="tab" href="#lower" id="lower_tab">LOWER BODY</a>
+        <a class="nav-link" data-bs-toggle="tab" href="#lower" id="lower_tab" d-none>LOWER BODY</a>
       </div>
       <div class="measure-type">
-        <a class="nav-link" data-bs-toggle="tab" href="#info" id="info_tab">INFO</a>
+        <a class="nav-link" data-bs-toggle="tab" href="#info" id="info_tab" d-none>INFO</a>
       </div>
     </div>
     <div class="unit-wrapper">
@@ -1943,16 +1943,16 @@
         // $('#in').attr('checked',false);
         // $('#cm').prop('checked',true);
         if (user_id == null) {
-          alert("not has user in suit define unit");
-            alert("hat="+sessionStorage.getItem('customize_category_id'));
+          // alert("not has user in suit define unit");
+            // alert("hat="+sessionStorage.getItem('customize_category_id'));
             if(sessionStorage.getItem('upper_measure_unit') == null && sessionStorage.getItem('lower_measure_unit') == null) {
-              alert("errororor");
+              // alert("errororor");
                 $('.unit').html("In");
                 $('#in').prop('checked',true);
             }
             if(sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2)
             {
-              alert("wtfff");
+              // alert("wtfff");
                 if(sessionStorage.getItem('upper_measure_unit') != null)
                 {
                   if(sessionStorage.getItem('upper_measure_unit') == 'in')
@@ -1974,17 +1974,17 @@
             }
             else if(sessionStorage.getItem('customize_category_id') == 3)
             {
-              alert("pant unit");
+              // alert("pant unit");
               if(sessionStorage.getItem('lower_measure_unit') != null)
               {
                 if(sessionStorage.getItem('lower_measure_unit') == 'in')
                 {
-                  $('.unit').html("In");
+                  // $('.unit').html("In");
                   $('#in').prop('checked',true);
                 }
                 else if(sessionStorage.getItem('lower_measure_unit') == 'cm')
                 {
-                  alert("pant unit value");
+                  // alert("pant unit value");
                   $('.unit').html("Cm");
                   $('#cm').prop('checked',true);
                 }
@@ -2031,7 +2031,7 @@
               }
             }
         } else if (user_id != null && upper_id != null || lower_id != null) {
-          alert("has user in suit define unit");
+          // alert("has user in suit define unit");
           // alert(upper_id.id);
           // alert(lower_id.id);
           if(sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2)
@@ -3007,11 +3007,11 @@
       }
 
       $('#upper_tab').click(function(){
-        alert("uuu");
+        // alert("uuu");
         $('.unit').html(sessionStorage.getItem('upper_measure_unit'));
       })
       $('#lower_tab').click(function(){
-        alert("llower");
+        // alert("llower");
       $('.unit').html(sessionStorage.getItem('lower_measure_unit'));
       })
   </script>

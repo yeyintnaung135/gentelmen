@@ -2666,27 +2666,42 @@
       // alert("show measure data");
       var cus_cate_id = sessionStorage.getItem('customize_category_id');
       if (cus_cate_id == 1 || cus_cate_id == 2) {
+        alert("UPPER");
         $('#lower_tab').addClass('d-none');
         $('#upper_tab').removeClass('d-none');
+
         $('#upper').addClass('active');
-        $('#info_tab').removeClass('active');
-        // $('#lower').removeClass('active');
+        $('#lower').removeClass('active');
+
+        $('#upper_tab').addClass('active');
+        $('#lower_tab').removeClass('active');
+
+        // $('#info_tab').removeClass('active');
       } else if (cus_cate_id == 3) {
+        alert("LOWER");
         $('#upper_tab').addClass('d-none');
         $('#lower_tab').removeClass('d-none');
-        $('#lower_tab').addClass('active');
+
         $('#upper_tab').removeClass('active');
+        $('#lower_tab').addClass('active');
+
         $('#upper').removeClass('active');
         $('#lower').addClass('active');
-        $('#info_tab').removeClass('active');
+
+        // $('#info_tab').removeClass('active');
       }
       else if(cus_cate_id == 9)
       {
+        alert("SUITS");
         $('#lower_tab').removeClass('d-none');
         $('#upper_tab').removeClass('d-none');
+
         $('#upper').addClass('active');
         $('#lower').removeClass('active');
-        $('#info_tab').removeClass('active');
+
+        $('#upper_tab').addClass('active');
+        $('#lower_tab').removeClass('active');
+        // $('#info_tab').removeClass('active');
       }
     }
 
@@ -3138,7 +3153,7 @@
     }
     function set_measure_unit()
     {
-      alert("set m u");
+      // alert("set m u");
       if(sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2)
       {
         if(sessionStorage.getItem('upper_measure_unit') === 'cm')
