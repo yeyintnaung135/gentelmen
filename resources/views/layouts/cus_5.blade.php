@@ -145,14 +145,28 @@
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
                   <input type="hidden" id="upper_has_id" style="color:white" value="{{$upper->id}}">
-                  <input type="text" id="neck_input" value="{{$upper->neck}}"
-                         >
+                  <input type="text" id="neck_input" value="{{$upper->neck}}">
                 @else
                   <input type="hidden" id="upper_has_id" style="color:white" value="0">
-                  <input type="text" placeholder="0.0" id="neck_input"
-                         >
+                  <input type="text" placeholder="0.0" id="neck_input">
                 @endif
                 <p class="unit">In</p>
+              </div>
+              <div class="measure-input-group upper_show_cm d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="neck_input_cm" value="" disabled>
+                @else
+                <input type="text" id="neck_input_cm" value="" disabled>
+                @endif
+                <p class="">Cm</p>
+              </div>
+              <div class="measure-input-group upper_show_in d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="neck_input_in" value="" disabled>
+                @else
+                <input type="text" id="neck_input_in" value="" disabled>
+                @endif
+                <p class="">In</p>
               </div>
             </div>
           </div>
@@ -164,15 +178,27 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-
-                  <input type="text" placeholder="0.0" id="chest_input" value="{{$upper->chest}}"
-                         >
+                  <input type="text" placeholder="0.0" id="chest_input" value="{{$upper->chest}}">
                 @else
-
-                  <input type="text" placeholder="0.0" id="chest_input"
-                         >
+                  <input type="text" placeholder="0.0" id="chest_input">
                 @endif
                 <p class="unit">In</p>
+              </div>
+              <div class="measure-input-group upper_show_cm d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="chest_input_cm" value="" disabled>
+                @else
+                <input type="text" id="chest_input_cm" value="" disabled>
+                @endif
+                <p class="">Cm</p>
+              </div>
+              <div class="measure-input-group upper_show_in d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="chest_input_in" value="" disabled>
+                @else
+                <input type="text" id="chest_input_in" value="" disabled>
+                @endif
+                <p class="">In</p>
               </div>
             </div>
           </div>
@@ -184,13 +210,27 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                  <input type="text" placeholder="0.0" id="waist_upper_input"
-                         value="{{$upper->waist}}" >
+                  <input type="text" placeholder="0.0" id="waist_upper_input" value="{{$upper->waist}}" >
                 @else
-                  <input type="text" placeholder="0.0" id="waist_upper_input"
-                         >
+                  <input type="text" placeholder="0.0" id="waist_upper_input">
                 @endif
                 <p class="unit">In</p>
+              </div>
+              <div class="measure-input-group upper_show_cm d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="waist_upper_input_cm" value="" disabled>
+                @else
+                <input type="text" id="waist_upper_input_cm" value="" disabled>
+                @endif
+                <p class="">Cm</p>
+              </div>
+              <div class="measure-input-group upper_show_in d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="waist_upper_input_in" value="" disabled>
+                @else
+                <input type="text" id="waist_upper_input_in" value="" disabled>
+                @endif
+                <p class="">In</p>
               </div>
             </div>
           </div>
@@ -202,13 +242,27 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                  <input type="text" placeholder="0.0" id="hips_upper_input"
-                         value="{{$upper->hips}}" >
+                  <input type="text" placeholder="0.0" id="hips_upper_input" value="{{$upper->hips}}" >
                 @else
-                  <input type="text" placeholder="0.0" id="hips_upper_input"
-                         >
+                  <input type="text" placeholder="0.0" id="hips_upper_input">
                 @endif
                 <p class="unit">In</p>
+              </div>
+              <div class="measure-input-group upper_show_cm d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="hips_upper_input_cm" value="" disabled>
+                @else
+                <input type="text" id="hips_upper_input_cm" value="" disabled>
+                @endif
+                <p class="">Cm</p>
+              </div>
+              <div class="measure-input-group upper_show_in d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="hips_upper_input_in" value="" disabled>
+                @else
+                <input type="text" id="hips_upper_input_in" value="" disabled>
+                @endif
+                <p class="">In</p>
               </div>
             </div>
           </div>
@@ -220,13 +274,27 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                  <input type="text" placeholder="0.0" id="shoulder_input"
-                         value="{{$upper->shoulder}}" >
+                  <input type="text" placeholder="0.0" id="shoulder_input" value="{{$upper->shoulder}}" >
                 @else
-                  <input type="text" placeholder="0.0" id="shoulder_input"
-                         >
+                  <input type="text" placeholder="0.0" id="shoulder_input">
                 @endif
                 <p class="unit">In</p>
+              </div>
+              <div class="measure-input-group upper_show_cm d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="shoulder_input_cm" value="" disabled>
+                @else
+                <input type="text" id="shoulder_input_cm" value="" disabled>
+                @endif
+                <p class="">Cm</p>
+              </div>
+              <div class="measure-input-group upper_show_in d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="shoulder_input_in" value="" disabled>
+                @else
+                <input type="text" id="shoulder_input_in" value="" disabled>
+                @endif
+                <p class="">In</p>
               </div>
             </div>
           </div>
@@ -238,14 +306,27 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                  <input type="text" placeholder="0.0" id="sleeve_length_Right_input"
-                         value="{{$upper->sleeve_length_right}}"
-                         >
+                  <input type="text" placeholder="0.0" id="sleeve_length_Right_input" value="{{$upper->sleeve_length_right}}" >
                 @else
-                  <input type="text" placeholder="0.0" id="sleeve_length_Right_input"
-                         >
+                  <input type="text" placeholder="0.0" id="sleeve_length_Right_input">
                 @endif
                 <p class="unit">In</p>
+              </div>
+              <div class="measure-input-group upper_show_cm d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="sleeve_length_Right_input_cm" value="" disabled>
+                @else
+                <input type="text" id="sleeve_length_Right_input_cm" value="" disabled>
+                @endif
+                <p class="">Cm</p>
+              </div>
+              <div class="measure-input-group upper_show_in d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="sleeve_length_Right_input_in" value="" disabled>
+                @else
+                <input type="text" id="sleeve_length_Right_input_in" value="" disabled>
+                @endif
+                <p class="">In</p>
               </div>
             </div>
           </div>
@@ -257,13 +338,27 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                  <input type="text" placeholder="0.0" id="sleeve_length_left_input"
-                         value="{{$upper->sleeve_length_left}}" >
+                  <input type="text" placeholder="0.0" id="sleeve_length_left_input" value="{{$upper->sleeve_length_left}}" >
                 @else
-                  <input type="text" placeholder="0.0" id="sleeve_length_left_input"
-                         >
+                  <input type="text" placeholder="0.0" id="sleeve_length_left_input">
                 @endif
                 <p class="unit">In</p>
+              </div>
+              <div class="measure-input-group upper_show_cm d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="sleeve_length_left_input_cm" value="" disabled>
+                @else
+                <input type="text" id="sleeve_length_left_input_cm" value="" disabled>
+                @endif
+                <p class="">Cm</p>
+              </div>
+              <div class="measure-input-group upper_show_in d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="sleeve_length_left_input_in" value="" disabled>
+                @else
+                <input type="text" id="sleeve_length_left_input_in" value="" disabled>
+                @endif
+                <p class="">In</p>
               </div>
             </div>
           </div>
@@ -275,13 +370,27 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                  <input type="text" placeholder="0.0" id="stomach_upper_input"
-                         value="{{$upper->stomach}}" >
+                  <input type="text" placeholder="0.0" id="stomach_upper_input" value="{{$upper->stomach}}" >
                 @else
-                  <input type="text" placeholder="0.0" id="stomach_upper_input"
-                         >
+                  <input type="text" placeholder="0.0" id="stomach_upper_input">
                 @endif
                 <p class="unit">In</p>
+              </div>
+              <div class="measure-input-group upper_show_cm d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="stomach_upper_input_cm" value="" disabled>
+                @else
+                <input type="text" id="stomach_upper_input_cm" value="" disabled>
+                @endif
+                <p class="">Cm</p>
+              </div>
+              <div class="measure-input-group upper_show_in d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="stomach_upper_input_in" value="" disabled>
+                @else
+                <input type="text" id="stomach_upper_input_in" value="" disabled>
+                @endif
+                <p class="">In</p>
               </div>
             </div>
           </div>
@@ -293,13 +402,27 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                  <input type="text" placeholder="0.0" id="biceps_input" value="{{$upper->biceps}}"
-                         >
+                  <input type="text" placeholder="0.0" id="biceps_input" value="{{$upper->biceps}}">
                 @else
-                  <input type="text" placeholder="0.0" id="biceps_input"
-                         >
+                  <input type="text" placeholder="0.0" id="biceps_input">
                 @endif
                 <p class="unit">In</p>
+              </div>
+              <div class="measure-input-group upper_show_cm d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="biceps_input_cm" value="" disabled>
+                @else
+                <input type="text" id="biceps_input_cm" value="" disabled>
+                @endif
+                <p class="">Cm</p>
+              </div>
+              <div class="measure-input-group upper_show_in d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="biceps_input_in" value="" disabled>
+                @else
+                <input type="text" id="biceps_input_in" value="" disabled>
+                @endif
+                <p class="">In</p>
               </div>
             </div>
           </div>
@@ -311,13 +434,27 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                  <input type="text" placeholder="0.0" id="forearm_input"
-                         value="{{$upper->forearm}}" >
+                  <input type="text" placeholder="0.0" id="forearm_input" value="{{$upper->forearm}}" >
                 @else
-                  <input type="text" placeholder="0.0" id="forearm_input"
-                         >
+                  <input type="text" placeholder="0.0" id="forearm_input">
                 @endif
                 <p class="unit">In</p>
+              </div>
+              <div class="measure-input-group upper_show_cm d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="forearm_input_cm" value="" disabled>
+                @else
+                <input type="text" id="forearm_input_cm" value="" disabled>
+                @endif
+                <p class="">Cm</p>
+              </div>
+              <div class="measure-input-group upper_show_in d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="forearm_input_in" value="" disabled>
+                @else
+                <input type="text" id="forearm_input_in" value="" disabled>
+                @endif
+                <p class="">In</p>
               </div>
             </div>
           </div>
@@ -329,13 +466,27 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                  <input type="text" placeholder="0.0" id="cuffs_input" value="{{$upper->cuffs}}"
-                         >
+                  <input type="text" placeholder="0.0" id="cuffs_input" value="{{$upper->cuffs}}">
                 @else
-                  <input type="text" placeholder="0.0" id="cuffs_input"
-                         >
+                  <input type="text" placeholder="0.0" id="cuffs_input">
                 @endif
                 <p class="unit">In</p>
+              </div>
+              <div class="measure-input-group upper_show_cm d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="cuffs_input_cm" value="" disabled>
+                @else
+                <input type="text" id="cuffs_input_cm" value="" disabled>
+                @endif
+                <p class="">Cm</p>
+              </div>
+              <div class="measure-input-group upper_show_in d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="cuffs_input_in" value="" disabled>
+                @else
+                <input type="text" id="cuffs_input_in" value="" disabled>
+                @endif
+                <p class="">In</p>
               </div>
             </div>
           </div>
@@ -347,13 +498,27 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                  <input type="text" placeholder="0.0" id="chest_front_input"
-                         value="{{$upper->chest_front_width}}" >
+                  <input type="text" placeholder="0.0" id="chest_front_input" value="{{$upper->chest_front_width}}">
                 @else
-                  <input type="text" placeholder="0.0" id="chest_front_input"
-                         >
+                  <input type="text" placeholder="0.0" id="chest_front_input">
                 @endif
                 <p class="unit">In</p>
+              </div>
+              <div class="measure-input-group upper_show_cm d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="chest_front_input_cm" value="" disabled>
+                @else
+                <input type="text" id="chest_front_input_cm" value="" disabled>
+                @endif
+                <p class="">Cm</p>
+              </div>
+              <div class="measure-input-group upper_show_in d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="chest_front_input_in" value="" disabled>
+                @else
+                <input type="text" id="chest_front_input_in" value="" disabled>
+                @endif
+                <p class="">In</p>
               </div>
             </div>
           </div>
@@ -365,13 +530,27 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                  <input type="text" placeholder="0.0" id="chest_back_input"
-                         value="{{$upper->chest_back_width}}" >
+                  <input type="text" placeholder="0.0" id="chest_back_input" value="{{$upper->chest_back_width}}" >
                 @else
-                  <input type="text" placeholder="0.0" id="chest_back_input"
-                         >
+                  <input type="text" placeholder="0.0" id="chest_back_input">
                 @endif
                 <p class="unit">In</p>
+              </div>
+              <div class="measure-input-group upper_show_cm d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="chest_back_input_cm" value="" disabled>
+                @else
+                <input type="text" id="chest_back_input_cm" value="" disabled>
+                @endif
+                <p class="">Cm</p>
+              </div>
+              <div class="measure-input-group upper_show_in d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="chest_back_input_in" value="" disabled>
+                @else
+                <input type="text" id="chest_back_input_in" value="" disabled>
+                @endif
+                <p class="">In</p>
               </div>
             </div>
           </div>
@@ -384,13 +563,27 @@
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
                   <input type="text" placeholder="0.0" id="jacket_front_input"
-                         value="{{$upper->jacket_front_length}}"
-                         >
+                         value="{{$upper->jacket_front_length}}">
                 @else
-                  <input type="text" placeholder="0.0" id="jacket_front_input"
-                         >
+                  <input type="text" placeholder="0.0" id="jacket_front_input">
                 @endif
                 <p class="unit">In</p>
+              </div>
+              <div class="measure-input-group upper_show_cm d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="jacket_front_input_cm" value="" disabled>
+                @else
+                <input type="text" id="jacket_front_input_cm" value="" disabled>
+                @endif
+                <p class="">Cm</p>
+              </div>
+              <div class="measure-input-group upper_show_in d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="jacket_front_input_in" value="" disabled>
+                @else
+                <input type="text" id="jacket_front_input_in" value="" disabled>
+                @endif
+                <p class="">In</p>
               </div>
             </div>
           </div>
@@ -402,13 +595,27 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                  <input type="text" placeholder="0.0" id="jacket_back_input"
-                         value="{{$upper->jacket_back_length}}" >
+                  <input type="text" placeholder="0.0" id="jacket_back_input" value="{{$upper->jacket_back_length}}" >
                 @else
-                  <input type="text" placeholder="0.0" id="jacket_back_input"
-                         >
+                  <input type="text" placeholder="0.0" id="jacket_back_input">
                 @endif
                 <p class="unit">In</p>
+              </div>
+              <div class="measure-input-group upper_show_cm d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="jacket_back_input_cm" value="" disabled>
+                @else
+                <input type="text" id="jacket_back_input_cm" value="" disabled>
+                @endif
+                <p class="">Cm</p>
+              </div>
+              <div class="measure-input-group upper_show_in d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="jacket_back_input_in" value="" disabled>
+                @else
+                <input type="text" id="jacket_back_input_in" value="" disabled>
+                @endif
+                <p class="">In</p>
               </div>
             </div>
           </div>
@@ -420,13 +627,27 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                  <input type="text" placeholder="0.0" id="vest_length_input"
-                         value="{{$upper->vest_length}}" >
+                  <input type="text" placeholder="0.0" id="vest_length_input" value="{{$upper->vest_length}}" >
                 @else
-                  <input type="text" placeholder="0.0" id="vest_length_input"
-                         >
+                  <input type="text" placeholder="0.0" id="vest_length_input">
                 @endif
                 <p class="unit">In</p>
+              </div>
+              <div class="measure-input-group upper_show_cm d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="vest_length_input_cm" value="" disabled>
+                @else
+                <input type="text" id="vest_length_input_cm" value="" disabled>
+                @endif
+                <p class="">Cm</p>
+              </div>
+              <div class="measure-input-group upper_show_in d-none">
+                @if($user != null && $upper != null)
+                <input type="text" id="vest_length_input_in" value="" disabled>
+                @else
+                <input type="text" id="vest_length_input_in" value="" disabled>
+                @endif
+                <p class="">In</p>
               </div>
             </div>
           </div>
@@ -532,14 +753,28 @@
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
                   <input type="hidden" id="lower_has_id" style="color:white" value="{{$lower->id}}">
-                  <input type="text" placeholder="0.0" value="{{$lower->waist}}"
-                         id="waist_lower_input" >
+                  <input type="text" placeholder="0.0" value="{{$lower->waist}}" id="waist_lower_input" >
                 @else
                   <input type="hidden" id="lower_has_id" style="color:white" value="0">
-                  <input type="text" placeholder="0.0" id="waist_lower_input"
-                         >
+                  <input type="text" placeholder="0.0" id="waist_lower_input">
                 @endif
                 <p class="unit">In</p>
+              </div>
+              <div class="measure-input-group lower_show_cm d-none">
+                @if($user != null && $lower != null)
+                <input type="text" id="waist_lower_input_cm" value="" disabled>
+                @else
+                <input type="text" id="waist_lower_input_cm" value="" disabled>
+                @endif
+                <p class="">Cm</p>
+              </div>
+              <div class="measure-input-group lower_show_in d-none">
+                @if($user != null && $lower != null)
+                <input type="text" id="waist_lower_input_in" value="" disabled>
+                @else
+                <input type="text" id="waist_lower_input_in" value="" disabled>
+                @endif
+                <p class="">In</p>
               </div>
             </div>
           </div>
@@ -551,13 +786,27 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
-                  <input type="text" placeholder="0.0" value="{{$lower->stomach}}"
-                         id="stomach_lower_input" >
+                  <input type="text" placeholder="0.0" value="{{$lower->stomach}}" id="stomach_lower_input" >
                 @else
-                  <input type="text" placeholder="0.0" id="stomach_lower_input"
-                         >
+                  <input type="text" placeholder="0.0" id="stomach_lower_input">
                 @endif
                 <p class="unit">In</p>
+              </div>
+              <div class="measure-input-group lower_show_cm d-none">
+                @if($user != null && $lower != null)
+                <input type="text" id="stomach_lower_input_cm" value="" disabled>
+                @else
+                <input type="text" id="stomach_lower_input_cm" value="" disabled>
+                @endif
+                <p class="">Cm</p>
+              </div>
+              <div class="measure-input-group lower_show_in d-none">
+                @if($user != null && $lower != null)
+                <input type="text" id="stomach_lower_input_in" value="" disabled>
+                @else
+                <input type="text" id="stomach_lower_input_in" value="" disabled>
+                @endif
+                <p class="">In</p>
               </div>
             </div>
           </div>
@@ -569,13 +818,27 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
-                  <input type="text" placeholder="0.0" value="{{$lower->hips}}"
-                         id="hips_lower_input" >
+                  <input type="text" placeholder="0.0" value="{{$lower->hips}}" id="hips_lower_input" >
                 @else
-                  <input type="text" placeholder="0.0" id="hips_lower_input"
-                         >
+                  <input type="text" placeholder="0.0" id="hips_lower_input">
                 @endif
                 <p class="unit">In</p>
+              </div>
+              <div class="measure-input-group lower_show_cm d-none">
+                @if($user != null && $lower != null)
+                <input type="text" id="hips_lower_input_cm" value="" disabled>
+                @else
+                <input type="text" id="hips_lower_input_cm" value="" disabled>
+                @endif
+                <p class="">Cm</p>
+              </div>
+              <div class="measure-input-group lower_show_in d-none">
+                @if($user != null && $lower != null)
+                <input type="text" id="hips_lower_input_in" value="" disabled>
+                @else
+                <input type="text" id="hips_lower_input_in" value="" disabled>
+                @endif
+                <p class="">In</p>
               </div>
             </div>
           </div>
@@ -587,13 +850,27 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
-                  <input type="text" placeholder="0.0" value="{{$lower->crotch}}" id="crotch_input"
-                         >
+                  <input type="text" placeholder="0.0" value="{{$lower->crotch}}" id="crotch_input">
                 @else
-                  <input type="text" placeholder="0.0" id="crotch_input"
-                         >
+                  <input type="text" placeholder="0.0" id="crotch_input">
                 @endif
                 <p class="unit">In</p>
+              </div>
+              <div class="measure-input-group lower_show_cm d-none">
+                @if($user != null && $lower != null)
+                <input type="text" id="crotch_input_cm" value="" disabled>
+                @else
+                <input type="text" id="crotch_input_cm" value="" disabled>
+                @endif
+                <p class="">Cm</p>
+              </div>
+              <div class="measure-input-group lower_show_in d-none">
+                @if($user != null && $lower != null)
+                <input type="text" id="crotch_input_in" value="" disabled>
+                @else
+                <input type="text" id="crotch_input_in" value="" disabled>
+                @endif
+                <p class="">In</p>
               </div>
             </div>
           </div>
@@ -605,13 +882,27 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
-                  <input type="text" placeholder="0.0" value="{{$lower->thighs}}" id="thighs_input"
-                         >
+                  <input type="text" placeholder="0.0" value="{{$lower->thighs}}" id="thighs_input">
                 @else
-                  <input type="text" placeholder="0.0" id="thighs_input"
-                         >
+                  <input type="text" placeholder="0.0" id="thighs_input">
                 @endif
                 <p class="unit">In</p>
+              </div>
+              <div class="measure-input-group lower_show_cm d-none">
+                @if($user != null && $lower != null)
+                <input type="text" id="thighs_input_cm" value="" disabled>
+                @else
+                <input type="text" id="thighs_input_cm" value="" disabled>
+                @endif
+                <p class="">Cm</p>
+              </div>
+              <div class="measure-input-group lower_show_in d-none">
+                @if($user != null && $lower != null)
+                <input type="text" id="thighs_input_in" value="" disabled>
+                @else
+                <input type="text" id="thighs_input_in" value="" disabled>
+                @endif
+                <p class="">In</p>
               </div>
             </div>
           </div>
@@ -623,13 +914,27 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
-                  <input type="text" placeholder="0.0" id="knees_input" value="{{$lower->knees}}"
-                         >
+                  <input type="text" placeholder="0.0" id="knees_input" value="{{$lower->knees}}">
                 @else
-                  <input type="text" placeholder="0.0" id="knees_input"
-                         >
+                  <input type="text" placeholder="0.0" id="knees_input">
                 @endif
                 <p class="unit">In</p>
+              </div>
+              <div class="measure-input-group lower_show_cm d-none">
+                @if($user != null && $lower != null)
+                <input type="text" id="knees_input_cm" value="" disabled>
+                @else
+                <input type="text" id="knees_input_cm" value="" disabled>
+                @endif
+                <p class="">Cm</p>
+              </div>
+              <div class="measure-input-group lower_show_in d-none">
+                @if($user != null && $lower != null)
+                <input type="text" id="knees_input_in" value="" disabled>
+                @else
+                <input type="text" id="knees_input_in" value="" disabled>
+                @endif
+                <p class="">In</p>
               </div>
             </div>
           </div>
@@ -641,13 +946,27 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
-                  <input type="text" placeholder="0.0" id="calf_input" value="{{$lower->calf}}"
-                         >
+                  <input type="text" placeholder="0.0" id="calf_input" value="{{$lower->calf}}">
                 @else
-                  <input type="text" placeholder="0.0" id="calf_input"
-                         >
+                  <input type="text" placeholder="0.0" id="calf_input">
                 @endif
                 <p class="unit">In</p>
+              </div>
+              <div class="measure-input-group lower_show_cm d-none">
+                @if($user != null && $lower != null)
+                <input type="text" id="calf_input_cm" value="" disabled>
+                @else
+                <input type="text" id="calf_input_cm" value="" disabled>
+                @endif
+                <p class="">Cm</p>
+              </div>
+              <div class="measure-input-group lower_show_in d-none">
+                @if($user != null && $lower != null)
+                <input type="text" id="calf_input_in" value="" disabled>
+                @else
+                <input type="text" id="calf_input_in" value="" disabled>
+                @endif
+                <p class="">In</p>
               </div>
             </div>
           </div>
@@ -659,13 +978,27 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
-                  <input type="text" placeholder="0.0" id="pants_short_input"
-                         value="{{$lower->shorts}}" >
+                  <input type="text" placeholder="0.0" id="pants_short_input" value="{{$lower->shorts}}" >
                 @else
-                  <input type="text" placeholder="0.0" id="pants_short_input"
-                         >
+                  <input type="text" placeholder="0.0" id="pants_short_input">
                 @endif
                 <p class="unit">In</p>
+              </div>
+              <div class="measure-input-group lower_show_cm d-none">
+                @if($user != null && $lower != null)
+                <input type="text" id="pants_short_input_cm" value="" disabled>
+                @else
+                <input type="text" id="pants_short_input_cm" value="" disabled>
+                @endif
+                <p class="">Cm</p>
+              </div>
+              <div class="measure-input-group lower_show_in d-none">
+                @if($user != null && $lower != null)
+                <input type="text" id="pants_short_input_in" value="" disabled>
+                @else
+                <input type="text" id="pants_short_input_in" value="" disabled>
+                @endif
+                <p class="">In</p>
               </div>
             </div>
           </div>
@@ -677,13 +1010,27 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
-                  <input type="text" placeholder="0.0" id="pants_length_input"
-                         value="{{$lower->length}}" >
+                  <input type="text" placeholder="0.0" id="pants_length_input" value="{{$lower->length}}" >
                 @else
-                  <input type="text" placeholder="0.0" id="pants_length_input"
-                         >
+                  <input type="text" placeholder="0.0" id="pants_length_input">
                 @endif
                 <p class="unit">In</p>
+              </div>
+              <div class="measure-input-group lower_show_cm d-none">
+                @if($user != null && $lower != null)
+                <input type="text" id="pants_length_input_cm" value="" disabled>
+                @else
+                <input type="text" id="pants_length_input_cm" value="" disabled>
+                @endif
+                <p class="">Cm</p>
+              </div>
+              <div class="measure-input-group lower_show_in d-none">
+                @if($user != null && $lower != null)
+                <input type="text" id="pants_length_input_in" value="" disabled>
+                @else
+                <input type="text" id="pants_length_input_in" value="" disabled>
+                @endif
+                <p class="">In</p>
               </div>
             </div>
           </div>
@@ -695,13 +1042,27 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
-                  <input type="text" placeholder="0.0" id="bottom_length_input"
-                         value="{{$lower->bottom}}" >
+                  <input type="text" placeholder="0.0" id="bottom_length_input" value="{{$lower->bottom}}" >
                 @else
-                  <input type="text" placeholder="0.0" id="bottom_length_input"
-                         >
+                  <input type="text" placeholder="0.0" id="bottom_length_input">
                 @endif
                 <p class="unit">In</p>
+              </div>
+              <div class="measure-input-group lower_show_cm d-none">
+                @if($user != null && $lower != null)
+                <input type="text" id="bottom_length_input_cm" value="" disabled>
+                @else
+                <input type="text" id="bottom_length_input_cm" value="" disabled>
+                @endif
+                <p class="">Cm</p>
+              </div>
+              <div class="measure-input-group lower_show_in d-none">
+                @if($user != null && $lower != null)
+                <input type="text" id="bottom_length_input_in" value="" disabled>
+                @else
+                <input type="text" id="bottom_length_input_in" value="" disabled>
+                @endif
+                <p class="">In</p>
               </div>
             </div>
           </div>
@@ -1346,6 +1707,7 @@
     });
 
     $(document).ready(() => {
+      // $('.unit').html("Cm");
         var user_id = @json($user);
         var upper_id = @json($upper);
         var lower_id = @json($lower);
@@ -1522,6 +1884,44 @@
             all_lower_count += 1;
         }
         //End get session data if has for lower
+        //cm and in different start
+        if(sessionStorage.getItem('customize_category_id') == 9)
+        {
+          alert("nn5");
+          alert(sessionStorage.getItem('upper_measure_unit'));
+          // if(sessionStorage.getItem('pass_measure') != null)
+          // {
+            if(sessionStorage.getItem('upper_measure_unit') != null && sessionStorage.getItem('lower_measure_unit') != null)
+            {
+              if(sessionStorage.getItem('upper_measure_unit') != sessionStorage.getItem('lower_measure_unit'))
+              {
+                $('.unit').html(sessionStorage.getItem('upper_measure_unit'));
+
+                if(sessionStorage.getItem('lower_measure_unit') == 'cm')
+                {
+                  $('.upper_show_cm').removeClass('d-none');
+                  upper_change_cm();
+                }
+                else if(sessionStorage.getItem('lower_measure_unit') == 'in')
+                {
+                  $('.upper_show_in').removeClass('d-none');
+                  upper_change_in();
+                }
+                if(sessionStorage.getItem('upper_measure_unit') == 'cm')
+                {
+                  $('.lower_show_cm').removeClass('d-none');
+                  lower_change_cm();
+                }
+                else if(sessionStorage.getItem('upper_measure_unit') == 'in')
+                {
+                  $('.lower_show_in').removeClass('d-none');
+                  lower_change_in();
+                }
+              }
+            }
+          // }
+        }
+        //cm and in difference end
         //start determine to go next step 6
         // alert(all_upper_count);
         if (all_info_count == 12 && sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2) {
@@ -1540,51 +1940,228 @@
         }
         //end determine to go next step 6
         let category = "in";
-        if (user_id == null && upper_id == null || lower_id == null) {
-
-            if (sessionStorage.getItem('measure_unit') == null && sessionStorage.getItem('measure_unit') == '') {
-                $('.unit').html("In")
-            } else {
-                if (sessionStorage.getItem('measure_unit') == 'in') {
-                    $('.unit').html("In")
-                } else if (sessionStorage.getItem('measure_unit') == 'cm') {
-                    $('.unit').html("Cm")
+        // $('#in').attr('checked',false);
+        // $('#cm').prop('checked',true);
+        if (user_id == null) {
+          alert("not has user in suit define unit");
+            alert("hat="+sessionStorage.getItem('customize_category_id'));
+            if(sessionStorage.getItem('upper_measure_unit') == null && sessionStorage.getItem('lower_measure_unit') == null) {
+              alert("errororor");
+                $('.unit').html("In");
+                $('#in').prop('checked',true);
+            }
+            if(sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2)
+            {
+              alert("wtfff");
+                if(sessionStorage.getItem('upper_measure_unit') != null)
+                {
+                  if(sessionStorage.getItem('upper_measure_unit') == 'in')
+                  {
+                    $('.unit').html("In");
+                    $('#in').prop('checked',true);
+                  }
+                  else if(sessionStorage.getItem('upper_measure_unit') == 'cm')
+                  {
+                    $('.unit').html("Cm");
+                    $('#cm').prop('checked',true);
+                  }
+                }
+                else
+                {
+                  $('.unit').html("In");
+                  $('#in').prop('checked',true);
                 }
             }
+            else if(sessionStorage.getItem('customize_category_id') == 3)
+            {
+              alert("pant unit");
+              if(sessionStorage.getItem('lower_measure_unit') != null)
+              {
+                if(sessionStorage.getItem('lower_measure_unit') == 'in')
+                {
+                  $('.unit').html("In");
+                  $('#in').prop('checked',true);
+                }
+                else if(sessionStorage.getItem('lower_measure_unit') == 'cm')
+                {
+                  alert("pant unit value");
+                  $('.unit').html("Cm");
+                  $('#cm').prop('checked',true);
+                }
+              }
+              else
+              {
+                $('.unit').html("In");
+                $('#in').prop('checked',true);
+              }
+            }
+            else if(sessionStorage.getItem('customize_category_id') == 9)
+            {
+              if(sessionStorage.getItem('upper_measure_unit') != null)
+              {
+                if(sessionStorage.getItem('upper_measure_unit') == 'in')
+                {
+                  $('.unit').html("In");
+                  $('#in').prop('checked',true);
+                }
+                else if(sessionStorage.getItem('upper_measure_unit') == 'cm')
+                {
+                  $('.unit').html("Cm");
+                  $('#cm').prop('checked',true);
+                }
+              }
+              else if(sessionStorage.getItem('lower_measure_unit') != null)
+              {
+                if(sessionStorage.getItem('lower_measure_unit') == 'in')
+                {
+                  $('.unit').html("In");
+                  $('#in').prop('checked',true);
+                }
+                else if(sessionStorage.getItem('lower_measure_unit') == 'cm')
+                {
+                  $('.unit').html("Cm");
+                  $('#cm').prop('checked',true);
+                }
+              }
+              else
+              {
+                // alert("jjkk");
+                $('.unit').html("In");
+                $('#in').prop('checked',true);
+              }
+            }
         } else if (user_id != null && upper_id != null || lower_id != null) {
-          if(sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2 || sessionStorage.getItem('customize_category_id') == 9)
+          alert("has user in suit define unit");
+          // alert(upper_id.id);
+          // alert(lower_id.id);
+          if(sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2)
           {
-            // alert("djkad");
-            // alert(upper_id.measure_type);
             if(upper_id != null)
             {
               // alert(upper_id.measure_type);
             if (upper_id.measure_type == 'in') {
-                $('.unit').html("In")
+                $('.unit').html("In");
+                $('#in').prop('checked',true);
             } else if (upper_id.measure_type == 'cm') {
-                $('.unit').html("Cm")
+                $('.unit').html("Cm");
+                $('#cm').prop('checked',true);
             }
-            sessionStorage.setItem('measure_unit', upper_id.measure_type);
+            sessionStorage.setItem('upper_measure_unit', upper_id.measure_type);
+            }
+            else
+            {
+              $('.unit').html("In");
+              $('#in').prop('checked',true);
             }
           }
-          if(sessionStorage.getItem('customize_category_id') == 3 || sessionStorage.getItem('customize_category_id') == 9)
+          if(sessionStorage.getItem('customize_category_id') == 3)
             {
               // alert(lower_id.measure_type);
               if(lower_id != null)
               {
               if (lower_id.measure_type == 'in') {
-                  $('.unit').html("In")
+                  $('.unit').html("In");
+                  $('#in').prop('checked',true);
               } else if (lower_id.measure_type == 'cm') {
-                  $('.unit').html("Cm")
+                  $('.unit').html("Cm");
+                  $('#cm').prop('checked',true);
               }
-              sessionStorage.setItem('measure_unit', lower_id.measure_type);
+              sessionStorage.setItem('lower_measure_unit', lower_id.measure_type);
+              }
+              else
+              {
+                $('.unit').html("In");
+                $('#in').prop('checked',true);
+              }
+            }
+            if(sessionStorage.getItem('customize_category_id') == 9)
+            {
+              // alert("okay");
+              if(upper_id == null && lower_id == null)
+              {
+                $('.unit').html("In");
+                $('#in').prop('checked',true);
+                sessionStorage.setItem('upper_measure_unit', "in");
+                sessionStorage.setItem('lower_measure_unit', "in");
+              }
+              else if(upper_id != null && lower_id == null)
+              {
+                if(upper_id.measure_type == 'in')
+                {
+                  $('.unit').html("In");
+                  $('#in').prop('checked',true);
+                  sessionStorage.setItem('upper_measure_unit', "in");
+                }
+                else if(upper_id.measure_type == 'cm')
+                {
+                  $('.unit').html("Cm");
+                  $('#cm').prop('checked',true);
+                  sessionStorage.setItem('upper_measure_unit', "cm");
+                }
+              }
+              else if(upper_id == null && lower_id != null)
+              {
+                if(lower_id.measure_type == 'in')
+                {
+                  $('.unit').html("In");
+                  $('#in').prop('checked',true);
+                  sessionStorage.setItem('lower_measure_unit', "in");
+                }
+                else if(lower_id.measure_type == 'cm')
+                {
+                  $('.unit').html("Cm");
+                  $('#cm').prop('checked',true);
+                  sessionStorage.setItem('lower_measure_unit', "cm");
+                }
+              }
+              else if(upper_id != null && lower_id != null)
+              {
+                // alert("okay 2");
+                if(upper_id.measure_type == 'in')
+                {
+                  $('.unit').html("In");
+                  $('#in').prop('checked',true);
+                  sessionStorage.setItem('upper_measure_unit', "in");
+                }
+                else if(upper_id.measure_type == 'cm')
+                {
+                  // alert("okay upper cm");
+                  Category = "cm";
+                  if(Category == "cm"){
+                    $('.unit').html("Cm");
+                  }
+                  $('#cm').prop('checked',true);
+                  // alert("okay upper cm change");
+                  sessionStorage.setItem('upper_measure_unit', "cm");
+                }
+
+                if(lower_id.measure_type == 'in')
+                {
+                  // $('.unit').html("In");
+                  // $('#in').attr('checked',true);
+                  sessionStorage.setItem('lower_measure_unit', "in");
+                }
+                else if(lower_id.measure_type == 'cm')
+                {
+                  // $('.unit').html("Cm");
+                  // $('#cm').attr('checked',true);
+                  sessionStorage.setItem('lower_measure_unit', "cm");
+                }
               }
             }
 
         }
 
         $("input[name='measure_unit']").click(function () {
+          // alert("fdfdf");
             sessionStorage.removeItem('pass_measure');
+            if(sessionStorage.getItem('customize_category_id') == 9)
+            {
+              $('.upper_show_cm').addClass('d-none');
+              $('.upper_show_in').addClass('d-none');
+              $('.lower_show_in').addClass('d-none');
+              $('.lower_show_cm').addClass('d-none');
+            }
             category = this.value;
             var neck = $('#neck_input').val();
             var chest = $('#chest_input').val();
@@ -1613,7 +2190,7 @@
             var pshort = $('#pants_short_input').val();
             var plength = $('#pants_length_input').val();
             var pbottom = $('#bottom_length_input').val();
-            // alert(category);
+
             if (category === "in") {
                 $('.unit').html("In")
                 //start convert cm to in upper data
@@ -1898,11 +2475,12 @@
               } else {
                 $('#bottom_length_input').val((pbottom *2.54).toFixed(2));
               }
-              //end convert cm to in lower data
+              //end convert in to cm lower data
             }
           }
 
         });
+
     })
 
 
@@ -1914,134 +2492,12 @@
           // alert("Step Count = "+count);
           var upper_id = @json($upper);
           var lower_id = @json($lower);
-          alert(upper_id);
-          alert(lower_id);
+          // alert("Upper ID = "+upper_id);
+          // alert("Lower ID = "+lower_id);
           // alert(upper_id.measure_type);
           // alert(lower_id.measure_type);
-          if(sessionStorage.getItem('customize_category_id') != 9)
-          {
-            alert("9in");
-
-          if(upper_id != null && lower_id == null)
-          {
-            alert("has upper ");
-            if(sessionStorage.getItem('measure_unit') == upper_id.measure_type)
-            {
-              alert("go");
-              store_measurement_overall();
-            }
-            else{
-              alert("unit error");
-              swal({
-                title: "Error",
-                text: "Lower Body Measurement Unit must be same unit With Upper Body "
-              });
-            }
-          }
-          else if(lower_id != null && upper_id == null)
-          {
-            alert("has lower");
-            if(sessionStorage.getItem('measure_unit') == lower_id.measure_type)
-            {
-              alert("go");
-              store_measurement_overall();
-            }
-            else
-            {
-              alert("unit error");
-              swal({
-                title: "Error",
-                text: "Upper Body Measurement Unit must be same unit with Lower Body"
-              });
-            }
-          }
-          else if(upper_id != null && lower_id != null)
-          {
-            alert("have both");
-            if(sessionStorage.getItem('measure_unit') == upper_id.measure_type)
-            {
-              alert("go");
-              store_measurement_overall();
-            }
-            else
-            {
-              // alert("unit error");
-              swal({
-                title: "Error",
-                text: "Upper And Lower Body Measurement Unit must be same unit"
-              });
-            }
-          }
-          else{
-            // alert("not have both");
-            if(sessionStorage.getItem('lower_measure_unit_temp') != null && sessionStorage.getItem('upper_measure_unit_temp') == null)
-            {
-              // alert("upper measure");
-              if(sessionStorage.getItem('lower_measure_unit_temp') == sessionStorage.getItem('measure_unit'))
-              {
-                store_measurement_overall();
-              }
-              else
-              {
-                if(sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2)
-                {
-                swal({
-                  title: "Error",
-                  text: "Upper Body Measurement Unit must be same unit with Lower Body"
-                });
-                // alert("upper self update");
-                // store_measurement_overall();
-                }
-                else if(sessionStorage.getItem('customize_category_id') == 3)
-                {
-                  // swal({
-                  //   title: "Error",
-                  //   text: "Lower Body Measurement Unit must be same unit with Upper Body"
-                  // });
-                  alert("upper self update");
-                  store_measurement_overall();
-                }
-              }
-            }
-            else if(sessionStorage.getItem('lower_measure_unit_temp') == null && sessionStorage.getItem('upper_measure_unit_temp') != null)
-            {
-              // alert("lower measure");
-              if(sessionStorage.getItem('upper_measure_unit_temp') == sessionStorage.getItem('measure_unit'))
-              {
-                store_measurement_overall();
-              }
-              else
-              {
-                if(sessionStorage.getItem('customize_category_id') == 3)
-                {
-                  swal({
-                    title: "Error",
-                    text: "Lower Body Measurement Unit must be same unit with Upper Body"
-                  });
-                  // alert("lower self update");
-                  // store_measurement_overall();
-                }
-                else if(sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2)
-                {
-                  // swal({
-                  //   title: "Error",
-                  //   text: "Upper Body Measurement Unit must be same unit with Lower Body"
-                  // });
-                  // alert("lower self update");
-                  store_measurement_overall();
-                }
-              }
-            }
-            else
-            {
-            store_measurement_overall();
-            }
-          }
-        }
-        else if(sessionStorage.getItem('customize_category_id') == 9)
-        {
           store_measurement_overall();
-        }
+
         }
         function store_measurement_overall(){
           if (sessionStorage.getItem('from_store_temporary_user') == null || sessionStorage.getItem('from_store_temporary_user') == '') {
@@ -2414,7 +2870,8 @@
                       "_token": "{{csrf_token()}}",
                       "user_id": user_id,
                       "cus_cate_id": sessionStorage.getItem('customize_category_id'),
-                      "measure_type": sessionStorage.getItem('measure_unit'),
+                      "upper_measure_unit": sessionStorage.getItem('upper_measure_unit'),
+                      "lower_measure_unit": sessionStorage.getItem('lower_measure_unit'),
 
                       "age": age,
                       "height": height,
@@ -2459,7 +2916,8 @@
                       "pcalf": pcalf,
                       "pshort": pshort,
                       "plength": plength,
-                      "pbottom": pbottom
+                      "pbottom": pbottom,
+
                   },
                   success: function (data) {
                       if (data.msg == 'success') {
@@ -2547,5 +3005,14 @@
           // alert('ll');
           sessionStorage.removeItem('pass_measure')
       }
+
+      $('#upper_tab').click(function(){
+        alert("uuu");
+        $('.unit').html(sessionStorage.getItem('upper_measure_unit'));
+      })
+      $('#lower_tab').click(function(){
+        alert("llower");
+      $('.unit').html(sessionStorage.getItem('lower_measure_unit'));
+      })
   </script>
 @endpush

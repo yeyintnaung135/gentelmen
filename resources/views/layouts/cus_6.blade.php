@@ -270,6 +270,7 @@
 <script>
   $(document).ready(function () {
     // alert("hide");
+    set_measure_unit();
     var user_info = @json($user_info);
     var address = '';
     if(user_info != null)

@@ -202,6 +202,9 @@
             "suit_code" : sessionStorage.getItem('suit_code'),
             "shipping_id" : sessionStorage.getItem('shipping_id'),
             "shipping_price" : sessionStorage.getItem('shipping_price'),
+
+            "upper_measure_unit" : sessionStorage.getItem('upper_measure_unit'),
+            "lower_measure_unit" : sessionStorage.getItem('lower_measure_unit'),
             },
           success: function (data) {
             sessionStorage.setItem('has_step',data.has_step);
@@ -524,24 +527,56 @@
                     var cus_total_price = data.get_step_data.cus_total_price
                     sessionStorage.setItem('cus_total_price',cus_total_price);
                   }
-                  // if(data.get_step_data.measure_type == 'cm')
-                  // {
-                  //   // alert("in cm");
-                  //   var measure_unit = "cm";
-                  //   sessionStorage.setItem('measure_unit',measure_unit);
-                  // }
-                  // else if(data.get_step_data.measure_type == 'in')
-                  // {
-                  //   // alert("in in");
-                  //   var measure_unit = "in";
-                  //   sessionStorage.setItem('measure_unit',measure_unit);
-                  // }
-                  // else
-                  // {
-                  //   // alert("null unit");
-                  //   sessionStorage.setItem('measure_unit','cm');
+                  if(data.get_step_data.upper_measure_unit == null && data.get_step_data.lower_measure_unit == null)
+                  {
+                    // alert("ctp-0");
+                    var measure_unit = 'in';
+                    if(sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2)
+                    {
+                      sessionStorage.setItem('upper_measure_unit',measure_unit);
+                    }
+                    else if(sessionStorage.getItem('customize_category_id') == 3)
+                    {
+                      sessionStorage.setItem('lower_measure_unit',measure_unit);
+                    }
+                    else if(sessionStorage.getItem('customize_category_id') == 9)
+                    {
+                      sessionStorage.setItem('upper_measure_unit',measure_unit);
+                      sessionStorage.setItem('lower_measure_unit',measure_unit);
+                    }
 
-                  // }
+                  }
+                  else if(data.get_step_data.upper_measure_unit != null && data.get_step_data.lower_measure_unit == null)
+                  {
+                    // alert("ctp-have");
+                    var measure_unit = data.get_step_data.upper_measure_unit;
+                    sessionStorage.setItem('upper_measure_unit',measure_unit);
+                  }
+                  else if(data.get_step_data.upper_measure_unit == null && data.get_step_data.lower_measure_unit != null)
+                  {
+                    // alert("ctp-have");
+                    var measure_unit = data.get_step_data.lower_measure_unit;
+                    sessionStorage.setItem('lower_measure_unit',measure_unit);
+                  }
+                  else if(data.get_step_data.upper_measure_unit != null && data.get_step_data.lower_measure_unit != null)
+                  {
+                    // alert("ctp-have");
+                    var upper_measure_unit = data.get_step_data.upper_measure_unit;
+                    var lower_measure_unit = data.get_step_data.lower_measure_unit;
+                    if(sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2)
+                    {
+                      sessionStorage.setItem('upper_measure_unit',upper_measure_unit);
+                    }
+                    else if(sessionStorage.getItem('customize_category_id') == 3)
+                    {
+                      sessionStorage.setItem('lower_measure_unit',lower_measure_unit);
+                    }
+                    else if(sessionStorage.getItem('customize_category_id') == 9)
+                    {
+                      sessionStorage.setItem('upper_measure_unit',upper_measure_unit);
+                      sessionStorage.setItem('lower_measure_unit',lower_measure_unit);
+                    }
+                  }
                   if(data.get_step_data.suit_code == null)
                   {
                     // alert("ctp-0");
@@ -554,18 +589,18 @@
                     var suit_code = data.get_step_data.suit_code
                     sessionStorage.setItem('suit_code',suit_code);
                   }
-                  if(data.get_step_data.measure_unit == null)
-                  {
-                    // alert("ctp-0");
-                    var measure_unit = 'in';
-                    sessionStorage.setItem('measure_unit',measure_unit);
-                  }
-                  else
-                  {
-                    // alert("ctp-have");
-                    var measure_unit = data.get_step_data.measure_unit;
-                    sessionStorage.setItem('measure_unit',measure_unit);
-                  }
+                  // if(data.get_step_data.measure_unit == null)
+                  // {
+                  //   // alert("ctp-0");
+                  //   var measure_unit = 'in';
+                  //   sessionStorage.setItem('measure_unit',measure_unit);
+                  // }
+                  // else
+                  // {
+                  //   // alert("ctp-have");
+                  //   var measure_unit = data.get_step_data.measure_unit;
+                  //   sessionStorage.setItem('measure_unit',measure_unit);
+                  // }
 
                   if(data.user == null)
                   {
@@ -1265,12 +1300,114 @@
                   calculate_step4();
                 }
                 if (count == 5) {
-                  
+                  // alert("five 5555");
                     sessionStorage.setItem('measure_step',1);
-                    if(sessionStorage.getItem('measure_unit') == null)
-                    {
-                    sessionStorage.setItem('measure_unit','in')
-                    }
+                      if(sessionStorage.getItem('customize_category_id') != 9)
+                      {
+                        $('.upper_show_cm').addClass('d-none');
+                        $('.upper_show_in').addClass('d-none');
+                        $('.lower_show_in').addClass('d-none');
+                        $('.lower_show_cm').addClass('d-none');
+                      }
+                      if(sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2)
+                      {
+                        if(sessionStorage.getItem('upper_measure_unit') == null)
+                        {
+                        sessionStorage.setItem('upper_measure_unit','in');
+                        }
+                        else
+                        {
+                          if(sessionStorage.getItem('upper_measure_unit') == "in")
+                          {
+                            $('.unit').html("In");
+                            $('#in').prop('checked',true);
+                          }
+                          else if(sessionStorage.getItem('upper_measure_unit') == "cm")
+                          {
+                            $('.unit').html("Cm");
+                            $('#cm').prop('checked',true);
+                          }
+                        }
+
+                      }
+                      else if(sessionStorage.getItem('customize_category_id') == 3)
+                      {
+                        if(sessionStorage.getItem('lower_measure_unit') == null)
+                        {
+                        sessionStorage.setItem('lower_measure_unit','in');
+                        }
+                        else
+                        {
+                          if(sessionStorage.getItem('lower_measure_unit') == "in")
+                          {
+                            $('.unit').html("In");
+                            $('#in').prop('checked',true);
+                          }
+                          else if(sessionStorage.getItem('lower_measure_unit') == "cm")
+                          {
+                            $('.unit').html("Cm");
+                            $('#cm').prop('checked',true);
+                          }
+                        }
+                      }
+                      if(sessionStorage.getItem('customize_category_id') == 9)
+                      {
+                        alert("nn");
+                        // //START
+                        // if(sessionStorage.getItem('upper_measure_unit') == null)
+                        // {
+                        //   $('.unit').html("In");
+                        //   $('#in').prop('checked',true);
+                        // }
+                        // else
+                        // {
+                        //   if(sessionStorage.getItem('upper_measure_id') != null)
+                        //   {
+                        //     if(sessionStorage.getItem('upper_measure_unit') == "in")
+                        //     {
+                        //       $('.unit').html("In");
+                        //       $('#in').prop('checked',true);
+                        //     }
+                        //     else if(sessionStorage.getItem('upper_measure_unit') == "cm")
+                        //     {
+                        //       $('.unit').html("Cm");
+                        //       $('#cm').prop('checked',true);
+                        //     }
+                        //   }
+                        // }
+
+                        // //END
+                        // if(sessionStorage.getItem('pass_measure') != null)
+                        // {
+                          if(sessionStorage.getItem('upper_measure_unit') != null && sessionStorage.getItem('lower_measure_unit') != null)
+                          {
+                            if(sessionStorage.getItem('upper_measure_unit') != sessionStorage.getItem('lower_measure_unit'))
+                            {
+                              $('.unit').html(sessionStorage.getItem('upper_measure_unit'));
+                              if(sessionStorage.getItem('lower_measure_unit') == 'cm')
+                              {
+                                $('.upper_show_cm').removeClass('d-none');
+                                upper_change_cm();
+                              }
+                              else if(sessionStorage.getItem('lower_measure_unit') == 'in')
+                              {
+                                $('.upper_show_in').removeClass('d-none');
+                                upper_change_in();
+                              }
+                              if(sessionStorage.getItem('upper_measure_unit') == 'cm')
+                              {
+                                $('.lower_show_cm').removeClass('d-none');
+                                lower_change_cm();
+                              }
+                              else if(sessionStorage.getItem('upper_measure_unit') == 'in')
+                              {
+                                $('.lower_show_in').removeClass('d-none');
+                                lower_change_in();
+                              }
+                            }
+                          }
+                        // }
+                      }
 
                     if(sessionStorage.getItem('fitting') == null)
                     {
@@ -1327,11 +1464,11 @@
                     }
                   }
                   //default set measure unit when session is null start
-                  if(sessionStorage.getItem('measure_unit') == null && sessionStorage.getItem('measure_unit') == '')
-                  {
-                    // alert("null so fill cm");
-                    sessionStorage.setItem('measure_unit','in');
-                  }
+                  // if(sessionStorage.getItem('measure_unit') == null && sessionStorage.getItem('measure_unit') == '')
+                  // {
+                  //   // alert("null so fill cm");
+                  //   sessionStorage.setItem('measure_unit','in');
+                  // }
                   //default set measure unit when session is null end
 
                   var address = $('#order_address').val();
@@ -2532,7 +2669,8 @@
         $('#lower_tab').addClass('d-none');
         $('#upper_tab').removeClass('d-none');
         $('#upper').addClass('active');
-        $('#lower').removeClass('active');
+        $('#info_tab').removeClass('active');
+        // $('#lower').removeClass('active');
       } else if (cus_cate_id == 3) {
         $('#upper_tab').addClass('d-none');
         $('#lower_tab').removeClass('d-none');
@@ -2540,6 +2678,7 @@
         $('#upper_tab').removeClass('active');
         $('#upper').removeClass('active');
         $('#lower').addClass('active');
+        $('#info_tab').removeClass('active');
       }
       else if(cus_cate_id == 9)
       {
@@ -2547,6 +2686,7 @@
         $('#upper_tab').removeClass('d-none');
         $('#upper').addClass('active');
         $('#lower').removeClass('active');
+        $('#info_tab').removeClass('active');
       }
     }
 
@@ -2725,6 +2865,9 @@
           "pant_price" : sessionStorage.getItem('pant_price'),
           "shipping_id" : sessionStorage.getItem('shipping_id'),
           "shipping_price" : sessionStorage.getItem('shipping_price'),
+
+          "upper_measure_unit" : sessionStorage.getItem('upper_measure_unit'),
+          "lower_measure_unit" : sessionStorage.getItem('lower_measure_unit'),
         },
         success: function (data) {
           var html1 = "";
@@ -2771,7 +2914,8 @@
           "step_no" : sessionStorage.getItem('step_no'),
           "measured" : sessionStorage.getItem('measure_step'),
           "cus_total_price" : sessionStorage.getItem('package_price'),
-          "measure_unit" : sessionStorage.getItem('measure_unit'),
+          "upper_measure_unit" : sessionStorage.getItem('upper_measure_unit'),
+          "lower_measure_unit" : sessionStorage.getItem('lower_measure_unit'),
         },
         success: function (data) {
           sessionStorage.setItem('has_step',data.has_step);
@@ -2977,26 +3121,438 @@
     }
     function get_measure_unit(unit)
     {
-      // alert(unit);
-      sessionStorage.setItem('measure_unit',unit);
+      alert(unit);
+      if(sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2)
+      {
+        sessionStorage.setItem('upper_measure_unit',unit);
+      }
+      else if(sessionStorage.getItem('customize_category_id') == 3)
+      {
+        sessionStorage.setItem('lower_measure_unit',unit);
+      }
+      else if(sessionStorage.getItem('customize_category_id') == 9)
+      {
+        sessionStorage.setItem('upper_measure_unit',unit);
+        sessionStorage.setItem('lower_measure_unit',unit);
+      }
     }
     function set_measure_unit()
     {
-      // alert("set m u");
-      if(sessionStorage.getItem('measure_unit') === 'cm')
+      alert("set m u");
+      if(sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2)
       {
-        $('.unit').html("cm");
+        if(sessionStorage.getItem('upper_measure_unit') === 'cm')
+        {
+          $('.unit').html("Cm");
+          $('#cm').attr('checked',true);
+        }
+        else if(sessionStorage.getItem('upper_measure_unit') === 'in')
+        {
+          $('.unit').html("In");
+          $('#in').attr('checked',true);
+        }
       }
-      else if(sessionStorage.getItem('measure_unit') === 'in')
+      else if(sessionStorage.getItem('customize_category_id') == 3)
       {
-        $('.unit').html("in");
+        if(sessionStorage.getItem('lower_measure_unit') === 'cm')
+        {
+          $('.unit').html("Cm");
+          $('#cm').attr('checked',true);
+        }
+        else if(sessionStorage.getItem('lower_measure_unit') === 'in')
+        {
+          $('.unit').html("In");
+          $('#in').attr('checked',true);
+        }
       }
-      else
+      else if(sessionStorage.getItem('customize_category_id') == 9)
       {
-        $('.unit').html("cm");
+        if(sessionStorage.getItem('upper_measure_unit') != null)
+        {
+          if(sessionStorage.getItem('upper_measure_unit') == 'in')
+          {
+            $('.unit').html("In");
+            $('#in').prop('checked',true);
+          }
+          else if(sessionStorage.getItem('upper_measure_unit') == 'cm')
+          {
+            $('.unit').html("Cm");
+            $('#cm').prop('checked',true);
+          }
+        }
+        else if(sessionStorage.getItem('lower_measure_unit') != null)
+        {
+          if(sessionStorage.getItem('lower_measure_unit') == 'in')
+          {
+            $('.unit').html("In");
+            $('#in').prop('checked',true);
+          }
+          else if(sessionStorage.getItem('lower_measure_unit') == 'cm')
+          {
+            $('.unit').html("Cm");
+            $('#cm').prop('checked',true);
+          }
+        }
+        else
+        {
+          // alert("jjkk");
+          $('.unit').html("In");
+          $('#in').prop('checked',true);
+        }
+      }
+      // else if(sessionStorage.getItem('lower_measure_unit') === 'cm')
+      // {
+      //   $('.unit').html("Cm");
+      //   $('#cm').attr('checked',true);
+      // }
+      // else if(sessionStorage.getItem('lower_measure_unit') === 'in')
+      // {
+      //   $('.unit').html("In");
+      //   $('#in').attr('checked',true);
+      // }
+      // else
+      // {
+      //   // alert("fuckk");
+      //   $('.unit').html("In");
+      //   $('#in').attr('checked',true);
+      // }
+    }
+    function upper_change_cm()
+    {
+      alert("lower is cm and so upper (cm)");
+      var neck = $('#neck_input').val();
+      var chest = $('#chest_input').val();
+      var waist = $('#waist_upper_input').val();
+      var hips = $('#hips_upper_input').val();
+      var shoulder = $('#shoulder_input').val();
+      var sleeve_right = $('#sleeve_length_Right_input').val();
+      var sleeve_left = $('#sleeve_length_left_input').val();
+      var stomach = $('#stomach_upper_input').val();
+      var biceps = $('#biceps_input').val();
+      var forearm = $('#forearm_input').val();
+      var cuffs = $('#cuffs_input').val();
+      var chest_front = $('#chest_front_input').val();
+      var chest_back = $('#chest_back_input').val();
+      var jacket_front = $('#jacket_front_input').val();
+      var jacket_back = $('#jacket_back_input').val();
+      var vest_len = $('#vest_length_input').val();
+
+      if ($.trim(neck) == '') {
+
+      } else {
+        $('#neck_input_cm').val((neck * 2.54).toFixed(2));
+      }
+      if ($.trim(chest) == '') {
+
+      } else {
+        $('#chest_input_cm').val((chest * 2.54).toFixed(2));
+      }
+      if ($.trim(waist) == '') {
+
+      } else {
+        $('#waist_upper_input_cm').val((waist * 2.54).toFixed(2));
+      }
+      if ($.trim(hips) == '') {
+
+      } else {
+        $('#hips_upper_input_cm').val((hips * 2.54).toFixed(2));
+      }
+      if ($.trim(shoulder) == '') {
+
+      } else {
+        $('#shoulder_input_cm').val((shoulder * 2.54).toFixed(2));
+      }
+      if ($.trim(sleeve_right) == '') {
+
+      } else {
+        $('#sleeve_length_Right_input_cm').val((sleeve_right * 2.54).toFixed(2));
+      }
+      if ($.trim(sleeve_left) == '') {
+
+      } else {
+        $('#sleeve_length_left_input_cm').val((sleeve_left * 2.54).toFixed(2));
+      }
+      if ($.trim(stomach) == '') {
+
+      } else {
+        $('#stomach_upper_input_cm').val((stomach * 2.54).toFixed(2));
+      }
+      if ($.trim(biceps) == '') {
+
+      } else {
+        $('#biceps_input_cm').val((biceps * 2.54).toFixed(2));
+      }
+      if ($.trim(forearm) == '') {
+
+      } else {
+        $('#forearm_input_cm').val((forearm * 2.54).toFixed(2));
+      }
+      if ($.trim(cuffs) == '') {
+
+      } else {
+        $('#cuffs_input_cm').val((cuffs * 2.54).toFixed(2));
+      }
+      if ($.trim(chest_front) == '') {
+
+      } else {
+        $('#chest_front_input_cm').val((chest_front * 2.54).toFixed(2));
+      }
+      if ($.trim(chest_back) == '') {
+
+      } else {
+        $('#chest_back_input_cm').val((chest_back * 2.54).toFixed(2));
+      }
+      if ($.trim(jacket_front) == '') {
+
+      } else {
+        $('#jacket_front_input_cm').val((jacket_front * 2.54).toFixed(2));
+      }
+      if ($.trim(jacket_back) == '') {
+
+      } else {
+        $('#jacket_back_input_cm').val((jacket_back * 2.54).toFixed(2));
+      }
+      if ($.trim(vest_len) == '') {
+
+      } else {
+        $('#vest_length_input_cm').val((vest_len * 2.54).toFixed(2));
+      }
+      //end convert in to cm upper data
+    }
+    function upper_change_in()
+    {
+      alert("lower is in and so upper (in)");
+      var neck = $('#neck_input').val();
+      var chest = $('#chest_input').val();
+      var waist = $('#waist_upper_input').val();
+      var hips = $('#hips_upper_input').val();
+      var shoulder = $('#shoulder_input').val();
+      var sleeve_right = $('#sleeve_length_Right_input').val();
+      var sleeve_left = $('#sleeve_length_left_input').val();
+      var stomach = $('#stomach_upper_input').val();
+      var biceps = $('#biceps_input').val();
+      var forearm = $('#forearm_input').val();
+      var cuffs = $('#cuffs_input').val();
+      var chest_front = $('#chest_front_input').val();
+      var chest_back = $('#chest_back_input').val();
+      var jacket_front = $('#jacket_front_input').val();
+      var jacket_back = $('#jacket_back_input').val();
+      var vest_len = $('#vest_length_input').val();
+
+      if ($.trim(neck) == '') {
+
+      } else {
+        $('#neck_input_in').val((neck / 2.54).toFixed(2));
+      }
+      if ($.trim(chest) == '') {
+
+      } else {
+        $('#chest_input_in').val((chest / 2.54).toFixed(2));
+      }
+      if ($.trim(waist) == '') {
+
+      } else {
+        $('#waist_upper_input_in').val((waist / 2.54).toFixed(2));
+      }
+      if ($.trim(hips) == '') {
+
+      } else {
+        $('#hips_upper_input_in').val((hips / 2.54).toFixed(2));
+      }
+      if ($.trim(shoulder) == '') {
+
+      } else {
+        $('#shoulder_input_in').val( (shoulder / 2.54).toFixed(2));
+      }
+      if ($.trim(sleeve_right) == '') {
+
+      } else {
+        $('#sleeve_length_Right_input_in').val( (sleeve_right / 2.54).toFixed(2));
+      }
+      if ($.trim(sleeve_left) == '') {
+
+      } else {
+        $('#sleeve_length_left_input_in').val( (sleeve_left / 2.54).toFixed(2));
+      }
+      if ($.trim(stomach) == '') {
+
+      } else {
+        $('#stomach_upper_input_in').val( (stomach / 2.54).toFixed(2));
+      }
+      if ($.trim(biceps) == '') {
+
+      } else {
+        $('#biceps_input_in').val( (biceps / 2.54).toFixed(2));
+      }
+      if ($.trim(forearm) == '') {
+
+      } else {
+        $('#forearm_input_in').val( (forearm / 2.54).toFixed(2));
+      }
+      if ($.trim(cuffs) == '') {
+
+      } else {
+        $('#cuffs_input_in').val( (cuffs / 2.54).toFixed(2));
+      }
+      if ($.trim(chest_front) == '') {
+
+      } else {
+        $('#chest_front_input_in').val( (chest_front / 2.54).toFixed(2));
+      }
+      if ($.trim(chest_back) == '') {
+
+      } else {
+        $('#chest_back_input_in').val( (chest_back / 2.54).toFixed(2));
+      }
+      if ($.trim(jacket_front) == '') {
+
+      } else {
+        $('#jacket_front_input_in').val( (jacket_front / 2.54).toFixed(2));
+      }
+      if ($.trim(jacket_back) == '') {
+
+      } else {
+        $('#jacket_back_input_in').val( (jacket_back / 2.54).toFixed(2));
+      }
+      if ($.trim(vest_len) == '') {
+
+      } else {
+        $('#vest_length_input_in').val( (vest_len / 2.54).toFixed(2) );
+      }
+      //end convert cm to in upper data
+    }
+    function lower_change_cm()
+    {
+      alert("upper is cm and so lower (cm)");
+      var pwaist = $('#waist_lower_input').val();
+      var pstomach = $('#stomach_lower_input').val();
+      var phips = $('#hips_lower_input').val();
+      var pcrotch = $('#crotch_input').val();
+      var pthighs = $('#thighs_input').val();
+      var pknees = $('#knees_input').val();
+      var pcalf = $('#calf_input').val();
+      var pshort = $('#pants_short_input').val();
+      var plength = $('#pants_length_input').val();
+      var pbottom = $('#bottom_length_input').val();
+
+      if ($.trim(pwaist) == '') {
+
+      } else {
+        $('#waist_lower_input_cm').val((pwaist * 2.54).toFixed(2));
+      }
+      if ($.trim(pstomach) == '') {
+
+      } else {
+        $('#stomach_lower_input_cm').val((pstomach * 2.54).toFixed(2));
+      }
+      if ($.trim(phips) == '') {
+
+      } else {
+        $('#hips_lower_input_cm').val((phips *2.54).toFixed(2));
+      }
+      if ($.trim(pcrotch) == '') {
+
+      } else {
+        $('#crotch_input_cm').val((pcrotch * 2.54).toFixed(2));
+      }
+      if ($.trim(pthighs) == '') {
+
+      } else {
+        $('#thighs_input_cm').val((pthighs * 2.54).toFixed(2));
+      }
+      if ($.trim(pknees) == '') {
+
+      } else {
+        $('#knees_input_cm').val((pknees * 2.54).toFixed(2));
+      }
+      if ($.trim(pcalf) == '') {
+
+      } else {
+        $('#calf_input_cm').val((pcalf * 2.54).toFixed(2));
+      }
+      if ($.trim(pshort) == '') {
+
+      } else {
+        $('#pants_short_input_cm').val((pshort * 2.54).toFixed(2));
+      }
+      if ($.trim(plength) == '') {
+
+      } else {
+        $('#pants_length_input_cm').val((plength * 2.54).toFixed(2));
+      }
+      if ($.trim(pbottom) == '') {
+
+      } else {
+        $('#bottom_length_input_cm').val((pbottom *2.54).toFixed(2));
       }
     }
+    function lower_change_in()
+    {
+      alert("upper is in and so lower (in)");
+      var pwaist = $('#waist_lower_input').val();
+      var pstomach = $('#stomach_lower_input').val();
+      var phips = $('#hips_lower_input').val();
+      var pcrotch = $('#crotch_input').val();
+      var pthighs = $('#thighs_input').val();
+      var pknees = $('#knees_input').val();
+      var pcalf = $('#calf_input').val();
+      var pshort = $('#pants_short_input').val();
+      var plength = $('#pants_length_input').val();
+      var pbottom = $('#bottom_length_input').val();
 
+      //start convert cm to in lower data
+      if ($.trim(pwaist) == '') {
+
+      } else {
+        $('#waist_lower_input_in').val((pwaist /2.54).toFixed(2));
+      }
+      if ($.trim(pstomach) == '') {
+
+      } else {
+        $('#stomach_lower_input_in').val((pstomach / 2.54).toFixed(2));
+      }
+      if ($.trim(phips) == '') {
+
+      } else {
+        $('#hips_lower_input_in').val((phips /2.54).toFixed(2));
+      }
+      if ($.trim(pcrotch) == '') {
+
+      } else {
+        $('#crotch_input_in').val((pcrotch / 2.54).toFixed(2));
+      }
+      if ($.trim(pthighs) == '') {
+
+      } else {
+        $('#thighs_input_in').val((pthighs / 2.54).toFixed(2));
+      }
+      if ($.trim(pknees) == '') {
+
+      } else {
+        $('#knees_input_in').val((pknees / 2.54).toFixed(2));
+      }
+      if ($.trim(pcalf) == '') {
+
+      } else {
+        $('#calf_input_in').val((pcalf / 2.54).toFixed(2));
+      }
+      if ($.trim(pshort) == '') {
+
+      } else {
+        $('#pants_short_input_in').val((pshort / 2.54).toFixed(2));
+      }
+      if ($.trim(plength) == '') {
+
+      } else {
+        $('#pants_length_input_in').val((plength / 2.54).toFixed(2));
+      }
+      if ($.trim(pbottom) == '') {
+
+      } else {
+        $('#bottom_length_input_in').val((pbottom /2.54).toFixed(2));
+      }
+      //end convert cm to in lower data
+    }
     // function available_payment()
     // {
     //   if(sessionStorage.getItem('address') == null && sessionStorage.getItem('address') == '')
@@ -3054,6 +3610,7 @@
 
 				}
     }
+
 </script>
 @endif
 @endpush

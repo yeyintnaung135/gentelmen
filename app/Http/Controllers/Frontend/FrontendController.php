@@ -1430,7 +1430,7 @@ class FrontendController extends Controller
           'vest_length' => $request->vest_len ,
           'jacket_back_length' => $request->jacket_back ,
           'neck' => $request->neck ,
-          'measure_type' => $request->measure_type
+          'measure_type' => $request->upper_measure_unit
         ]);
 
       }
@@ -1456,7 +1456,7 @@ class FrontendController extends Controller
         $upper->vest_length = $request->vest_len;
         $upper->jacket_back_length = $request->jacket_back;
         $upper->neck = $request->neck;
-        $upper->measure_type = $request->measure_type;
+        $upper->measure_type = $request->upper_measure_unit;
         $upper->save();
       }
     }
@@ -1479,7 +1479,7 @@ class FrontendController extends Controller
         'stomach' => $request->pstomach,
         'shorts' => $request->pshort,
         'hips' => $request->phips,
-        'measure_type' => $request->measure_type
+        'measure_type' => $request->lower_measure_unit
       ]);
       }
       else
@@ -1496,7 +1496,7 @@ class FrontendController extends Controller
         $lower->stomach = $request->pstomach;
         $lower->shorts = $request->pshort;
         $lower->hips = $request->phips;
-        $lower->measure_type = $request->measure_type;
+        $lower->measure_type = $request->lower_measure_unit;
         $lower->save();
       }
     }
@@ -1525,7 +1525,7 @@ class FrontendController extends Controller
           'vest_length' => $request->vest_len ,
           'jacket_back_length' => $request->jacket_back ,
           'neck' => $request->neck ,
-          'measure_type' => $request->measure_type
+          'measure_type' => $request->upper_measure_unit
         ]);
         $lower = LowerMeasurement::create([
           'user_id' => $user_edit->id,
@@ -1539,7 +1539,7 @@ class FrontendController extends Controller
           'stomach' => $request->pstomach,
           'shorts' => $request->pshort,
           'hips' => $request->phips,
-          'measure_type' => $request->measure_type
+          'measure_type' => $request->lower_measure_unit
         ]);
       }
       elseif($upper_check == null && $lower_check != null)
@@ -1563,7 +1563,7 @@ class FrontendController extends Controller
           'vest_length' => $request->vest_len ,
           'jacket_back_length' => $request->jacket_back ,
           'neck' => $request->neck ,
-          'measure_type' => $request->measure_type
+          'measure_type' => $request->upper_measure_unit
         ]);
         $lower = LowerMeasurement::find($lower_check->id);
         $lower->crotch =  $request->pcrotch;
@@ -1576,7 +1576,7 @@ class FrontendController extends Controller
         $lower->stomach = $request->pstomach;
         $lower->shorts = $request->pshort;
         $lower->hips = $request->phips;
-        $lower->measure_type = $request->measure_type;
+        $lower->measure_type = $request->lower_measure_unit;
         $lower->save();
       }
       elseif($upper_check != null && $lower_check == null)
@@ -1599,7 +1599,7 @@ class FrontendController extends Controller
         $upper->vest_length = $request->vest_len;
         $upper->jacket_back_length = $request->jacket_back;
         $upper->neck = $request->neck;
-        $upper->measure_type = $request->measure_type;
+        $upper->measure_type = $request->upper_measure_unit;
         $upper->save();
         $lower = LowerMeasurement::create([
           'user_id' => $user_edit->id,
@@ -1613,7 +1613,7 @@ class FrontendController extends Controller
           'stomach' => $request->pstomach,
           'shorts' => $request->pshort,
           'hips' => $request->phips,
-          'measure_type' => $request->measure_type
+          'measure_type' => $request->lower_measure_unit
         ]);
       }
       else
@@ -1636,7 +1636,7 @@ class FrontendController extends Controller
         $upper->vest_length = $request->vest_len;
         $upper->jacket_back_length = $request->jacket_back;
         $upper->neck = $request->neck;
-        $upper->measure_type = $request->measure_type;
+        $upper->measure_type = $request->upper_measure_unit;
         $upper->save();
 
         $lower = LowerMeasurement::find($lower_check->id);
@@ -1650,7 +1650,7 @@ class FrontendController extends Controller
         $lower->stomach = $request->pstomach;
         $lower->shorts = $request->pshort;
         $lower->hips = $request->phips;
-        $lower->measure_type = $request->measure_type;
+        $lower->measure_type = $request->lower_measure_unit;
         $lower->save();
       }
 

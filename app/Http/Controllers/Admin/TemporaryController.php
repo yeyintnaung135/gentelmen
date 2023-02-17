@@ -56,6 +56,8 @@ class TemporaryController extends Controller
             'pant_price' => $request->pant_price,
             'measure_unit' => $request->measure_unit,
             'suit_code' => $request->suit_code,
+            'upper_measure_unit' => $request->upper_measure_unit,
+            'lower_measure_unit' => $request->lower_measure_unit,
           ]);
         }
         return response()->json([
@@ -114,7 +116,8 @@ class TemporaryController extends Controller
         $update_step_data->pant_price = $request->pant_price;
         $update_step_data->shipping_id = $request->shipping_id;
         $update_step_data->shipping_price = $request->shipping_price;
-        $update_step_data->measure_unit = $request->measure_unit;
+        $update_step_data->upper_measure_unit = $request->upper_measure_unit;
+        $update_step_data->lower_measure_unit = $request->lower_measure_unit;
         $update_step_data->save();
         if($update_step_data->shipping_id != null)
         {

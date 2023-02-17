@@ -309,7 +309,7 @@
                     {
                       // alert("do store temporary");
 
-                      
+
                       $.ajax({
                         type: 'POST',
                         url: '/store_customize_step_data',
@@ -345,7 +345,8 @@
                           "shipping_id" : sessionStorage.getItem('shipping_id'),
                           "shipping_price" : sessionStorage.getItem('shipping_price'),
 
-                          "measure_unit" : sessionStorage.getItem('measure_unit'),
+                          "upper_measure_unit" : sessionStorage.getItem('upper_measure_unit'),
+                          "lower_measure_unit" : sessionStorage.getItem('lower_measure_unit'),
                           },
                         success: function (data) {
                           sessionStorage.setItem('has_step',data.has_step);
@@ -705,17 +706,55 @@
                                     var suit_code = data.get_step_data.suit_code
                                     sessionStorage.setItem('suit_code',suit_code);
                                   }
-                                  if(data.get_step_data.measure_unit == null)
+                                  if(data.get_step_data.upper_measure_unit == null && data.get_step_data.lower_measure_unit == null)
                                   {
                                     // alert("ctp-0");
                                     var measure_unit = 'in';
-                                    sessionStorage.setItem('measure_unit',measure_unit);
+                                    if(sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2)
+                                    {
+                                      sessionStorage.setItem('upper_measure_unit',measure_unit);
+                                    }
+                                    else if(sessionStorage.getItem('customize_category_id') == 3)
+                                    {
+                                      sessionStorage.setItem('lower_measure_unit',measure_unit);
+                                    }
+                                    else if(sessionStorage.getItem('customize_category_id') == 9)
+                                    {
+                                      sessionStorage.setItem('upper_measure_unit',measure_unit);
+                                      sessionStorage.setItem('lower_measure_unit',measure_unit);
+                                    }
+
                                   }
-                                  else
+                                  else if(data.get_step_data.upper_measure_unit != null && data.get_step_data.lower_measure_unit == null)
                                   {
                                     // alert("ctp-have");
-                                    var measure_unit = data.get_step_data.measure_unit;
-                                    sessionStorage.setItem('measure_unit',measure_unit);
+                                    var measure_unit = data.get_step_data.upper_measure_unit;
+                                    sessionStorage.setItem('upper_measure_unit',measure_unit);
+                                  }
+                                  else if(data.get_step_data.upper_measure_unit == null && data.get_step_data.lower_measure_unit != null)
+                                  {
+                                    // alert("ctp-have");
+                                    var measure_unit = data.get_step_data.lower_measure_unit;
+                                    sessionStorage.setItem('lower_measure_unit',measure_unit);
+                                  }
+                                  else if(data.get_step_data.upper_measure_unit != null && data.get_step_data.lower_measure_unit != null)
+                                  {
+                                    // alert("ctp-have");
+                                    var upper_measure_unit = data.get_step_data.upper_measure_unit;
+                                    var lower_measure_unit = data.get_step_data.lower_measure_unit;
+                                    if(sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2)
+                                    {
+                                      sessionStorage.setItem('upper_measure_unit',upper_measure_unit);
+                                    }
+                                    else if(sessionStorage.getItem('customize_category_id') == 3)
+                                    {
+                                      sessionStorage.setItem('lower_measure_unit',lower_measure_unit);
+                                    }
+                                    else if(sessionStorage.getItem('customize_category_id') == 9)
+                                    {
+                                      sessionStorage.setItem('upper_measure_unit',upper_measure_unit);
+                                      sessionStorage.setItem('lower_measure_unit',lower_measure_unit);
+                                    }
                                   }
                                   if(data.user == null)
                                   {

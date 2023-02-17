@@ -39,6 +39,7 @@ class TemporaryCustomizeStepData extends Model
       'pant_price',
 
       'shipping_id',
-      'measure_unit'
+      'upper_measure_unit',
+      'lower_measure_unit'
   ];
 }
