@@ -794,7 +794,7 @@
           $('#suitTotal').html(html2);
           $('#mobile_suitTotal').html(html2);
           $('#total').html(html3);
-          alert("mobile_total 762");
+          // alert("mobile_total 762");
           $('#mobile_total').html(html3);
         }
       }
@@ -1059,7 +1059,7 @@
           $('#suitTotal').html(html2);
           $('#mobile_suitTotal').html(html2);
           $('#total').html(html3);
-          alert("mobile_total 1023");
+          // alert("mobile_total 1023");
           $('#mobile_total').html(html3);
         }
       }
@@ -1309,7 +1309,7 @@
                         $('.lower_show_in').addClass('d-none');
                         $('.lower_show_cm').addClass('d-none');
                       }
-                      if(sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2)
+                      if(sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2 || sessionStorage.getItem('customize_category_id') == 9)
                       {
                         if(sessionStorage.getItem('upper_measure_unit') == null)
                         {
@@ -1352,7 +1352,7 @@
                       }
                       if(sessionStorage.getItem('customize_category_id') == 9)
                       {
-                        alert("nn");
+                        // alert("nn");
                         // //START
                         // if(sessionStorage.getItem('upper_measure_unit') == null)
                         // {
@@ -1457,7 +1457,7 @@
                         $('#suitTotal').html(html2);
                         $('#mobile_suitTotal').html(html2);
                         $('#total').html(html3);
-                        alert("mobile_total 1318");
+                        // alert("mobile_total 1318");
                         $('#mobile_total').html(html3);
                       }
 
@@ -2653,7 +2653,7 @@
           html3 += parseInt(sessionStorage.getItem('cus_total_price'))+2;
           $('#suitTotal').html(html2);
           $('#total').html(html3);
-          alert("mobile_total 2513");
+          // alert("mobile_total 2513");
           $('#mobile_total').html(html3);
           console.log(data);
           sessionStorage.setItem('suit_code',data.suit_code);
@@ -2666,7 +2666,7 @@
       // alert("show measure data");
       var cus_cate_id = sessionStorage.getItem('customize_category_id');
       if (cus_cate_id == 1 || cus_cate_id == 2) {
-        alert("UPPER");
+        // alert("UPPER");
         $('#lower_tab').addClass('d-none');
         $('#upper_tab').removeClass('d-none');
 
@@ -2676,9 +2676,10 @@
         $('#upper_tab').addClass('active');
         $('#lower_tab').removeClass('active');
 
-        // $('#info_tab').removeClass('active');
+        $('#info_tab').removeClass('active');
+        $('#info').removeClass('active');
       } else if (cus_cate_id == 3) {
-        alert("LOWER");
+        // alert("LOWER");
         $('#upper_tab').addClass('d-none');
         $('#lower_tab').removeClass('d-none');
 
@@ -2688,11 +2689,12 @@
         $('#upper').removeClass('active');
         $('#lower').addClass('active');
 
-        // $('#info_tab').removeClass('active');
+        $('#info_tab').removeClass('active');
+        $('#info').removeClass('active');
       }
       else if(cus_cate_id == 9)
       {
-        alert("SUITS");
+        // alert("SUITS");
         $('#lower_tab').removeClass('d-none');
         $('#upper_tab').removeClass('d-none');
 
@@ -2701,7 +2703,9 @@
 
         $('#upper_tab').addClass('active');
         $('#lower_tab').removeClass('active');
-        // $('#info_tab').removeClass('active');
+
+        $('#info_tab').removeClass('active');
+        $('#info').removeClass('active');
       }
     }
 
@@ -3136,7 +3140,7 @@
     }
     function get_measure_unit(unit)
     {
-      alert(unit);
+      // alert(unit);
       if(sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2)
       {
         sessionStorage.setItem('upper_measure_unit',unit);
@@ -3234,7 +3238,7 @@
     }
     function upper_change_cm()
     {
-      alert("lower is cm and so upper (cm)");
+      // alert("lower is cm and so upper (cm)");
       var neck = $('#neck_input').val();
       var chest = $('#chest_input').val();
       var waist = $('#waist_upper_input').val();
@@ -3336,7 +3340,7 @@
     }
     function upper_change_in()
     {
-      alert("lower is in and so upper (in)");
+      // alert("lower is in and so upper (in)");
       var neck = $('#neck_input').val();
       var chest = $('#chest_input').val();
       var waist = $('#waist_upper_input').val();
@@ -3438,7 +3442,7 @@
     }
     function lower_change_cm()
     {
-      alert("upper is cm and so lower (cm)");
+      // alert("upper is cm and so lower (cm)");
       var pwaist = $('#waist_lower_input').val();
       var pstomach = $('#stomach_lower_input').val();
       var phips = $('#hips_lower_input').val();
@@ -3503,7 +3507,7 @@
     }
     function lower_change_in()
     {
-      alert("upper is in and so lower (in)");
+      // alert("upper is in and so lower (in)");
       var pwaist = $('#waist_lower_input').val();
       var pstomach = $('#stomach_lower_input').val();
       var phips = $('#hips_lower_input').val();

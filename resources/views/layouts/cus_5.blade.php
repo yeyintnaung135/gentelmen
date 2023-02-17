@@ -3029,12 +3029,36 @@
       }
 
       $('#upper_tab').click(function(){
-        // alert("uuu");
-        $('.unit').html(sessionStorage.getItem('upper_measure_unit'));
+        alert("uuu");
+
+        if(sessionStorage.getItem('upper_measure_unit') != null)
+        {
+          $('.unit').html(sessionStorage.getItem('upper_measure_unit'));
+          if(sessionStorage.getItem('upper_measure_unit') == 'in')
+          {
+            $('#in').prop('checked',true);
+          }
+          else if(sessionStorage.getItem('upper_measure_unit') == "cm")
+          {
+            $('#cm').prop('checked',true);
+          }
+        }
       })
       $('#lower_tab').click(function(){
-        // alert("llower");
-      $('.unit').html(sessionStorage.getItem('lower_measure_unit'));
+        alert("llower");
+
+      if(sessionStorage.getItem('upper_measure_unit') != null)
+        {
+          $('.unit').html(sessionStorage.getItem('lower_measure_unit'));
+          if(sessionStorage.getItem('lower_measure_unit') == 'in')
+          {
+            $('#in').prop('checked',true);
+          }
+          else if(sessionStorage.getItem('lower_measure_unit') == "cm")
+          {
+            $('#cm').prop('checked',true);
+          }
+        }
       })
   </script>
 @endpush
