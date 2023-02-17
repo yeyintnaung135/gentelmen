@@ -520,6 +520,8 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
                     icon: "success"
                 }).then(function() {
                     window.history.back();
+                    // location.reload(true);
+                    sessionStorage.setItem('reload_additional_list',1);
                 });
 
                 // window.history.back();;
