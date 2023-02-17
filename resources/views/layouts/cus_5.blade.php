@@ -3029,7 +3029,7 @@
       }
 
       $('#upper_tab').click(function(){
-        alert("uuu");
+        // alert("uuu");
 
         if(sessionStorage.getItem('upper_measure_unit') != null)
         {
@@ -3045,7 +3045,7 @@
         }
       })
       $('#lower_tab').click(function(){
-        alert("llower");
+        // alert("llower");
 
       if(sessionStorage.getItem('upper_measure_unit') != null)
         {
