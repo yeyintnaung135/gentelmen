@@ -972,7 +972,7 @@
           </div>
           <div id="pants_short" class="content">
             <div class="measure-img-wrapper">
-              <img src="{{asset("assets/images/customize/cus5images/pant-length.png")}}"
+              <img src="{{asset("assets/images/customize/cus5images/pant-length.jpg")}}"
                    alt="pants_short">
             </div>
             <div class="measure-input-wrapper">
