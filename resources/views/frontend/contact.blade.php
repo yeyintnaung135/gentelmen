@@ -40,14 +40,14 @@
         <div class="detail__item">
           <h3 class="detail__item-title">Address</h3>
           <p class="detail__item-desc">
-            No . 143 , Zayardipa 1st Street , 31 Ward , North Dagon , Yangon
+            No. 1186, Pin Lon Road,35 Quarter, North-Dagon Township, Yangon.
           </p>
         </div>
         <div class="detail__item">
           <h3 class="detail__item-title">Contact</h3>
           <p class="detail__item-desc">
-            <span>( +95 ) 9788789031</span>
-            <span>gentlemencontact@gmail.com</span>
+            <span>(+95) 9401409915</span>
+            <span>info@gentlementailor.shop</span>
           </p>
           <div class="detail__social-wrapper">
             <a href="https://www.facebook.com/Gentlemensuitmm" target="_blank"><i class='bx
