@@ -7,6 +7,34 @@
       <div class="col-6"><span id="mobile_suitCode"></span></div>
     </div>
     <div class="row mb-2">
+      <div class="col-6">Product</div>
+      <div class="col-6"><span id="customize_category_id_mo"></span></div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-6">Package</div>
+      <div class="col-6"><span id="package_mo"></span></div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-6">Style</div>
+      <div class="col-6"><span id="style_mo"></span></div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-6">Fabric</div>
+      <div class="col-6"><span id="texture_mo"></span></div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-6">Jacket</div>
+      <div class="col-6"><span id="jacketName_mo"></span></div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-6">Vest</div>
+      <div class="col-6"><span id="vestName_mo"></span></div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-6">Pant</div>
+      <div class="col-6"><span id="pantName_mo"></span></div>
+    </div>
+    <div class="row mb-2">
       <div class="col-6">Cost</div>
       <div class="col-6">$ <span id="mobile_suitTotal"></span></div>
     </div>

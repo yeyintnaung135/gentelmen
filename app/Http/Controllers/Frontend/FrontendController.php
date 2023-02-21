@@ -1477,7 +1477,7 @@ class FrontendController extends Controller
         'calf' => $request->pcalf,
         'knees' => $request->pknees,
         'stomach' => $request->pstomach,
-        'shorts' => $request->pshort,
+        // 'shorts' => $request->pshort,
         'hips' => $request->phips,
         'measure_type' => $request->lower_measure_unit
       ]);
@@ -1494,7 +1494,7 @@ class FrontendController extends Controller
         $lower->calf = $request->pcalf;
         $lower->knees = $request->pknees;
         $lower->stomach = $request->pstomach;
-        $lower->shorts = $request->pshort;
+        // $lower->shorts = $request->pshort;
         $lower->hips = $request->phips;
         $lower->measure_type = $request->lower_measure_unit;
         $lower->save();
@@ -1537,7 +1537,7 @@ class FrontendController extends Controller
           'calf' => $request->pcalf,
           'knees' => $request->pknees,
           'stomach' => $request->pstomach,
-          'shorts' => $request->pshort,
+          // 'shorts' => $request->pshort,
           'hips' => $request->phips,
           'measure_type' => $request->lower_measure_unit
         ]);
@@ -1574,7 +1574,7 @@ class FrontendController extends Controller
         $lower->calf = $request->pcalf;
         $lower->knees = $request->pknees;
         $lower->stomach = $request->pstomach;
-        $lower->shorts = $request->pshort;
+        // $lower->shorts = $request->pshort;
         $lower->hips = $request->phips;
         $lower->measure_type = $request->lower_measure_unit;
         $lower->save();
@@ -1611,7 +1611,7 @@ class FrontendController extends Controller
           'calf' => $request->pcalf,
           'knees' => $request->pknees,
           'stomach' => $request->pstomach,
-          'shorts' => $request->pshort,
+          // 'shorts' => $request->pshort,
           'hips' => $request->phips,
           'measure_type' => $request->lower_measure_unit
         ]);
@@ -1648,7 +1648,7 @@ class FrontendController extends Controller
         $lower->calf = $request->pcalf;
         $lower->knees = $request->pknees;
         $lower->stomach = $request->pstomach;
-        $lower->shorts = $request->pshort;
+        // $lower->shorts = $request->pshort;
         $lower->hips = $request->phips;
         $lower->measure_type = $request->lower_measure_unit;
         $lower->save();

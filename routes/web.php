@@ -1733,3 +1733,5 @@ Route::post('/store_chekout_address_ajax','Frontend\OrderController@store_order_
 
 
 Route::resource('shippings', 'Admin\ShippingController');
+
+Route::post('/get_order_summary_data','Frontend\OrderController@get_order_summary_all');

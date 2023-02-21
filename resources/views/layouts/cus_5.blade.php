@@ -181,7 +181,7 @@
                 @if($user != null && $upper != null)
                   <input type="text" placeholder="0.0" id="chest_input" value="{{$upper->chest}}" autocomplete="off">
                 @else
-                  <input type="text" placeholder="0.0" id="chest_input autocomplete="off"">
+                  <input type="text" placeholder="0.0" id="chest_input" autocomplete="off"">
                 @endif
                 <p class="unit">In</p>
               </div>
@@ -710,11 +710,11 @@
             <p>Calf</p>
             <span class="badge text-bg-danger lower_errors d-none" id="pcalf_error">Require</span>
           </a>
-          <a class="measure-item circle" href="#pants_short">
+          {{-- <a class="measure-item circle" href="#pants_short">
             <img src="{{asset("assets/images/customize/measurement/neck.png")}}" alt="pants_short">
             <p>Pants Short</p>
             <span class="badge text-bg-danger lower_errors d-none" id="pshort_error">Require</span>
-          </a>
+          </a> --}}
           <a class="measure-item circle" href="#pants_length">
             <img src="{{asset("assets/images/customize/measurement/neck.png")}}" alt="pants_length">
             <p>Pants Length</p>
@@ -2209,7 +2209,7 @@
             var pthighs = $('#thighs_input').val();
             var pknees = $('#knees_input').val();
             var pcalf = $('#calf_input').val();
-            var pshort = $('#pants_short_input').val();
+            // var pshort = $('#pants_short_input').val();
             var plength = $('#pants_length_input').val();
             var pbottom = $('#bottom_length_input').val();
 
@@ -2338,11 +2338,11 @@
                 } else {
                   $('#calf_input').val((pcalf / 2.54).toFixed(2));
                 }
-                if ($.trim(pshort) == '') {
+                // if ($.trim(pshort) == '') {
 
-                } else {
-                  $('#pants_short_input').val((pshort / 2.54).toFixed(2));
-                }
+                // } else {
+                //   $('#pants_short_input').val((pshort / 2.54).toFixed(2));
+                // }
                 if ($.trim(plength) == '') {
 
                 } else {
@@ -2482,11 +2482,11 @@
               } else {
                 $('#calf_input').val((pcalf * 2.54).toFixed(2));
               }
-              if ($.trim(pshort) == '') {
+              // if ($.trim(pshort) == '') {
 
-              } else {
-                $('#pants_short_input').val((pshort * 2.54).toFixed(2));
-              }
+              // } else {
+              //   $('#pants_short_input').val((pshort * 2.54).toFixed(2));
+              // }
               if ($.trim(plength) == '') {
 
               } else {
@@ -2657,7 +2657,7 @@
               var vest_len = $('#vest_length_input').val();
 
 
-              // alert(neck);
+              // alert(chest);
               if ($.trim(neck) == '') {
                   $('#neck_error').removeClass('d-none');
                   upper_status = false;
@@ -2794,7 +2794,7 @@
               var pthighs = $('#thighs_input').val();
               var pknees = $('#knees_input').val();
               var pcalf = $('#calf_input').val();
-              var pshort = $('#pants_short_input').val();
+              // var pshort = $('#pants_short_input').val();
               var plength = $('#pants_length_input').val();
               var pbottom = $('#bottom_length_input').val();
               if ($.trim(pwaist) == '') {
@@ -2846,13 +2846,13 @@
                   $('#pcalf_error').addClass('d-none');
                   sessionStorage.setItem('lower_pcalf', pcalf);
               }
-              if ($.trim(pshort) == '') {
-                  $('#pshort_error').removeClass('d-none');
-                  lower_status = false;
-              } else {
-                  $('#pshort_error').addClass('d-none');
-                  sessionStorage.setItem('lower_pshort', pshort);
-              }
+              // if ($.trim(pshort) == '') {
+              //     $('#pshort_error').removeClass('d-none');
+              //     lower_status = false;
+              // } else {
+              //     $('#pshort_error').addClass('d-none');
+              //     sessionStorage.setItem('lower_pshort', pshort);
+              // }
               if ($.trim(plength) == '') {
                   $('#plength_error').removeClass('d-none');
                   lower_status = false;
@@ -2880,7 +2880,7 @@
           // ------------------ End Lower Scope ------------------//
           //store upper measure ajax start
           // alert(upper_status);
-          // alert(user_id);
+          // alert(chest);
           // alert(store_status);
           if (user_id != null && store_status == true) {
               // alert("win dll lay lee");
@@ -2936,7 +2936,7 @@
                       "pthighs": pthighs,
                       "pknees": pknees,
                       "pcalf": pcalf,
-                      "pshort": pshort,
+                      // "pshort": pshort,
                       "plength": plength,
                       "pbottom": pbottom,
 
@@ -2961,6 +2961,7 @@
                   }
               });
           } else if (user_id == null && store_status == true) {
+            alert("wtffff");
               if (sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2) {
                   if (upper_status == true && info_status == true) {
                       sessionStorage.setItem('store_m_status', 1);

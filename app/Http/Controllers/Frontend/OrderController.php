@@ -4,6 +4,11 @@ namespace App\Http\Controllers\Frontend;
 use App\Package;
 use App\Order;
 use App\Shipping;
+use App\Style;
+use App\Texture;
+use App\Top;
+use App\Pant;
+use App\Shirt_Button;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -146,6 +151,71 @@ class OrderController extends Controller
         'shipping' => $shipping,
 
 
+      ]);
+    }
+    public function get_order_summary_all(Request $request)
+    {
+      if(isset($request->package_id))
+      {
+        $package_name = Package::find($request->package_id)->title;
+        // $package_name = $package->title;
+      }
+      else
+      {
+        $package_name = null;
+      }
+
+      if(isset($request->style_id))
+      {
+        $style_name = Style::find($request->style_id)->name;
+      }
+      else
+      {
+        $style_name = null;
+      }
+
+      if(isset($request->texture_id))
+      {
+        $texture_name = Texture::find($request->texture_id)->name;
+      }
+      else
+      {
+        $texture_name = null;
+      }
+
+      if(isset($request->jacket_id))
+      {
+        $jacket_name = Top::find($request->jacket_id)->style;
+      }
+      else
+      {
+        $jacket_name = null;
+      }
+
+      if(isset($request->vest_id))
+      {
+        $vest_name = Shirt_Button::find($request->vest_id)->style;
+      }
+      else
+      {
+        $vest_name = null;
+      }
+
+      if(isset($request->pant_id))
+      {
+        $pant_name = Pant::find($request->pant_id)->style;
+      }
+      else
+      {
+        $pant_name = null;
+      }
+      return response()->json([
+        'package_name' => $package_name,
+        'style_name' => $style_name,
+        'texture_name' => $texture_name,
+        'jacket_name' => $jacket_name,
+        'vest_name' => $vest_name,
+        'pant_name' => $pant_name
       ]);
     }
 }

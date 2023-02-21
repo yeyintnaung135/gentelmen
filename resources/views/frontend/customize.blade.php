@@ -1434,6 +1434,7 @@
                   }
                   else
                   {
+                    choosen_order();
                     // $("#paypal-button-container").addClass('d-none');
                     sessionStorage.setItem('before_checkout',1);
                     // alert("klklkl");
