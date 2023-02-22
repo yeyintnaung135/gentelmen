@@ -16,7 +16,8 @@
     {{-- Body Types --}}
     <div class="measure-types nav-pills" role="tablist">
       <div class="measure-type">
-        <a class="nav-link active" data-bs-toggle="tab" href="#upper" id="upper_tab" d-none>UPPER BODY</a>
+        <a class="nav-link active" data-bs-toggle="tab" href="#upper" id="upper_tab" d-none>UPPER
+          BODY</a>
       </div>
       <div class="measure-type">
         <a class="nav-link" data-bs-toggle="tab" href="#lower" id="lower_tab" d-none>LOWER BODY</a>
@@ -155,17 +156,17 @@
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="neck_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="neck_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="neck_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="neck_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="neck_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="neck_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="neck_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="neck_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -179,7 +180,8 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                  <input type="text" placeholder="0.0" id="chest_input" value="{{$upper->chest}}" autocomplete="off">
+                  <input type="text" placeholder="0.0" id="chest_input" value="{{$upper->chest}}"
+                         autocomplete="off">
                 @else
                   <input type="text" placeholder="0.0" id="chest_input" autocomplete="off"">
                 @endif
@@ -187,17 +189,17 @@
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="chest_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="chest_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="chest_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="chest_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="chest_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="chest_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="chest_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="chest_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -220,17 +222,17 @@
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="waist_upper_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="waist_upper_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="waist_upper_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="waist_upper_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="waist_upper_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="waist_upper_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="waist_upper_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="waist_upper_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -253,17 +255,17 @@
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="hips_upper_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="hips_upper_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="hips_upper_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="hips_upper_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="hips_upper_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="hips_upper_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="hips_upper_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="hips_upper_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -286,17 +288,17 @@
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="shoulder_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="shoulder_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="shoulder_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="shoulder_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="shoulder_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="shoulder_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="shoulder_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="shoulder_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -313,23 +315,28 @@
                   <input type="text" placeholder="0.0" id="sleeve_length_Right_input"
                          value="{{$upper->sleeve_length_right}}" autocomplete="off">
                 @else
-                  <input type="text" placeholder="0.0" id="sleeve_length_Right_input" autocomplete="off">
+                  <input type="text" placeholder="0.0" id="sleeve_length_Right_input"
+                         autocomplete="off">
                 @endif
                 <p class="unit">In</p>
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="sleeve_length_Right_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="sleeve_length_Right_input_cm" value="" disabled
+                         autocomplete="off">
                 @else
-                <input type="text" id="sleeve_length_Right_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="sleeve_length_Right_input_cm" value="" disabled
+                         autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="sleeve_length_Right_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="sleeve_length_Right_input_in" value="" disabled
+                         autocomplete="off">
                 @else
-                <input type="text" id="sleeve_length_Right_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="sleeve_length_Right_input_in" value="" disabled
+                         autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -346,23 +353,28 @@
                   <input type="text" placeholder="0.0" id="sleeve_length_left_input"
                          value="{{$upper->sleeve_length_left}}" autocomplete="off">
                 @else
-                  <input type="text" placeholder="0.0" id="sleeve_length_left_input" autocomplete="off">
+                  <input type="text" placeholder="0.0" id="sleeve_length_left_input"
+                         autocomplete="off">
                 @endif
                 <p class="unit">In</p>
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="sleeve_length_left_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="sleeve_length_left_input_cm" value="" disabled
+                         autocomplete="off">
                 @else
-                <input type="text" id="sleeve_length_left_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="sleeve_length_left_input_cm" value="" disabled
+                         autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="sleeve_length_left_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="sleeve_length_left_input_in" value="" disabled
+                         autocomplete="off">
                 @else
-                <input type="text" id="sleeve_length_left_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="sleeve_length_left_input_in" value="" disabled
+                         autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -385,17 +397,21 @@
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="stomach_upper_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="stomach_upper_input_cm" value="" disabled
+                         autocomplete="off">
                 @else
-                <input type="text" id="stomach_upper_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="stomach_upper_input_cm" value="" disabled
+                         autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="stomach_upper_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="stomach_upper_input_in" value="" disabled
+                         autocomplete="off">
                 @else
-                <input type="text" id="stomach_upper_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="stomach_upper_input_in" value="" disabled
+                         autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -418,17 +434,17 @@
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="biceps_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="biceps_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="biceps_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="biceps_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="biceps_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="biceps_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="biceps_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="biceps_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -451,17 +467,17 @@
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="forearm_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="forearm_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="forearm_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="forearm_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="forearm_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="forearm_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="forearm_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="forearm_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -475,7 +491,8 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $upper != null)
-                  <input type="text" placeholder="0.0" id="cuffs_input" value="{{$upper->cuffs}}" autocomplete="off">
+                  <input type="text" placeholder="0.0" id="cuffs_input" value="{{$upper->cuffs}}"
+                         autocomplete="off">
                 @else
                   <input type="text" placeholder="0.0" id="cuffs_input" autocomplete="off">
                 @endif
@@ -483,17 +500,17 @@
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="cuffs_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="cuffs_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="cuffs_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="cuffs_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="cuffs_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="cuffs_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="cuffs_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="cuffs_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -516,17 +533,17 @@
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="chest_front_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="chest_front_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="chest_front_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="chest_front_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="chest_front_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="chest_front_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="chest_front_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="chest_front_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -549,17 +566,17 @@
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="chest_back_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="chest_back_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="chest_back_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="chest_back_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="chest_back_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="chest_back_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="chest_back_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="chest_back_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -582,17 +599,21 @@
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="jacket_front_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="jacket_front_input_cm" value="" disabled
+                         autocomplete="off">
                 @else
-                <input type="text" id="jacket_front_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="jacket_front_input_cm" value="" disabled
+                         autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="jacket_front_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="jacket_front_input_in" value="" disabled
+                         autocomplete="off">
                 @else
-                <input type="text" id="jacket_front_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="jacket_front_input_in" value="" disabled
+                         autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -615,17 +636,17 @@
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="jacket_back_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="jacket_back_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="jacket_back_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="jacket_back_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="jacket_back_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="jacket_back_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="jacket_back_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="jacket_back_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -648,17 +669,17 @@
               </div>
               <div class="measure-input-group upper_show_cm d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="vest_length_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="vest_length_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="vest_length_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="vest_length_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group upper_show_in d-none">
                 @if($user != null && $upper != null)
-                <input type="text" id="vest_length_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="vest_length_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="vest_length_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="vest_length_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -768,26 +789,27 @@
                   <input type="hidden" id="lower_has_id" style="color:white"
                          value="{{$lower->id}}" autocomplete="off">
                   <input type="text" placeholder="0.0" value="{{$lower->waist}}"
-                         id="waist_lower_input" autocomplete="off" >
+                         id="waist_lower_input" autocomplete="off">
                 @else
-                  <input type="hidden" id="lower_has_id" style="color:white" value="0" autocomplete="off">
+                  <input type="hidden" id="lower_has_id" style="color:white" value="0"
+                         autocomplete="off">
                   <input type="text" placeholder="0.0" id="waist_lower_input" autocomplete="off">
                 @endif
                 <p class="unit">In</p>
               </div>
               <div class="measure-input-group lower_show_cm d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="waist_lower_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="waist_lower_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="waist_lower_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="waist_lower_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group lower_show_in d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="waist_lower_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="waist_lower_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="waist_lower_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="waist_lower_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -810,17 +832,21 @@
               </div>
               <div class="measure-input-group lower_show_cm d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="stomach_lower_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="stomach_lower_input_cm" value="" disabled
+                         autocomplete="off">
                 @else
-                <input type="text" id="stomach_lower_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="stomach_lower_input_cm" value="" disabled
+                         autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group lower_show_in d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="stomach_lower_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="stomach_lower_input_in" value="" disabled
+                         autocomplete="off">
                 @else
-                <input type="text" id="stomach_lower_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="stomach_lower_input_in" value="" disabled
+                         autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -835,7 +861,7 @@
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
                   <input type="text" placeholder="0.0" value="{{$lower->hips}}"
-                         id="hips_lower_input" autocomplete="off" >
+                         id="hips_lower_input" autocomplete="off">
                 @else
                   <input type="text" placeholder="0.0" id="hips_lower_input" autocomplete="off">
                 @endif
@@ -843,17 +869,17 @@
               </div>
               <div class="measure-input-group lower_show_cm d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="hips_lower_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="hips_lower_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="hips_lower_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="hips_lower_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group lower_show_in d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="hips_lower_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="hips_lower_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="hips_lower_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="hips_lower_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -876,17 +902,17 @@
               </div>
               <div class="measure-input-group lower_show_cm d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="crotch_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="crotch_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="crotch_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="crotch_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group lower_show_in d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="crotch_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="crotch_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="crotch_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="crotch_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -909,17 +935,17 @@
               </div>
               <div class="measure-input-group lower_show_cm d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="thighs_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="thighs_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="thighs_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="thighs_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group lower_show_in d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="thighs_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="thighs_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="thighs_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="thighs_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -933,7 +959,8 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
-                  <input type="text" placeholder="0.0" id="knees_input" value="{{$lower->knees}}" autocomplete="off">
+                  <input type="text" placeholder="0.0" id="knees_input" value="{{$lower->knees}}"
+                         autocomplete="off">
                 @else
                   <input type="text" placeholder="0.0" id="knees_input" autocomplete="off">
                 @endif
@@ -941,17 +968,17 @@
               </div>
               <div class="measure-input-group lower_show_cm d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="knees_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="knees_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="knees_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="knees_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group lower_show_in d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="knees_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="knees_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="knees_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="knees_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -965,7 +992,8 @@
             <div class="measure-input-wrapper">
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
-                  <input type="text" placeholder="0.0" id="calf_input" value="{{$lower->calf}}" autocomplete="off">
+                  <input type="text" placeholder="0.0" id="calf_input" value="{{$lower->calf}}"
+                         autocomplete="off">
                 @else
                   <input type="text" placeholder="0.0" id="calf_input" autocomplete="off">
                 @endif
@@ -973,17 +1001,17 @@
               </div>
               <div class="measure-input-group lower_show_cm d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="calf_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="calf_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="calf_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="calf_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group lower_show_in d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="calf_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="calf_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="calf_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="calf_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -998,7 +1026,7 @@
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
                   <input type="text" placeholder="0.0" id="pants_short_input"
-                         value="{{$lower->shorts}}" autocomplete="off" >
+                         value="{{$lower->shorts}}" autocomplete="off">
                 @else
                   <input type="text" placeholder="0.0" id="pants_short_input" autocomplete="off">
                 @endif
@@ -1006,17 +1034,17 @@
               </div>
               <div class="measure-input-group lower_show_cm d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="pants_short_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="pants_short_input_cm" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="pants_short_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="pants_short_input_cm" value="" disabled autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group lower_show_in d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="pants_short_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="pants_short_input_in" value="" disabled autocomplete="off">
                 @else
-                <input type="text" id="pants_short_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="pants_short_input_in" value="" disabled autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -1031,7 +1059,7 @@
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
                   <input type="text" placeholder="0.0" id="pants_length_input"
-                         value="{{$lower->length}}" autocomplete="off" >
+                         value="{{$lower->length}}" autocomplete="off">
                 @else
                   <input type="text" placeholder="0.0" id="pants_length_input" autocomplete="off">
                 @endif
@@ -1039,17 +1067,21 @@
               </div>
               <div class="measure-input-group lower_show_cm d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="pants_length_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="pants_length_input_cm" value="" disabled
+                         autocomplete="off">
                 @else
-                <input type="text" id="pants_length_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="pants_length_input_cm" value="" disabled
+                         autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group lower_show_in d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="pants_length_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="pants_length_input_in" value="" disabled
+                         autocomplete="off">
                 @else
-                <input type="text" id="pants_length_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="pants_length_input_in" value="" disabled
+                         autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -1064,7 +1096,7 @@
               <div class="measure-input-group">
                 @if($user != null && $lower != null)
                   <input type="text" placeholder="0.0" id="bottom_length_input"
-                         value="{{$lower->bottom}}" autocomplete="off" >
+                         value="{{$lower->bottom}}" autocomplete="off">
                 @else
                   <input type="text" placeholder="0.0" id="bottom_length_input" autocomplete="off">
                 @endif
@@ -1072,17 +1104,21 @@
               </div>
               <div class="measure-input-group lower_show_cm d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="bottom_length_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="bottom_length_input_cm" value="" disabled
+                         autocomplete="off">
                 @else
-                <input type="text" id="bottom_length_input_cm" value="" disabled autocomplete="off">
+                  <input type="text" id="bottom_length_input_cm" value="" disabled
+                         autocomplete="off">
                 @endif
                 <p class="">Cm</p>
               </div>
               <div class="measure-input-group lower_show_in d-none">
                 @if($user != null && $lower != null)
-                <input type="text" id="bottom_length_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="bottom_length_input_in" value="" disabled
+                         autocomplete="off">
                 @else
-                <input type="text" id="bottom_length_input_in" value="" disabled autocomplete="off">
+                  <input type="text" id="bottom_length_input_in" value="" disabled
+                         autocomplete="off">
                 @endif
                 <p class="">In</p>
               </div>
@@ -1116,29 +1152,25 @@
             <div class="info-group">
               <label for="height">Height</label>
               <div class="info-input-group">
-                @if($user != null)
-                  <input type="text" id="height" value="{{$user_info->height}}"
-                         onmousedown="clear_info_required()"
-                         onkeydown="clear_pass_measure_required()" autocomplete="off">
-                  @if($user_info->height_type == 'cm')
-                    <select name="age" id="height_type">
-                      <option value="cm" selected>CM</option>
-                      <option value="in">IN</option>
-                    </select>
-                  @else
-                    <select name="age" id="height_type">
-                      <option value="cm">CM</option>
-                      <option value="in" selected>IN</option>
-                    </select>
-                  @endif
-                @else
-                  <input type="text" id="height" placeholder="0" onmousedown="clear_info_required()"
-                         onkeydown="clear_pass_measure_required()" autocomplete="off">
-                  <select name="age" id="height_type">
-                    <option value="cm" selected>CM</option>
-                    <option value="in">IN</option>
-                  </select>
-                @endif
+                <div class="d-flex">
+                  <div class="d-flex ft-wrapper">
+                    <input type="number" min="0">
+                    <span>Ft</span>
+                  </div>
+                  <div class="h-wrapper row g-0">
+                    <div class="col-5">
+                      <input type="number" min="0" class="select-input h-100">
+                    </div>
+                    <div class="col-7">
+                      <select name="h_type_select">
+                        <option value="in">In</option>
+                        <option value="cm">Cm</option>
+                      </select>
+                    </div>
+
+
+                  </div>
+                </div>
 
               </div>
               <span class="text-danger info_errors d-none" role="alert"
@@ -1444,7 +1476,7 @@
                 @else
                   <select name="neck_type" id="neck_type" onmousedown="clear_info_required()"
                           onkeydown="clear_pass_measure_required()">
-                    <option value="0" >Select</option>
+                    <option value="0">Select</option>
                     <option value="standard" selected>Standard</option>
                     <option value="short">Short</option>
                     <option value="long">Long</option>
@@ -1672,6 +1704,25 @@
 </section>
 <script>
 
+
+    $(document).ready(() => {
+        $('select[name=h_type_select]').on('change', function () {
+            //ways to retrieve selected option and text outside handler
+            if (this.value == "cm") {
+                $('.ft-wrapper').addClass('d-none')
+                $('.select-input').removeClass('h-100')
+            }
+            if (this.value == "in") {
+                $('.ft-wrapper').removeClass('d-none')
+                $('.select-input').addClass('h-100')
+
+            }
+            console.log('Changed option value ' + this.value);
+            console.log('Changed option text ' + $(this).find('option').filter(':selected').text());
+        });
+
+
+    });
     $(document).ready(() => {
         $('#upper .content').first().show();
         document.getElementById('neck_input').focus();
@@ -1712,7 +1763,7 @@
 
         e.preventDefault();
     });
-        $('#lower .content').first().show();
+    $('#lower .content').first().show();
     $('#lower .measure-items .measure-item').click(function (e) {
         let current_link = $(this);
         let current_link_href = current_link.attr('href');
@@ -1729,7 +1780,7 @@
     });
 
     $(document).ready(() => {
-      // $('.unit').html("Cm");
+        // $('.unit').html("Cm");
         var user_id = @json($user);
         var upper_id = @json($upper);
         var lower_id = @json($lower);
@@ -1907,41 +1958,32 @@
         }
         //End get session data if has for lower
         //cm and in different start
-        if(sessionStorage.getItem('customize_category_id') == 9)
-        {
-          alert("nn5");
-          alert(sessionStorage.getItem('upper_measure_unit'));
-          // if(sessionStorage.getItem('pass_measure') != null)
-          // {
-            if(sessionStorage.getItem('upper_measure_unit') != null && sessionStorage.getItem('lower_measure_unit') != null)
-            {
-              if(sessionStorage.getItem('upper_measure_unit') != sessionStorage.getItem('lower_measure_unit'))
-              {
-                $('.unit').html(sessionStorage.getItem('upper_measure_unit'));
+        if (sessionStorage.getItem('customize_category_id') == 9) {
+            alert("nn5");
+            alert(sessionStorage.getItem('upper_measure_unit'));
+            // if(sessionStorage.getItem('pass_measure') != null)
+            // {
+            if (sessionStorage.getItem('upper_measure_unit') != null && sessionStorage.getItem('lower_measure_unit') != null) {
+                if (sessionStorage.getItem('upper_measure_unit') != sessionStorage.getItem('lower_measure_unit')) {
+                    $('.unit').html(sessionStorage.getItem('upper_measure_unit'));
 
-                if(sessionStorage.getItem('lower_measure_unit') == 'cm')
-                {
-                  $('.upper_show_cm').removeClass('d-none');
-                  upper_change_cm();
+                    if (sessionStorage.getItem('lower_measure_unit') == 'cm') {
+                        $('.upper_show_cm').removeClass('d-none');
+                        upper_change_cm();
+                    } else if (sessionStorage.getItem('lower_measure_unit') == 'in') {
+                        $('.upper_show_in').removeClass('d-none');
+                        upper_change_in();
+                    }
+                    if (sessionStorage.getItem('upper_measure_unit') == 'cm') {
+                        $('.lower_show_cm').removeClass('d-none');
+                        lower_change_cm();
+                    } else if (sessionStorage.getItem('upper_measure_unit') == 'in') {
+                        $('.lower_show_in').removeClass('d-none');
+                        lower_change_in();
+                    }
                 }
-                else if(sessionStorage.getItem('lower_measure_unit') == 'in')
-                {
-                  $('.upper_show_in').removeClass('d-none');
-                  upper_change_in();
-                }
-                if(sessionStorage.getItem('upper_measure_unit') == 'cm')
-                {
-                  $('.lower_show_cm').removeClass('d-none');
-                  lower_change_cm();
-                }
-                else if(sessionStorage.getItem('upper_measure_unit') == 'in')
-                {
-                  $('.lower_show_in').removeClass('d-none');
-                  lower_change_in();
-                }
-              }
             }
-          // }
+            // }
         }
         //cm and in difference end
         //start determine to go next step 6
@@ -1965,224 +2007,167 @@
         // $('#in').attr('checked',false);
         // $('#cm').prop('checked',true);
         if (user_id == null) {
-          // alert("not has user in suit define unit");
+            // alert("not has user in suit define unit");
             // alert("hat="+sessionStorage.getItem('customize_category_id'));
-            if(sessionStorage.getItem('upper_measure_unit') == null && sessionStorage.getItem('lower_measure_unit') == null) {
-              // alert("errororor");
+            if (sessionStorage.getItem('upper_measure_unit') == null && sessionStorage.getItem('lower_measure_unit') == null) {
+                // alert("errororor");
                 $('.unit').html("In");
-                $('#in').prop('checked',true);
+                $('#in').prop('checked', true);
             }
-            if(sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2)
-            {
-              // alert("wtfff");
-                if(sessionStorage.getItem('upper_measure_unit') != null)
-                {
-                  if(sessionStorage.getItem('upper_measure_unit') == 'in')
-                  {
+            if (sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2) {
+                // alert("wtfff");
+                if (sessionStorage.getItem('upper_measure_unit') != null) {
+                    if (sessionStorage.getItem('upper_measure_unit') == 'in') {
+                        $('.unit').html("In");
+                        $('#in').prop('checked', true);
+                    } else if (sessionStorage.getItem('upper_measure_unit') == 'cm') {
+                        $('.unit').html("Cm");
+                        $('#cm').prop('checked', true);
+                    }
+                } else {
                     $('.unit').html("In");
-                    $('#in').prop('checked',true);
-                  }
-                  else if(sessionStorage.getItem('upper_measure_unit') == 'cm')
-                  {
-                    $('.unit').html("Cm");
-                    $('#cm').prop('checked',true);
-                  }
+                    $('#in').prop('checked', true);
                 }
-                else
-                {
-                  $('.unit').html("In");
-                  $('#in').prop('checked',true);
+            } else if (sessionStorage.getItem('customize_category_id') == 3) {
+                // alert("pant unit");
+                if (sessionStorage.getItem('lower_measure_unit') != null) {
+                    if (sessionStorage.getItem('lower_measure_unit') == 'in') {
+                        // $('.unit').html("In");
+                        $('#in').prop('checked', true);
+                    } else if (sessionStorage.getItem('lower_measure_unit') == 'cm') {
+                        // alert("pant unit value");
+                        $('.unit').html("Cm");
+                        $('#cm').prop('checked', true);
+                    }
+                } else {
+                    $('.unit').html("In");
+                    $('#in').prop('checked', true);
                 }
-            }
-            else if(sessionStorage.getItem('customize_category_id') == 3)
-            {
-              // alert("pant unit");
-              if(sessionStorage.getItem('lower_measure_unit') != null)
-              {
-                if(sessionStorage.getItem('lower_measure_unit') == 'in')
-                {
-                  // $('.unit').html("In");
-                  $('#in').prop('checked',true);
+            } else if (sessionStorage.getItem('customize_category_id') == 9) {
+                if (sessionStorage.getItem('upper_measure_unit') != null) {
+                    if (sessionStorage.getItem('upper_measure_unit') == 'in') {
+                        $('.unit').html("In");
+                        $('#in').prop('checked', true);
+                    } else if (sessionStorage.getItem('upper_measure_unit') == 'cm') {
+                        $('.unit').html("Cm");
+                        $('#cm').prop('checked', true);
+                    }
+                } else if (sessionStorage.getItem('lower_measure_unit') != null) {
+                    if (sessionStorage.getItem('lower_measure_unit') == 'in') {
+                        $('.unit').html("In");
+                        $('#in').prop('checked', true);
+                    } else if (sessionStorage.getItem('lower_measure_unit') == 'cm') {
+                        $('.unit').html("Cm");
+                        $('#cm').prop('checked', true);
+                    }
+                } else {
+                    // alert("jjkk");
+                    $('.unit').html("In");
+                    $('#in').prop('checked', true);
                 }
-                else if(sessionStorage.getItem('lower_measure_unit') == 'cm')
-                {
-                  // alert("pant unit value");
-                  $('.unit').html("Cm");
-                  $('#cm').prop('checked',true);
-                }
-              }
-              else
-              {
-                $('.unit').html("In");
-                $('#in').prop('checked',true);
-              }
-            }
-            else if(sessionStorage.getItem('customize_category_id') == 9)
-            {
-              if(sessionStorage.getItem('upper_measure_unit') != null)
-              {
-                if(sessionStorage.getItem('upper_measure_unit') == 'in')
-                {
-                  $('.unit').html("In");
-                  $('#in').prop('checked',true);
-                }
-                else if(sessionStorage.getItem('upper_measure_unit') == 'cm')
-                {
-                  $('.unit').html("Cm");
-                  $('#cm').prop('checked',true);
-                }
-              }
-              else if(sessionStorage.getItem('lower_measure_unit') != null)
-              {
-                if(sessionStorage.getItem('lower_measure_unit') == 'in')
-                {
-                  $('.unit').html("In");
-                  $('#in').prop('checked',true);
-                }
-                else if(sessionStorage.getItem('lower_measure_unit') == 'cm')
-                {
-                  $('.unit').html("Cm");
-                  $('#cm').prop('checked',true);
-                }
-              }
-              else
-              {
-                // alert("jjkk");
-                $('.unit').html("In");
-                $('#in').prop('checked',true);
-              }
             }
         } else if (user_id != null && upper_id != null || lower_id != null) {
-          // alert("has user in suit define unit");
-          // alert(upper_id.id);
-          // alert(lower_id.id);
-          if(sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2)
-          {
-            if(upper_id != null)
-            {
-              // alert(upper_id.measure_type);
-            if (upper_id.measure_type == 'in') {
-                $('.unit').html("In");
-                $('#in').prop('checked',true);
-            } else if (upper_id.measure_type == 'cm') {
-                $('.unit').html("Cm");
-                $('#cm').prop('checked',true);
+            // alert("has user in suit define unit");
+            // alert(upper_id.id);
+            // alert(lower_id.id);
+            if (sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2) {
+                if (upper_id != null) {
+                    // alert(upper_id.measure_type);
+                    if (upper_id.measure_type == 'in') {
+                        $('.unit').html("In");
+                        $('#in').prop('checked', true);
+                    } else if (upper_id.measure_type == 'cm') {
+                        $('.unit').html("Cm");
+                        $('#cm').prop('checked', true);
+                    }
+                    sessionStorage.setItem('upper_measure_unit', upper_id.measure_type);
+                } else {
+                    $('.unit').html("In");
+                    $('#in').prop('checked', true);
+                }
             }
-            sessionStorage.setItem('upper_measure_unit', upper_id.measure_type);
+            if (sessionStorage.getItem('customize_category_id') == 3) {
+                // alert(lower_id.measure_type);
+                if (lower_id != null) {
+                    if (lower_id.measure_type == 'in') {
+                        $('.unit').html("In");
+                        $('#in').prop('checked', true);
+                    } else if (lower_id.measure_type == 'cm') {
+                        $('.unit').html("Cm");
+                        $('#cm').prop('checked', true);
+                    }
+                    sessionStorage.setItem('lower_measure_unit', lower_id.measure_type);
+                } else {
+                    $('.unit').html("In");
+                    $('#in').prop('checked', true);
+                }
             }
-            else
-            {
-              $('.unit').html("In");
-              $('#in').prop('checked',true);
-            }
-          }
-          if(sessionStorage.getItem('customize_category_id') == 3)
-            {
-              // alert(lower_id.measure_type);
-              if(lower_id != null)
-              {
-              if (lower_id.measure_type == 'in') {
-                  $('.unit').html("In");
-                  $('#in').prop('checked',true);
-              } else if (lower_id.measure_type == 'cm') {
-                  $('.unit').html("Cm");
-                  $('#cm').prop('checked',true);
-              }
-              sessionStorage.setItem('lower_measure_unit', lower_id.measure_type);
-              }
-              else
-              {
-                $('.unit').html("In");
-                $('#in').prop('checked',true);
-              }
-            }
-            if(sessionStorage.getItem('customize_category_id') == 9)
-            {
-              // alert("okay");
-              if(upper_id == null && lower_id == null)
-              {
-                $('.unit').html("In");
-                $('#in').prop('checked',true);
-                sessionStorage.setItem('upper_measure_unit', "in");
-                sessionStorage.setItem('lower_measure_unit', "in");
-              }
-              else if(upper_id != null && lower_id == null)
-              {
-                if(upper_id.measure_type == 'in')
-                {
-                  $('.unit').html("In");
-                  $('#in').prop('checked',true);
-                  sessionStorage.setItem('upper_measure_unit', "in");
-                }
-                else if(upper_id.measure_type == 'cm')
-                {
-                  $('.unit').html("Cm");
-                  $('#cm').prop('checked',true);
-                  sessionStorage.setItem('upper_measure_unit', "cm");
-                }
-              }
-              else if(upper_id == null && lower_id != null)
-              {
-                if(lower_id.measure_type == 'in')
-                {
-                  $('.unit').html("In");
-                  $('#in').prop('checked',true);
-                  sessionStorage.setItem('lower_measure_unit', "in");
-                }
-                else if(lower_id.measure_type == 'cm')
-                {
-                  $('.unit').html("Cm");
-                  $('#cm').prop('checked',true);
-                  sessionStorage.setItem('lower_measure_unit', "cm");
-                }
-              }
-              else if(upper_id != null && lower_id != null)
-              {
-                // alert("okay 2");
-                if(upper_id.measure_type == 'in')
-                {
-                  $('.unit').html("In");
-                  $('#in').prop('checked',true);
-                  sessionStorage.setItem('upper_measure_unit', "in");
-                }
-                else if(upper_id.measure_type == 'cm')
-                {
-                  // alert("okay upper cm");
-                  Category = "cm";
-                  if(Category == "cm"){
-                    $('.unit').html("Cm");
-                  }
-                  $('#cm').prop('checked',true);
-                  // alert("okay upper cm change");
-                  sessionStorage.setItem('upper_measure_unit', "cm");
-                }
+            if (sessionStorage.getItem('customize_category_id') == 9) {
+                // alert("okay");
+                if (upper_id == null && lower_id == null) {
+                    $('.unit').html("In");
+                    $('#in').prop('checked', true);
+                    sessionStorage.setItem('upper_measure_unit', "in");
+                    sessionStorage.setItem('lower_measure_unit', "in");
+                } else if (upper_id != null && lower_id == null) {
+                    if (upper_id.measure_type == 'in') {
+                        $('.unit').html("In");
+                        $('#in').prop('checked', true);
+                        sessionStorage.setItem('upper_measure_unit', "in");
+                    } else if (upper_id.measure_type == 'cm') {
+                        $('.unit').html("Cm");
+                        $('#cm').prop('checked', true);
+                        sessionStorage.setItem('upper_measure_unit', "cm");
+                    }
+                } else if (upper_id == null && lower_id != null) {
+                    if (lower_id.measure_type == 'in') {
+                        $('.unit').html("In");
+                        $('#in').prop('checked', true);
+                        sessionStorage.setItem('lower_measure_unit', "in");
+                    } else if (lower_id.measure_type == 'cm') {
+                        $('.unit').html("Cm");
+                        $('#cm').prop('checked', true);
+                        sessionStorage.setItem('lower_measure_unit', "cm");
+                    }
+                } else if (upper_id != null && lower_id != null) {
+                    // alert("okay 2");
+                    if (upper_id.measure_type == 'in') {
+                        $('.unit').html("In");
+                        $('#in').prop('checked', true);
+                        sessionStorage.setItem('upper_measure_unit', "in");
+                    } else if (upper_id.measure_type == 'cm') {
+                        // alert("okay upper cm");
+                        Category = "cm";
+                        if (Category == "cm") {
+                            $('.unit').html("Cm");
+                        }
+                        $('#cm').prop('checked', true);
+                        // alert("okay upper cm change");
+                        sessionStorage.setItem('upper_measure_unit', "cm");
+                    }
 
-                if(lower_id.measure_type == 'in')
-                {
-                  // $('.unit').html("In");
-                  // $('#in').attr('checked',true);
-                  sessionStorage.setItem('lower_measure_unit', "in");
+                    if (lower_id.measure_type == 'in') {
+                        // $('.unit').html("In");
+                        // $('#in').attr('checked',true);
+                        sessionStorage.setItem('lower_measure_unit', "in");
+                    } else if (lower_id.measure_type == 'cm') {
+                        // $('.unit').html("Cm");
+                        // $('#cm').attr('checked',true);
+                        sessionStorage.setItem('lower_measure_unit', "cm");
+                    }
                 }
-                else if(lower_id.measure_type == 'cm')
-                {
-                  // $('.unit').html("Cm");
-                  // $('#cm').attr('checked',true);
-                  sessionStorage.setItem('lower_measure_unit', "cm");
-                }
-              }
             }
 
         }
 
         $("input[name='measure_unit']").click(function () {
-          // alert("fdfdf");
+            // alert("fdfdf");
             sessionStorage.removeItem('pass_measure');
-            if(sessionStorage.getItem('customize_category_id') == 9)
-            {
-              $('.upper_show_cm').addClass('d-none');
-              $('.upper_show_in').addClass('d-none');
-              $('.lower_show_in').addClass('d-none');
-              $('.lower_show_cm').addClass('d-none');
+            if (sessionStorage.getItem('customize_category_id') == 9) {
+                $('.upper_show_cm').addClass('d-none');
+                $('.upper_show_in').addClass('d-none');
+                $('.lower_show_in').addClass('d-none');
+                $('.lower_show_cm').addClass('d-none');
             }
             category = this.value;
             var neck = $('#neck_input').val();
@@ -2216,290 +2201,286 @@
             if (category === "in") {
                 $('.unit').html("In")
                 //start convert cm to in upper data
-              if(sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2 || sessionStorage.getItem('customize_category_id') == 9)
-              {
-                if ($.trim(neck) == '') {
+                if (sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2 || sessionStorage.getItem('customize_category_id') == 9) {
+                    if ($.trim(neck) == '') {
 
-                } else {
-                  $('#neck_input').val((neck / 2.54).toFixed(2));
+                    } else {
+                        $('#neck_input').val((neck / 2.54).toFixed(2));
+                    }
+                    if ($.trim(chest) == '') {
+
+                    } else {
+                        $('#chest_input').val((chest / 2.54).toFixed(2));
+                    }
+                    if ($.trim(waist) == '') {
+
+                    } else {
+                        $('#waist_upper_input').val((waist / 2.54).toFixed(2));
+                    }
+                    if ($.trim(hips) == '') {
+
+                    } else {
+                        $('#hips_upper_input').val((hips / 2.54).toFixed(2));
+                    }
+                    if ($.trim(shoulder) == '') {
+
+                    } else {
+                        $('#shoulder_input').val((shoulder / 2.54).toFixed(2));
+                    }
+                    if ($.trim(sleeve_right) == '') {
+
+                    } else {
+                        $('#sleeve_length_Right_input').val((sleeve_right / 2.54).toFixed(2));
+                    }
+                    if ($.trim(sleeve_left) == '') {
+
+                    } else {
+                        $('#sleeve_length_left_input').val((sleeve_left / 2.54).toFixed(2));
+                    }
+                    if ($.trim(stomach) == '') {
+
+                    } else {
+                        $('#stomach_upper_input').val((stomach / 2.54).toFixed(2));
+                    }
+                    if ($.trim(biceps) == '') {
+
+                    } else {
+                        $('#biceps_input').val((biceps / 2.54).toFixed(2));
+                    }
+                    if ($.trim(forearm) == '') {
+
+                    } else {
+                        $('#forearm_input').val((forearm / 2.54).toFixed(2));
+                    }
+                    if ($.trim(cuffs) == '') {
+
+                    } else {
+                        $('#cuffs_input').val((cuffs / 2.54).toFixed(2));
+                    }
+                    if ($.trim(chest_front) == '') {
+
+                    } else {
+                        $('#chest_front_input').val((chest_front / 2.54).toFixed(2));
+                    }
+                    if ($.trim(chest_back) == '') {
+
+                    } else {
+                        $('#chest_back_input').val((chest_back / 2.54).toFixed(2));
+                    }
+                    if ($.trim(jacket_front) == '') {
+
+                    } else {
+                        $('#jacket_front_input').val((jacket_front / 2.54).toFixed(2));
+                    }
+                    if ($.trim(jacket_back) == '') {
+
+                    } else {
+                        $('#jacket_back_input').val((jacket_back / 2.54).toFixed(2));
+                    }
+                    if ($.trim(vest_len) == '') {
+
+                    } else {
+                        $('#vest_length_input').val((vest_len / 2.54).toFixed(2));
+                    }
+                    //end convert cm to in upper data
                 }
-                if ($.trim(chest) == '') {
+                if (sessionStorage.getItem('customize_category_id') == 3 || sessionStorage.getItem('customize_category_id') == 9) {
+                    //start convert cm to in lower data
+                    if ($.trim(pwaist) == '') {
 
-                } else {
-                  $('#chest_input').val((chest / 2.54).toFixed(2));
+                    } else {
+                        $('#waist_lower_input').val((pwaist / 2.54).toFixed(2));
+                    }
+                    if ($.trim(pstomach) == '') {
+
+                    } else {
+                        $('#stomach_lower_input').val((pstomach / 2.54).toFixed(2));
+                    }
+                    if ($.trim(phips) == '') {
+
+                    } else {
+                        $('#hips_lower_input').val((phips / 2.54).toFixed(2));
+                    }
+                    if ($.trim(pcrotch) == '') {
+
+                    } else {
+                        $('#crotch_input').val((pcrotch / 2.54).toFixed(2));
+                    }
+                    if ($.trim(pthighs) == '') {
+
+                    } else {
+                        $('#thighs_input').val((pthighs / 2.54).toFixed(2));
+                    }
+                    if ($.trim(pknees) == '') {
+
+                    } else {
+                        $('#knees_input').val((pknees / 2.54).toFixed(2));
+                    }
+                    if ($.trim(pcalf) == '') {
+
+                    } else {
+                        $('#calf_input').val((pcalf / 2.54).toFixed(2));
+                    }
+                    // if ($.trim(pshort) == '') {
+
+                    // } else {
+                    //   $('#pants_short_input').val((pshort / 2.54).toFixed(2));
+                    // }
+                    if ($.trim(plength) == '') {
+
+                    } else {
+                        $('#pants_length_input').val((plength / 2.54).toFixed(2));
+                    }
+                    if ($.trim(pbottom) == '') {
+
+                    } else {
+                        $('#bottom_length_input').val((pbottom / 2.54).toFixed(2));
+                    }
+                    //end convert cm to in lower data
                 }
-                if ($.trim(waist) == '') {
-
-                } else {
-                  $('#waist_upper_input').val((waist / 2.54).toFixed(2));
-                }
-                if ($.trim(hips) == '') {
-
-                } else {
-                  $('#hips_upper_input').val((hips / 2.54).toFixed(2));
-                }
-                if ($.trim(shoulder) == '') {
-
-                } else {
-                  $('#shoulder_input').val( (shoulder / 2.54).toFixed(2));
-                }
-                if ($.trim(sleeve_right) == '') {
-
-                } else {
-                  $('#sleeve_length_Right_input').val( (sleeve_right / 2.54).toFixed(2));
-                }
-                if ($.trim(sleeve_left) == '') {
-
-                } else {
-                  $('#sleeve_length_left_input').val( (sleeve_left / 2.54).toFixed(2));
-                }
-                if ($.trim(stomach) == '') {
-
-                } else {
-                  $('#stomach_upper_input').val( (stomach / 2.54).toFixed(2));
-                }
-                if ($.trim(biceps) == '') {
-
-                } else {
-                  $('#biceps_input').val( (biceps / 2.54).toFixed(2));
-                }
-                if ($.trim(forearm) == '') {
-
-                } else {
-                  $('#forearm_input').val( (forearm / 2.54).toFixed(2));
-                }
-                if ($.trim(cuffs) == '') {
-
-                } else {
-                  $('#cuffs_input').val( (cuffs / 2.54).toFixed(2));
-                }
-                if ($.trim(chest_front) == '') {
-
-                } else {
-                  $('#chest_front_input').val( (chest_front / 2.54).toFixed(2));
-                }
-                if ($.trim(chest_back) == '') {
-
-                } else {
-                  $('#chest_back_input').val( (chest_back / 2.54).toFixed(2));
-                }
-                if ($.trim(jacket_front) == '') {
-
-                } else {
-                  $('#jacket_front_input').val( (jacket_front / 2.54).toFixed(2));
-                }
-                if ($.trim(jacket_back) == '') {
-
-                } else {
-                  $('#jacket_back_input').val( (jacket_back / 2.54).toFixed(2));
-                }
-                if ($.trim(vest_len) == '') {
-
-                } else {
-                  $('#vest_length_input').val( (vest_len / 2.54).toFixed(2) );
-                }
-                //end convert cm to in upper data
-              }
-              if(sessionStorage.getItem('customize_category_id') == 3 || sessionStorage.getItem('customize_category_id') == 9)
-              {
-                //start convert cm to in lower data
-                if ($.trim(pwaist) == '') {
-
-                } else {
-                  $('#waist_lower_input').val((pwaist /2.54).toFixed(2));
-                }
-                if ($.trim(pstomach) == '') {
-
-                } else {
-                  $('#stomach_lower_input').val((pstomach / 2.54).toFixed(2));
-                }
-                if ($.trim(phips) == '') {
-
-                } else {
-                  $('#hips_lower_input').val((phips /2.54).toFixed(2));
-                }
-                if ($.trim(pcrotch) == '') {
-
-                } else {
-                  $('#crotch_input').val((pcrotch / 2.54).toFixed(2));
-                }
-                if ($.trim(pthighs) == '') {
-
-                } else {
-                  $('#thighs_input').val((pthighs / 2.54).toFixed(2));
-                }
-                if ($.trim(pknees) == '') {
-
-                } else {
-                  $('#knees_input').val((pknees / 2.54).toFixed(2));
-                }
-                if ($.trim(pcalf) == '') {
-
-                } else {
-                  $('#calf_input').val((pcalf / 2.54).toFixed(2));
-                }
-                // if ($.trim(pshort) == '') {
-
-                // } else {
-                //   $('#pants_short_input').val((pshort / 2.54).toFixed(2));
-                // }
-                if ($.trim(plength) == '') {
-
-                } else {
-                  $('#pants_length_input').val((plength / 2.54).toFixed(2));
-                }
-                if ($.trim(pbottom) == '') {
-
-                } else {
-                  $('#bottom_length_input').val((pbottom /2.54).toFixed(2));
-                }
-                //end convert cm to in lower data
-              }
 
             }
             if (category === "cm") {
                 $('.unit').html("Cm");
-              //start convert in to cm upper data
-            if(sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2 || sessionStorage.getItem('customize_category_id') == 9)
-            {
-              if ($.trim(neck) == '') {
+                //start convert in to cm upper data
+                if (sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2 || sessionStorage.getItem('customize_category_id') == 9) {
+                    if ($.trim(neck) == '') {
 
-              } else {
-                $('#neck_input').val((neck * 2.54).toFixed(2));
-              }
-              if ($.trim(chest) == '') {
+                    } else {
+                        $('#neck_input').val((neck * 2.54).toFixed(2));
+                    }
+                    if ($.trim(chest) == '') {
 
-              } else {
-                $('#chest_input').val((chest * 2.54).toFixed(2));
-              }
-              if ($.trim(waist) == '') {
+                    } else {
+                        $('#chest_input').val((chest * 2.54).toFixed(2));
+                    }
+                    if ($.trim(waist) == '') {
 
-              } else {
-                $('#waist_upper_input').val((waist * 2.54).toFixed(2));
-              }
-              if ($.trim(hips) == '') {
+                    } else {
+                        $('#waist_upper_input').val((waist * 2.54).toFixed(2));
+                    }
+                    if ($.trim(hips) == '') {
 
-              } else {
-                $('#hips_upper_input').val((hips * 2.54).toFixed(2));
-              }
-              if ($.trim(shoulder) == '') {
+                    } else {
+                        $('#hips_upper_input').val((hips * 2.54).toFixed(2));
+                    }
+                    if ($.trim(shoulder) == '') {
 
-              } else {
-                $('#shoulder_input').val((shoulder * 2.54).toFixed(2));
-              }
-              if ($.trim(sleeve_right) == '') {
+                    } else {
+                        $('#shoulder_input').val((shoulder * 2.54).toFixed(2));
+                    }
+                    if ($.trim(sleeve_right) == '') {
 
-              } else {
-                $('#sleeve_length_Right_input').val((sleeve_right * 2.54).toFixed(2));
-              }
-              if ($.trim(sleeve_left) == '') {
+                    } else {
+                        $('#sleeve_length_Right_input').val((sleeve_right * 2.54).toFixed(2));
+                    }
+                    if ($.trim(sleeve_left) == '') {
 
-              } else {
-                $('#sleeve_length_left_input').val((sleeve_left * 2.54).toFixed(2));
-              }
-              if ($.trim(stomach) == '') {
+                    } else {
+                        $('#sleeve_length_left_input').val((sleeve_left * 2.54).toFixed(2));
+                    }
+                    if ($.trim(stomach) == '') {
 
-              } else {
-                $('#stomach_upper_input').val((stomach * 2.54).toFixed(2));
-              }
-              if ($.trim(biceps) == '') {
+                    } else {
+                        $('#stomach_upper_input').val((stomach * 2.54).toFixed(2));
+                    }
+                    if ($.trim(biceps) == '') {
 
-              } else {
-                $('#biceps_input').val((biceps * 2.54).toFixed(2));
-              }
-              if ($.trim(forearm) == '') {
+                    } else {
+                        $('#biceps_input').val((biceps * 2.54).toFixed(2));
+                    }
+                    if ($.trim(forearm) == '') {
 
-              } else {
-                $('#forearm_input').val((forearm * 2.54).toFixed(2));
-              }
-              if ($.trim(cuffs) == '') {
+                    } else {
+                        $('#forearm_input').val((forearm * 2.54).toFixed(2));
+                    }
+                    if ($.trim(cuffs) == '') {
 
-              } else {
-                $('#cuffs_input').val((cuffs * 2.54).toFixed(2));
-              }
-              if ($.trim(chest_front) == '') {
+                    } else {
+                        $('#cuffs_input').val((cuffs * 2.54).toFixed(2));
+                    }
+                    if ($.trim(chest_front) == '') {
 
-              } else {
-                $('#chest_front_input').val((chest_front * 2.54).toFixed(2));
-              }
-              if ($.trim(chest_back) == '') {
+                    } else {
+                        $('#chest_front_input').val((chest_front * 2.54).toFixed(2));
+                    }
+                    if ($.trim(chest_back) == '') {
 
-              } else {
-                $('#chest_back_input').val((chest_back * 2.54).toFixed(2));
-              }
-              if ($.trim(jacket_front) == '') {
+                    } else {
+                        $('#chest_back_input').val((chest_back * 2.54).toFixed(2));
+                    }
+                    if ($.trim(jacket_front) == '') {
 
-              } else {
-                $('#jacket_front_input').val((jacket_front * 2.54).toFixed(2));
-              }
-              if ($.trim(jacket_back) == '') {
+                    } else {
+                        $('#jacket_front_input').val((jacket_front * 2.54).toFixed(2));
+                    }
+                    if ($.trim(jacket_back) == '') {
 
-              } else {
-                $('#jacket_back_input').val((jacket_back * 2.54).toFixed(2));
-              }
-              if ($.trim(vest_len) == '') {
+                    } else {
+                        $('#jacket_back_input').val((jacket_back * 2.54).toFixed(2));
+                    }
+                    if ($.trim(vest_len) == '') {
 
-              } else {
-                $('#vest_length_input').val((vest_len * 2.54).toFixed(2));
-              }
-              //end convert in to cm upper data
+                    } else {
+                        $('#vest_length_input').val((vest_len * 2.54).toFixed(2));
+                    }
+                    //end convert in to cm upper data
+                }
+                if (sessionStorage.getItem('customize_category_id') == 3 || sessionStorage.getItem('customize_category_id') == 9) {
+                    //start convert cm to in lower data
+                    if ($.trim(pwaist) == '') {
+
+                    } else {
+                        $('#waist_lower_input').val((pwaist * 2.54).toFixed(2));
+                    }
+                    if ($.trim(pstomach) == '') {
+
+                    } else {
+                        $('#stomach_lower_input').val((pstomach * 2.54).toFixed(2));
+                    }
+                    if ($.trim(phips) == '') {
+
+                    } else {
+                        $('#hips_lower_input').val((phips * 2.54).toFixed(2));
+                    }
+                    if ($.trim(pcrotch) == '') {
+
+                    } else {
+                        $('#crotch_input').val((pcrotch * 2.54).toFixed(2));
+                    }
+                    if ($.trim(pthighs) == '') {
+
+                    } else {
+                        $('#thighs_input').val((pthighs * 2.54).toFixed(2));
+                    }
+                    if ($.trim(pknees) == '') {
+
+                    } else {
+                        $('#knees_input').val((pknees * 2.54).toFixed(2));
+                    }
+                    if ($.trim(pcalf) == '') {
+
+                    } else {
+                        $('#calf_input').val((pcalf * 2.54).toFixed(2));
+                    }
+                    // if ($.trim(pshort) == '') {
+
+                    // } else {
+                    //   $('#pants_short_input').val((pshort * 2.54).toFixed(2));
+                    // }
+                    if ($.trim(plength) == '') {
+
+                    } else {
+                        $('#pants_length_input').val((plength * 2.54).toFixed(2));
+                    }
+                    if ($.trim(pbottom) == '') {
+
+                    } else {
+                        $('#bottom_length_input').val((pbottom * 2.54).toFixed(2));
+                    }
+                    //end convert in to cm lower data
+                }
             }
-            if(sessionStorage.getItem('customize_category_id') == 3 || sessionStorage.getItem('customize_category_id') == 9)
-            {
-              //start convert cm to in lower data
-              if ($.trim(pwaist) == '') {
-
-              } else {
-                $('#waist_lower_input').val((pwaist * 2.54).toFixed(2));
-              }
-              if ($.trim(pstomach) == '') {
-
-              } else {
-                $('#stomach_lower_input').val((pstomach * 2.54).toFixed(2));
-              }
-              if ($.trim(phips) == '') {
-
-              } else {
-                $('#hips_lower_input').val((phips *2.54).toFixed(2));
-              }
-              if ($.trim(pcrotch) == '') {
-
-              } else {
-                $('#crotch_input').val((pcrotch * 2.54).toFixed(2));
-              }
-              if ($.trim(pthighs) == '') {
-
-              } else {
-                $('#thighs_input').val((pthighs * 2.54).toFixed(2));
-              }
-              if ($.trim(pknees) == '') {
-
-              } else {
-                $('#knees_input').val((pknees * 2.54).toFixed(2));
-              }
-              if ($.trim(pcalf) == '') {
-
-              } else {
-                $('#calf_input').val((pcalf * 2.54).toFixed(2));
-              }
-              // if ($.trim(pshort) == '') {
-
-              // } else {
-              //   $('#pants_short_input').val((pshort * 2.54).toFixed(2));
-              // }
-              if ($.trim(plength) == '') {
-
-              } else {
-                $('#pants_length_input').val((plength * 2.54).toFixed(2));
-              }
-              if ($.trim(pbottom) == '') {
-
-              } else {
-                $('#bottom_length_input').val((pbottom *2.54).toFixed(2));
-              }
-              //end convert in to cm lower data
-            }
-          }
 
         });
 
@@ -2520,8 +2501,9 @@
           // alert(lower_id.measure_type);
           store_measurement_overall();
 
-        }
-        function store_measurement_overall(){
+      }
+
+      function store_measurement_overall() {
           if (sessionStorage.getItem('from_store_temporary_user') == null || sessionStorage.getItem('from_store_temporary_user') == '') {
               var user_id = @json($user);
           } else {
@@ -2947,60 +2929,56 @@
                           sessionStorage.setItem('upper_has_id', data.upper_id);
                           sessionStorage.setItem('lower_has_id', data.lower_id);
                           sessionStorage.setItem('pass_measure', 1);
-                          if(count == 5)
-                          {
-                          swal({
-                              title: "Success",
-                              text: "Successfully Save For Measurement",
-                              icon: "success",
-                          });
-                          window.location.reload();
+                          if (count == 5) {
+                              swal({
+                                  title: "Success",
+                                  text: "Successfully Save For Measurement",
+                                  icon: "success",
+                              });
+                              window.location.reload();
                           }
                       }
 
                   }
               });
           } else if (user_id == null && store_status == true) {
-            alert("wtffff");
+              alert("wtffff");
               if (sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2) {
                   if (upper_status == true && info_status == true) {
                       sessionStorage.setItem('store_m_status', 1);
-                      if(count == 5)
-                      {
-                      swal({
-                          title: "Success",
-                          text: "Successfully Save For Jacket/Vest Measurement As One-Time Guest",
-                          icon: "success",
-                      });
+                      if (count == 5) {
+                          swal({
+                              title: "Success",
+                              text: "Successfully Save For Jacket/Vest Measurement As One-Time Guest",
+                              icon: "success",
+                          });
                       }
                       sessionStorage.setItem('pass_measure', 1);
-                      sessionStorage.setItem('upper_measure_unit_temp',sessionStorage.getItem('measure_unit'));
+                      sessionStorage.setItem('upper_measure_unit_temp', sessionStorage.getItem('measure_unit'));
                   }
               } else if (sessionStorage.getItem('customize_category_id') == 3) {
                   if (lower_status == true && info_status == true) {
                       sessionStorage.setItem('store_m_status', 1);
-                      if(count == 5)
-                      {
-                        // alert("fuck count ="+count);
-                      swal({
-                          title: "Success",
-                          text: "Successfully Save For Pant Measurement As One-Time Guest",
-                          icon: "success",
-                      });
+                      if (count == 5) {
+                          // alert("fuck count ="+count);
+                          swal({
+                              title: "Success",
+                              text: "Successfully Save For Pant Measurement As One-Time Guest",
+                              icon: "success",
+                          });
                       }
                       sessionStorage.setItem('pass_measure', 1);
-                      sessionStorage.setItem('lower_measure_unit_temp',sessionStorage.getItem('measure_unit'));
+                      sessionStorage.setItem('lower_measure_unit_temp', sessionStorage.getItem('measure_unit'));
                   }
               } else if (sessionStorage.getItem('customize_category_id') == 9) {
                   if (lower_status == true && upper_status == true && info_status == true) {
                       sessionStorage.setItem('store_m_status', 1);
-                      if(count == 5)
-                      {
-                      swal({
-                          title: "Success",
-                          text: "Successfully Save For Jacket/Vest and Pant Measurement As One-Time Guest",
-                          icon: "success",
-                      });
+                      if (count == 5) {
+                          swal({
+                              title: "Success",
+                              text: "Successfully Save For Jacket/Vest and Pant Measurement As One-Time Guest",
+                              icon: "success",
+                          });
                       }
                       sessionStorage.setItem('pass_measure', 1);
                   }
@@ -3029,37 +3007,29 @@
           sessionStorage.removeItem('pass_measure')
       }
 
-      $('#upper_tab').click(function(){
-        // alert("uuu");
+      $('#upper_tab').click(function () {
+          // alert("uuu");
 
-        if(sessionStorage.getItem('upper_measure_unit') != null)
-        {
-          $('.unit').html(sessionStorage.getItem('upper_measure_unit'));
-          if(sessionStorage.getItem('upper_measure_unit') == 'in')
-          {
-            $('#in').prop('checked',true);
+          if (sessionStorage.getItem('upper_measure_unit') != null) {
+              $('.unit').html(sessionStorage.getItem('upper_measure_unit'));
+              if (sessionStorage.getItem('upper_measure_unit') == 'in') {
+                  $('#in').prop('checked', true);
+              } else if (sessionStorage.getItem('upper_measure_unit') == "cm") {
+                  $('#cm').prop('checked', true);
+              }
           }
-          else if(sessionStorage.getItem('upper_measure_unit') == "cm")
-          {
-            $('#cm').prop('checked',true);
-          }
-        }
       })
-      $('#lower_tab').click(function(){
-        // alert("llower");
+      $('#lower_tab').click(function () {
+          // alert("llower");
 
-      if(sessionStorage.getItem('upper_measure_unit') != null)
-        {
-          $('.unit').html(sessionStorage.getItem('lower_measure_unit'));
-          if(sessionStorage.getItem('lower_measure_unit') == 'in')
-          {
-            $('#in').prop('checked',true);
+          if (sessionStorage.getItem('upper_measure_unit') != null) {
+              $('.unit').html(sessionStorage.getItem('lower_measure_unit'));
+              if (sessionStorage.getItem('lower_measure_unit') == 'in') {
+                  $('#in').prop('checked', true);
+              } else if (sessionStorage.getItem('lower_measure_unit') == "cm") {
+                  $('#cm').prop('checked', true);
+              }
           }
-          else if(sessionStorage.getItem('lower_measure_unit') == "cm")
-          {
-            $('#cm').prop('checked',true);
-          }
-        }
       })
   </script>
 @endpush
