@@ -26,7 +26,10 @@ class User extends Authenticatable
         'stomach_shape',
         'upper_body_shape',
         'pant_line',
-        'seat'
+        'seat',
+        'height_cm',
+        'height_ft',
+        'height_in'
     ];
 
     /**

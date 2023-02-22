@@ -1152,26 +1152,78 @@
             <div class="info-group">
               <label for="height">Height</label>
               <div class="info-input-group">
+                @if($user != null)
+                <div class="d-flex">
+                  {{-- <div class="d-flex ft-wrapper">
+                    <input type="number" min="0" placeholder="0"  id="height_ft"  onmousedown="clear_info_required()"
+                    onkeydown="clear_pass_measure_required()">
+                    <span>Ft</span>
+                  </div> --}}
+                  @if($user_info->height_type == 'in')
+                  <div class="d-flex ft-wrapper">
+                    <input type="number" min="0" placeholder="0"  id="height_ft" value="{{$user_info->height_ft}}"  onmousedown="clear_info_required()"
+                    onkeydown="clear_pass_measure_required()">
+                    <span>Ft</span>
+                  </div>
+                  @endif
+                  <div class="h-wrapper row g-0">
+                    @if($user_info->height_type == 'in')
+                    <div class="col-5">
+                      <input type="number" min="0" placeholder="0"  class="select-input h-100" id="height_sec" value="{{$user_info->height_in}}"  onmousedown="clear_info_required()"
+                      onkeydown="clear_pass_measure_required()" onkeyup="cal_in(this.value)">
+                    </div>
+                    <div class="col-7">
+                      <select name="h_type_select" id="height_type">
+                        <option value="in" selected>In</option>
+                        <option value="cm">Cm</option>
+                      </select>
+                    </div>
+                    @else
+                    <div class="col-5">
+                      <input type="number" min="0" placeholder="0"  class="select-input h-100" id="height_sec" value="{{$user_info->height_cm}}"  onmousedown="clear_info_required()"
+                      onkeydown="clear_pass_measure_required()">
+                    </div>
+                    <div class="col-7">
+                      <select name="h_type_select" id="height_type">
+                        <option value="in">In</option>
+                        <option value="cm" selected>Cm</option>
+                      </select>
+                    </div>
+                    @endif
+
+                    <span class="text-danger info_errors d-none" role="alert"
+                          id="height_error">
+                      Need To Fill Height
+                    </span>
+
+                  </div>
+                </div>
+                @else
                 <div class="d-flex">
                   <div class="d-flex ft-wrapper">
-                    <input type="number" min="0">
+                    <input type="number" min="0" placeholder="0"  id="height_ft"  onmousedown="clear_info_required()"
+                    onkeydown="clear_pass_measure_required()">
                     <span>Ft</span>
                   </div>
                   <div class="h-wrapper row g-0">
                     <div class="col-5">
-                      <input type="number" min="0" class="select-input h-100">
+                      <input type="number" min="0" placeholder="0"  class="select-input h-100" id="height_sec" onkeyup="cal_in(this.value)"  onmousedown="clear_info_required()"
+                      onkeydown="clear_pass_measure_required()">
                     </div>
                     <div class="col-7">
-                      <select name="h_type_select">
-                        <option value="in">In</option>
+                      <select name="h_type_select" id="height_type">
+                        <option value="in" selected>In</option>
                         <option value="cm">Cm</option>
                       </select>
                     </div>
-
+                    <span class="text-danger info_errors d-none" role="alert"
+                          id="height_error">
+                      Need To Fill Height
+                    </span>
 
                   </div>
                 </div>
-
+                @endif
               </div>
               <span class="text-danger info_errors d-none" role="alert"
                     id="height_error">
@@ -1707,10 +1759,36 @@
 
     $(document).ready(() => {
         $('select[name=h_type_select]').on('change', function () {
+          var user = @json($user);
+
+          var user_info = @json($user_info);
+          if(user == null)
+          {
+          $('#height_sec').val("");
+          }
+          else
+          {
+            $('#height_sec').val("");
+            if(user_info.height_type == 'in')
+            {
+              if($('#height_type').val() == 'in')
+              {
+                $('#height_sec').val(user_info.height_in);
+              }
+            }
+            else
+            {
+              if($('#height_type').val() == 'cm')
+              {
+              $('#height_sec').val(user_info.height_cm);
+              }
+            }
+          }
             //ways to retrieve selected option and text outside handler
             if (this.value == "cm") {
                 $('.ft-wrapper').addClass('d-none')
                 $('.select-input').removeClass('h-100')
+
             }
             if (this.value == "in") {
                 $('.ft-wrapper').removeClass('d-none')
@@ -1800,11 +1878,27 @@
             $('#age').val(sessionStorage.getItem('info_age'));
             all_info_count += 1;
         }
-        if (sessionStorage.getItem('info_height') != null && sessionStorage.getItem('info_height') != '') {
-            $('#height').val(sessionStorage.getItem('info_height'));
-            $('#height_type').val(sessionStorage.getItem('info_height_type'));
-            all_info_count += 1;
+        if(sessionStorage.getItem('info_height_type') == 'cm')
+        {
+          if (sessionStorage.getItem('info_height_cm') != null && sessionStorage.getItem('info_height_cm') != '') {
+              $('#height_sec').val(sessionStorage.getItem('info_height_cm'));
+              $('#height_type').val(sessionStorage.getItem('info_height_type'));
+              all_info_count += 1;
+          }
+          $('.ft-wrapper').addClass('d-none')
+          $('.select-input').removeClass('h-100')
         }
+        else if(sessionStorage.getItem('info_height_type') == 'in')
+        {
+        //   if (sessionStorage.getItem('info_height_ft') != null && sessionStorage.getItem('info_height_ft') != '') {
+              $('#height_ft').val(sessionStorage.getItem('info_height_ft'));
+              $('#height_sec').val(sessionStorage.getItem('info_height_in'));
+              $('#height_type').val(sessionStorage.getItem('info_height_type'));
+              all_info_count += 1;
+          // }
+        }
+
+
         if (sessionStorage.getItem('info_weight') != null && sessionStorage.getItem('info_weight') != '') {
             $('#weight').val(sessionStorage.getItem('info_weight'));
             $('#weight_type').val(sessionStorage.getItem('info_weight_type'));
@@ -2515,7 +2609,22 @@
           let upper_status = true;
           let lower_status = true;
           var age = $('#age').val();
-          var height = $('#height').val();
+          // alert(height_type);
+          var height_type = $('#height_type').val();
+          // alert(height_type);
+          if(height_type == 'cm')
+          {
+            var height_cm = $('#height_sec').val();
+            var height_in = 0;
+            var height_ft = 0;
+          }
+          else if(height_type == 'in')
+          {
+            var height_cm = 0;
+            var height_ft = $('#height_ft').val();
+            var height_in = $('#height_sec').val();
+          }
+          var height_validation = $('#height_sec').val();
           var height_type = $('#height_type').val();
           var weight = $('#weight').val();
           var weight_type = $('#weight_type').val();
@@ -2528,6 +2637,7 @@
           var upper_body_shape = $('#upper_body_shape').val();
           var pant_line = $('#pant_line').val();
           var seat = $('#seat').val();
+          alert(height_ft+"--"+height_in+"--"+height_cm);
           if ($.trim(age) == '') {
               $('#age_error').removeClass('d-none');
               info_status = false;
@@ -2535,13 +2645,54 @@
               $('#age_error').addClass('d-none');
               sessionStorage.setItem('info_age', age);
           }
-          if ($.trim(height) == '') {
+          if(height_type == 'cm')
+          {
+            if ($.trim(height_validation) == '') {
+                $('#height_error').removeClass('d-none');
+                info_status = false;
+            } else {
+                $('#height_error').addClass('d-none');
+                sessionStorage.setItem('info_height_ft', '');
+                sessionStorage.setItem('info_height_in', '');
+                sessionStorage.setItem('info_height_cm', height_cm);
+                sessionStorage.setItem('info_height_type', height_type);
+            }
+          }
+          else if(height_type == 'in')
+          {
+            // alert(height_in);
+            if ($.trim(height_ft) == '' && $.trim(height_in) == '') {
+                $('#height_error').removeClass('d-none');
+                info_status = false;
+            }
+            else if(height_ft == 0 && height_in == 0)
+            {
               $('#height_error').removeClass('d-none');
               info_status = false;
-          } else {
-              $('#height_error').addClass('d-none');
-              sessionStorage.setItem('info_height', height);
-              sessionStorage.setItem('info_height_type', height_type);
+            }
+            else {
+                $('#height_error').addClass('d-none');
+                if($.trim(height_ft) != '' || height_ft != 0)
+                {
+                  sessionStorage.setItem('info_height_ft', height_ft);
+                }
+                else
+                {
+                  sessionStorage.setItem('info_height_ft', '');
+                }
+                if($.trim(height_in) != '' || height_in != 0)
+                {
+                  sessionStorage.setItem('info_height_in', height_in);
+                }
+                else
+                {
+                  sessionStorage.setItem('info_height_in', '');
+                }
+                // sessionStorage.setItem('info_height_ft', height_ft);
+                // sessionStorage.setItem('info_height_in', height_in);
+                sessionStorage.setItem('info_height_cm', '');
+                sessionStorage.setItem('info_height_type', height_type);
+            }
           }
           if ($.trim(weight) == '') {
               $('#weight_error').removeClass('d-none');
@@ -2878,7 +3029,9 @@
                       "lower_measure_unit": sessionStorage.getItem('lower_measure_unit'),
 
                       "age": age,
-                      "height": height,
+                      "height_ft": height_ft,
+                      "height_in" : height_in,
+                      "height_cm" : height_cm,
                       "height_type": height_type,
                       "weight": weight,
                       "weight_type": weight_type,
@@ -3031,5 +3184,19 @@
               }
           }
       })
+      function cal_in(value)
+      {
+        // alert($('#height_type').val());
+        // alert(value);
+        if(value > 11 && $('#height_type').val() == 'in')
+        {
+          swal({
+              title: "Error",
+              text: "Inches do not over 11",
+              icon: "error",
+          });
+          $('#height_sec').val("");
+        }
+      }
   </script>
 @endpush

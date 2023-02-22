@@ -61,12 +61,20 @@
                       @else
                       <th>{{$info->weight}} {{$info->weight_type}}</th>
                       @endif
-                      @if($info->height == null)
+                      @if($info->height_type == null)
                       <th>-</th>
-                      @else
-                      <th>{{$info->height}}
-                      {{$info->height_type}}
-                      </th>
+                      @elseif($info->height_type == 'cm')
+                        @if($info->height_cm == null)
+                        <th>-</th>
+                        @else
+                        <th>{{$info->height_cm}} {{$info->height_type}}</th>
+                        @endif
+                      @elseif($info->height_type == 'in')
+                        @if($info->height_ft == null && $info->height_in == null)
+                        <th>-</th>
+                        @else
+                        <th>{{$info->height_ft}}.{{$info->height_in}} ft/{{$info->height_type}}</th>
+                        @endif
                       @endif
                       @if($info->city != null && $info->tsp_street == null)
                       <td>{{$info->city}}</td>

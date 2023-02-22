@@ -1381,8 +1381,20 @@ class FrontendController extends Controller
   }
   public function store_measure_data(Request $request)
   {
-    logger("store measure data fuckkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
+    logger("store measure data right now");
     // logger($request->all());
+    if($request->height_type == 'cm')
+    {
+      $hft = null;
+      $hin = null;
+      $hcm = $request->height_cm;
+    }
+    elseif($request->height_type == 'in')
+    {
+      $hft = $request->height_ft;
+      $hin = $request->height_in;
+      $hcm = null;
+    }
     $user_id = Session::get('user_id');
     //start edit user info
     $user_edit = User::find($user_id);
@@ -1390,7 +1402,9 @@ class FrontendController extends Controller
     $user_edit->age = $request->age;
     $user_edit->weight = $request->weight;
     $user_edit->weight_type = $request->weight_type;
-    $user_edit->height = $request->height;
+    $user_edit->height_cm = $hcm;
+    $user_edit->height_ft = $hft;
+    $user_edit->height_in = $hin;
     $user_edit->height_type = $request->height_type;
     $user_edit->shoulder_type = $request->shoulder_type;
     $user_edit->drop_shoulder = $request->drop_shoulder;
