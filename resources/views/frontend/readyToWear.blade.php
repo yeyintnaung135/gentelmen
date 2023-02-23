@@ -115,9 +115,9 @@
                         <i class="bx bx-check text-gold me-3"></i>
                         <p class="smaller-text">Made in : {{$ready->made_in}}</p>
                       </div>
-                       <div class="d-flex align-items-center mb-4">
+                      <div class="d-flex align-items-center mb-4">
                         <i class="bx bx-check text-gold me-3"></i>
-                        <p class="smaller-text">colour : -</p>
+                        <p class="smaller-text">Price : $ {{$ready->price}}</p>
                       </div>
 
                     </div>
@@ -130,10 +130,10 @@
                         <i class="bx bx-check text-gold me-3"></i>
                         <p class="smaller-text">softness : {{$ready->softness}}</p>
                       </div>
-                      <div class="d-flex align-items-center mb-4">
+                      {{-- <div class="d-flex align-items-center mb-4">
                         <i class="bx bx-check text-gold me-3"></i>
                         <p class="smaller-text">Price : $ {{$ready->price}}</p>
-                      </div>
+                      </div> --}}
                     </div>
                   </div>
 
