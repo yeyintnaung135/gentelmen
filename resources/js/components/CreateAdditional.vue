@@ -95,7 +95,7 @@
                                  ></vue-dropzone>
                             </div>
                             <div class="col-6">
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Choose Color</label>
 
                                     <select class="form-control"
@@ -114,7 +114,7 @@
 
 
                                     </select>
-                                </div>
+                                </div> -->
                                 <div class="form-group">
                                     <label>Made In</label>
                                     <input type="text" v-model="additional.made_in" class="form-control"
@@ -137,7 +137,7 @@
                                                 }"
                                     placeholder="Enter Composition">
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Softness</label>
                                     <input type="text" v-model="additional.softness" class="form-control"
                                     v-bind:class="{
@@ -147,7 +147,7 @@
                                                     ),
                                                 }"
                                     placeholder="Enter Softness">
-                                </div>
+                                </div> -->
                                 <div class="form-group">
                                     <label>Description</label>
                                     <textarea v-model="additional.description" class="form-control"
@@ -200,9 +200,9 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css';
             main_id:"",
             sub_id:"",
             made_in:"",
-            color:"",
+            // color:"",
             composition:"",
-            softness:"",
+            // softness:"",
             description:"",
             stock_qty:"",
             // submittedLoading: 0,
@@ -214,11 +214,11 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css';
                 photoerror: false,
                 made_in:false,
                 composition:false,
-                softness:false,
+                // softness:false,
                 description:false,
                 main_id:false,
                 sub_id:false,
-                color:false,
+                // color:false,
                 stock_qty:false
             },
             //forerror
@@ -292,13 +292,13 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css';
             let tmperrorcounts = 0;
             console.log(this.additional.name);
             // check all input field has value
-            if (this.additional.color == "") {
-                this.requireerroryk.color = true;
-                tmperrorcounts += 1;
+            // if (this.additional.color == "") {
+            //     this.requireerroryk.color = true;
+            //     tmperrorcounts += 1;
 
-            } else {
-                this.requireerroryk.color = false;
-            }
+            // } else {
+            //     this.requireerroryk.color = false;
+            // }
             if (this.additional.stock_qty == "") {
                 this.requireerroryk.stock_qty = true;
                 tmperrorcounts += 1;
@@ -320,13 +320,13 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css';
             } else {
                 this.requireerroryk.composition = false;
             }
-            if (this.additional.softness == "") {
-                this.requireerroryk.softness = true;
-                tmperrorcounts += 1;
+            // if (this.additional.softness == "") {
+            //     this.requireerroryk.softness = true;
+            //     tmperrorcounts += 1;
 
-            } else {
-                this.requireerroryk.softness = false;
-            }
+            // } else {
+            //     this.requireerroryk.softness = false;
+            // }
             if (this.additional.description == "") {
                 this.requireerroryk.description = true;
                 tmperrorcounts += 1;
@@ -379,10 +379,10 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css';
             } else{
                 var alertText = new Array();
                 var i = 0;
-                if(this.requireerroryk.color) {
-                  alertText[i] = "need to fill the color";
-                  i++;
-                }
+                // if(this.requireerroryk.color) {
+                //   alertText[i] = "need to fill the color";
+                //   i++;
+                // }
                 if(this.requireerroryk.made_in) {
                   alertText[i] = "need to fill the made_in";
                   i++;
@@ -395,10 +395,10 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css';
                   alertText[i] = "need to fill the Composition";
                   i++;
                 }
-                if(this.requireerroryk.softness) {
-                  alertText[i] = "need to fill the softness";
-                  i++;
-                }
+                // if(this.requireerroryk.softness) {
+                //   alertText[i] = "need to fill the softness";
+                //   i++;
+                // }
                 if(this.requireerroryk.description) {
                   alertText[i] = "need to fill the description";
                   i++;
@@ -441,10 +441,10 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css';
                 formData.append('main_id', this.additional.main_id);
                 formData.append('sub_id', this.additional.sub_id);
                 formData.append('images', this.$refs.myVueDropzone.getQueuedFiles());
-                formData.append('color_id', this.additional.color);
+                // formData.append('color_id', this.additional.color);
                 formData.append('composition', this.additional.composition);
                 formData.append('made_in', this.additional.made_in);
-                formData.append('softness', this.additional.softness);
+                // formData.append('softness', this.additional.softness);
                 formData.append('description', this.additional.description);
                 formData.append('stock_qty', this.additional.stock_qty);
                 this.$refs.myVueDropzone.getQueuedFiles().forEach(file => {

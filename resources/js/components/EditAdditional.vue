@@ -91,7 +91,7 @@
                                 </div>
                             </div>
                             <div class="col-6">
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Softness</label>
                                     <input type="text" v-model="additional.softness" class="form-control"
                                     v-bind:class="{
@@ -101,10 +101,10 @@
                                                     ),
                                                 }"
                                     placeholder="Enter Made In">
-                                </div>
+                                </div> -->
                             </div>
                             <div class="col-6">
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Color</label>
                                     <select class="form-control"
 
@@ -123,7 +123,7 @@
 
 
                                     </select>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
@@ -208,10 +208,10 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
             price:"",
             main_id:"",
             sub_id:"",
-            color:"",
+            // color:"",
             made_in:"",
             composition:"",
-            softness:"",
+            // softness:"",
             description:"",
         },
 
@@ -221,9 +221,9 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
             price: false,
             made_in:false,
             composition:false,
-            softness:false,
+            // softness:false,
             description:false,
-            color:false,
+            // color:false,
             // photoerror: false
 
         },
@@ -358,13 +358,13 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
             } else {
                 this.requireerroryk.made_in = false;
             }
-            if (this.additional.softness == "") {
-                this.requireerroryk.softness = true;
-                tmperrorcounts += 1;
+            // if (this.additional.softness == "") {
+            //     this.requireerroryk.softness = true;
+            //     tmperrorcounts += 1;
 
-            } else {
-                this.requireerroryk.softness = false;
-            }
+            // } else {
+            //     this.requireerroryk.softness = false;
+            // }
             if (this.additional.description == "") {
                 this.requireerroryk.description = true;
                 tmperrorcounts += 1;
@@ -372,13 +372,13 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
             } else {
                 this.requireerroryk.description = false;
             }
-            if (this.additional.color == "") {
-                this.requireerroryk.color = true;
-                tmperrorcounts += 1;
+            // if (this.additional.color == "") {
+            //     this.requireerroryk.color = true;
+            //     tmperrorcounts += 1;
 
-            } else {
-                this.requireerroryk.color = false;
-            }
+            // } else {
+            //     this.requireerroryk.color = false;
+            // }
             if (this.additional.composition == "") {
                 this.requireerroryk.composition = true;
                 tmperrorcounts += 1;
@@ -419,14 +419,14 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
                   alertText[i] = "need to fill the Made In";
                   i++;
                 }
-                if(this.requireerroryk.softness) {
-                  alertText[i] = "need to fill the softness";
-                  i++;
-                }
-                if(this.requireerroryk.color) {
-                  alertText[i] = "need to fill the color";
-                  i++;
-                }
+                // if(this.requireerroryk.softness) {
+                //   alertText[i] = "need to fill the softness";
+                //   i++;
+                // }
+                // if(this.requireerroryk.color) {
+                //   alertText[i] = "need to fill the color";
+                //   i++;
+                // }
                 if(this.requireerroryk.description) {
                   alertText[i] = "need to fill the description";
                   i++;
@@ -476,9 +476,9 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
                 formData.append('sub_id', this.additional.sub_id);
 
                 formData.append('made_in', this.additional.made_in);
-                formData.append('color', this.additional.color);
+                // formData.append('color', this.additional.color);
                 formData.append('composition', this.additional.composition);
-                formData.append('softness', this.additional.softness);
+                // formData.append('softness', this.additional.softness);
                 formData.append('description', this.additional.description);
                 formData.append('images', this.$refs.myVueDropzone.getQueuedFiles());
                 this.$refs.myVueDropzone.getQueuedFiles().forEach(file => {
@@ -655,9 +655,9 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
             this.additional.main_id = response.data.additionals.main_additional_id
             this.additional.sub_id = response.data.additionals.sub_category_id
             this.additional.made_in = response.data.additionals.made_in
-            this.additional.color = response.data.additionals.color_id
+            // this.additional.color = response.data.additionals.color_id
             this.additional.composition = response.data.additionals.composition
-            this.additional.softness = response.data.additionals.softness
+            // this.additional.softness = response.data.additionals.softness
             this.additional.description = response.data.additionals.description
             // window.location.reload();
                 if(response.data.additionals.photo_one != null)

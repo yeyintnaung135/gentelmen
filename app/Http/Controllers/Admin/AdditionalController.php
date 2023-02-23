@@ -257,8 +257,8 @@ class AdditionalController extends Controller
             'photo_ten' => $photo10,
             'made_in' => $request->made_in,
             'composition' => $request->composition,
-            'color_id' => $request->color_id,
-            'softness' => $request->softness,
+            // 'color_id' => $request->color_id,
+            // 'softness' => $request->softness,
             'description' => $request->description,
             'stock_qty' => $request->stock_qty
         ]);
@@ -305,9 +305,9 @@ class AdditionalController extends Controller
                 $edit_additional->sub_category_id = $request->sub_id;
 
                 $edit_additional->made_in = $request->made_in;
-                $edit_additional->color_id = $request->color;
+                // $edit_additional->color_id = $request->color;
                 $edit_additional->composition = $request->composition;
-                $edit_additional->softness = $request->softness;
+                // $edit_additional->softness = $request->softness;
                 $edit_additional->description = $request->description;
                 if($request->remove_count > 0)
                 {

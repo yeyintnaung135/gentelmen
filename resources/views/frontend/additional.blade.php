@@ -253,10 +253,10 @@
                           <i class="bx bx-check text-gold me-3"></i>
                           <p class="smaller-text">composition : {{$grand->composition}}</p>
                         </div>
-                        <div class="d-flex align-items-center mb-4">
+                        {{-- <div class="d-flex align-items-center mb-4">
                           <i class="bx bx-check text-gold me-3"></i>
                           <p class="smaller-text">softness : {{$grand->softness}}</p>
-                        </div>
+                        </div> --}}
                         <div class="d-flex align-items-center mb-4">
                           <i class="bx bx-check text-gold me-3"></i>
                           <p class="smaller-text">Price : $ {{$grand->price}}</p>
