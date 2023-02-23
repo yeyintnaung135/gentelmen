@@ -673,13 +673,13 @@
           </li>
           {{-- End Addition --}}
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            {{-- <a href="#" class="nav-link">
               <i class="nav-icon fas fa-user-tie"></i>
               <p>
                 Fit Suits
                 <i class="fas fa-angle-right right"></i>
               </p>
-            </a>
+            </a> --}}
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{route('show_fit_suit_list')}}" class="nav-link">

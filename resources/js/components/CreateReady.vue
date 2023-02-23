@@ -153,7 +153,7 @@
 
                                   </select>
                               </div> -->
-                              <div class="form-group">
+                              <!-- <div class="form-group">
                                   <label>Choose Package</label>
 
                                   <select class="form-control"
@@ -172,7 +172,7 @@
 
 
                                   </select>
-                              </div>
+                              </div> -->
                               <div class="form-group">
                                 <label>Price</label>
                                   <input type="text" v-model="readytowear.price" class="form-control"
@@ -319,7 +319,7 @@ Vue.use(VueSimpleAlert);
           // grand_texture_id:"",
           style_id:"",
           description:"",
-          package:"",
+          // package:"",
           stock_qty:"",
           made_in:"",
           composition:"",
@@ -334,7 +334,7 @@ Vue.use(VueSimpleAlert);
               price: false,
               photoerror: false,
               description:false,
-              package:false,
+              // package:false,
               // grand_texture_id:false,
               style_id:false,
               stock_qty:false,
@@ -505,13 +505,13 @@ Vue.use(VueSimpleAlert);
           // } else {
           //     this.requireerroryk.sub_id = false;
           // }
-          if (this.readytowear.package == "") {
-              this.requireerroryk.package = true;
-              tmperrorcounts += 1;
+          // if (this.readytowear.package == "") {
+          //     this.requireerroryk.package = true;
+          //     tmperrorcounts += 1;
 
-          } else {
-              this.requireerroryk.package = false;
-          }
+          // } else {
+          //     this.requireerroryk.package = false;
+          // }
           // if (this.readytowear.grand_texture_id == "") {
           //     this.requireerroryk.grand_texture_id = true;
           //     tmperrorcounts += 1;
@@ -565,10 +565,10 @@ Vue.use(VueSimpleAlert);
           } else{
               var alertText = new Array();
               var i = 0;
-              if(this.requireerroryk.package) {
-                alertText[i] = "need to Choose Package";
-                i++;
-              }
+              // if(this.requireerroryk.package) {
+              //   alertText[i] = "need to Choose Package";
+              //   i++;
+              // }
               // if(this.requireerroryk.sub_id) {
               //   alertText[i] = "need to Choose Sub Texture";
               //   i++;
@@ -644,7 +644,7 @@ Vue.use(VueSimpleAlert);
               formData.append('description', this.readytowear.description);
 
 
-              formData.append('package_id', this.readytowear.package);
+              // formData.append('package_id', this.readytowear.package);
 
               formData.append('stock_qty', this.readytowear.stock_qty);
 

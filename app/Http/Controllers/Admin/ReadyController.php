@@ -116,7 +116,7 @@ class ReadyController extends Controller
           // 'texture_id' => $request->texture_id,
           'style_id' => $request->style_id,
           'description' => $request->description,
-          'package_id' => $request->package_id,
+          // 'package_id' => $request->package_id,
           'stock_qty' => $request->stock_qty,
           'made_in' => $request->made_in,
           'composition' => $request->composition,

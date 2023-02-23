@@ -45,7 +45,7 @@
                     {{-- <th>Sub Texture</th>
                     <th>Texture</th> --}}
                     <th>Style Category</th>
-                    <th>Package</th>
+                    {{-- <th>Package</th> --}}
                     <th>Made In</th>
                     <th>Composition</th>
                     <th>Softness</th>
@@ -64,7 +64,7 @@
                       {{-- <td>{{$ready->sub_category->name}}</td>
                       <td>{{$ready->grand->name}}</td> --}}
                       <td>{{$ready->style_id}}</td>
-                      <td>{{$ready->package->title}}</td>
+                      {{-- <td>{{$ready->package->title}}</td> --}}
                       <td>{{$ready->made_in}}</td>
                       <td>{{$ready->composition}}</td>
                       <td>{{$ready->softness}}</td>
@@ -99,7 +99,7 @@
                     {{-- <th>Sub Texture</th>
                     <th>Texture</th> --}}
                     <th>Style Category</th>
-                    <th>Package</th>
+                    {{-- <th>Package</th> --}}
                     <th>Made In</th>
                     <th>Composition</th>
                     <th>Softness</th>
