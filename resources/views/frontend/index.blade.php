@@ -263,7 +263,7 @@
               swiper-no-swiping">{{$banner->text}}</h2>
               <p class="banner-desc text-uppercase fw-700 swiper-no-swiping"></p>
               <button class="button-two-corner"><a
-                  href="/customize"><span>{{$banner->button_text}}</span></a>
+                        href="/customize"><span>{{$banner->button_text}}</span></a>
               </button>
               {{--                            <button class="btn bg-gold banner-button"><a--}}
               {{--                                    href="/customize" class="text-navy">{{$banner->button_text}}</a>--}}
@@ -329,15 +329,14 @@
         <!-- Slides -->
         @foreach($packages as $package)
 
-            <div class="swiper-slide">
+          <div class="swiper-slide">
             <a href="{{$package->link}}">
-                <!--<p>{{$package->link}}</p>-->
+              <!--<p>{{$package->link}}</p>-->
               <img src="{{'/frontend/package/'. $package->photo}}" alt="">
               <h6 class="swiper-no-swiping mt-4">{{$package->title}}</h6>
-              </a>
-            </div>
-        
-       
+            </a>
+          </div>
+
         @endforeach
         <!-- <div class="swiper-slide">
           <img src="{{asset('assets/images/home/legacy.png')}}" alt="">
@@ -356,49 +355,57 @@
       <h3 class="fw-700">6 customization process</h3>
     </div>
     <div class="row g-0 cus-6-items">
-      <div class="col-md-4 text-center">
+      <div class="col-md-4 text-center p-4">
         <img src="{{asset("assets/images/logo/choose_product.png")}}" alt=""
              class="customize-step-image">
         <h6 class="my-3 my-md-4 my-lg-4" data-aos="zoom-in">CHOOSE PRODUCT</h6>
-        <p data-aos="zoom-in-right">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-          vulputate libero
-          et </p>
+        <p data-aos="zoom-in-right">Gentlemen offer locally made (made in Myanmar) and Bangkok
+          Made.
+          Local-made suits: These suits may have a more traditional style that appeals to customers
+          who appreciate locally-made products but locals have few fabric labels to choose from.
+        </p>
+        <p class="pro-sec-para">Bangkok-made suits: Bangkok is known for its high-quality
+          tailoring and designer
+          fashion,
+          so offering suits that are made in the city. These suits may feature more contemporary
+          designs and use premium materials.</p>
+        <span class="see-more-index text-bold" style="cursor: pointer; color: #fff">Read More</span>
       </div>
-      <div class="col-md-4 text-center">
+      <div class="col-md-4 text-center p-4">
         <img src="{{asset("assets/images/logo/choose_package.png")}}" alt=""
              class="customize-step-image">
         <h6 class="my-3 my-md-4 my-lg-4" data-aos="zoom-in">CHOOSE PACKAGE</h6>
 
-        <p data-aos="zoom-in-right">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero
-          et </p>
+        <p data-aos="zoom-in-right">As a package, For Bangkok is made (Classic, Signature, Premium)
+          and locally made.</p>
       </div>
-      <div class="col-md-4 text-center">
+      <div class="col-md-4 text-center p-4">
         <img src="{{asset("assets/images/logo/recommendation.png")}}" alt=""
-               class="customize-step-image">
+             class="customize-step-image">
         <h6 class="my-3 my-md-4 my-lg-4 text-nowrap" data-aos="zoom-in">RECOMMENDATION</h6>
-        <p data-aos="zoom-in-right">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero
-          et </p>
+        <p data-aos="zoom-in-right">You can order the design that you want.
+          E.g For Dinner or a Wedding, Tuxedo is the best. (matching trousers and bow tie)</p>
       </div>
-      <div class="col-md-4 text-center">
+      <div class="col-md-4 text-center p-4">
         <img src="{{asset("assets/images/logo/start_customization.png")}}" alt=""
              class="customize-step-image">
         <h6 class="my-3 my-md-4 my-lg-4 text-nowrap" data-aos="zoom-in">START CUSTOMIZATION</h6>
-        <p data-aos="zoom-in-right">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero
-          et </p>
+        <p data-aos="zoom-in-right">Please select the Fitting, Fabric, and Pants that you want.
+          For more detail, you can contact us and Inbox us.</p>
       </div>
-      <div class="col-md-4 text-center">
+      <div class="col-md-4 text-center p-4">
         <img src="{{asset("assets/images/logo/measurement.png")}}" alt=""
              class="customize-step-image">
-       <h6 class="my-3 my-md-4 my-lg-4 text-nowrap" data-aos="zoom-in">MEASUREMENT</h6>
-        <p data-aos="zoom-in-right">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero
-          et </p>
+        <h6 class="my-3 my-md-4 my-lg-4 text-nowrap" data-aos="zoom-in">MEASUREMENT</h6>
+        <p data-aos="zoom-in-right">We show you how to measure your body for your perfect Suit.
+          Please fill in the measurements correctly and we will give you the best perfect suit for
+          you.</p>
       </div>
-      <div class="col-md-4 text-center">
+      <div class="col-md-4 text-center p-4">
         <img src="{{asset("assets/images/logo/payment.png")}}" alt=""
              class="customize-step-image">
         <h6 class="my-3 my-md-4 my-lg-4 text-nowrap" data-aos="zoom-in">PAYMENT</h6>
-        <p data-aos="zoom-in-right">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero
-          et </p>
+        <p data-aos="zoom-in-right">For now, Our payment is only available via Paypal</p>
       </div>
     </div>
   </section>
@@ -536,7 +543,8 @@
     </div>
   </section>
   <section class="text-center provided-sec">
-    <h5 class="lh-base" data-aos="zoom-in">at gentlemen we provide finest quality & best suits ever</h5>
+    <h5 class="lh-base" data-aos="zoom-in">at gentlemen we provide finest quality & best suits
+      ever</h5>
   </section>
   <button onclick="topFunction()" id="scrollBtn" title="Go to top" class="d-flex
     justify-content-center align-items-center">
@@ -549,20 +557,29 @@
 @section('js')
   <script type="text/javascript">
 
+    {{-- for See more--}}
+    let seeMore = $(".see-more-index")
+    let hideText = $(".pro-sec-para")
+
+    seeMore.click(function () {
+        console.log(hideText)
+        document.querySelector(".pro-sec-para").classList.toggle("d-block")
+    })
+
     AOS.init({
-      duration: 1000,
+        duration: 1000,
     });
 
     $(document).ready(function () {
-      //    alert("begin");
-      var len = @json($category);
-      // $('.qua-prev').hide();
-      console.log(len);
-      // swal({
-      //         icon: 'error',
-      //         title: 'Pay Amount Invalid!',
-      //         text: ' Pay Amount is greater than Due Amount!!!',
-      //     });
+        //    alert("begin");
+        var len = @json($category);
+        // $('.qua-prev').hide();
+        console.log(len);
+        // swal({
+        //         icon: 'error',
+        //         title: 'Pay Amount Invalid!',
+        //         text: ' Pay Amount is greater than Due Amount!!!',
+        //     });
     })
     const productContainers = [...document.querySelectorAll('.product-container')];
     const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
@@ -573,137 +590,137 @@
     // alert(cate_len);
     // var last = 0;
     productContainers.forEach((item, i) => {
-      let containerDimensions = item.getBoundingClientRect();
-      // alert(containerDimensions.width);
-      let containerWidth = containerDimensions.width;
+        let containerDimensions = item.getBoundingClientRect();
+        // alert(containerDimensions.width);
+        let containerWidth = containerDimensions.width;
 
-      nxtBtn[i].addEventListener('click', () => {
-        // alert(count);
-        if (count < cate_len) {
-          // alert("---" + count);
-          count++;
-        } else {
-          // last = 1;
-          // alert("======10")
-        }
+        nxtBtn[i].addEventListener('click', () => {
+            // alert(count);
+            if (count < cate_len) {
+                // alert("---" + count);
+                count++;
+            } else {
+                // last = 1;
+                // alert("======10")
+            }
 
-        // alert("end" + count);
-        if (count != 0) {
-          $('.pre-btn').show();
-        }
-        item.scrollLeft += containerWidth - 300;
+            // alert("end" + count);
+            if (count != 0) {
+                $('.pre-btn').show();
+            }
+            item.scrollLeft += containerWidth - 300;
 
-      })
+        })
 
-      preBtn[i].addEventListener('click', () => {
-        --count;
-        // alert(count);
-        $(".pre-btn").css({
-          "margin-left": "auto",
+        preBtn[i].addEventListener('click', () => {
+            --count;
+            // alert(count);
+            $(".pre-btn").css({
+                "margin-left": "auto",
 
-        });
-        if (count == 1) {
-          $('.pre-btn').hide();
+            });
+            if (count == 1) {
+                $('.pre-btn').hide();
 
-        }
-        item.scrollLeft -= containerWidth - 300;
+            }
+            item.scrollLeft -= containerWidth - 300;
 
-      })
+        })
     });
     $(document).ready(function () {
-      $('.pre-btn').hide();
+        $('.pre-btn').hide();
     })
 
     const swiper1 = new Swiper('.sw-1', {
-      // Optional parameters
-      slidesPerView: 1,
-      direction: 'horizontal',
-      loop: true,
-      speed: 1000,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true
-      },
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-      }
+        // Optional parameters
+        slidesPerView: 1,
+        direction: 'horizontal',
+        loop: true,
+        speed: 1000,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+        },
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+        }
     });
     const swiper2 = new Swiper('.sw-2', {
-      // Optional parameters
-      slidesPerView: "auto",
-      centeredSlides: true,
-      loop: true,
-      clickable: true
+        // Optional parameters
+        slidesPerView: "auto",
+        centeredSlides: true,
+        loop: true,
+        clickable: true
     });
     // scroll function
     let scrollBtn = document.getElementById("scrollBtn");
     window.onscroll = function () {
-      scrollFunction()
+        scrollFunction()
     };
 
     function scrollFunction() {
-      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-        scrollBtn.style.display = "block";
-        scrollBtn.style.opacity = "1";
-        // scrollBtn.style.transform = "scale(1)";
-        scrollBtn.style.pointerEvents = "all";
-      } else {
-        scrollBtn.style.display = "none";
-        scrollBtn.style.opacity = "0";
-        // scrollBtn.style.transform = "scale(1)";
-        scrollBtn.style.pointerEvents = "none";
-      }
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            scrollBtn.style.display = "block";
+            scrollBtn.style.opacity = "1";
+            // scrollBtn.style.transform = "scale(1)";
+            scrollBtn.style.pointerEvents = "all";
+        } else {
+            scrollBtn.style.display = "none";
+            scrollBtn.style.opacity = "0";
+            // scrollBtn.style.transform = "scale(1)";
+            scrollBtn.style.pointerEvents = "none";
+        }
     }
 
     // When the user clicks on the button, scroll to the top of the document
     function topFunction() {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
     }
 
     // end scroll function
   </script>
 @endsection
 @push('whishlist-nav')
-@if(isset(Auth::guard('web')->user()->id))
-<script>
-    $(document).ready(function(){
-      getnavData();
-      // whishlist();
-      // deletedata();
-    });
-    function getnavData(){
-        var loItem = window.localStorage.getItem('Item');
-        var arrayFromStroage = JSON.parse(localStorage.getItem('Item'));
-        var arrayLength = arrayFromStroage.length;
-        // var count = localStorage.length('Item');
-        //  alert(arrayLength);
-        var html = "";
-        if (loItem != null) {
-
-					itemArr = JSON.parse(loItem);
-          $.each(itemArr,function(i,v){
-            user_id = `{{Auth::guard('web')->user()->id}}`;
-            // alert( window.userID )
-          if(v.user_id == user_id)
-          {
-            // alert("right");
-            // html += `${arrayLength}`;
-            $('#fav-space').html(arrayLength);
-          }else{
-            html += parse('0');
-          }
+  @if(isset(Auth::guard('web')->user()->id))
+    <script>
+        $(document).ready(function () {
+            getnavData();
+            // whishlist();
+            // deletedata();
         });
 
+        function getnavData() {
+            var loItem = window.localStorage.getItem('Item');
+            var arrayFromStroage = JSON.parse(localStorage.getItem('Item'));
+            var arrayLength = arrayFromStroage.length;
+            // var count = localStorage.length('Item');
+            //  alert(arrayLength);
+            var html = "";
+            if (loItem != null) {
 
-          // document.getElementById('fav-space').innerHTML = parseInt(document.getElementById('fav-space').innerHTML) + 1;
+                itemArr = JSON.parse(loItem);
+                $.each(itemArr, function (i, v) {
+                    user_id = `{{Auth::guard('web')->user()->id}}`;
+                    // alert( window.userID )
+                    if (v.user_id == user_id) {
+                        // alert("right");
+                        // html += `${arrayLength}`;
+                        $('#fav-space').html(arrayLength);
+                    } else {
+                        html += parse('0');
+                    }
+                });
 
-				}else{
 
-				}
-    }
-</script>
-@endif
+                // document.getElementById('fav-space').innerHTML = parseInt(document.getElementById('fav-space').innerHTML) + 1;
+
+            } else {
+
+            }
+        }
+    </script>
+  @endif
 @endpush
