@@ -238,10 +238,7 @@
                           <i class="bx bx-check text-gold me-3"></i>
                           <p class="smaller-text">Made in : {{$grand->made_in}}</p>
                         </div>
-                        <div class="d-flex align-items-center mb-4">
-                          <i class="bx bx-check text-gold me-3"></i>
-                          <p class="smaller-text">colour : {{$grand->color->name}}</p>
-                        </div>
+
                         <div class="d-flex align-items-center mb-4">
                           <i class="bx bx-check text-gold me-3"></i>
                           <p class="smaller-text">Fabric Type :
@@ -253,10 +250,7 @@
                           <i class="bx bx-check text-gold me-3"></i>
                           <p class="smaller-text">composition : {{$grand->composition}}</p>
                         </div>
-                        {{-- <div class="d-flex align-items-center mb-4">
-                          <i class="bx bx-check text-gold me-3"></i>
-                          <p class="smaller-text">softness : {{$grand->softness}}</p>
-                        </div> --}}
+                       
                         <div class="d-flex align-items-center mb-4">
                           <i class="bx bx-check text-gold me-3"></i>
                           <p class="smaller-text">Price : $ {{$grand->price}}</p>

@@ -309,18 +309,33 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
                 console.log(error);
             })
         },
-        getSubCategory(){
-            axios.get('/get_main_additional_sub_all')
-            .then( (response) => {
-                console.log(response.data);
-                // alert("item is successfully uploaded");
-                this.subcategories = response.data.main_additionals_sub
-                console.log(this.main_additionals);
-            })
-            .catch(function (error){
-                console.log(error);
-            })
-        },
+        // getSubCategory(){
+        //     axios.get('/get_main_additional_sub_all')
+        //     .then( (response) => {
+        //         console.log(response.data);
+        //         // alert("item is successfully uploaded");
+        //         this.subcategories = response.data.main_additionals_sub
+        //         console.log(this.main_additionals);
+        //     })
+        //     .catch(function (error){
+        //         console.log(error);
+        //     })
+        // },
+        // getSubCategory(){
+        //   let formData = {
+        //     'main_id' :
+        //   }
+        //     axios.post('/get_main_additional_sub_associate',)
+        //     .then( (response) => {
+        //         console.log(response.data);
+        //         // alert("item is successfully uploaded");
+        //         this.subcategories = response.data.main_additionals_sub
+        //         console.log(this.main_additionals);
+        //     })
+        //     .catch(function (error){
+        //         console.log(error);
+        //     })
+        // },
         getMainAdditionalSub(){
             let mainID = {
                 'main_id' : this.additional.main_id
@@ -328,7 +343,9 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
             axios.post('/get_main_additional_sub',mainID)
             .then((response) => {
                 // alert("item is successfully uploaded");
-                this.subcategories = response.data.main_additionals_sub
+                this.subcategories = response.data.main_additionals_sub;
+                console.log("okok");
+                console.log(this.subcategories);
             })
             .catch(function (error){
                 console.log("error");
@@ -640,8 +657,9 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
     mounted() {
         this.getColor();
         this.getMainAdditional();
-        this.getSubCategory();
-        // this.getMainTextureSub();
+
+
+
         console.log(this.link);
         let additionalID = {
             'id' : this.link
@@ -723,6 +741,7 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
               this.url10 = "/assets/images/categories/additional/"+response.data.additionals.photo_ten;
               this.$refs.myVueDropzone.manuallyAddFile(file10, this.url10);
               }
+              this.getMainAdditionalSub();
         })
         .catch(function (error){
             console.log(error);
