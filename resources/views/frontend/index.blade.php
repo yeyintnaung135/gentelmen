@@ -369,7 +369,10 @@
           fashion,
           so offering suits that are made in the city. These suits may feature more contemporary
           designs and use premium materials.</p>
-        <span class="see-more-index text-bold" style="cursor: pointer; color: #fff">Read More</span>
+        <span class="see-more-index text-bold text-decoration-underline" onclick="changeText(this)"
+              style="cursor: pointer;
+        color:
+        #fff">Read More</span>
       </div>
       <div class="col-md-4 text-center p-4">
         <img src="{{asset("assets/images/logo/choose_package.png")}}" alt=""
@@ -559,12 +562,14 @@
 
     {{-- for See more--}}
     let seeMore = $(".see-more-index")
-    let hideText = $(".pro-sec-para")
 
     seeMore.click(function () {
-        console.log(hideText)
         document.querySelector(".pro-sec-para").classList.toggle("d-block")
     })
+
+    function changeText(btn) {
+        btn.textContent == "Read More" ? btn.textContent = "Read Less" : btn.textContent = "Read More";
+    }
 
     AOS.init({
         duration: 1000,
