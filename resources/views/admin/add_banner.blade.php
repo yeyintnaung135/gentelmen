@@ -130,17 +130,17 @@
   $(function () {
     bsCustomFileInput.init();
   });
-  const base64data = [];
-  var $modal = $('#modal');
-  var image = document.getElementById('image');
-  var cropper;
-  $("body").on("change", ".image", function(e){
-  var files = e.target.files;
-  var done = function (url) {
-  image.src = url;
-  $modal.modal('show');
-  $(".remove-img").show();
-  };
+    const base64data = [];
+    var $modal = $('#modal');
+    var image = document.getElementById('image');
+    var cropper;
+    $("body").on("change", ".image", function(e){
+      var files = e.target.files;
+      var done = function (url) {
+      image.src = url;
+      $modal.modal('show');
+      $(".remove-img").show();
+    };
   var reader;
   var file;
   var url;
@@ -158,14 +158,14 @@
   }
   });
   $modal.on('shown.bs.modal', function () {
-  cropper = new Cropper(image, {
-  aspectRatio: 1,
-  viewMode: 3,
-  preview: '.preview'
+    cropper = new Cropper(image, {
+    aspectRatio: 2.099025974,
+    viewMode:1,
+    preview: '.preview'
   });
   }).on('hidden.bs.modal', function () {
-  cropper.destroy();
-  cropper = null;
+    cropper.destroy();
+    cropper = null;
   });
 
 
@@ -183,40 +183,42 @@
         photo : base64data
     }
   $.ajax({
-  type: "POST",
-  dataType: "json",
-  url: "store_banner",
-  data: formData,
-  error:function(err){
-      // console.warn(err.responseJSON.errors);
-      $.each(err.responseJSON.errors, function (i, error) {
-                var al = $(document).find('[name="'+i+'"]');
-                var el = al.parent();
-                var pl = al.parents('div.image_area');
-                pl.addClass('photo-invalid');
-                el.after($('<small class="text-danger font-weight-bolder"> <i class="fas fa-exclamation-circle"></i> '+error[0]+'</small>'));
-                al.addClass('is-invalid');
-            });
-  },
-  success: function(response){
-    if(response.success){
-      swal({
-            title: "Your Item was uploaded successfully!",
-            text: "",
-            type: "success",
-            icon: "success"
-        }).then(function() {
-          window.location.href = "{{ route('show_banner')}}";
-        });
-    }else{
-        alert("Error");
+    type: "POST",
+    dataType: "json",
+    url: "store_banner",
+    data: formData,
+    error:function(err){
+        // console.warn(err.responseJSON.errors);
+        $.each(err.responseJSON.errors, function (i, error) {
+                  var al = $(document).find('[name="'+i+'"]');
+                  var el = al.parent();
+                  var pl = al.parents('div.image_area');
+                  pl.addClass('photo-invalid');
+                  el.after($('<small class="text-danger font-weight-bolder"> <i class="fas fa-exclamation-circle"></i> '+error[0]+'</small>'));
+                  al.addClass('is-invalid');
+              });
+    },
+    success: function(response){
+      if(response.success){
+        swal({
+              title: "Your Item was uploaded successfully!",
+              text: "",
+              type: "success",
+              icon: "success"
+          }).then(function() {
+            window.location.href = "{{ route('show_banner')}}";
+          });
+      }else{
+          alert("Error");
+      }
+      
     }
-    
-  }
-  });
+    });
 
   
   });
+
+
 
 </script>
 @endpush
@@ -260,55 +262,55 @@ function showFileName(event) {
 </script>
 @endpush
 @push('css')
-<style>
-  img {
-display: block;
-max-width: 100%;
-}
-.preview {
-overflow: hidden;
-width: 160px; 
-height: 160px;
-margin: 10px;
-border: 1px solid red;
-}
-.modal-lg{
-max-width: 1000px !important;
-}
+  <style>
+    img {
+    display: block;
+    max-width: 100%;
+    }
+    .preview {
+    overflow: hidden;
+    width: 160px; 
+    height: 160px;
+    margin: 10px;
+    border: 1px solid red;
+    }
+    .modal-lg{
+    max-width: 1000px !important;
+    }
 
-#upload {
-    opacity: 0;
-}
+    #upload {
+        opacity: 0;
+    }
 
-#upload-label {
-    position: absolute;
-    top: 50%;
-    left: 1rem;
-    transform: translateY(-50%);
-}
+    #upload-label {
+        position: absolute;
+        top: 50%;
+        left: 1rem;
+        transform: translateY(-50%);
+    }
 
-.image-area {
-    border: 2px dashed #0B0E34;
-    padding: 1rem;
-    position: relative;
-}
+    .image-area {
+        border: 2px dashed #0B0E34;
+        padding: 1rem;
+        position: relative;
+    }
 
-.image-area::before {
-    content: 'Uploaded image result';
-    color: #0B0E34;
-    font-weight: bold;
-    text-transform: uppercase;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 0.8rem;
-    z-index: 1;
-}
+    .image-area::before {
+        content: 'Uploaded image result';
+        color: #0B0E34;
+        font-weight: bold;
+        text-transform: uppercase;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 0.8rem;
+        z-index: 1;
+    }
 
-.image-area img {
-    z-index: 2;
-    position: relative;
-}
-</style>
+    .image-area img {
+        z-index: 2;
+        position: relative;
+    }
+  </style>
 @endpush
