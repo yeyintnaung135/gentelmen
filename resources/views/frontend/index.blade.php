@@ -1,7 +1,22 @@
 {{--@extends('layouts.master')--}}
 @extends('layouts.header')
 @section('content')
+@push('styles')
+    <style>
+        .banner{
+            background-position: center  !important;
+            background-repeat: no-repeat;
+            background-size: 100% 100% !important;
+            /* object-position: center; */
+            object-fit: contain;
+        }
 
+        /* .banner-height{
+            height: 800px;
+        } */
+
+    </style>
+@endpush
   {{-- start banner --}}
   {{--
       <section class="carousel">
@@ -250,24 +265,20 @@
   <header class="position-relative">
     @include('layouts/nav')
     <!-- Carousel -->
-    <div class="carousel">
-      <div class="swiper sw-1">
+    <div class="carousel banner-height">
+      <div class="swiper sw-1 b">
         <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
+        <div class="swiper-wrapper ">
           <!-- Slides -->
           @foreach($banners as $banner)
-            <div class="swiper-slide bottom-flex {{ $loop->first ? 'active' : '' }}"
-                 style="background-image: url('{{asset('frontend/images/'
-                             .$banner->photo)}}')">
-              <h2 class="banner-title text-uppercase fw-700
-              swiper-no-swiping">{{$banner->text}}</h2>
+            <div class="swiper-slide banner gg-z bottom-flex {{ $loop->first ? 'active' : '' }}" style="background-image: url('{{asset('frontend/images/'.$banner->photo)}}')">
+              <h2 class="banner-title text-uppercase fw-700 swiper-no-swiping">{{$banner->text}}</h2>
               <p class="banner-desc text-uppercase fw-700 swiper-no-swiping"></p>
-              <button class="button-two-corner"><a
-                        href="/customize"><span>{{$banner->button_text}}</span></a>
+              <button class="button-two-corner"><a href="/customize"><span>{{$banner->button_text}}</span></a>
               </button>
-              {{--                            <button class="btn bg-gold banner-button"><a--}}
-              {{--                                    href="/customize" class="text-navy">{{$banner->button_text}}</a>--}}
-              {{--                            </button>--}}
+              {{-- <button class="btn bg-gold banner-button"><a--}}
+              {{--   href="/customize" class="text-navy">{{$banner->button_text}}</a>--}}
+              {{--     </button>--}}
             </div>
           @endforeach
 
