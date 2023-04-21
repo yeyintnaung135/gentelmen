@@ -1593,57 +1593,48 @@ Route::get('ready-to-wear', function (Request $request) {
   }
   $articles = '';
   $public_path = 'http://localhost:8000/assets/images/categories/ready/';
-  if ($request->ajax()) {
-    foreach($readys as $ready)
-    {
+  // if ($request->ajax()) {
+  //   foreach($readys as $ready)
+  //   {
 
-//       $articles.='
-//       <div class="col-6 col-lg-4 ready__item">
-//         <div class="ready__item--img-group">
-//           <img src="'.$public_path.$ready->photo_one.'" alt="">
-//            <i class='.'bx bx-heart'.'></i>
-//         </div>
-//         <div class="ready__item--info">
-//           <p>'.$ready->name.'</p>
-//           <p><strong>$ '.$ready->price.'</strong></p>
-//         </div>
-//       </div>
-// ';
-        $articles.='
-        <div class="col-6 col-lg-4 ready__item" data-bs-toggle="modal"
-             data-bs-target="#myready'.$ready->id.'" onclick="get_swiper('.$ready->id.')">
-          <div class="ready__item--img-group">
-            <img src="'.$public_path.$ready->photo_one.'" alt="">';
-            if(!empty($user))
-            {
 
-            $articles.='
-              <button id="wishlist'.$ready->id.'" onclick="whishlist('.$user.','.$ready->id.','.$ready->photo_one.','.$ready->name.','.$ready->price.')>
-              <i class='.'bx bx-heart'.'></i>
-              </button>
-              <button id="delete'.$ready->id.'" onclick="deletedata('.$user.','.$ready->id.','.$ready->photo_one.','.$ready->name.','.$ready->price.')" style="display: none;">
-              <i class="bx bx-heart"></i>
-              </button>';
-            }
-            else
-            {
-              $articles.='
-              <button type="button" class=""
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"><i class="bx bx-heart"></i>
-              </button>';
-            }
-            $articles.='
-          </div>
-          <div class="ready__item--info">
-            <p>'.$ready->name.'</p>
-            <p><strong>$ '.$ready->price.'</strong></p>
-          </div>
-        </div>
-        ';
-    }
-    return response()->json(['res' => $articles, 'page_no' => 8]);
-  }
+  //       $articles.='
+  //       <div class="col-6 col-lg-4 ready__item" data-bs-toggle="modal"
+  //            data-bs-target="#myready'.$ready->id.'" onclick="get_swiper('.$ready->id.')">
+  //         <div class="ready__item--img-group">
+  //           <img src="'.$public_path.$ready->photo_one.'" alt="">';
+  //           if(!empty($user))
+  //           {
+  //           $articles.='
+  //             <button id="wishlist'.$ready->id.'" onclick="whishlist('.$user.','.$ready->id.','.$ready->photo_one.','.$ready->name.','.$ready->price.')">
+  //             <i class="bx bx-heart"></i>
+  //             </button>';
+  //           $articles.='
+  //             <button id="delete'.$ready->id.'" onclick="deletedata('.$user.','.$ready->id.','.$ready->photo_one.','.$ready->name.','.$ready->price.')" style="display: none;">
+  //             <i class="bx bxs-heart"></i>
+  //             </button>';
+  //           }
+  //           else
+  //           {
+  //             $articles.='
+  //             <button type="button" class=""
+  //             data-bs-toggle="modal"
+  //             data-bs-target="#exampleModal"><i class="bx bx-heart"></i>
+  //             </button>';
+
+              
+  //           }
+  //           $articles.='
+  //         </div>
+  //         <div class="ready__item--info">
+  //           <p>'.$ready->name.'</p>
+  //           <p><strong>$ '.$ready->price.'</strong></p>
+  //         </div>
+  //       </div>
+  //       ';
+  //   }
+  //   return response()->json(['res' => $articles, 'page_no' => 8]);
+  // }
     return view('frontend.readyToWear',compact('popup_readys','main_textures','user','user_detail','favs','carts','readys','styles','packages','textures','style_cates'));
 });
 Route::get('suit-tips', function (Request $request) {

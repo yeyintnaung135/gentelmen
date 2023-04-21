@@ -33,7 +33,7 @@
         </div>
         <div class="col-11 col-md-8">
           <div class="ready__items row" id="ready_space">
-            {{-- @foreach($readys as $ready)
+            @foreach($readys as $ready)
               <div class="col-6 col-lg-4 ready__item" data-bs-toggle="modal"
                    data-bs-target="#myready{{$ready->id}}" onclick="get_swiper({{$ready->id}})">
                 <div class="ready__item--img-group">
@@ -57,7 +57,7 @@
                   <p><strong>$ {{$ready->price}}</strong></p>
                 </div>
               </div>
-            @endforeach --}}
+            @endforeach
           </div>
           <div class="auto-load text-center">
             <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg"
@@ -508,7 +508,7 @@ $(document).ready(function(){
       // deletedata();
     });
       function whishlist(user_id,id,photo_one,name,price){
-				// alert(`user_id = ${user_id}, id = ${id}, photo = ${photo_one}, name = ${name}, price = ${price}`);
+				// alert('hello');
         var Item = {user_id:user_id,name:name,id:id,photo:photo_one,price:price};
         console.log(Item);
         // var itemArr;
@@ -560,7 +560,7 @@ $(document).ready(function(){
       }
 
 
-        //remove item from ls
+      //remove item from ls
 			function deleteData(user_id,id,photo_one,name,price) {
 
         	// alert(`user_id = ${user_id}, id = ${id}, photo = ${photo_one}, name = ${name}, price = ${price}`);
@@ -610,7 +610,7 @@ $(document).ready(function(){
 				}else{
 
 				}
-    }
+      }
   //start infinite scroll
   var style_arr = [];
   var texture_arr = [];

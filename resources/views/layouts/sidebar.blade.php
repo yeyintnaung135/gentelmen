@@ -975,8 +975,7 @@
           </li>
           <li class="nav-item">
                   <a class="nav-link" href="{{ route('backside.admin.logout') }}"
-                      onclick="event.preventDefault();
-                                      document.getElementById('logout-form').submit();">
+                      onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                       <i class="nav-icon fas fa-sign-out-alt"></i> <p>{{ __('Logout') }}</p>
                   </a>
 
