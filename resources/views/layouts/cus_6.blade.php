@@ -176,7 +176,7 @@
                   </div>
                   <div class="d-flex align-items-center mb-2">
                     <i class="bx bx-check text-gold me-3"></i>
-                    <p class="smaller-text">colour : {{$grand->color->name}}</p>
+                    <p class="smaller-text">colour : {{$grand->color_id}}</p>
                   </div>
                   <div class="d-flex align-items-center mb-2">
                     <i class="bx bx-check text-gold me-3"></i>
