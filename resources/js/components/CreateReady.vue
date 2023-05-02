@@ -178,6 +178,7 @@
                                   v-bind:class="{
                                                   'border-danger': forrequire(
                                                       this.requireerroryk.price,
+                                                      this.requireerroryk.price_int,
                                                       this.readytowear.price
                                                   ),
                                               }"
@@ -457,7 +458,8 @@ Vue.use(VueSimpleAlert);
 
       // when click submit button
       create_ready_to_wear(){
-        this.uploadCount = this.$refs.myVueDropzone.getQueuedFiles().length;
+        console.log(Number.isInteger(this.requireerroryk.price_int) + "gg")
+          this.uploadCount = this.$refs.myVueDropzone.getQueuedFiles().length;
           let tmperrorcounts = 0;
           // console.log(this.texture.name);
           // check all input field has value
@@ -545,7 +547,12 @@ Vue.use(VueSimpleAlert);
           if (this.readytowear.price == "") {
               this.requireerroryk.price = true;
               tmperrorcounts += 1;
-          } else {this.requireerroryk.price = false;}
+          }else {this.requireerroryk.price = false;}
+
+          if (Number.isInteger(this.requireerroryk.price_int) == false) {
+              this.requireerroryk.price_int = true;
+              tmperrorcounts += 1;
+          }else {this.requireerroryk.price_int = false;}
 
           //if input field has no error continue to check min 3 file need to upload
 
@@ -607,6 +614,12 @@ Vue.use(VueSimpleAlert);
                 alertText[i] = "need to fill the price";
                 i++;
               }
+
+              if(this.requireerroryk.price_int) {
+                alertText[i] = "The Price must be number";
+                i++;
+              }
+
               if(this.requireerroryk.description) {
                 alertText[i] = "need to fill the description";
                 i++;
