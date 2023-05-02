@@ -2053,8 +2053,8 @@
         //End get session data if has for lower
         //cm and in different start
         if (sessionStorage.getItem('customize_category_id') == 9) {
-            alert("nn5");
-            alert(sessionStorage.getItem('upper_measure_unit'));
+            // alert("nn5");
+            // alert(sessionStorage.getItem('upper_measure_unit'));
             // if(sessionStorage.getItem('pass_measure') != null)
             // {
             if (sessionStorage.getItem('upper_measure_unit') != null && sessionStorage.getItem('lower_measure_unit') != null) {
@@ -2637,7 +2637,7 @@
           var upper_body_shape = $('#upper_body_shape').val();
           var pant_line = $('#pant_line').val();
           var seat = $('#seat').val();
-          alert(height_ft+"--"+height_in+"--"+height_cm);
+          // alert(height_ft+"--"+height_in+"--"+height_cm);
           if ($.trim(age) == '') {
               $('#age_error').removeClass('d-none');
               info_status = false;
@@ -3095,7 +3095,7 @@
                   }
               });
           } else if (user_id == null && store_status == true) {
-              alert("wtffff");
+              // alert("wtffff");
               if (sessionStorage.getItem('customize_category_id') == 1 || sessionStorage.getItem('customize_category_id') == 2) {
                   if (upper_status == true && info_status == true) {
                       sessionStorage.setItem('store_m_status', 1);

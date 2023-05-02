@@ -17,10 +17,9 @@
                             <div class="form-group">
                                 <label for="exampleInputFile">Photo</label>
                                 <div class="input-group">
-                                <div class="custom-file">
-                                    <input  name="photo" type="file" class="form-control" id="exampleInputFile" value="{{$test->photo}}" style="padding-bottom: 40px">
-                                </div>
-
+                                    <div class="custom-file">
+                                        <input  name="photo" type="file" class="form-control" id="exampleInputFile" value="{{$test->photo}}" style="padding-bottom: 40px">
+                                    </div>
                                 </div>
                             </div>
                         </div>

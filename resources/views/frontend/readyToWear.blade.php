@@ -33,7 +33,7 @@
         </div>
         <div class="col-11 col-md-8">
           <div class="ready__items row" id="ready_space">
-            @foreach($readys as $ready)
+            {{-- @foreach($readys as $ready)
               <div class="col-6 col-lg-4 ready__item" data-bs-toggle="modal"
                    data-bs-target="#myready{{$ready->id}}" onclick="get_swiper({{$ready->id}})">
                 <div class="ready__item--img-group">
@@ -57,7 +57,7 @@
                   <p><strong>$ {{$ready->price}}</strong></p>
                 </div>
               </div>
-            @endforeach
+            @endforeach --}}
           </div>
           <div class="auto-load text-center">
             <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg"

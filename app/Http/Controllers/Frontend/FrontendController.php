@@ -139,7 +139,7 @@ class FrontendController extends Controller
       }
     }
     $articles = '';
-    $public_path = 'http://localhost:8000/assets/images/categories/texture/';
+    $public_path = '\/assets/images/categories/texture/';
     if ($request->ajax()) {
       logger("work");
       $gr = json_decode($grands);
@@ -192,8 +192,6 @@ class FrontendController extends Controller
       'grands' => $grands,
     ]);
   }
-
-
 
   public function get_filter_grand_data(Request $request)
   {
@@ -252,6 +250,7 @@ class FrontendController extends Controller
 
   public function show_additional(Request $request)
   {
+    $site_url = url('');
     logger($request->all());
     $mains = MainAdditional::all();
     $subs = AdditionalSubCategory::all();
@@ -314,7 +313,7 @@ class FrontendController extends Controller
       }
     }
     $articles = '';
-    $public_path = 'http://localhost:8000/assets/images/categories/additional/';
+    $public_path = $site_url . '/assets/images/categories/additional/';
     if ($request->ajax()) {
       logger("work");
       logger($grands);
@@ -1038,9 +1037,10 @@ class FrontendController extends Controller
 
       }
     }
+    $site_url = url('');
 
     $articles = '';
-    $public_path = 'http://localhost:8000/assets/images/categories/texture/';
+    $public_path = $site_url . '/assets/images/categories/texture/';
     if ($request->ajax()) {
 
       logger(count($Grands));
@@ -1093,6 +1093,7 @@ class FrontendController extends Controller
     $package = Package::findOrFail($request->id);
     return response()->json($package);
   }
+
   public function ajex_get_style(Request $request){
     // dd($request->all());
     // $style_id = Session::get('style_id');
@@ -1108,6 +1109,7 @@ class FrontendController extends Controller
     logger($style);
     return response()->json($style);
   }
+
   public function ajex_get_style_jacktes(Request $request){
     // return dd($request->name);
     $style = Style::where('type','jackets',$request->name)->get();
@@ -1115,6 +1117,7 @@ class FrontendController extends Controller
     return dd($style);
     return response()->json($style);
   }
+
   public function ajex_get_style_vests(){
     // return dd($request->name);
     $style = Style::where('type','vests')->get();
@@ -1122,6 +1125,7 @@ class FrontendController extends Controller
     // return dd($style);
     return response()->json($style);
   }
+  
   public function ajex_get_style_pants(){
     // return dd($request->name);
     $style = Style::where('type','pants')->get();
@@ -1198,6 +1202,7 @@ class FrontendController extends Controller
     $pant_pleat = Pant::where('style',$request->style)->get();
     return response()->json($pant_pleat);
   }
+
   public function store_measure_profile_data(Request $request)
   {
     logger("Measurement Data From Profile");
@@ -1379,6 +1384,7 @@ class FrontendController extends Controller
       "msg" => "success",
     ]);
   }
+
   public function store_measure_data(Request $request)
   {
     logger("store measure data right now");
@@ -1697,459 +1703,466 @@ class FrontendController extends Controller
     ]);
     //end check
   }
-public function store_measure_data_old(Request $request)
-{
-  logger($request->all());
-  logger("store_measure_data");
-  // session()->put('user_id', null);
-  $user = Session::get('user_id');
 
-  if($user == null)
+  public function store_measure_data_old(Request $request)
   {
-    return response()->json("login error");
-  }
-  else
-  {
-    //edit user info start
-    $user_edit = User::find($user);
-    $user_edit->age = $request->age;
-    $user_edit->weight = $request->weight;
-    $user_edit->weight_type = $request->weight_type;
-    $user_edit->height = $request->height;
-    $user_edit->height_type = $request->height_type;
-    $user_edit->save();
-    //edit user info end
-    if($request->cus_cate_id == 1 || $request->cus_cate_id == 2)
+    logger($request->all());
+    logger("store_measure_data");
+    // session()->put('user_id', null);
+    $user = Session::get('user_id');
+
+    if($user == null)
     {
-      if($request->upper_id == 0)
+      return response()->json("login error");
+    }
+    else
+    {
+      //edit user info start
+      $user_edit = User::find($user);
+      $user_edit->age = $request->age;
+      $user_edit->weight = $request->weight;
+      $user_edit->weight_type = $request->weight_type;
+      $user_edit->height = $request->height;
+      $user_edit->height_type = $request->height_type;
+      $user_edit->save();
+      //edit user info end
+      if($request->cus_cate_id == 1 || $request->cus_cate_id == 2)
       {
-        logger("jacket/vest new measurement");
-        $upper = UpperMeasurement::create([
+        if($request->upper_id == 0)
+        {
+          logger("jacket/vest new measurement");
+          $upper = UpperMeasurement::create([
+            'user_id' => $user_edit->id,
+            'top_id' => 1,
+            'chest' => $request->chest,
+            'waist' => $request->waist,
+            'hips' => $request->hips,
+            'shoulder' => $request->shoulder,
+            'sleeve' => $request->sleeve,
+            'front' => $request->front,
+            'back' => $request->back,
+            'neck' => $request->neck,
+            'jacket_length' => $request->jlength,
+            'measure_type' => $request->measure_type
+          ]);
+
+        }
+        else
+        {
+          logger("jacket/vest update measurement");
+          // $lower = LowerMeasurement::find($request->lower_id);
+          $upper = UpperMeasurement::find($request->upper_id);
+          $upper->chest = $request->chest;
+          $upper->waist = $request->waist;
+          $upper->hips = $request->hips;
+          $upper->shoulder = $request->shoulder;
+          $upper->sleeve = $request->sleeve;
+          $upper->front = $request->front;
+          $upper->back = $request->back;
+          $upper->neck = $request->neck;
+          $upper->jacket_length = $request->jlength;
+          $upper->measure_type = $request->measure_type;
+          $upper->save();
+        }
+      }
+      elseif($request->cus_cate_id == 3)
+      {
+        if($request->lower_id == 0)
+        {
+          logger("pant new measurement");
+          $lower = LowerMeasurement::create([
           'user_id' => $user_edit->id,
-          'top_id' => 1,
-          'chest' => $request->chest,
-          'waist' => $request->waist,
-          'hips' => $request->hips,
-          'shoulder' => $request->shoulder,
-          'sleeve' => $request->sleeve,
-          'front' => $request->front,
-          'back' => $request->back,
-          'neck' => $request->neck,
-          'jacket_length' => $request->jlength,
+          'pant_id' => 1,
+          'crotch' => $request->pcrotch,
+          'thighs' => $request->pthighs,
+          'length' => $request->plength,
+          'bottom' => $request->pbottom,
+          'knee' => $request->pknee,
+          'stomach' => $request->pstomach,
           'measure_type' => $request->measure_type
         ]);
+        }
+        else
+        {
+          logger("pant update measurement");
+          $lower = LowerMeasurement::find($request->lower_id);
+          $lower->crotch =  $request->pcrotch;
+          $lower->thighs =  $request->pthighs;
+          $lower->length = $request->plength;
+          $lower->bottom = $request->pbottom;
+          $lower->knee = $request->pknee;
+          $lower->stomach = $request->pstomach;
+          $lower->measure_type = $request->measure_type;
+          $lower->save();
+        }
+      }
+      elseif($request->cus_cate_id == 9)
+      {
+        if($request->upper_id == 0 && $request->lower_id == 0)
+        {
+          logger("jacket/vest new measurement &&& pant new measurement");
+          $upper = UpperMeasurement::create([
+            'user_id' => $user_edit->id,
+            'top_id' => 1,
+            'chest' => $request->chest,
+            'waist' => $request->waist,
+            'hips' => $request->hips,
+            'shoulder' => $request->shoulder,
+            'sleeve' => $request->sleeve,
+            'front' => $request->front,
+            'back' => $request->back,
+            'neck' => $request->neck,
+            'jacket_length' => $request->jlength,
+            'measure_type' => $request->measure_type
+          ]);
+          $lower = LowerMeasurement::create([
+            'user_id' => $user_edit->id,
+            'pant_id' => 1,
+            'crotch' => $request->pcrotch,
+            'thighs' => $request->pthighs,
+            'length' => $request->plength,
+            'bottom' => $request->pbottom,
+            'knee' => $request->pknee,
+            'stomach' => $request->pstomach,
+            'measure_type' => $request->measure_type
+          ]);
+        }
+        elseif($request->upper_id == 0 && $request->lower_id != 0)
+        {
+          logger("jacket new measurement &&& pant update measurement");
+          $upper = UpperMeasurement::create([
+            'user_id' => $user_edit->id,
+            'top_id' => 1,
+            'chest' => $request->chest,
+            'waist' => $request->waist,
+            'hips' => $request->hips,
+            'shoulder' => $request->shoulder,
+            'sleeve' => $request->sleeve,
+            'front' => $request->front,
+            'back' => $request->back,
+            'neck' => $request->neck,
+            'jacket_length' => $request->jlength,
+            'measure_type' => $request->measure_type
+          ]);
+          $lower = LowerMeasurement::find($request->lower_id);
+          $lower->crotch =  $request->pcrotch;
+          $lower->thighs =  $request->pthighs;
+          $lower->length = $request->plength;
+          $lower->bottom = $request->pbottom;
+          $lower->knee = $request->pknee;
+          $lower->stomach = $request->pstomach;
+          $lower->measure_type = $request->measure_type;
+          $lower->save();
+        }
+        elseif($request->upper_id != 0 && $request->lower_id == 0)
+        {
+          logger("jacket update measurement &&& pant new measurement");
+          $upper = UpperMeasurement::find($request->upper_id);
+          $upper->chest = $request->chest;
+          $upper->waist = $request->waist;
+          $upper->hips = $request->hips;
+          $upper->shoulder = $request->shoulder;
+          $upper->sleeve = $request->sleeve;
+          $upper->front = $request->front;
+          $upper->back = $request->back;
+          $upper->neck = $request->neck;
+          $upper->jacket_length = $request->jlength;
+          $upper->measure_type = $request->measure_type;
+          $upper->save();
+          $lower = LowerMeasurement::create([
+            'user_id' => $user_edit->id,
+            'pant_id' => 1,
+            'crotch' => $request->pcrotch,
+            'thighs' => $request->pthighs,
+            'length' => $request->plength,
+            'bottom' => $request->pbottom,
+            'knee' => $request->pknee,
+            'stomach' => $request->pstomach,
+            'measure_type' => $request->measure_type
+          ]);
+        }
+        else
+        {
+          logger("jacket update measurement &&& pant update measurement");
+          $upper = UpperMeasurement::find($request->upper_id);
+          $upper->chest = $request->chest;
+          $upper->waist = $request->waist;
+          $upper->hips = $request->hips;
+          $upper->shoulder = $request->shoulder;
+          $upper->sleeve = $request->sleeve;
+          $upper->front = $request->front;
+          $upper->back = $request->back;
+          $upper->neck = $request->neck;
+          $upper->jacket_length = $request->jlength;
+          $upper->measure_type = $request->measure_type;
+          $upper->save();
+
+          $lower = LowerMeasurement::find($request->lower_id);
+          $lower->crotch =  $request->pcrotch;
+          $lower->thighs =  $request->pthighs;
+          $lower->length = $request->plength;
+          $lower->bottom = $request->pbottom;
+          $lower->knee = $request->pknee;
+          $lower->stomach = $request->pstomach;
+          $lower->measure_type = $request->measure_type;
+          $lower->save();
+        }
 
       }
-      else
+
+      if($request->cus_cate_id == 1 || $request->cus_cate_id == 2)
       {
-        logger("jacket/vest update measurement");
-        // $lower = LowerMeasurement::find($request->lower_id);
-        $upper = UpperMeasurement::find($request->upper_id);
-        $upper->chest = $request->chest;
-        $upper->waist = $request->waist;
-        $upper->hips = $request->hips;
-        $upper->shoulder = $request->shoulder;
-        $upper->sleeve = $request->sleeve;
-        $upper->front = $request->front;
-        $upper->back = $request->back;
-        $upper->neck = $request->neck;
-        $upper->jacket_length = $request->jlength;
-        $upper->measure_type = $request->measure_type;
-        $upper->save();
+        $upper_id = $upper->id;
+        $lower_id = null;
       }
-    }
-    elseif($request->cus_cate_id == 3)
-    {
-      if($request->lower_id == 0)
+      elseif($request->cus_cate_id == 3)
       {
-        logger("pant new measurement");
-        $lower = LowerMeasurement::create([
-        'user_id' => $user_edit->id,
-        'pant_id' => 1,
-        'crotch' => $request->pcrotch,
-        'thighs' => $request->pthighs,
-        'length' => $request->plength,
-        'bottom' => $request->pbottom,
-        'knee' => $request->pknee,
-        'stomach' => $request->pstomach,
-        'measure_type' => $request->measure_type
+        $lower_id = $lower->id;
+        $upper_id = null;
+      }
+      elseif($request->cus_cate_id == 9)
+      {
+        $upper_id = $upper->id;
+        $lower_id = $lower->id;
+      }
+      return response()->json([
+        "msg" => "success",
+        "upper_id" => $upper_id,
+        "lower_id" => $lower_id
       ]);
-      }
-      else
-      {
-        logger("pant update measurement");
-        $lower = LowerMeasurement::find($request->lower_id);
-        $lower->crotch =  $request->pcrotch;
-        $lower->thighs =  $request->pthighs;
-        $lower->length = $request->plength;
-        $lower->bottom = $request->pbottom;
-        $lower->knee = $request->pknee;
-        $lower->stomach = $request->pstomach;
-        $lower->measure_type = $request->measure_type;
-        $lower->save();
-      }
-    }
-    elseif($request->cus_cate_id == 9)
-    {
-      if($request->upper_id == 0 && $request->lower_id == 0)
-      {
-        logger("jacket/vest new measurement &&& pant new measurement");
-        $upper = UpperMeasurement::create([
-          'user_id' => $user_edit->id,
-          'top_id' => 1,
-          'chest' => $request->chest,
-          'waist' => $request->waist,
-          'hips' => $request->hips,
-          'shoulder' => $request->shoulder,
-          'sleeve' => $request->sleeve,
-          'front' => $request->front,
-          'back' => $request->back,
-          'neck' => $request->neck,
-          'jacket_length' => $request->jlength,
-          'measure_type' => $request->measure_type
-        ]);
-        $lower = LowerMeasurement::create([
-          'user_id' => $user_edit->id,
-          'pant_id' => 1,
-          'crotch' => $request->pcrotch,
-          'thighs' => $request->pthighs,
-          'length' => $request->plength,
-          'bottom' => $request->pbottom,
-          'knee' => $request->pknee,
-          'stomach' => $request->pstomach,
-          'measure_type' => $request->measure_type
-        ]);
-      }
-      elseif($request->upper_id == 0 && $request->lower_id != 0)
-      {
-        logger("jacket new measurement &&& pant update measurement");
-        $upper = UpperMeasurement::create([
-          'user_id' => $user_edit->id,
-          'top_id' => 1,
-          'chest' => $request->chest,
-          'waist' => $request->waist,
-          'hips' => $request->hips,
-          'shoulder' => $request->shoulder,
-          'sleeve' => $request->sleeve,
-          'front' => $request->front,
-          'back' => $request->back,
-          'neck' => $request->neck,
-          'jacket_length' => $request->jlength,
-          'measure_type' => $request->measure_type
-        ]);
-        $lower = LowerMeasurement::find($request->lower_id);
-        $lower->crotch =  $request->pcrotch;
-        $lower->thighs =  $request->pthighs;
-        $lower->length = $request->plength;
-        $lower->bottom = $request->pbottom;
-        $lower->knee = $request->pknee;
-        $lower->stomach = $request->pstomach;
-        $lower->measure_type = $request->measure_type;
-        $lower->save();
-      }
-      elseif($request->upper_id != 0 && $request->lower_id == 0)
-      {
-        logger("jacket update measurement &&& pant new measurement");
-        $upper = UpperMeasurement::find($request->upper_id);
-        $upper->chest = $request->chest;
-        $upper->waist = $request->waist;
-        $upper->hips = $request->hips;
-        $upper->shoulder = $request->shoulder;
-        $upper->sleeve = $request->sleeve;
-        $upper->front = $request->front;
-        $upper->back = $request->back;
-        $upper->neck = $request->neck;
-        $upper->jacket_length = $request->jlength;
-        $upper->measure_type = $request->measure_type;
-        $upper->save();
-        $lower = LowerMeasurement::create([
-          'user_id' => $user_edit->id,
-          'pant_id' => 1,
-          'crotch' => $request->pcrotch,
-          'thighs' => $request->pthighs,
-          'length' => $request->plength,
-          'bottom' => $request->pbottom,
-          'knee' => $request->pknee,
-          'stomach' => $request->pstomach,
-          'measure_type' => $request->measure_type
-        ]);
-      }
-      else
-      {
-        logger("jacket update measurement &&& pant update measurement");
-        $upper = UpperMeasurement::find($request->upper_id);
-        $upper->chest = $request->chest;
-        $upper->waist = $request->waist;
-        $upper->hips = $request->hips;
-        $upper->shoulder = $request->shoulder;
-        $upper->sleeve = $request->sleeve;
-        $upper->front = $request->front;
-        $upper->back = $request->back;
-        $upper->neck = $request->neck;
-        $upper->jacket_length = $request->jlength;
-        $upper->measure_type = $request->measure_type;
-        $upper->save();
-
-        $lower = LowerMeasurement::find($request->lower_id);
-        $lower->crotch =  $request->pcrotch;
-        $lower->thighs =  $request->pthighs;
-        $lower->length = $request->plength;
-        $lower->bottom = $request->pbottom;
-        $lower->knee = $request->pknee;
-        $lower->stomach = $request->pstomach;
-        $lower->measure_type = $request->measure_type;
-        $lower->save();
-      }
-
     }
 
-    if($request->cus_cate_id == 1 || $request->cus_cate_id == 2)
-    {
-      $upper_id = $upper->id;
-      $lower_id = null;
-    }
-    elseif($request->cus_cate_id == 3)
-    {
-      $lower_id = $lower->id;
-      $upper_id = null;
-    }
-    elseif($request->cus_cate_id == 9)
-    {
-      $upper_id = $upper->id;
-      $lower_id = $lower->id;
-    }
-    return response()->json([
-      "msg" => "success",
-      "upper_id" => $upper_id,
-      "lower_id" => $lower_id
-    ]);
   }
 
-}
-public function show_paypal()
-{
-  return view('paypal_button');
-}
-public function get_style_data(Request $request)
-{
-  // dd($request->style_cate_id);
-  $styles = Style::where('category_id',$request->style_cate_id)->paginate(4);
-
-  return response()->json([
-    "styles" => $styles
-  ]);
-
-}
-function get_style_view_more_data(Request $request)
-{
-  // dd($request->style_cate_id);
-  $style = Style::where('category_id',$request->style_cate_id)->get();
-  return response()->json($style);
-}
-public function back_to_cus_3_data(Request $request)
-{
-  return response()->json("success");
-}
-public function store_user_profile_data(Request $request)
-{
-    // dd($request->all());
-    $user = User::find($request->user_id);
-    $user->name = $request->username;
-    $user->phone = $request->phone;
-    $user->dob = $request->dob;
-    $user->gender = $request->gender;
-    $user->city = $request->city;
-    $user->tsp_street = $request->address;
-    // $user->email = $request->email;
-    $user->save();
-    return response()->json([
-      "msg" => "success",
-      "user_info" => $user
-    ]);
-}
-public function get_style_for_ready_ajax_data(Request $request)
-{
-  $readys_arr = [];
-  $readys_style = [];
-  $readys_package = [];
-  $readys_texture = [];
-  // logger($request->all());
-
-  //start one only
-  if(!empty($request->style_cate_name) && !$request->texture_id && !($request->package_id))
+  public function show_paypal()
   {
-    $qty = 1;
-    foreach($request->style_cate_name as $style_cate)
+    return view('paypal_button');
+  }
+
+  public function get_style_data(Request $request)
+  {
+    // dd($request->style_cate_id);
+    $styles = Style::where('category_id',$request->style_cate_id)->paginate(4);
+
+    return response()->json([
+      "styles" => $styles
+    ]);
+
+  }
+
+  function get_style_view_more_data(Request $request)
+  {
+    // dd($request->style_cate_id);
+    $style = Style::where('category_id',$request->style_cate_id)->get();
+    return response()->json($style);
+  }
+
+  public function back_to_cus_3_data(Request $request)
+  {
+    return response()->json("success");
+  }
+
+  public function store_user_profile_data(Request $request)
+  {
+      // dd($request->all());
+      $user = User::find($request->user_id);
+      $user->name = $request->username;
+      $user->phone = $request->phone;
+      $user->dob = $request->dob;
+      $user->gender = $request->gender;
+      $user->city = $request->city;
+      $user->tsp_street = $request->address;
+      // $user->email = $request->email;
+      $user->save();
+      return response()->json([
+        "msg" => "success",
+        "user_info" => $user
+      ]);
+  }
+
+  public function get_style_for_ready_ajax_data(Request $request)
+  {
+    $readys_arr = [];
+    $readys_style = [];
+    $readys_package = [];
+    $readys_texture = [];
+    // logger($request->all());
+
+    //start one only
+    if(!empty($request->style_cate_name) && !$request->texture_id && !($request->package_id))
+    {
+      $qty = 1;
+      foreach($request->style_cate_name as $style_cate)
+        {
+          $readys = ReadyToWear::where('style_id',$style_cate)->get();
+          array_push($readys_arr,$readys);
+        }
+    }
+    if(!$request->style_cate_name && !empty($request->texture_id) && !($request->package_id))
+    {
+      $qty = 1;
+      foreach($request->texture_id as $texture)
       {
-        $readys = ReadyToWear::where('style_id',$style_cate)->get();
+        $readys = ReadyToWear::where('main_texture_id',$texture)->get();
         array_push($readys_arr,$readys);
       }
-  }
-  if(!$request->style_cate_name && !empty($request->texture_id) && !($request->package_id))
-  {
-    $qty = 1;
-    foreach($request->texture_id as $texture)
-    {
-      $readys = ReadyToWear::where('main_texture_id',$texture)->get();
-      array_push($readys_arr,$readys);
     }
-  }
-  if(!$request->style_cate_name && !($request->texture_id) && !empty($request->package_id))
-  {
-    $qty = 1;
-    foreach($request->package_id as $package)
+    if(!$request->style_cate_name && !($request->texture_id) && !empty($request->package_id))
     {
-      $readys = ReadyToWear::where('package_id',$package)->get();
-      array_push($readys_arr,$readys);
-    }
-  }
-  // end one only
-  // start two only
-  // start(style,texture)
-  if(!empty($request->style_cate_name) && !empty($request->texture_id) && !($request->package_id))
-  {
-    $qty = 2;
-    foreach($request->style_cate_name as $style_cate)
-    {
-      $rstyle = ReadyToWear::where('style_id',$style_cate)->get();
-      array_push($readys_style,$rstyle);
-    }
-    for ($i = 0; $i < count($readys_style); $i++) {
-      foreach ($readys_style[$i] as $rs) {
-          for ($j = 0; $j < count($request->texture_id); $j++) {
-              if ($rs->main_texture_id == $request->texture_id[$j]) {
-                  array_push($readys_arr, $rs);
-              }
-            }
-          }
-        }
-  }
-  // end(style,texture)
-  // start(style,package)
-  if(!empty($request->style_cate_name) && !($request->texture_id) && !empty($request->package_id))
-  {
-    $qty = 2;
-    foreach($request->style_cate_name as $style_cate)
-    {
-      $rstyle = ReadyToWear::where('style_id',$style_cate)->get();
-      array_push($readys_style,$rstyle);
-    }
-    for ($i = 0; $i < count($readys_style); $i++) {
-      foreach ($readys_style[$i] as $rs) {
-          for ($j = 0; $j < count($request->package_id); $j++) {
-              if ($rs->package_id == $request->package_id[$j]) {
-                  array_push($readys_arr, $rs);
-              }
-            }
-          }
-        }
-  }
-  // end(style,package)
-  // start(texture,package)
-  if(!($request->style_cate_name) && !empty($request->texture_id) && !empty($request->package_id))
-  {
-    $qty = 2;
-    foreach($request->texture_id as $texture)
-    {
-      $rtexture = ReadyToWear::where('main_texture_id',$texture)->get();
-      array_push($readys_style,$rtexture);
-    }
-    for ($i = 0; $i < count($readys_style); $i++) {
-      foreach ($readys_style[$i] as $rs) {
-          for ($j = 0; $j < count($request->package_id); $j++) {
-              if ($rs->package_id == $request->package_id[$j]) {
-                  array_push($readys_arr, $rs);
-              }
-            }
-          }
-        }
-  }
-  // end(texture,package)
-  // end two only
-  //start three only
-  if(!empty($request->style_cate_name) && !empty($request->texture_id) && !empty($request->package_id))
-  {
-    $qty=2;
-    for ($i = 0; $i < count($request->style_cate_name); $i++) {
-      $rstyle = ReadyToWear::where('style_id',$request->style_cate_name[$i])->get();
-      array_push($readys_style,$rstyle);
-      // logger($grands);
-      // array_push($readys_style, $rstyle);
-  }
-  //last result
-  for ($i = 0; $i < count($readys_style); $i++) {
-      foreach ($readys_style[$i] as $rs) {
-          for ($j = 0; $j < count($request->texture_id); $j++) {
-              if ($rs->main_texture_id == $request->texture_id[$j]) {
-                  array_push($readys_texture, $rs);
-              }
-          }
+      $qty = 1;
+      foreach($request->package_id as $package)
+      {
+        $readys = ReadyToWear::where('package_id',$package)->get();
+        array_push($readys_arr,$readys);
       }
-  }
-
-  foreach ($readys_texture as $rg) {
-      // logger("lllllllllll");
-      // logger($rg);
-      // logger("pattern-id".$rg->pattern_id);
-      for ($j = 0; $j < count($request->package_id); $j++) {
-          if ($rg->package_id == $request->package_id[$j]) {
-              array_push($readys_arr, $rg);
-          }
+    }
+    // end one only
+    // start two only
+    // start(style,texture)
+    if(!empty($request->style_cate_name) && !empty($request->texture_id) && !($request->package_id))
+    {
+      $qty = 2;
+      foreach($request->style_cate_name as $style_cate)
+      {
+        $rstyle = ReadyToWear::where('style_id',$style_cate)->get();
+        array_push($readys_style,$rstyle);
       }
+      for ($i = 0; $i < count($readys_style); $i++) {
+        foreach ($readys_style[$i] as $rs) {
+            for ($j = 0; $j < count($request->texture_id); $j++) {
+                if ($rs->main_texture_id == $request->texture_id[$j]) {
+                    array_push($readys_arr, $rs);
+                }
+              }
+            }
+          }
+    }
+    // end(style,texture)
+    // start(style,package)
+    if(!empty($request->style_cate_name) && !($request->texture_id) && !empty($request->package_id))
+    {
+      $qty = 2;
+      foreach($request->style_cate_name as $style_cate)
+      {
+        $rstyle = ReadyToWear::where('style_id',$style_cate)->get();
+        array_push($readys_style,$rstyle);
+      }
+      for ($i = 0; $i < count($readys_style); $i++) {
+        foreach ($readys_style[$i] as $rs) {
+            for ($j = 0; $j < count($request->package_id); $j++) {
+                if ($rs->package_id == $request->package_id[$j]) {
+                    array_push($readys_arr, $rs);
+                }
+              }
+            }
+          }
+    }
+    // end(style,package)
+    // start(texture,package)
+    if(!($request->style_cate_name) && !empty($request->texture_id) && !empty($request->package_id))
+    {
+      $qty = 2;
+      foreach($request->texture_id as $texture)
+      {
+        $rtexture = ReadyToWear::where('main_texture_id',$texture)->get();
+        array_push($readys_style,$rtexture);
+      }
+      for ($i = 0; $i < count($readys_style); $i++) {
+        foreach ($readys_style[$i] as $rs) {
+            for ($j = 0; $j < count($request->package_id); $j++) {
+                if ($rs->package_id == $request->package_id[$j]) {
+                    array_push($readys_arr, $rs);
+                }
+              }
+            }
+          }
+    }
+    // end(texture,package)
+    // end two only
+    //start three only
+    if(!empty($request->style_cate_name) && !empty($request->texture_id) && !empty($request->package_id))
+    {
+      $qty=2;
+      for ($i = 0; $i < count($request->style_cate_name); $i++) {
+        $rstyle = ReadyToWear::where('style_id',$request->style_cate_name[$i])->get();
+        array_push($readys_style,$rstyle);
+        // logger($grands);
+        // array_push($readys_style, $rstyle);
+    }
+    //last result
+    for ($i = 0; $i < count($readys_style); $i++) {
+        foreach ($readys_style[$i] as $rs) {
+            for ($j = 0; $j < count($request->texture_id); $j++) {
+                if ($rs->main_texture_id == $request->texture_id[$j]) {
+                    array_push($readys_texture, $rs);
+                }
+            }
+        }
+    }
+
+    foreach ($readys_texture as $rg) {
+        // logger("lllllllllll");
+        // logger($rg);
+        // logger("pattern-id".$rg->pattern_id);
+        for ($j = 0; $j < count($request->package_id); $j++) {
+            if ($rg->package_id == $request->package_id[$j]) {
+                array_push($readys_arr, $rg);
+            }
+        }
+    }
+
+    }
+    //end three only
+    logger(count($readys_arr));
+    return response()->json([
+      'readys' => $readys_arr,
+      'qty' => $qty
+    ]);
+    // end style only
+    // Start OLD
+    // logger($request->style_cate_name);
+    // $styles_arr = [];
+    // $readys_arr = [];
+    // //start style only
+    // if(count($request->style_cate_name) != 0 && count($request->texture_id) == 0)
+    // {
+    //   foreach($request->style_cate_name as $style_cate)
+    //   {
+    //     $styles = Style::where('category',$style_cate)->get();
+
+    //     array_push($styles_arr,$styles);
+    //   }
+
+    //   for($i=0;$i<count($styles_arr);$i++)
+    //   {
+    //     for($j=0;$j<count($styles_arr[$i]);$j++)
+    //     {
+    //       $readys = ReadyToWear::where('style_id',$styles_arr[$i][$j]->id)->get();
+    //       if(count($readys) != 0)
+    //       {
+    //         array_push($readys_arr,$readys);
+    //       }
+    //     }
+    //     // logger("none-".$styles_arr[0][0]->name);
+    //   }
+    // }
+    // if(count($request->style_cate_name) == 0 && count($request->texture_id) != 0)
+    // {
+
+    // }
+    // //end style only
+    // // start style and texture
+    // if(count($request->style_cate_name) != 0 && count($request->texture_id) != 0)
+    // {
+
+
+    // }
+    // // end style and texture
+    // return response()->json([
+    //   'readys' => $readys_arr
+    // ]);
+    // end old
   }
-
-  }
-  //end three only
-  logger(count($readys_arr));
-  return response()->json([
-    'readys' => $readys_arr,
-    'qty' => $qty
-  ]);
-  // end style only
-  // Start OLD
-  // logger($request->style_cate_name);
-  // $styles_arr = [];
-  // $readys_arr = [];
-  // //start style only
-  // if(count($request->style_cate_name) != 0 && count($request->texture_id) == 0)
-  // {
-  //   foreach($request->style_cate_name as $style_cate)
-  //   {
-  //     $styles = Style::where('category',$style_cate)->get();
-
-  //     array_push($styles_arr,$styles);
-  //   }
-
-  //   for($i=0;$i<count($styles_arr);$i++)
-  //   {
-  //     for($j=0;$j<count($styles_arr[$i]);$j++)
-  //     {
-  //       $readys = ReadyToWear::where('style_id',$styles_arr[$i][$j]->id)->get();
-  //       if(count($readys) != 0)
-  //       {
-  //         array_push($readys_arr,$readys);
-  //       }
-  //     }
-  //     // logger("none-".$styles_arr[0][0]->name);
-  //   }
-  // }
-  // if(count($request->style_cate_name) == 0 && count($request->texture_id) != 0)
-  // {
-
-  // }
-  // //end style only
-  // // start style and texture
-  // if(count($request->style_cate_name) != 0 && count($request->texture_id) != 0)
-  // {
-
-
-  // }
-  // // end style and texture
-  // return response()->json([
-  //   'readys' => $readys_arr
-  // ]);
-  // end old
-}
 
 
 // public function search(Request $request)
@@ -2302,6 +2315,18 @@ function store_user_info_measure_ajax_data(Request $request)
     ]);
   }
 
+}
+
+
+/*** Add To Cart Section */
+
+public function cart()
+{
+  $favs = Favourite::where('user_id',Session::get('user_id'))->get();
+  $carts = AddToCart::where('user_id',Session::get('user_id'))->get();
+  $user_id = Session::get('user_id');
+  $user_info = User::find($user_id);
+  return view('frontend.add-to-cart',compact('favs','carts','user_id','user_info'));
 }
 
 }

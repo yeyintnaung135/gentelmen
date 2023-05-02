@@ -11,6 +11,7 @@ use App\CartOrderProduct;
 use App\UpperMeasurement;
 use App\LowerMeasurement;
 use Session;
+use Srmklive\PayPal\Facades\PayPal as FacadesPayPal;
 use Srmklive\Paypal\Service\Paypal;
 
 class PaypalController extends Controller
@@ -107,7 +108,7 @@ class PaypalController extends Controller
           $date = date('Y-m-d');
           if($total->id == $data['user_id'])
           {
-            logger("TTTTTTTTTTT".$total->id);
+            // logger("TTTTTTTTTTT".$total->id);
           $cart_order = CartOrder::create([
             'user_id' => $total->id,
             'total' => $total->sub_total,

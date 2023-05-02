@@ -6,7 +6,6 @@
     @if(!empty($user_info))
     Dear {{$user_info->name}} , thank you for your order !
     @endif
-
   </p>
   <p class="text-muted">
     We’ve received your order and will contact you as soon as your package is shipped.You can find

@@ -20,7 +20,6 @@
                                   v-model="readytowear.main_id" name="btn_text">
                                       <option selected hidden>Choose Category</option>
                                       <option v-for="(main,index) in main_textures" :key="index" :value="main.id">{{main.name}}</option>
-
                                   </select>
                               </div>
                               <!-- <div class="form-group">
@@ -226,7 +225,7 @@
                                               }"
                                   placeholder="Enter Threating Squart Feet">
                               </div> -->
-                              <div class="form-group">
+                              <!-- <div class="form-group">
                                   <label>Stock Qty</label>
                                   <input type="text" v-model="readytowear.stock_qty" class="form-control"
                                   v-bind:class="{
@@ -236,7 +235,7 @@
                                                   ),
                                               }"
                                   placeholder="Enter Stock Qty">
-                              </div>
+                              </div> -->
                               <div class="form-group">
                                   <label>Description</label>
                                   <textarea v-model="readytowear.description" class="form-control"
@@ -285,7 +284,6 @@
 </template>
 
 <script>
-
 
 import vue2Dropzone from 'vue2-dropzone';
 import 'vue2-dropzone/dist/vue2Dropzone.min.css';
@@ -346,7 +344,7 @@ Vue.use(VueSimpleAlert);
           //forerror
           minImageWidth:525,
           minImageHeight:295,
-        dropzoneOptions: {
+         dropzoneOptions: {
             url: this.link,
             thumbnailWidth: 200,
             previewTemplate: this.template(),
@@ -491,13 +489,13 @@ Vue.use(VueSimpleAlert);
           } else {
               this.requireerroryk.softness = false;
           }
-          if (this.readytowear.stock_qty == "") {
-              this.requireerroryk.stock_qty = true;
-              tmperrorcounts += 1;
+        //   if (this.readytowear.stock_qty == "") {
+        //       this.requireerroryk.stock_qty = true;
+        //       tmperrorcounts += 1;
 
-          } else {
-              this.requireerroryk.stock_qty = false;
-          }
+        //   } else {
+        //       this.requireerroryk.stock_qty = false;
+        //   }
           // if (this.readytowear.sub_id == "") {
           //     this.requireerroryk.sub_id = true;
           //     tmperrorcounts += 1;
@@ -854,14 +852,14 @@ Vue.use(VueSimpleAlert);
       }
 
     },
-      mounted() {
-        this.getMainTexture();
-        this.getMainTextureSub();
-          this.getPackage();
-          this.getStyle();
-          this.getStyleCategory();
-          console.log('Component mounted.')
-      },
+    mounted() {
+    this.getMainTexture();
+    this.getMainTextureSub();
+        this.getPackage();
+        this.getStyle();
+        this.getStyleCategory();
+        console.log('Component mounted.')
+    },
 
 
       computed: {},

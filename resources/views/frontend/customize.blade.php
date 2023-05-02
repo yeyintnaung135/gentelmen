@@ -5,7 +5,6 @@
   <link href="{{ asset('css/fabric.css') }}" rel="stylesheet">
   <link href="{{ asset('css/owl/owl.carousel.min.css') }}" rel="stylesheet">
   <link href="{{ asset('css/owl/owl.theme.default.min.css') }}" rel="stylesheet">
-
 @endpush
 @section('content')
   @include('layouts/nav')
@@ -33,7 +32,6 @@
   <input type="hidden" style="color:black" id="order_id" value="start">
   <input type="hidden" style="color:black" id="suit_code" value="start">
   <section class="cus-breadcrumb py-2">
-
     <div class="d-flex justify-content-between align-items-center mb-0">
       <a href="#" class="pt-1" id="back"><i class='bx bx-arrow-back'></i></a>
       <a href="#" class="pt-1" id="next-arrow"><i class='bx bx-arrow-back bx-rotate-180'></i></a>
@@ -53,7 +51,6 @@
       <div class="" id="ind7"></div>
     </div>
   </section>
-
   @include('layouts/cus_1')
   @include('layouts/cus_2')
   @include('layouts/cus_3')
@@ -132,10 +129,6 @@
 
 
     $(document).ready(function() {
-      // alert("startttttttt");
-      // var from = @json(Session::get('from_reset'));
-      // alert("helll"+from);
-      // alert(sessionStorage.getItem('customize_category_id'));
       if(sessionStorage.getItem('customize_category_id') == null)
       {
         // alert("yes");
@@ -1427,7 +1420,7 @@
                 if (count == 6) {
                   if(sessionStorage.getItem('pass_measure') == null)
                   {
-                    $('#vtext1').html("Get Measurements      (need to click save measurement)");
+                    $('#vtext1').html("Get Measurements (need to click save measurement)");
                     $('#vtext2').html("Step 5");
                     $('#confirm').modal('show');
                     count--;
@@ -2373,16 +2366,16 @@
             var photo = v.photo_one;
             console.log(name);
             style_n += ` <div class="col-md-4" onclick="style_rec(${v.id})">
-            <div class="radio-group ">
-              <input type="radio" name="test" id="style_check${v.id}" class="form-check-input"/>
-          <div class="cursor-pointer" data-bs-toggle="modal"
-              data-bs-target="#myCategory${style_rec_name}">
-            <img src="{{'/assets/images/categories/style/${photo}'}}" alt=""
-                class="cus-img-res">
-            <p class="text-center mt-2" id="style_data${v.id}">${name}</p>
-          </div>
-          </div>
-        </div>`
+                <div class="radio-group ">
+                  <input type="radio" name="test" id="style_check${v.id}" class="form-check-input"/>
+              <div class="cursor-pointer" data-bs-toggle="modal"
+                  data-bs-target="#myCategory${style_rec_name}">
+                <img src="{{'/assets/images/categories/style/${photo}'}}" alt=""
+                    class="cus-img-res">
+                <p class="text-center mt-2" id="style_data${v.id}">${name}</p>
+              </div>
+              </div>
+            </div>`
 
           })
           $('#style_card').html(style_n);
@@ -2443,8 +2436,7 @@
       sessionStorage.setItem('pknee',pknee);
 
       sessionStorage.setItem('pstomach',pstomach);
-      // alert(upperID);
-      // alert(lowerID);
+
 
       $.ajax({
         type: 'POST',
@@ -2489,14 +2481,12 @@
             sessionStorage.getItem('measured',1);
             update_temporary();
             $('#measure_step_pass').val(1);
-            // $('#alertnone').addClass('d-none');
             swal({
               title: "Success!",
               text: "Successfully Saved Measurement!",
               icon: "success",
             }).then(function () {
 
-              // alert("st-6");
               if(user != null)
               {
 
@@ -2522,8 +2512,6 @@
     }
 
     // function store_order() {
-    //   // alert("do store order");
-    //   // alert("store_order"+$('#order_id').val());
     //   var addr = $('#order_address').val();
     //   var user = @json($user);
     //   console.log("User = "+user);
@@ -2533,7 +2521,6 @@
     //   var upper_id = $('#upper_measure_id').val();
     //   var lower_id = $('#lower_measure_id').val();
     //   var order_id = $('#order_id').val();
-    //   // alert("Order ID = "+order_id);
     //   // if(sessionStorage.getItem('suit_piece') == null && sessionStorage.getItem('suit_piece') == '')
     //   // {
     //   //   var suit_piece = ''
@@ -2594,10 +2581,8 @@
     // }
     function store_suit_code()
     {
-      // store suit code start
-      // alert("sc"+$('#suit_code').val());
       var user_id = @json($user);
-      // alert("store_suit_code=="+user_id);
+
       $.ajax({
         type: 'POST',
         url: '/store_suit_code_step6_ajax',
@@ -2658,7 +2643,7 @@
           html3 += parseInt(sessionStorage.getItem('cus_total_price'))+2;
           $('#suitTotal').html(html2);
           $('#total').html(html3);
-          // alert("mobile_total 2513");
+       
           $('#mobile_total').html(html3);
           console.log(data);
           sessionStorage.setItem('suit_code',data.suit_code);
@@ -2668,10 +2653,8 @@
       // store_suit code end
     }
     function show_measure_data() {
-      // alert("show measure data");
       var cus_cate_id = sessionStorage.getItem('customize_category_id');
       if (cus_cate_id == 1 || cus_cate_id == 2) {
-        // alert("UPPER");
         $('#lower_tab').addClass('d-none');
         $('#upper_tab').removeClass('d-none');
 
@@ -2684,7 +2667,6 @@
         $('#info_tab').removeClass('active');
         $('#info').removeClass('active');
       } else if (cus_cate_id == 3) {
-        // alert("LOWER");
         $('#upper_tab').addClass('d-none');
         $('#lower_tab').removeClass('d-none');
 
@@ -2699,7 +2681,6 @@
       }
       else if(cus_cate_id == 9)
       {
-        // alert("SUITS");
         $('#lower_tab').removeClass('d-none');
         $('#upper_tab').removeClass('d-none');
 
@@ -2734,7 +2715,7 @@
     })
     function getvest(value,price)
     {
-      // alert(price);
+
       var package_price = parseInt(sessionStorage.getItem('package_price'));
       var texture_total_4 = 0;
       var jacket_total_4 = 0;
@@ -2745,17 +2726,15 @@
       var html_total = "";
       if(sessionStorage.getItem('texture_id') != null)
       {
-        // alert("1");
          texture_total_4 = parseInt(sessionStorage.getItem('texture_price'));
       }
       if(sessionStorage.getItem('jacket_id') != null)
       {
-        // alert("2");
          jacket_total_4 = parseInt(sessionStorage.getItem('jacket_price'));
       }
       if(sessionStorage.getItem('pant_id') != null)
       {
-        // alert("3");
+  
          pant_total_4 = parseInt(sessionStorage.getItem('pant_price'));
       }
 
@@ -2763,7 +2742,6 @@
       html_total +=`
       <span class="me-3 text-gold fs-5">$</span><h4 class="d-inline ff-mont ls-0" id="step2_and_fabric_total">${total4}</h4>
       `;
-      // alert(total4);
       $('.three_four_price').html(html_total);
       sessionStorage.setItem('cus_total_price',total4);
 
@@ -2771,13 +2749,10 @@
     }
     function getjacket(value,price)
     {
-      // alert(price)
       var package_price = parseInt(sessionStorage.getItem('package_price'));
       var texture_total_4 = 0;
       var vest_total_4 = 0;
       var pant_total_4 = 0;
-      // alert(price);
-      // alert(sessionStorage.getItem('texture_id'));
       sessionStorage.setItem('jacket_id',value);
       sessionStorage.setItem('jacket_price',price);
       //total
@@ -3512,7 +3487,7 @@
     }
     function lower_change_in()
     {
-      // alert("upper is in and so lower (in)");
+      //alert("upper is in and so lower (in)");
       var pwaist = $('#waist_lower_input').val();
       var pstomach = $('#stomach_lower_input').val();
       var phips = $('#hips_lower_input').val();
@@ -3625,9 +3600,6 @@
             html += parse('0');
           }
         });
-
-
-
           // document.getElementById('fav-space').innerHTML = parseInt(document.getElementById('fav-space').innerHTML) + 1;
 
 				}else{

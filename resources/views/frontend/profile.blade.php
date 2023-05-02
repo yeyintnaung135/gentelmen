@@ -1418,7 +1418,7 @@
               <div class="menu__item">Additional items</div>
             </div>
             <div class="customize-orders">
-              {{--              <h6 class="text-white">Customize Orders</h6></br>--}}
+              {{-- <h6 class="text-white">Customize Orders</h6></br>--}}
 
               @foreach($cus_orders as $cus_order)
                 @if($cus_order->status == 1)
@@ -1626,7 +1626,7 @@
                     @if($cus_order->pant_id != null)
                       <tr>
                         <td class="text-white">Pant Style :</td>
-                        <td class="text-white-70">{{$cus_order->pant->style}}</td>
+                          <td class="text-white-70">{{$cus_order->pant->style}}</td>
                       </tr>
                     @endif
                     </tbody>
@@ -1673,7 +1673,7 @@
                         @if($cart->type == 'additional')
                           <td class="text-white-70">{{$cart->additional->name}}</td>
                         @elseif($cart->type == 'ready')
-                          <td class="text-white-70">{{$cart->ready->name}}</td>
+                          {{-- <td class="text-white-70">{{$cart->ready->name}}</td> --}}
                         @endif
                       </tr>
                     @endif

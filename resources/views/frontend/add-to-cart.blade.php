@@ -48,8 +48,6 @@
           <h1 class="cart__title">CART TOTAL</h1>
           <div class="total__items" id="total_item_space">
 
-
-
             <hr>
           </div>
           <div class="cart__total">
@@ -603,7 +601,7 @@
 
 @endsection
 @push('script_tag')
-<script src="https://www.paypal.com/sdk/js?client-id=ATCq7eYmZSx55GfZFkLJlY4WZSX1aCZxQjm1DHi3kHA1eAyYqAiRiuYDwjZvxLhlTzi9mn_7N2y1x-bK&currency=USD&disable-funding=paylater" data-namespace="paypal_sdk"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=AdZk-l57yFvQ7HPHNi2-etRRHUOuHHX0kvy96KqHPkIJ7OKclCPm92nI1ZdBCSzVmlaP3KnBUz2B7ChA&currency=USD&disable-funding=paylater" data-namespace="paypal_sdk"></script>
 
 <script>
     var mycart = localStorage.getItem('mycart');
@@ -700,6 +698,7 @@
         }
 
     }).render('#paypal-button-container');
+
 </script>
 @endpush
 @push('whishlist-nav')

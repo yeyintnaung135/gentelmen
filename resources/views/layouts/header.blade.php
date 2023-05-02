@@ -1,10 +1,31 @@
+<?php
+$headerCSP = "Content-Security-Policy:".
+    "base-uri 'self';".
+    "default-src 'self';".
+    "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.runtime.min.js http://localhost/moe/public/js/app.js https://stats.pusher.com/timeline/v2/jsonp/1 https://www.googletagmanager.com/gtag/js;".
+    "style-src 'self' 'unsafe-inline' ;".
+    "object-src 'none';".
+    "connect-src 'self' https://fcmregistrations.googleapis.com https://firebaseinstallations.googleapis.com".
+    " wss://localhost:6001 https://www.google-analytics.com wss://test.gentlementailor.shop:6001;".
+    "font-src 'self';".
+    "frame-src 'self';".
+    "img-src 'self';".
+    "manifest-src 'self';".
+    "media-src 'self';".
+    "report-uri https://63d22e9c1110c9e871bfc411.endpoint.csper.io/?v=1;".
+    "worker-src 'self';";
+header('X-Frame-Options: DENY');
+//header($headerCSP);
+header('X-XSS-Protection: 1; mode=block');
+header('X-Content-Type-Options: nosniff');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Gentlemen Premium Tailor</title>

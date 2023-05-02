@@ -7,9 +7,9 @@
 return [
     'mode'    => env('PAYPAL_MODE', 'sandbox'), // Can only be 'sandbox' Or 'live'. If empty or invalid, 'live' will be used.
     'sandbox' => [
-        'client_id'         => env('PAYPAL_SANDBOX_CLIENT_ID', ''),
-        'client_secret'     => env('PAYPAL_SANDBOX_CLIENT_SECRET', ''),
-        'app_id'            => 'APP-80W284485P519543T',
+        'client_id'         => env('PAYPAL_SANDBOX_CLIENT_ID', 'AdZk-l57yFvQ7HPHNi2-etRRHUOuHHX0kvy96KqHPkIJ7OKclCPm92nI1ZdBCSzVmlaP3KnBUz2B7ChA'),
+        'client_secret'     => env('PAYPAL_SANDBOX_CLIENT_SECRET', 'EO745QtmCYIT5f8A2moKaKbxmWnE5u6qdwtPX9vEdmEQkbNfwJyWQox6_sf66NxFxmaEF4JP8Z_oaIOT'),
+        'app_id'            => 'Default Application',
     ],
     'live' => [
         'client_id'         => env('PAYPAL_LIVE_CLIENT_ID', ''),
@@ -23,3 +23,4 @@ return [
     'locale'         => env('PAYPAL_LOCALE', 'en_US'), // force gateway language  i.e. it_IT, es_ES, en_US ... (for express checkout only)
     'validate_ssl'   => env('PAYPAL_VALIDATE_SSL', true), // Validate SSL when creating api client.
 ];
+

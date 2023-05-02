@@ -382,8 +382,7 @@
           designs and use premium materials.</p>
         <span class="see-more-index text-bold text-decoration-underline" onclick="changeText(this)"
               style="cursor: pointer;
-        color:
-        #fff">Read More</span>
+        color:#fff">Read More</span>
       </div>
       <div class="col-md-4 text-center p-4">
         <img src="{{asset("assets/images/logo/choose_package.png")}}" alt=""
@@ -573,6 +572,8 @@
 
     {{-- for See more--}}
     let seeMore = $(".see-more-index")
+
+    $(".pro-sec-para").hide();
 
     seeMore.click(function () {
         document.querySelector(".pro-sec-para").classList.toggle("d-block")
