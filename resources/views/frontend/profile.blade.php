@@ -1646,7 +1646,7 @@
       @endif
     @endforeach
     {{--order detail for cart--}}
-    @foreach($cart_orders as $cart_order)
+    {{-- @foreach($cart_orders as $cart_order)
       <div class="modal fade" id="cartorderDetail{{$cart_order->id}}">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
           <div class="modal-content">
@@ -1673,7 +1673,7 @@
                         @if($cart->type == 'additional')
                           <td class="text-white-70">{{$cart->additional->name}}</td>
                         @elseif($cart->type == 'ready')
-                          {{-- <td class="text-white-70">{{$cart->ready->name}}</td> --}}
+                          <td class="text-white-70">{{$cart->ready->name}}</td>
                         @endif
                       </tr>
                     @endif
@@ -1692,7 +1692,7 @@
           </div>
         </div>
       </div>
-    @endforeach
+    @endforeach --}}
   </section>
   <button onclick="topFunction()" id="scrollBtn" title="Go to top" class="d-flex
     justify-content-center align-items-center">

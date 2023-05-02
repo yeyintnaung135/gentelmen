@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title','Admin Login')
 @section('content')
   @include('flash-message')
   <div class="container-fluid">

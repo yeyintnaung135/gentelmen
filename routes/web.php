@@ -356,8 +356,6 @@ Route::post('/store_suit_code_step6_ajax', 'Admin\TemporaryController@store_suit
 Route::post('/store_suit_code_step6_for_guest_ajax', 'Admin\TemporaryController@store_suit_code_step6_for_guest_ajax_in')->name('store_suit_code_step6_for_guest_ajax');
 
 
-
-
 //for super admin
 require "adminroutes.php";
 //for super admin
@@ -402,18 +400,6 @@ Route::get('new-password', function () {
     return view('frontend.newPassword');
 });
 
-// mail
-Route::get('send-mail', function () {
-   $details = [
-       'title' => 'Mail from ItSolutionStuff.com',
-       'body' => 'This is for testing email using smtp'
-   ];
-
-   Mail::to('your_receiver_email@gmail.com')->send(new \App\Mail\MyTestMail($details));
-
-   dd("Email is Sent.");
-
-});
 
 //payment
 Route::get('payment_list','Admin\PaymentController@list')->name('payment_list');
@@ -469,9 +455,6 @@ Route::get('package-detail', function () {
 
 // ready to wear
 Route::get('ready-to-wear', 'Frontend\ReadyToWareController@ready_to_wear')->name('ready_to_wear');
-// Route::get('/ready-to-wear',function(){
-//     return url('');
-// });
 
 Route::get('suit-tips', 'Frontend\SuittipsController@suit')->name('suittips');
 
