@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class ColorController extends Controller
 {
-    //
+
     public function create()
     {
         return view('admin.categories.color.create');
@@ -19,7 +19,6 @@ class ColorController extends Controller
         logger($request->all());
         foreach($request->images as $image)
         {
-
 
                 $photo = $image;
 
@@ -46,7 +45,6 @@ class ColorController extends Controller
         {
             logger("no");
             $photo3 = $request->images[2]->getClientOriginalName();
-
         }
         else
         {

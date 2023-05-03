@@ -187,8 +187,12 @@
 
         // Call your server to set up the transaction
         createOrder: function(data, actions) {
-            return fetch('api/paypal/order/create/', {
+            return fetch('{{route("paypal.create")}}', {
                 method: 'post',
+                headers: {
+                  "Content-Type": "application/json",
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 body:JSON.stringify({
                     "cart"  : 0,
                     "user_id" : user_id,
@@ -219,8 +223,12 @@
 
         // Call your server to finalize the transaction
         onApprove: function(data, actions) {
-            return fetch('/api/paypal/order/capture/', {
+            return fetch("{{ route('paypal.processTransaction')}}", {
                 method: 'post',
+                headers: {
+                  "Content-Type": "application/json",
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 body:JSON.stringify({
                   orderId : data.orderID
               })
@@ -249,7 +257,7 @@
                 }
 
                 // Successful capture! For demo purposes:
-                console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                // console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
                 var transaction = orderData.purchase_units[0].payments.captures[0];
                 // alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
 

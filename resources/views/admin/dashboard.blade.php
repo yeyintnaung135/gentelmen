@@ -21,7 +21,6 @@
             <div class="small-box bg-info">
               <div class="inner">
                 <h3>{{ count($register_user) }}</h3>
-
                 <p>User Regsiter</p>
               </div>
               <div class="icon">
@@ -35,7 +34,6 @@
             <div class="small-box bg-info">
               <div class="inner">
                 <h3>{{ count($register_admin) }}</h3>
-
                 <p>Admin Regsiter</p>
               </div>
               <div class="icon">

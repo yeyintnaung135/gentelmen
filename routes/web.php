@@ -19,13 +19,13 @@ Route::get('/', 'Frontend\FrontendController@get_index_page')->name('index_page'
 // Route::get('/Admin', function () {
 //     return view('layouts.master');
 // });
+
 // banner
 Route::get('/admin', 'Admin\AdminController@create_banner')->name('create_banner');
 Route::post('/store_banner', 'Admin\AdminController@store_banner_data')->name('store_banners');
 Route::get('/show_banner', 'Admin\AdminController@show_banner_list')->name('show_banner');
 Route::get('/edit_banner/{id}', 'Admin\AdminController@edit_banner_list')->name('edit_banner');
 Route::post('/update_banner/{id}', 'Admin\AdminController@update_banner_list')->name('update_banner');
-
 
 Route::post('/delete_banner', 'Admin\AdminController@delete_banner_list')->name('delete_banner');
 
@@ -104,7 +104,6 @@ Route::post('/get_pattern_sub', 'Admin\TextureController@get_pattern_sub_data')-
 Route::get('/get_pattern_all', 'Admin\TextureController@get_pattern_all_data')->name('get_pattern_all');
 Route::get('/get_package', 'Admin\TextureController@get_package_data')->name('get_package');
 Route::post('/get_swiper_photo_texture', 'Admin\TextureController@get_swiper_photo_texture_data')->name('get_swiper_photo_texture');
-
 
 
 //Main Texture
@@ -402,15 +401,9 @@ Route::get('new-password', function () {
 
 
 //payment
-Route::get('payment_list','Admin\PaymentController@list')->name('payment_list');
+Route::get('payment_list','Admin\PaymentController@index')->name('payment_list');
 
-Route::post('/delete_payment', 'Admin\PaymentController@delete_list')->name('delete_payment');
 
-Route::post('/pay', 'Admin\PaymentController@pay')->name('payment');
-
-Route::get('success','Admin\PaymentController@success');
-
-Route::get('error','Admin\PaymentController@error');
 
 // Kz Fabric
 Route::get('/fabrics','Frontend\FrontendController@show_fabrics')->name('fabrics');
@@ -425,6 +418,8 @@ Route::post('/store_user_info_measure_ajax', 'Frontend\FrontendController@store_
 
 // paypal
 Route::get('/paypal','Frontend\FrontendController@show_paypal')->name('paypal');
+Route::post('/paypal/create','Admin\PaypalController@create')->name('paypal.create');
+Route::post('/paypal/create/capture','Admin\PaypalController@processTransaction')->name('paypal.processTransaction');
 
 Route::post('/back_to_cus_3', 'Frontend\FrontendController@back_to_cus_3_data')->name('back_to_cus_3');
 
@@ -462,9 +457,9 @@ Route::get('suit-tips-detail/{id}','Frontend\SuittipsController@detail')->name('
 
 Route::get('faq', 'Frontend\FaqController@faq')->name('faq');
 
-Route::get('search-result', function () {
-    return view('frontend.search-result');
-})->name('search-result');
+// Route::get('search-result', function () {
+//     return view('frontend.search-result');
+// })->name('search-result');
 
 Route::get('cart', 'Frontend\FrontendController@cart')->name('cart');
 

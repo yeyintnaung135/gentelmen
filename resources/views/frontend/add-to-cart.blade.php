@@ -57,17 +57,13 @@
           </div>
           <div class="cart__total my-5">
             <p class="col-md-3">Address :</p>
-            <!--          <p class="col-md-9">No.143, Zayyardipa 1st Street, 31 ward, North Dagon.</p>-->
             @if(!empty($user_info))
-            <textarea type="text" class="form-control" rows="2" id="order_address" autofocus onkeyup="store_address(this.value)">{{$user_info->city}} {{$user_info->tsp_street}}</textarea>
+               <textarea type="text" class="form-control" rows="2" id="order_address" autofocus onkeyup="store_address(this.value)">{{$user_info->city}} {{$user_info->tsp_street}}</textarea>
             @else
-            <textarea type="text" class="form-control" rows="2" id="order_address" autofocus></textarea>
+                <textarea type="text" class="form-control" rows="2" id="order_address" autofocus></textarea>
             @endif
           </div>
         </div>
-
-
-
       </div>
 
       <div class="checkout__wrapper">
@@ -79,52 +75,6 @@
           <button class="btn bg-gold rounded-1 text-uppercase" id="show_paypal" onclick="available_payment()">process to checkout</button>
         </div>
       </div>
-      <!--      <div class="row cart__items-title">
-        <div class="col-5">
-          <p class="cart__item-title">Product</p>
-        </div>
-        <div class="col-2">
-          <p class="cart__item-title text-center">Price</p>
-        </div>
-        <div class="col-3">
-          <p class="cart__item-title text-center">Quantity</p>
-        </div>
-        <div class="col-2">
-          <p class="cart__item-title text-center">Total</p>
-        </div>
-      </div>
-      <div class="row cart__item">
-        <div class="col-5">
-          <div class="cart__item-info row g-2 g-md-4 g-lg-5">
-            <div class="col-4">
-              <img src="{{asset('assets/images/cart/img.png')}}" alt="cart img">
-            </div>
-            <div class="col-8">
-              <p class="cart__product-title">Navy Blue Cashmere wool code ready to wear outfit 1</p>
-              <p class="cart__product-desc">Size - 36R / Classic Package</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-2">
-          <p class="cart__item-price text-center">$ 479</p>
-        </div>
-        <div class="col-3">
-          <div class="count__wrapper">
-            <div class="count__wrapper-decrease">
-              <i class='bx bx-chevron-left'></i>
-            </div>
-            <div class="count__wrapper-count">
-              <input type="number" class="form-control" value="1">
-            </div>
-            <div class="count__wrapper-increase">
-              <i class='bx bx-chevron-right'></i>
-            </div>
-          </div>
-        </div>
-        <div class="col-2">
-          <p class="cart__item-total text-center">$ 479</p>
-        </div>
-      </div>-->
     </div>
   </section>
 
@@ -138,41 +88,30 @@
       sessionStorage.setItem('address',value);
       $("#paypal-button-container").hide();
     }
+
     function available_payment() {
 
+      if(sessionStorage.getItem('address') != null && sessionStorage.getItem('address') != ''){
+        if($('#total').val() == ''){
+          swal({
+              title: "Error",
+              text : "Nothing to checkout in cart",
+              icon : "error",
+          });
+          $("#paypal-button-container").hide();
+        } else {
 
-
-    if(sessionStorage.getItem('address') != null && sessionStorage.getItem('address') != '')
-    {
-      if($('#total').val() == '')
-      {
-        // alert("null");
+          $("#paypal-button-container").show();
+        }
+      }else{
         swal({
             title: "Error",
-            text : "Nothing to checkout in cart",
+            text : "Need to fill Address",
             icon : "error",
+        }).then(function() {
         });
         $("#paypal-button-container").hide();
       }
-      else
-      {
-        // alert("not null");
-        $("#paypal-button-container").show();
-      }
-    }
-    else
-    {
-      swal({
-          title: "Error",
-          text : "Need to fill Address",
-          icon : "error",
-      }).then(function() {
-      });
-      $("#paypal-button-container").hide();
-    }
-
-
-
 
     }
     $(document).ready(function () {
@@ -256,12 +195,15 @@
 
     $(document).ready(function(){
       var user_id = @json($user_id);
-      // alert(user_id);
       showmodal(user_id);
-    })
+    });
+
+
     function showmodal(user_id){
 
       var mycart = localStorage.getItem('mycart');
+
+      console.log(mycart)
 
       var grandTotal = localStorage.getItem('grandTotal');
 
@@ -271,12 +213,13 @@
 
           var mycartobj = JSON.parse(mycart);
 
+          console.log(mycartobj)
+
           var html='';
           var html_total_item = '';
 
           if(mycartobj.length>0){
-
-              $.each(mycartobj,function(i,v){
+            $.each(mycartobj,function(i,v){
                 if(v.id == user_id)
                 {
 
@@ -344,9 +287,6 @@
       }
       //start total
       if(grandTotal){
-
-
-
       var html_total = '';
 
       if(grandTotal_obj.length>0){
@@ -372,12 +312,10 @@
     }
 
     function plus(user_id,item_id){
-      // alert(user_id+"--"+item_id);
-    count_change(user_id,item_id,'plus',1);
+     count_change(user_id,item_id,'plus',1);
     }
 
     function minus(user_id,item_id){
-      // alert(user_id+"--"+item_id);
     count_change(user_id,item_id,'minus',1);
     }
 
@@ -391,7 +329,6 @@
       var mycartobj=JSON.parse(mycart);
 
       var grand_total_obj = JSON.parse(grand_total);
-      //
 
       var item = mycartobj.filter(item =>item.id == user_id && item.item_id == item_id);
       var total = grand_total_obj.filter(total => total.id == user_id);
@@ -407,9 +344,7 @@
               });
 
               $('#btn_plus_' + item[0].item_id).attr('disabled', 'disabled');
-          }
-
-          else{
+          } else{
 
               item[0].qty+=qty;
               item[0].each_sub += parseInt(item[0].price) * qty;
@@ -426,12 +361,10 @@
               nav_cart_total_qty()
 
           }
-      }
-      else if (action == 'minus') {
+
+      } else if (action == 'minus') {
 
           if(item[0].qty <= qty){
-
-              //var ans=confirm('Are you sure');
 
               swal({
                   title: "Are you sure?",
@@ -446,14 +379,12 @@
               }).then(
               function(isConfirm){
                   if(isConfirm){
-                    // alert("one");
-
-
+            
                   var total_total = grand_total_obj.filter(total => total.id == user_id);
                   let item_cart = mycartobj.filter(item => item.id !== user_id || item.item_id !== item_id);
                   total_total[0].sub_total =parseInt(total[0].sub_total) - parseInt(item[0].price)*parseInt(qty);
                   total_total[0].total_qty -= parseInt(qty);
-                  // alert("TOTAL+"+total[0].total_qty);
+   
                   console.log(item_cart);
                   console.log("yes");
                   localStorage.setItem('mycart',JSON.stringify(item_cart));
@@ -463,7 +394,7 @@
                   $('#total').val(total_total[0].sub_total);
 
               }else{
-                // alert("two");
+  
                   item[0].qty;
                 console.log("no");
                   localStorage.setItem('mycart',JSON.stringify(mycartobj));
@@ -480,8 +411,6 @@
 
 
           }else{
-              console.log("hello");
-              // alert("three");
               item[0].qty-=qty;
 
               total[0].sub_total -= parseInt(item[0].price)*qty;
@@ -491,8 +420,6 @@
               localStorage.setItem('mycart',JSON.stringify(mycartobj));
 
               localStorage.setItem('grandTotal',JSON.stringify(grand_total_obj));
-
-
 
               showmodal(user_id);
               nav_cart_total_qty()
@@ -553,16 +480,14 @@
       // }
 
       }
-      function nav_cart_total_qty()
-      {
-        // alert("navvvvv");
+
+      function nav_cart_total_qty() {
         // start cart qty total to nav
         var grand_total = localStorage.getItem('grandTotal');
         var grand_total_obj = JSON.parse(grand_total);
         $.each(grand_total_obj,function(i,v){
           if(v.id == user_id)
           {
-            // alert("nav="+v.total_qty);
             $('#total_cart_qty').html(v.total_qty);
           }
         });
@@ -571,6 +496,8 @@
       $('#show_paypal').click(function(){
         $('.paypal_space').show();
       });
+
+      /** Cart Remove All */
       $('#remove_all').click(function(){
         // alert("rall");
         var user_id = @json($user_id);
@@ -611,15 +538,22 @@
     var grandTotal_obj = JSON.parse(grandTotal);
 
     var mycartobj = JSON.parse(mycart);
+
     // Render the PayPal button into #paypal-button-container
     var user_id = @json($user_id);
+
     paypal_sdk.Buttons({
 
         // Call your server to set up the transaction
         createOrder: function(data, actions) {
+
           var total = $('#total').val();
-            return fetch('api/paypal/order/create/', {
+            return fetch("{{ route('paypal.create')}}", {
                 method: 'post',
+                headers: {
+                  "Content-Type": "application/json",
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 body:JSON.stringify({
                     "cart"  : 1,
                     "cart_item" : mycartobj,
@@ -632,7 +566,10 @@
                 return res.json();
             }).then(function(orderData) {
               console.log(orderData);
+              console.log('-------------------------------');
+
               console.log(orderData.payorder.id);
+              console.log('-------------------------------');
                 $('#order_id').val(orderData.cart_order_id);
                 return orderData.payorder.id;
             });
@@ -640,11 +577,16 @@
 
         // Call your server to finalize the transaction
         onApprove: function(data, actions) {
-            return fetch('/api/paypal/cart_order/cart_capture/', {
+          console.log(data)
+            return fetch("{{ route('paypal.processTransaction')}}", {
                 method: 'post',
+                headers: {
+                  "Content-Type": "application/json",
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 body:JSON.stringify({
                   orderId : data.orderID,
-                  order_id:$('#order_id').val()
+                  // order_id:$('#order_id').val()
               })
             }).then(function(res) {
                 return res.json();

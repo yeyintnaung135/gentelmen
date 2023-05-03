@@ -35,7 +35,7 @@
                   <tr>
                     <th>No</th>
                     <th>Tran ID</th>
-                    <th>Order Code</th>
+                    {{-- <th>Order Code</th> --}}
                     <th>Payer Email</th>
                     <th>Amount</th>
                     <th>Paypal Fee</th>
@@ -51,7 +51,7 @@
                   <tr>
                     <td>{{$i++}}</td>
                     <td>{{$pay->tran_id}}</td>
-                    <td>{{$pay->order->order_code}}</td>
+                    {{-- <td>{{$pay->order->order_code}}</td> --}}
                     <td>{{$pay->payer_email}}</td>
                     <td>{{$pay->amount}}</td>
                     <td>{{$pay->paypal_fee}}</td>
@@ -72,7 +72,7 @@
                   <tr>
                     <th>No</th>
                     <th>Tran ID</th>
-                    <th>Order Code</th>
+                    {{-- <th>Order Code</th> --}}
                     <th>Payer Email</th>
                     <th>Amount</th>
                     <th>Paypal Fee</th>

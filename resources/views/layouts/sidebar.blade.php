@@ -16,7 +16,7 @@
           ">
         </div>
         <div class="info">
-          <a href="{{route('dashboard')}}" class="d-block">{{Auth::guard('admin')->user()->name}}</a>
+          {{-- <a href="{{route('dashboard')}}" class="d-block">{{Auth::guard('admin')->user()->name}}</a> --}}
         </div>
       </div>
 

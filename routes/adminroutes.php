@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Route;
 //for superadmin
 
 Route::group(['prefix' => 'backside/admin', 'as' => 'backside.admin.'], function () {
@@ -8,7 +9,6 @@ Route::group(['prefix' => 'backside/admin', 'as' => 'backside.admin.'], function
     Route::post('logout', ['as' => 'logout', 'uses' => 'Auth\AdminLoginController@logout']);
     Route::get('login', ['as' => 'login', 'uses' => 'Auth\AdminLoginController@loginform']);
     Route::post('login', ['as' => 'logined', 'uses' => 'Auth\AdminLoginController@login']);
-
 
 
 
