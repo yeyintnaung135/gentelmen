@@ -394,7 +394,6 @@
                                   },
                                   success: function (data) {
                                     // sessionStorage.clear();
-                                    console.log(sessionStorage.getItem('has_step'));
                                     // store new temprary start
                                     // $.ajax({
                                     //   type: 'POST',
