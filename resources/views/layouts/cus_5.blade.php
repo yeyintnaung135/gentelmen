@@ -1171,23 +1171,25 @@
                     <div class="col-5">
                       <input type="number" min="0" placeholder="0"  class="select-input h-100" id="height_sec" value="{{$user_info->height_in}}"  onmousedown="clear_info_required()"
                       onkeydown="clear_pass_measure_required()" onkeyup="cal_in(this.value)">
-                    </div>
-                    <div class="col-7">
                       <select name="h_type_select" id="height_type">
                         <option value="in" selected>In</option>
                         <option value="cm">Cm</option>
                       </select>
                     </div>
+                    <div class="col-7">
+                   
+                    </div>
                     @else
                     <div class="col-5">
                       <input type="number" min="0" placeholder="0"  class="select-input h-100" id="height_sec" value="{{$user_info->height_cm}}"  onmousedown="clear_info_required()"
                       onkeydown="clear_pass_measure_required()">
-                    </div>
-                    <div class="col-7">
                       <select name="h_type_select" id="height_type">
                         <option value="in">In</option>
                         <option value="cm" selected>Cm</option>
                       </select>
+                    </div>
+                    <div class="col-7">
+                    
                     </div>
                     @endif
 
@@ -1203,19 +1205,20 @@
                   <div class="d-flex ft-wrapper">
                     <input type="number" min="0" placeholder="0"  id="height_ft"  onmousedown="clear_info_required()"
                     onkeydown="clear_pass_measure_required()">
-                    <span>Ft</span>
+                    <span style="
+                        margin-left: -17px;
+                    ">Ft</span>
                   </div>
                   <div class="h-wrapper row g-0">
-                    <div class="col-5">
+                    <div class="d-flex">
                       <input type="number" min="0" placeholder="0"  class="select-input h-100" id="height_sec" onkeyup="cal_in(this.value)"  onmousedown="clear_info_required()"
                       onkeydown="clear_pass_measure_required()">
-                    </div>
-                    <div class="col-7">
                       <select name="h_type_select" id="height_type">
                         <option value="in" selected>In</option>
                         <option value="cm">Cm</option>
                       </select>
                     </div>
+                
                     <span class="text-danger info_errors d-none" role="alert"
                           id="height_error">
                       Need To Fill Height
