@@ -58,7 +58,6 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::get('/get_color', 'Admin\FitSuitController@get_color_data')->name('get_color');
     Route::get('/get_size', 'Admin\FitSuitController@get_size_data')->name('get_size');
     Route::get('/get_jacket_button_ajax', 'Admin\TopController@get_jacket_button_all')->name('get_jacket_button_ajax');
-    Route::get('/cus2_option', 'Frontend\FrontendController@get_cus2_option')->name('get_cus2_option');
     Route::get('/get_customize_cate', 'Admin\FitSuitController@get_customize_cate')->name('get_customize_cate');
     Route::get('/get_style_cate', 'Admin\FitSuitController@get_style_cate')->name('get_style_cate');
     Route::get('/get_vest_lapel_ajax', 'Admin\Shirt_ButtonController@get_vest_lapel_all')->name('get_vest_lapel');
@@ -75,13 +74,10 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::post('/get_edit_ready_to_wear', 'Admin\ReadyController@get_edit_ready_to_wear_data')->name('get_edit_ready_to_wear');
     Route::get('/get_grand_texture_all', 'Admin\ReadyController@get_grand_texture_all_data')->name('get_grand_texture_all');
     Route::post('/store_edit_ready_to_wear', 'Admin\ReadyController@store_edit_ready_to_wear_data')->name('store_edit_ready_to_wear');
-    Route::post('/get_style_for_ready_ajax', 'Frontend\FrontendController@get_style_for_ready_ajax_data')->name('get_style_for_ready_ajax');
     Route::get('/get_style_category', 'Admin\ReadyController@get_style_category_data')->name('get_style_category');
 
     Route::post('/delete_ready_to_wear', 'Admin\ReadyController@delete_ready_to_wear_data')->name('delete_ready_to_wear');
 
-    Route::post('/get_swiper_photo_ready', 'Admin\ReadyController@get_swiper_photo_ready_data')->name('get_swiper_photo_ready');
-    Route::post('/get_swiper_style_ajax', 'Admin\StyleController@get_swiper_style_ajax_data')->name('get_swiper_style_ajax');
 
 
     // Texture
@@ -93,10 +89,7 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::post('/store_texture','Admin\TextureController@store_texture');
     Route::get('/grand_texture_list','Admin\TextureController@list')->name('grand_texture_list');
     Route::post('/increase_count_texture', 'Admin\TextureController@increase_count_texture_data')->name('increase_count_texture');
-    Route::post('/get_pattern_sub', 'Admin\TextureController@get_pattern_sub_data')->name('get_pattern_sub');
-    Route::get('/get_pattern_all', 'Admin\TextureController@get_pattern_all_data')->name('get_pattern_all');
-    Route::get('/get_package', 'Admin\TextureController@get_package_data')->name('get_package');
-    Route::post('/get_swiper_photo_texture', 'Admin\TextureController@get_swiper_photo_texture_data')->name('get_swiper_photo_texture');
+ 
 
 
     //Main Texture
@@ -151,13 +144,11 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::get('/edit_additional/{id}', 'Admin\AdditionalController@edit_additional_data')->name('edit_additional');
     Route::post('/delete_additional', 'Admin\AdditionalController@delete_additional_data')->name('delete_additional');
     Route::post('/get_edit_additional', 'Admin\AdditionalController@get_edit_additional_data')->name('get_edit_additional');
-    Route::get('/get_main_additional_sub_all', 'Admin\AdditionalController@get_main_additional_sub_all_data')->name('get_main_additional_sub_all');
     Route::post('/store_edit_additional', 'Admin\AdditionalController@store_edit_additional_data')->name('store_edit_additional');
 
-    Route::post('/increase_count_additional', 'Admin\AdditionalController@increase_count_additional_data')->name('increase_count_additional');
+    
 
-    //check step1 and step3
-    Route::post('/check_style_in_step1_ajax', 'Frontend\FrontendController@check_style_in_step1_ajax_data')->name('check_style_in_step1_ajax');
+
 
 
     // Style
@@ -168,12 +159,7 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::post('/delete_style', 'Admin\StyleController@delete_style_data')->name('delete_style');
     Route::post('create_style','Admin\StyleController@create_style');
     Route::get('/list_style','Admin\StyleController@list')->name('style_list');
-    Route::get('/ajex_get_style_jackets', 'Frontend\FrontendController@ajex_get_style_jacktes')->name('ajex_get_style_jackets');
-    Route::get('/ajex_get_style_vests', 'Frontend\FrontendController@ajex_get_style_vests')->name('ajex_get_style_vests');
-    Route::get('/ajex_get_style_pants', 'Frontend\FrontendController@ajex_get_style_pants')->name('ajex_get_style_pants');
-    Route::get('/ajex_get_style', 'Frontend\FrontendController@ajex_get_style')->name('ajex_get_style');
-    Route::get('/get_style_pop_up','Frontend\FrontendController@get_style_pop_up')->name('get_style_pop_up');
-    Route::get('/get_filter_recomment_style', 'Frontend\FrontendController@get_filter_recomment_style')->name('get_filter_recomment_style');
+    
 
     // Color
     Route::get('/edit_color/{id}', 'Admin\ColorController@edit_color_data')->name('edit_color');
@@ -202,9 +188,7 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::post('/get_edit_top', 'Admin\TopController@get_edit_top_data')->name('get_edit_top');
     Route::post('/store_edit_top', 'Admin\TopController@store_edit_top_data')->name('store_edit_top');
     Route::post('/delete_top', 'Admin\TopController@delete_top_data')->name('delete_top');
-    Route::get('/get_jacket_button', 'Frontend\FrontendController@get_jacket_button')->name('get_jacket_button');
-    Route::get('/get_vest_lapel', 'Frontend\FrontendController@get_vest_lapel')->name('get_vest_lapel');
-    Route::get('/get_pant_pleat', 'Frontend\FrontendController@get_pant_pleat')->name('get_pant_pleat');
+ 
 
     // Pant
     Route::get('/show_pant_list', 'Admin\PantController@show_list')->name('show_pant_list');
@@ -224,20 +208,10 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::post('/store_edit_shirt_button', 'Admin\Shirt_ButtonController@store_edit_shirt_button_data')->name('store_edit_button');
     Route::post('/delete_shirt_button', 'Admin\Shirt_ButtonController@delete_shirt_button_data')->name('delete_button');
 
-    //Fabric backend
-    Route::post('/get_grand_all_data_ajax', 'Frontend\FrontendController@get_grand_all_data')->name('get_grand_all_data_ajax');
-
-    Route::post('/get_grand_data_ajax', 'Frontend\FrontendController@get_grand_data')->name('get_grand_data_ajax');
-    Route::post('/get_filter_grand_data_ajax', 'Frontend\FrontendController@get_filter_grand_data')->name('get_filter_grand_data_ajax');
-    Route::post('/get_filter_grand_key_data_ajax', 'Frontend\FrontendController@get_filter_grand_key_data')->name('get_filter_grand_key_data_ajax');
 
 
-    // Additional backend
-    Route::post('/get_grand_data_add_ajax', 'Frontend\FrontendController@get_grand_add_data')->name('get_grand_data_add_ajax');
-    Route::post('/get_filter_grand_data_add_ajax', 'Frontend\FrontendController@get_filter_grand_add_data')->name('get_filter_grand_data_add_ajax');
-    Route::post('/get_filter_grand_key_data_add_ajax', 'Frontend\FrontendController@get_filter_grand_key_add_data')->name('get_filter_grand_key_data_add_ajax');
-    //favourite
-    Route::post('/add_to_favourite_grand', 'Frontend\FrontendController@add_favourite_grand')->name('add_to_favourite_grand');
+
+
     //favourite
     Route::post('/add_to_cart_grand', 'Admin\AddToCartController@add_cart')->name('add_to_cart_grand');
 
@@ -248,9 +222,7 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::post('/delete_package', 'Admin\PackageController@delete_package_list')->name('delete_package');
     Route::get('/edit_package/{id}', 'Admin\PackageController@edit_package')->name('edit_package');
     Route::post('/update_package/{id}', 'Admin\PackageController@update_package_list')->name('update_package');
-    Route::get('/ajex_package', 'Frontend\FrontendController@ajex_package')->name('ajex_package');
-    Route::get('/search', 'Frontend\FrontendController@search')->name('search');
-    Route::get('/ajex_search', 'Frontend\FrontendController@ajex_search')->name('ajex_search');
+
 
     //Customize Category
     Route::get('/customize_category_list', 'Admin\CustomizeCategoryController@show_customize_category_list')->name('customize_category_list');
