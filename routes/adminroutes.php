@@ -82,8 +82,6 @@ Route::middleware(['auth:admin'])->group(function () {
 
     Route::post('/delete_ready_to_wear', 'Admin\ReadyController@delete_ready_to_wear_data')->name('delete_ready_to_wear');
 
-    Route::post('/get_swiper_photo_ready', 'Admin\ReadyController@get_swiper_photo_ready_data')->name('get_swiper_photo_ready');
-    Route::post('/get_swiper_style_ajax', 'Admin\StyleController@get_swiper_style_ajax_data')->name('get_swiper_style_ajax');
 
 
     // Texture
@@ -95,10 +93,7 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::post('/store_texture','Admin\TextureController@store_texture');
     Route::get('/grand_texture_list','Admin\TextureController@list')->name('grand_texture_list');
     Route::post('/increase_count_texture', 'Admin\TextureController@increase_count_texture_data')->name('increase_count_texture');
-    Route::post('/get_pattern_sub', 'Admin\TextureController@get_pattern_sub_data')->name('get_pattern_sub');
-    Route::get('/get_pattern_all', 'Admin\TextureController@get_pattern_all_data')->name('get_pattern_all');
-    Route::get('/get_package', 'Admin\TextureController@get_package_data')->name('get_package');
-    Route::post('/get_swiper_photo_texture', 'Admin\TextureController@get_swiper_photo_texture_data')->name('get_swiper_photo_texture');
+ 
 
 
     //Main Texture
@@ -156,7 +151,7 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::get('/get_main_additional_sub_all', 'Admin\AdditionalController@get_main_additional_sub_all_data')->name('get_main_additional_sub_all');
     Route::post('/store_edit_additional', 'Admin\AdditionalController@store_edit_additional_data')->name('store_edit_additional');
 
-    Route::post('/increase_count_additional', 'Admin\AdditionalController@increase_count_additional_data')->name('increase_count_additional');
+    
 
     //check step1 and step3
     Route::post('/check_style_in_step1_ajax', 'Frontend\FrontendController@check_style_in_step1_ajax_data')->name('check_style_in_step1_ajax');
@@ -170,12 +165,7 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::post('/delete_style', 'Admin\StyleController@delete_style_data')->name('delete_style');
     Route::post('create_style','Admin\StyleController@create_style');
     Route::get('/list_style','Admin\StyleController@list')->name('style_list');
-    Route::get('/ajex_get_style_jackets', 'Frontend\FrontendController@ajex_get_style_jacktes')->name('ajex_get_style_jackets');
-    Route::get('/ajex_get_style_vests', 'Frontend\FrontendController@ajex_get_style_vests')->name('ajex_get_style_vests');
-    Route::get('/ajex_get_style_pants', 'Frontend\FrontendController@ajex_get_style_pants')->name('ajex_get_style_pants');
-    Route::get('/ajex_get_style', 'Frontend\FrontendController@ajex_get_style')->name('ajex_get_style');
-    Route::get('/get_style_pop_up','Frontend\FrontendController@get_style_pop_up')->name('get_style_pop_up');
-    Route::get('/get_filter_recomment_style', 'Frontend\FrontendController@get_filter_recomment_style')->name('get_filter_recomment_style');
+    
 
     // Color
     Route::get('/edit_color/{id}', 'Admin\ColorController@edit_color_data')->name('edit_color');
