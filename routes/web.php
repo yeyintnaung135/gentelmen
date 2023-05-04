@@ -359,16 +359,7 @@ Route::post('/store_suit_code_step6_for_guest_ajax', 'Admin\TemporaryController@
 require "adminroutes.php";
 //for super admin
 
-// adminregister
-Route::get('/admin_register_create', 'Admin\AdminRegisterController@create_admin_register')->name('create_admin_register');
-Route::get('/admin_register_list', 'Admin\AdminRegisterController@show_list')->name('admin_register_list');
-Route::get('/edit_admin_register/{id}', 'Admin\AdminRegisterController@edit_admin_register')->name('edit_admin');
-Route::post('/update_admin/{id}', 'Auth\AdminRegisterController@update_admin_list')->name('update_admin');
-Route::post('/delete_admin_register', 'Auth\AdminRegisterController@delete_admin_list')->name('delete_admin');
-Route::get('/change_password', 'ChangePasswordController@index')->name('change_password');
-Route::post('/change_pass_store', 'ChangePasswordController@store')->name('change_password_store');
-Route::get('/update_pass', 'UpdatePasswordController@index')->name('update_password');
-Route::post('/update_pass_store', 'UpdatePasswordController@store')->name('update_password_store');
+
 
 // cuztomize
 Route::get('/cus2_option', 'Frontend\FrontendController@get_cus2_option')->name('get_cus2_option');
@@ -423,8 +414,7 @@ Route::get('new-password', function () {
 });
 
 
-//payment
-Route::get('payment_list','Admin\PaymentController@index')->name('payment_list');
+
 
 
 
@@ -475,8 +465,8 @@ Route::get('package-detail', function () {
 Route::get('ready-to-wear', 'Frontend\ReadyToWareController@ready_to_wear')->name('ready_to_wear');
 Route::post('/get_style_for_ready_ajax', 'Frontend\FrontendController@get_style_for_ready_ajax_data')->name('get_style_for_ready_ajax');
 
-    //check step1 and step3
-    Route::post('/check_style_in_step1_ajax', 'Frontend\FrontendController@check_style_in_step1_ajax_data')->name('check_style_in_step1_ajax');
+//check step1 and step3
+Route::post('/check_style_in_step1_ajax', 'Frontend\FrontendController@check_style_in_step1_ajax_data')->name('check_style_in_step1_ajax');
 
 Route::get('suit-tips', 'Frontend\SuittipsController@suit')->name('suittips');
 
@@ -500,7 +490,7 @@ Route::post('/get_shipping_ajax','Frontend\OrderController@update_order_shipping
 
 Route::post('/store_chekout_address_ajax','Frontend\OrderController@store_order_address')->name('store_chekout_address_ajax');
 
-Route::resource('shippings', 'Admin\ShippingController');
+
 
 Route::post('/get_order_summary_data','Frontend\OrderController@get_order_summary_all');
 
@@ -527,3 +517,12 @@ Route::post('/add_to_favourite_grand', 'Frontend\FrontendController@add_favourit
 Route::get('/ajex_package', 'Frontend\FrontendController@ajex_package')->name('ajex_package');
 Route::get('/search', 'Frontend\FrontendController@search')->name('search');
 Route::get('/ajex_search', 'Frontend\FrontendController@ajex_search')->name('ajex_search');
+
+    //Temporary
+Route::post('/store_customize_step_data', 'Admin\TemporaryController@store_customize_step_data_in')->name('store_customize_step_data');
+Route::post('/update_customize_step_data', 'Admin\TemporaryController@update_customize_step_data_in')->name('update_customize_step_data');
+Route::post('/get_customize_step_data', 'Admin\TemporaryController@get_customize_step_data_in')->name('get_customize_step_data');
+Route::post('/delete_customize_step_data', 'Admin\TemporaryController@delete_customize_step_data_in')->name('delete_customize_step_data');
+
+Route::post('/store_suit_code_step6_ajax', 'Admin\TemporaryController@store_suit_code_step6_ajax_in')->name('store_suit_code_step6_ajax');
+Route::post('/store_suit_code_step6_for_guest_ajax', 'Admin\TemporaryController@store_suit_code_step6_for_guest_ajax_in')->name('store_suit_code_step6_for_guest_ajax');

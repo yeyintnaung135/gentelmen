@@ -13,6 +13,17 @@ Route::group(['prefix' => 'backside/admin', 'as' => 'backside.admin.'], function
 });
 
 Route::middleware(['auth:admin'])->group(function () {
+    // adminregister
+    Route::get('/admin_register_create', 'Admin\AdminRegisterController@create_admin_register')->name('create_admin_register');
+    Route::get('/admin_register_list', 'Admin\AdminRegisterController@show_list')->name('admin_register_list');
+    Route::get('/edit_admin_register/{id}', 'Admin\AdminRegisterController@edit_admin_register')->name('edit_admin');
+    Route::post('/update_admin/{id}', 'Auth\AdminRegisterController@update_admin_list')->name('update_admin');
+    Route::post('/delete_admin_register', 'Auth\AdminRegisterController@delete_admin_list')->name('delete_admin');
+    Route::get('/change_password', 'ChangePasswordController@index')->name('change_password');
+    Route::post('/change_pass_store', 'ChangePasswordController@store')->name('change_password_store');
+    Route::get('/update_pass', 'UpdatePasswordController@index')->name('update_password');
+    Route::post('/update_pass_store', 'UpdatePasswordController@store')->name('update_password_store');
+    
     // banner
     Route::get('/admin', 'Admin\AdminController@create_banner')->name('create_banner');
     Route::post('/store_banner', 'Admin\AdminController@store_banner_data')->name('store_banners');
@@ -146,10 +157,6 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::post('/get_edit_additional', 'Admin\AdditionalController@get_edit_additional_data')->name('get_edit_additional');
     Route::post('/store_edit_additional', 'Admin\AdditionalController@store_edit_additional_data')->name('store_edit_additional');
 
-    
-
-
-
 
     // Style
     Route::get('/edit_style/{id}', 'Admin\StyleController@edit_style_data')->name('edit_style');
@@ -209,8 +216,8 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::post('/delete_shirt_button', 'Admin\Shirt_ButtonController@delete_shirt_button_data')->name('delete_button');
 
 
-
-
+    //shipping
+    Route::resource('shippings', 'Admin\ShippingController');
 
     //favourite
     Route::post('/add_to_cart_grand', 'Admin\AddToCartController@add_cart')->name('add_to_cart_grand');
@@ -310,13 +317,9 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::post('/delete_upper', 'Admin\MeasurementController@delete_upper_measure_list')->name('delete_upper');
     Route::post('/delete_personalInfo','Admin\MeasurementController@delete_personalInfo_list')->name('delete_personalInfo');
 
-    //Temporary
-    Route::post('/store_customize_step_data', 'Admin\TemporaryController@store_customize_step_data_in')->name('store_customize_step_data');
-    Route::post('/update_customize_step_data', 'Admin\TemporaryController@update_customize_step_data_in')->name('update_customize_step_data');
-    Route::post('/get_customize_step_data', 'Admin\TemporaryController@get_customize_step_data_in')->name('get_customize_step_data');
-    Route::post('/delete_customize_step_data', 'Admin\TemporaryController@delete_customize_step_data_in')->name('delete_customize_step_data');
+    //payment
+    Route::get('payment_list','Admin\PaymentController@index')->name('payment_list');
 
-    Route::post('/store_suit_code_step6_ajax', 'Admin\TemporaryController@store_suit_code_step6_ajax_in')->name('store_suit_code_step6_ajax');
-    Route::post('/store_suit_code_step6_for_guest_ajax', 'Admin\TemporaryController@store_suit_code_step6_for_guest_ajax_in')->name('store_suit_code_step6_for_guest_ajax');
+
 });
 ?>

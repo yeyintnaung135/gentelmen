@@ -25,7 +25,7 @@ class UserLoginController extends Controller
     public function login(Request $request)
     {
 
-      logger($request);
+        logger($request);
         // dd("hell");
         $data = $request->except('_token');
         // $validator= Validator::make($data, [
