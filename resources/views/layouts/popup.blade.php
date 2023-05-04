@@ -219,7 +219,6 @@
 
             // for eye icon
             $(function () {
-
                 $("#toggle_pwd").click(function () {
                     $(this).toggleClass("fa-eye fa-eye-slash");
                     var type = $(this).hasClass("fa-eye-slash") ? "text" : "password";
@@ -305,7 +304,7 @@
                     // alert("login success");
                     //store temporary data for user start
                     if(response.data.has_step == null){
-                      // alert("do store temporary");
+
                       $.ajax({
                         type: 'POST',
                         url: '/store_customize_step_data',
@@ -370,14 +369,14 @@
                         },
                         success: function (data) {
                           swal({
-                            title: "Your Login was successfully",
-                            text: "And Do you delete your previous customize session data?",
-                            icon: "warning",
-                            buttons: [
-                              'No, cancel it!',
-                              'Yes, I am sure!'
-                            ],
-                            dangerMode: true,
+                              title: "Your Login was successfully",
+                              text: "And Do you delete your previous customize session data?",
+                              icon: "warning",
+                              buttons: [
+                                'No, cancel it!',
+                                'Yes, I am sure!'
+                              ],
+                              dangerMode: true,
                           }).then(function(isConfirm) {
                             if (isConfirm) {
                               swal({
@@ -394,7 +393,8 @@
                                     "temporary_id": sessionStorage.getItem('has_step'),
                                   },
                                   success: function (data) {
-                                    sessionStorage.clear();
+                                    // sessionStorage.clear();
+                                    console.log(sessionStorage.getItem('has_step'));
                                     // store new temprary start
                                     // $.ajax({
                                     //   type: 'POST',

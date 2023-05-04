@@ -85,8 +85,7 @@ class PaypalController extends Controller
           ]
         ]);
         logger($order);
-        if($data['cart'] == 1)
-        {
+        if($data['cart'] == 1){
           $total_str = json_encode($data['grand_total']);
           $total_arr = json_decode($total_str);
           logger($total_arr);

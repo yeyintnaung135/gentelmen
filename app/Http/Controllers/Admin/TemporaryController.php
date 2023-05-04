@@ -13,7 +13,7 @@ class TemporaryController extends Controller
     //
     public function store_customize_step_data_in(Request $request)
     {
-      logger("store-------temporary-----------data--------start");
+        logger("store-------temporary-----------data--------start");
         logger($request->all());
         logger("store-------temporary-----------data--------end");
         if($request->step_no != null)
@@ -23,7 +23,7 @@ class TemporaryController extends Controller
             'step' => $request->step_no,
           ]);
 
-          $store_step_data = TemporaryCustomizeStepData::create([
+          TemporaryCustomizeStepData::create([
             'temporary_id' => $store_step->id,
             'user_id' => $request->user_id,
             'customize_category_id' => $request->cus_cate_id,
@@ -68,20 +68,17 @@ class TemporaryController extends Controller
     {
       // logger("update temporary");
         // logger($request->all());
-        if($request->lower_id == 'null')
-        {
+        if($request->lower_id == 'null'){
           $lower_id = null;
-        }
-        else
-        {
+        }else{
           $lower_id = $request->lower_id;
         }
+
+
         if($request->upper_id == 'null')
         {
           $upper_id = null;
-        }
-        else
-        {
+        } else {
           $upper_id = $request->upper_id;
         }
         $update_step = TemporaryCustomizeStep::find($request->has_step);
@@ -134,6 +131,7 @@ class TemporaryController extends Controller
         ]);
 
     }
+
     public function get_customize_step_data_in(Request $request)
     {
       logger("Get Temporary");
@@ -147,6 +145,7 @@ class TemporaryController extends Controller
         "user" => $user
       ]);
     }
+
     public function delete_customize_step_data_in(Request $request)
     {
       logger("delete temporary data");

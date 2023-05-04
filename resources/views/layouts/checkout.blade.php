@@ -73,7 +73,6 @@
       choosen_order();
     });
     function choosen_order(){
-      // alert("order data");
       //start product
       if(sessionStorage.getItem('customize_category_id') == 1)
       {
@@ -109,8 +108,6 @@
         "pant_id": sessionStorage.getItem('pant_id'),
       },
       success: function (data) {
-        console.log("okokok baby");
-        console.log(data);
         if(data.package_name != null)
         {
           $('#package').html(data.package_name);
@@ -184,7 +181,6 @@
     var user_id = @json($user);
     // Render the PayPal button into #paypal-button-container
     paypal_sdk.Buttons({
-
         // Call your server to set up the transaction
         createOrder: function(data, actions) {
             return fetch('{{route("paypal.create")}}', {
@@ -257,7 +253,7 @@
                 }
 
                 // Successful capture! For demo purposes:
-                // console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
                 var transaction = orderData.purchase_units[0].payments.captures[0];
                 // alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
 
@@ -273,21 +269,23 @@
                 $('#step' + 7).addClass('d-block');
                 $('#step_no').html(7);
                 $('#back').hide();
-                //delete temporary start
-                $.ajax({
-                type: 'POST',
-                url: '/delete_customize_step_data',
-                data: {
-                  "_token": "{{csrf_token()}}",
-                  "temporary_id": sessionStorage.getItem('has_step'),
-                },
-                success: function (data) {
-                  sessionStorage.clear();
-                }
-              });
-                //delete temporary end
 
-                // Or go to another URL:  actions.redirect('thank_you.html');
+                //delete temporary start
+
+                $.ajax({
+                  type: 'POST',
+                  url: '/delete_customize_step_data',
+                  data: {
+                    "_token": "{{csrf_token()}}",
+                    "temporary_id": sessionStorage.getItem('has_step'),
+                  },
+                  success: function (data) {
+                    sessionStorage.clear();
+                  }
+              });
+
+              sessionStorage.clear();
+
             });
         }
 

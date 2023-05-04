@@ -356,7 +356,7 @@ Route::post('/store_suit_code_step6_for_guest_ajax', 'Admin\TemporaryController@
 
 
 //for super admin
-// require "adminroutes.php";
+require "adminroutes.php";
 //for super admin
 
 // adminregister
