@@ -10,8 +10,6 @@ Route::group(['prefix' => 'backside/admin', 'as' => 'backside.admin.'], function
     Route::get('login', ['as' => 'login', 'uses' => 'Auth\AdminLoginController@loginform']);
     Route::post('login', ['as' => 'logined', 'uses' => 'Auth\AdminLoginController@login']);
 
-
-
 });
 
 Route::middleware(['auth:admin'])->group(function () {

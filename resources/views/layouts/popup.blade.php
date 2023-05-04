@@ -250,9 +250,6 @@
                 'email': $("#email").val(),
                 'password': $("#password").val(),
             }).then(response => {
-
-                // console.log(response.data.password);
-
                 // if user validate fail
                 // email
                 if (response.data.email == 'The email field is required.') {
@@ -286,6 +283,8 @@
 
                 // if user login fail
                 console.log(response.data);
+
+                console.log("-----------------------")
                 // console.log(response.data.password);
                 if(response.data['status'] == 'fail'){
                     // alert("login fail");
@@ -301,15 +300,12 @@
                     // }
 
                 }else if(response.data['status'] == 'success'){
-                  // alert(response.data['has_step']);
+                    console.log(response.data['has_step']);
                     sessionStorage.setItem('has_step',response.data.has_step);
                     // alert("login success");
                     //store temporary data for user start
-                    if(response.data.has_step == null)
-                    {
+                    if(response.data.has_step == null){
                       // alert("do store temporary");
-
-
                       $.ajax({
                         type: 'POST',
                         url: '/store_customize_step_data',
@@ -362,8 +358,7 @@
                     }
                     //store temporary data for user end
                     //get temporary data for user start
-                    if(response.data.has_step != null)
-                    {
+                    if(response.data.has_step != null){
                       // alert("do get temporary");
                       $.ajax({
                         type: 'POST',
@@ -443,7 +438,7 @@
                             } else {
                               swal("Cancelled", "Your previous customize session data are successfully recover :)", "success");
                               //get start --
-                              console.log(data.get_step_data);
+                                  console.log(data.get_step_data);
                                   if(data.get_step_data.texture_id == null)
                                   {
                                       var texture_id = ''
@@ -793,73 +788,15 @@
                     //
                     if(response.data.has_step == null)
                     {
-                    swal({
-                        title: "Your Login was successfull!",
-                        text: "",
-                        type: "success",
-                        icon: "success"
-                    }).then(function() {
-                        window.location.reload();
-                    });
+                      swal({
+                          title: "Your Login was successfull!",
+                          text: "",
+                          type: "success",
+                          icon: "success"
+                      }).then(function() {
+                          window.location.reload();
+                      });
                     }
-                    // else
-                    // {
-                    //   //temporary delete or not start
-                    //   swal({
-                    //         title: "Your Login was successfully!",
-                    //         text: "You have Previous Customize Session Data And so do you delete or not!",
-                    //         icon:'warning',
-                    //         buttons: ["No", "Yes"]
-                    //     })
-
-                    //   .then((isConfirm)=>{
-
-                    //     if(isConfirm){
-
-                    //       $.ajax({
-                    //         type: 'POST',
-                    //         url: '/delete_customize_step_data',
-                    //         data: {
-                    //           "_token": "{{csrf_token()}}",
-                    //           "temporary_id": sessionStorage.getItem('has_step'),
-                    //         },
-                    //         success: function (data) {
-                    //           //store new temporary
-                    //           $.ajax({
-                    //             type: 'POST',
-                    //             url: '/store_customize_step_data',
-                    //             data: {
-                    //               "_token": "{{csrf_token()}}",
-                    //               "user_id":response.data.user_id,
-                    //               "cus_cate_id": sessionStorage.getItem('customize_category_id'),
-                    //               "package_id" : sessionStorage.getItem('package_id'),
-                    //               "style_id" : sessionStorage.getItem('style_id'),
-                    //               "style_name" : sessionStorage.getItem('style_name'),
-                    //               "style_cate_name" : sessionStorage.getItem('style_cate_name'),
-                    //               "style_cate_id" : sessionStorage.getItem('style_cate_id'),
-                    //               "fitting" : sessionStorage.getItem('fitting'),
-                    //               "texture_id" : sessionStorage.getItem('texture_id'),
-                    //               "jacket_id" : sessionStorage.getItem('jacket_id'),
-                    //               "vest_id" : sessionStorage.getItem('vest_id'),
-                    //               "pant_id" : sessionStorage.getItem('pant_id'),
-                    //               "upper_id" : sessionStorage.getItem('upper_id'),
-                    //               "lower_id" : sessionStorage.getItem('lower_id'),
-                    //               "order_id" : sessionStorage.getItem('order_id'),
-                    //               "step_no" : sessionStorage.getItem('step_no'),
-                    //               "measured" : sessionStorage.getItem('measure_step')
-                    //             },
-                    //             success: function (data) {
-                    //               sessionStorage.setItem('has_step',data.has_step);
-                    //             }
-                    //           });
-                    //           //end new temporary
-                    //         }
-                    //       });
-                    //     }
-                    //   });
-                    //   //temporary delete or not end
-                    //   // window.location.reload();
-                    // }
                 }
 
 

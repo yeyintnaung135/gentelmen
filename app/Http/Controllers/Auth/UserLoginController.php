@@ -14,16 +14,18 @@ use App\TemporaryCustomizeStepData;
 class UserLoginController extends Controller
 {
 
-     //    show form
+     //show form
      public function loginform()
      {
          return view('auth.login');
      }
-     //    show form
+     // show form
 
       //if user email and password is correct loginned
     public function login(Request $request)
     {
+
+      logger($request);
         // dd("hell");
         $data = $request->except('_token');
         // $validator= Validator::make($data, [
@@ -39,24 +41,17 @@ class UserLoginController extends Controller
 
         if(Auth::guard('web')->attempt(['email' => $data['email'], 'password' => $data['password']])) {
             Session::put('user_id',Auth::guard('web')->user()->id);
-            // return redirect()->back()->with('success','Successfully Login to your account!');
-            // dd(Auth::guard('web')->user()->id);
+
             $has_step = TemporaryCustomizeStep::where("user_id",Auth::guard('web')->user()->id)->first();
-            if($has_step == null)
-            {
+            if($has_step == null) {
               $has_step_id = null;
-            }
-            else
-            {
+            } else{
               $has_step_id = $has_step->id;
             }
-            if($has_step != null)
-            {
+            if($has_step != null){
               $has_step_data = TemporaryCustomizeStepData::where('temporary_id',$has_step->id)->first();
 
-            }
-            else
-            {
+            } else {
               $has_step_data = null;
             }
             // dd($has_step_data);

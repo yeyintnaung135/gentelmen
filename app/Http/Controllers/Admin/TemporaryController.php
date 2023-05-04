@@ -61,7 +61,7 @@ class TemporaryController extends Controller
           ]);
         }
         return response()->json([
-          'has_step' => $store_step->id
+          'has_step' => 'pass'
         ]);
     }
     public function update_customize_step_data_in(Request $request)
