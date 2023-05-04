@@ -38,6 +38,9 @@ Route::post('/change_pass_store', 'ChangePasswordController@store')->name('chang
 Route::get('/update_pass', 'UpdatePasswordController@index')->name('update_password');
 Route::post('/update_pass_store', 'UpdatePasswordController@store')->name('update_password_store');
 
+// cuztomize
+Route::get('/cus2_option', 'Frontend\FrontendController@get_cus2_option')->name('get_cus2_option');
+
 // style
 Route::get('/ajex_get_style_jackets', 'Frontend\FrontendController@ajex_get_style_jacktes')->name('ajex_get_style_jackets');
 Route::get('/ajex_get_style_vests', 'Frontend\FrontendController@ajex_get_style_vests')->name('ajex_get_style_vests');
@@ -62,6 +65,7 @@ Route::post('/user_update_pass_store', 'UserUpdatePasswordController@store')->na
 
 // grand additional
 Route::post('/increase_count_additional', 'Admin\AdditionalController@increase_count_additional_data')->name('increase_count_additional');
+Route::get('/get_main_additional_sub_all', 'Admin\AdditionalController@get_main_additional_sub_all_data')->name('get_main_additional_sub_all');
 
 Auth::routes();
 
@@ -137,6 +141,10 @@ Route::get('package-detail', function () {
 
 // ready to wear
 Route::get('ready-to-wear', 'Frontend\ReadyToWareController@ready_to_wear')->name('ready_to_wear');
+Route::post('/get_style_for_ready_ajax', 'Frontend\FrontendController@get_style_for_ready_ajax_data')->name('get_style_for_ready_ajax');
+
+    //check step1 and step3
+    Route::post('/check_style_in_step1_ajax', 'Frontend\FrontendController@check_style_in_step1_ajax_data')->name('check_style_in_step1_ajax');
 
 Route::get('suit-tips', 'Frontend\SuittipsController@suit')->name('suittips');
 
@@ -163,3 +171,27 @@ Route::post('/store_chekout_address_ajax','Frontend\OrderController@store_order_
 Route::resource('shippings', 'Admin\ShippingController');
 
 Route::post('/get_order_summary_data','Frontend\OrderController@get_order_summary_all');
+
+// Top
+Route::get('/get_jacket_button', 'Frontend\FrontendController@get_jacket_button')->name('get_jacket_button');
+Route::get('/get_vest_lapel', 'Frontend\FrontendController@get_vest_lapel')->name('get_vest_lapel');
+Route::get('/get_pant_pleat', 'Frontend\FrontendController@get_pant_pleat')->name('get_pant_pleat');
+
+//Fabric backend
+Route::post('/get_grand_all_data_ajax', 'Frontend\FrontendController@get_grand_all_data')->name('get_grand_all_data_ajax');
+
+Route::post('/get_grand_data_ajax', 'Frontend\FrontendController@get_grand_data')->name('get_grand_data_ajax');
+Route::post('/get_filter_grand_data_ajax', 'Frontend\FrontendController@get_filter_grand_data')->name('get_filter_grand_data_ajax');
+Route::post('/get_filter_grand_key_data_ajax', 'Frontend\FrontendController@get_filter_grand_key_data')->name('get_filter_grand_key_data_ajax');
+
+// Additional backend
+Route::post('/get_grand_data_add_ajax', 'Frontend\FrontendController@get_grand_add_data')->name('get_grand_data_add_ajax');
+Route::post('/get_filter_grand_data_add_ajax', 'Frontend\FrontendController@get_filter_grand_add_data')->name('get_filter_grand_data_add_ajax');
+Route::post('/get_filter_grand_key_data_add_ajax', 'Frontend\FrontendController@get_filter_grand_key_add_data')->name('get_filter_grand_key_data_add_ajax');
+//favourite
+Route::post('/add_to_favourite_grand', 'Frontend\FrontendController@add_favourite_grand')->name('add_to_favourite_grand');
+
+// pacakge
+Route::get('/ajex_package', 'Frontend\FrontendController@ajex_package')->name('ajex_package');
+Route::get('/search', 'Frontend\FrontendController@search')->name('search');
+Route::get('/ajex_search', 'Frontend\FrontendController@ajex_search')->name('ajex_search');
