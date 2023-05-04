@@ -455,7 +455,7 @@ Route::get('suit-tips', 'Frontend\SuittipsController@suit')->name('suittips');
 
 Route::get('suit-tips-detail/{id}','Frontend\SuittipsController@detail')->name('suit-tip-details');
 
-Route::get('faq', 'Frontend\FaqController@faq')->name('faq');
+// Route::get('faq', 'Frontend\FaqController@faq')->name('faq');
 
 // Route::get('search-result', function () {
 //     return view('frontend.search-result');

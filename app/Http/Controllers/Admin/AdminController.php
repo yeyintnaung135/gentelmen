@@ -27,6 +27,7 @@ class AdminController extends Controller
     {
         return view('admin.add_banner');
     }
+    
     public function store_banner_data(bannerImageRequest $request)
     {
 
