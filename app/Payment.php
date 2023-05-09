@@ -17,9 +17,22 @@ class Payment extends Model
         'tran_id',
         'net_amount',
         'paypal_fee',
-        'account_id'
+        'account_id',
+        'order_status'
     ];
+
     public function order() {
-      return $this->belongsTo('App\Order','order_id');
-  }
+      return $this->hasOne(Order::class,'paypal_order_id','order_id');
+    }
+
+    public function products()
+    {
+      return $this->hasMany(CartOrderProduct::class,'order_code','order_id');
+    }
+
+    public function cartOrder()
+    {
+      return $this->hasOne( CartOrder::class,'order_code','order_id');
+    }
+
 }

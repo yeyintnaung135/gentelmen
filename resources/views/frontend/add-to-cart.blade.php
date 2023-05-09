@@ -9,8 +9,6 @@
     <!--Breadcrumb-->
     <input type="hidden" style="color:black" id="total">
     <input type="hidden" style="color:black" id="order_id">
-
-
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class=""><a href="#"><i class='bx bx-arrow-back'></i></a></li>
@@ -56,7 +54,7 @@
 
           </div>
           <div class="cart__total my-5">
-            <p class="col-md-3">Address :</p>
+            <p class="col-md-3">Address : </p>
             @if(!empty($user_info))
                <textarea type="text" class="form-control" rows="2" id="order_address" autofocus onkeyup="store_address(this.value)">{{$user_info->city}} {{$user_info->tsp_street}}</textarea>
             @else
@@ -114,6 +112,7 @@
       }
 
     }
+    
     $(document).ready(function () {
       var user_id = @json($user_id);
 
@@ -361,6 +360,7 @@
               nav_cart_total_qty()
 
           }
+          location.reload();
 
       } else if (action == 'minus') {
 
@@ -392,6 +392,7 @@
                   showmodal(user_id);
                   nav_cart_total_qty()
                   $('#total').val(total_total[0].sub_total);
+                  location.reload();
 
               }else{
   
@@ -405,10 +406,9 @@
 
                   showmodal(user_id);
                   nav_cart_total_qty()
+                  location.reload();
               }
           });
-
-
 
           }else{
               item[0].qty-=qty;
@@ -425,60 +425,6 @@
               nav_cart_total_qty()
           }
       }
-      // else if(action == 'remove'){
-      //     //var ans=confirm('Are you sure?');
-
-      //     swal({
-      //             title: "Are you sure?",
-      //             text: "The item will be remove from cart list",
-      //             type: "warning",
-      //             showCancelButton: true,
-      //             confirmButtonColor: '#DD6B55',
-      //             confirmButtonText: 'Yes',
-      //             cancelButtonText: "No",
-      //             closeOnConfirm: false,
-      //             closeOnCancel: false
-      //         }).then(
-      //         function(isConfirm){
-
-      //         if (isConfirm){
-      //             let item_cart = mycartobj.filter(item =>item.id !== id );
-      //             console.log(item_cart);
-      //             grand_total_obj.sub_total = grand_total_obj.sub_total - (parseInt(item[0].selling_price) * qty);
-
-      //             grand_total_obj.total_qty = grand_total_obj.total_qty - qty ;
-
-      //             localStorage.setItem('mycart',JSON.stringify(item_cart));
-
-      //             localStorage.setItem('grandTotal',JSON.stringify(grand_total_obj));
-
-
-
-      //             showmodal();
-
-      //         } else {
-      //             item[0].order_qty;
-
-      //             localStorage.setItem('mycart',JSON.stringify(mycartobj));
-
-      //             localStorage.setItem('grandTotal',JSON.stringify(grand_total_obj));
-
-
-
-      //             showmodal();
-      //         }
-      //     });
-
-      //         // if(ans){
-
-
-
-      //         // }else{
-
-
-      //         // }
-      // }
-
       }
 
       function nav_cart_total_qty() {
@@ -533,9 +479,16 @@
 <script>
     var mycart = localStorage.getItem('mycart');
 
+    console.log(mycart)
+
+    console.log('---------my cart -----------------')
+
     var grandTotal = localStorage.getItem('grandTotal');
 
     var grandTotal_obj = JSON.parse(grandTotal);
+
+    console.log(grandTotal_obj)
+    console.log('-----------------')
 
     var mycartobj = JSON.parse(mycart);
 
@@ -585,8 +538,8 @@
                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 body:JSON.stringify({
-                  orderId : data.orderID,
-                  // order_id:$('#order_id').val()
+                  "orderId" : data.orderID,
+                  "address" : sessionStorage.getItem('address')
               })
             }).then(function(res) {
                 return res.json();
@@ -636,6 +589,11 @@
                 localStorage.setItem('mycart',JSON.stringify(item_cart));
                 localStorage.setItem('grandTotal',JSON.stringify(total));
                 showmodal(user_id);
+                
+
+                // Clear all session
+                sessionStorage.clear();
+             
             });
         }
 

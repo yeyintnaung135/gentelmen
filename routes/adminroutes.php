@@ -318,7 +318,9 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::post('/delete_personalInfo','Admin\MeasurementController@delete_personalInfo_list')->name('delete_personalInfo');
 
     //payment
-    Route::get('payment_list','Admin\PaymentController@index')->name('payment_list');
+    Route::get('customer/orders','Admin\PaymentController@index')->name('payment_list');
+    Route::get('customer/order/detail/{id}','Admin\PaymentController@order_detail')->name('order.detail');
+    Route::put('customer/order/update/{id}','Admin\PaymentController@order_deleivery_update')->name('order.delivery.update');
 
 
 });

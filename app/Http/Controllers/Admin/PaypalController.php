@@ -13,25 +13,32 @@ use App\Http\Controllers\Controller;
 
 class PaypalController extends Controller
 {
+ 
     //
     public function create(Request $request)
     {
         $data = json_decode($request->getContent(),true);
         logger($data);
+
         if($data['cart'] != 1){
           $upper = UpperMeasurement::where('user_id',$data['user_id'])->first();
+
           if($upper != null){
             $upper_id = $upper->id;
           }else{
             $upper_id = null;
           }
+
           $lower = LowerMeasurement::where('user_id',$data['user_id'])->first();
           if($lower != null){
             $lower_id = $lower->id;
           }else{
             $lower_id = null;
           }
+
+
           $date = date('Y-m-d');
+
           $store_order = Order::create([
             'user_id' => $data['user_id'],
             'address' => $data['address'],
@@ -54,10 +61,9 @@ class PaypalController extends Controller
             'shipping_price' => $data['shipping_price'],
             'suit_total' => $data['suit_total'],
             'status' => 0,
-
           ]);
 
-          $store_order->order_code = $date."-".$store_order->id;
+          $store_order->order_code = $date . "-" . $store_order->id;
           $total = $store_order->suit_total + $store_order->shipping_price + 2;
           $store_order->total = $total;
           $store_order->save();
@@ -65,13 +71,14 @@ class PaypalController extends Controller
         }elseif($data['cart'] == 1){
           logger("from cart");
           $total = $data['value'];
-        }
+        } // not cart id 0
+
         logger("end -----------------------------");
+
         $provider = \PayPal::setProvider();
         $provider->setApiCredentials(config('paypal'));
         $token = $provider->getAccessToken();
         $provider->setAccessToken($token);
-        // $price =
         $order = $provider->createOrder([
           "intent" => "CAPTURE",
           "purchase_units" => [
@@ -80,11 +87,17 @@ class PaypalController extends Controller
                 "currency_code" => "USD",
                 "value" => $total
               ],
-              "description" => "success payment first step!"
+              "description" => "success Payment first step!"
             ]
           ]
         ]);
-        logger($order);
+
+        if($data['cart'] != 1){
+          $store_order->paypal_order_id =  $order['id'];
+          $store_order->update();
+
+        }
+
         if($data['cart'] == 1){
           $total_str = json_encode($data['grand_total']);
           $total_arr = json_decode($total_str);
@@ -103,8 +116,7 @@ class PaypalController extends Controller
                   'address' => $data['address']
                 ]);
 
-                $order_code = $date . "-".$cart_order->id;
-                $cart_order->order_code = $order_code;
+                $cart_order->order_code = $order['id'];
                 $cart_order->save();
             }
           }
@@ -121,6 +133,7 @@ class PaypalController extends Controller
             {
               CartOrderProduct::create([
                 'cart_order_id' => $cart_order->id,
+                'order_code' => $order['id'],
                 'user_id'  => $item->id,
                 'item_id' => $item->item_id,
                 'item_name' => $item->item_name,
@@ -150,7 +163,11 @@ class PaypalController extends Controller
     public function processTransaction(Request $request){
 
       $data = json_decode($request->getContent(),true);
+      logger($data);
+      logger("-------data");
       $orderId = $data['orderId'];
+      logger('ProcessTransaction --------------------------------');
+      logger($data);
 
       $provider = \PayPal::setProvider();
       $provider->setApiCredentials(config('paypal'));
@@ -159,7 +176,6 @@ class PaypalController extends Controller
 
       $result = $provider->capturePaymentOrder($request->orderId);
 
-      logger($result);
 
       /***
        * 
@@ -175,8 +191,8 @@ class PaypalController extends Controller
         'paypal_fee' => $result['purchase_units'][0]['payments']['captures'][0]['seller_receivable_breakdown']['paypal_fee']['value'],
         'net_amount' => $result['purchase_units'][0]['payments']['captures'][0]['seller_receivable_breakdown']['net_amount']['value'],
         'status' => $result['purchase_units'][0]['payments']['captures'][0]['status'],
+        'order_status' => 'PENDING',
         'tran_id' => $orderId,
-        // 'payer_id' => $result['payer']
         'account_id' => $result['payment_source']['paypal']['account_id']
 
       ]);

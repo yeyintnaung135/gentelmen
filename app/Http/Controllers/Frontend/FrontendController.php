@@ -1388,7 +1388,7 @@ class FrontendController extends Controller
   public function store_measure_data(Request $request)
   {
     logger("store measure data right now");
-    // logger($request->all());
+    logger($request->all());
     if($request->height_type == 'cm')
     {
       $hft = null;
