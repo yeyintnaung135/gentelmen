@@ -427,6 +427,8 @@ Route::post('/store_measure_ajax', 'Frontend\FrontendController@store_measure_da
 
 Route::post('/store_measure_from_profile_ajax', 'Frontend\FrontendController@store_measure_profile_data')->name('store_measure_from_profile_ajax');
 
+Route::get('profile', 'Frontend\ProfileContoller@user_profile')->name('profile');
+
 Route::post('/store_user_info_measure_ajax', 'Frontend\FrontendController@store_user_info_measure_ajax_data')->name('store_user_info_measure_ajax');
 
 // paypal
@@ -479,8 +481,6 @@ Route::get('faq', 'Frontend\FaqController@faq')->name('faq');
 // })->name('search-result');
 
 Route::get('cart', 'Frontend\FrontendController@cart')->name('cart');
-
-Route::get('profile', 'Frontend\ProfileContoller@user_profile')->name('profile');
 
 Route::post('/store_user_profile_ajax','Frontend\FrontendController@store_user_profile_data')->name('store_user_profile_ajax');
 

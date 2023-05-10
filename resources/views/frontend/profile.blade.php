@@ -3,6 +3,18 @@
   <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
   <link href="{{ asset('css/customize.css') }}" rel="stylesheet">
   <link href="{{ asset('css/fabric.css') }}" rel="stylesheet">
+  <style>
+    .tabcontent {
+        /* color: white; */
+        display: none;
+        /* padding: 100px 20px;
+        height: 100%; */
+    }
+
+    .menu__item{
+        cursor: pointer;
+    }
+  </style>
 @endpush
 @section('content')
   @include('layouts/nav')
@@ -404,15 +416,13 @@
                     </a>
                     <a class="measure-item circle" href="#chest_front">
                       <img src="{{asset("assets/images/customize/measurement/stomach.png")}}"
-                           alt="chest
-            front">
+                           alt="chest front">
                       <p>chest front width</p>
 
                     </a>
                     <a class="measure-item circle" href="#chest_back">
                       <img src="{{asset("assets/images/customize/measurement/stomach.png")}}"
-                           alt="chest
-            back">
+                           alt="chest back">
                       <p>chest Back width</p>
 
                     </a>
@@ -438,8 +448,9 @@
                   <div class="measure-item-content">
                     <div id="neck_upper" class="content">
                       <div class="measure-img-wrapper">
-                        <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
-                             alt="neck">
+
+                             <img src="{{asset('/assets/images/customize/cus5images/neck.jpg')}}"
+                             alt="chest">
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
@@ -528,8 +539,10 @@
                     </div>
                     <div id="sleeve_length_Right" class="content">
                       <div class="measure-img-wrapper">
-                        <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
-                             alt="sleeve_length_Right">
+                        {{-- <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                             alt="sleeve_length_Right"> --}}
+                             <img src="{{asset('/assets/images/customize/cus5images/sleeve-length-rl.jpg')}}"
+                             alt="shoulder">
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
@@ -546,8 +559,8 @@
                     </div>
                     <div id="sleeve_length_left" class="content">
                       <div class="measure-img-wrapper">
-                        <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
-                             alt="sleeve_length_left">
+                        <img src="{{asset('/assets/images/customize/cus5images/sleeve-length-rl.jpg')}}"
+                             alt="shoulder">
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
@@ -564,8 +577,8 @@
                     </div>
                     <div id="stomach_upper" class="content">
                       <div class="measure-img-wrapper">
-                        <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
-                             alt="stomach_upper">
+                        <img src="{{asset('/assets/images/customize/cus5images/stomach.jpg')}}"
+                             alt="shoulder">
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
@@ -582,7 +595,7 @@
                     </div>
                     <div id="biceps" class="content">
                       <div class="measure-img-wrapper">
-                        <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                        <img src="{{asset('/assets/images/customize/cus5images/biceps.jpg')}}"
                              alt="biceps">
                       </div>
                       <div class="measure-input-wrapper">
@@ -600,7 +613,7 @@
                     </div>
                     <div id="forearm" class="content">
                       <div class="measure-img-wrapper">
-                        <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                        <img src="{{ asset('/assets/images/customize/cus5images/biceps.jpg')}}"
                              alt="forearm">
                       </div>
                       <div class="measure-input-wrapper">
@@ -618,7 +631,7 @@
                     </div>
                     <div id="cuffs" class="content">
                       <div class="measure-img-wrapper">
-                        <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                        <img src="{{ asset('/assets/images/customize/cus5images/cuff.jpg')}}"
                              alt="cuffs">
                       </div>
                       <div class="measure-input-wrapper">
@@ -636,7 +649,7 @@
                     </div>
                     <div id="chest_front" class="content">
                       <div class="measure-img-wrapper">
-                        <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                        <img src="{{ asset('/assets/images/customize/cus5images/chest-front-width.jpg')}}"
                              alt="chest front">
                       </div>
                       <div class="measure-input-wrapper">
@@ -654,7 +667,7 @@
                     </div>
                     <div id="chest_back" class="content">
                       <div class="measure-img-wrapper">
-                        <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                        <img src="{{ asset('/assets/images/customize/cus5images/chest-front-width.jpg')}}"
                              alt="chest back">
                       </div>
                       <div class="measure-input-wrapper">
@@ -672,7 +685,7 @@
                     </div>
                     <div id="jacket_front" class="content">
                       <div class="measure-img-wrapper">
-                        <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                        <img src="{{ asset('/assets/images/customize/cus5images/jacket-front-length.jpg')}}"
                              alt="jacket_front">
                       </div>
                       <div class="measure-input-wrapper">
@@ -690,7 +703,7 @@
                     </div>
                     <div id="jacket_back" class="content">
                       <div class="measure-img-wrapper">
-                        <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                        <img src="{{ asset('/assets/images/customize/cus5images/jacket-length.jpg')}}"
                              alt="jacket_back">
                       </div>
                       <div class="measure-input-wrapper">
@@ -708,7 +721,7 @@
                     </div>
                     <div id="vest_length" class="content">
                       <div class="measure-img-wrapper">
-                        <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                        <img src="{{asset('/assets/images/customize/cus5images/vest.jpg')}}"
                              alt="vest_length">
                       </div>
                       <div class="measure-input-wrapper">
@@ -776,12 +789,12 @@
                       <p>Calf</p>
 
                     </a>
-                    <a class="measure-item circle" href="#pants_short">
+                    {{-- <a class="measure-item circle" href="#pants_short">
                       <img src="{{asset("assets/images/customize/measurement/neck.png")}}"
                            alt="pants_short">
                       <p>Pants Short</p>
 
-                    </a>
+                    </a> --}}
                     <a class="measure-item circle" href="#pants_length">
                       <img src="{{asset("assets/images/customize/measurement/neck.png")}}"
                            alt="pants_length">
@@ -827,7 +840,7 @@
                   <div class="measure-item-content">
                     <div id="waist_lower" class="content">
                       <div class="measure-img-wrapper">
-                        <img src="{{asset('assets/images/customize/measurement/_MG_0003.JPG')}}"
+                        <img src="{{asset('/assets/images/customize/cus5images/waist.jpg')}}"
                              alt="waist lower">
                       </div>
                       <div class="measure-input-wrapper">
@@ -845,7 +858,7 @@
                     </div>
                     <div id="stomach_lower" class="content">
                       <div class="measure-img-wrapper">
-                        <img src="{{asset('assets/images/customize/measurement/_MG_0003.JPG')}}"
+                        <img src="{{asset('/assets/images/customize/cus5images/stomach.jpg')}}"
                              alt="stomach_lower">
                       </div>
                       <div class="measure-input-wrapper">
@@ -863,7 +876,7 @@
                     </div>
                     <div id="hips_lower" class="content">
                       <div class="measure-img-wrapper">
-                        <img src="{{asset('assets/images/customize/measurement/_MG_0003.JPG')}}"
+                        <img src="{{asset('/assets/images/customize/cus5images/hip.jpg')}}"
                              alt="hips_lower">
                       </div>
                       <div class="measure-input-wrapper">
@@ -881,7 +894,7 @@
                     </div>
                     <div id="crotch" class="content">
                       <div class="measure-img-wrapper">
-                        <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                        <img src="{{ asset('/assets/images/customize/cus5images/crotch.jpg')}}"
                              alt="crotch">
                       </div>
                       <div class="measure-input-wrapper">
@@ -899,7 +912,7 @@
                     </div>
                     <div id="thighs" class="content">
                       <div class="measure-img-wrapper">
-                        <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                        <img src="{{ asset('/assets/images/customize/cus5images/thighs.jpg')}}"
                              alt="thighs">
                       </div>
                       <div class="measure-input-wrapper">
@@ -917,7 +930,7 @@
                     </div>
                     <div id="knees" class="content">
                       <div class="measure-img-wrapper">
-                        <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                        <img src="{{ asset('/assets/images/customize/cus5images/knees.jpg')}}"
                              alt="knees">
                       </div>
                       <div class="measure-input-wrapper">
@@ -935,7 +948,7 @@
                     </div>
                     <div id="calf" class="content">
                       <div class="measure-img-wrapper">
-                        <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                        <img src="{{ asset('/assets/images/customize/cus5images/calf.jpg')}}"
                              alt="calf">
                       </div>
                       <div class="measure-input-wrapper">
@@ -953,7 +966,7 @@
                     </div>
                     <div id="pants_short" class="content">
                       <div class="measure-img-wrapper">
-                        <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
+                        <img src="{{ asset('/assets/images/customize/cus5images/pant-length.jpg')}}"
                              alt="pants_short">
                       </div>
                       <div class="measure-input-wrapper">
@@ -971,8 +984,8 @@
                     </div>
                     <div id="pants_length" class="content">
                       <div class="measure-img-wrapper">
-                        <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
-                             alt="pants_length">
+                        <img src="{{ asset('/assets/images/customize/cus5images/pant-length.jpg')}}"
+                             alt="pants_short">
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
@@ -989,8 +1002,8 @@
                     </div>
                     <div id="bottom_length" class="content">
                       <div class="measure-img-wrapper">
-                        <img src="https://via.placeholder.com/1024x400?text=Visit+Blogging.com+Now"
-                             alt="bottom_length">
+                        <img src="{{ asset('/assets/images/customize/cus5images/bottom-leg.jpg')}}"
+                             alt="bottom1_length">
                       </div>
                       <div class="measure-input-wrapper">
                         <div class="measure-input-group">
@@ -1400,30 +1413,55 @@
             </div>
           </div>
           <div id="orders" class="tab-pane fade mx-3 mx-md-5 mb-5">
-            <div class="mb-4 mb-md-5 ms-0 d-flex justify-content-between align-items-center
-            order-head">
+            <div class="mb-4 mb-md-5 ms-0 d-flex justify-content-between align-items-center order-head">
               <h6 class="ff-mont text-white" style="">Orders</h6>
               <a href="#"><i class='bx bx-trash'></i></a>
             </div>
-            <!--            <div class="o-filter d-flex">
-                          <p class="fil-item active px-2 me-1 me-md-3">All</p>
-                          <p class="fil-item px-2 me-1 me-md-3">Customize</p>
-                          <p class="fil-item px-2 me-1 me-md-3">Ready To Wear</p>
-                          <p class="fil-item px-2 me-1 me-md-3">Additional items</p>
-                        </div>-->
-            <div class="menu-wrapper">
-              <div class="menu__item active">All</div>
-              <div class="menu__item">Customize</div>
-              <div class="menu__item">Ready To Wear</div>
-              <div class="menu__item">Additional items</div>
-            </div>
-            <div class="customize-orders">
-              {{-- <h6 class="text-white">Customize Orders</h6></br>--}}
 
-              @foreach($cus_orders as $cus_order)
+            <div class="menu-wrapper">
+              <div class="menu__item" onclick="openPage('ALL')" id="defaultOpen">Cart</div>
+              <div class="menu__item" onclick="openPage('two')">Customize</div>
+              {{-- <div class="menu__item">Ready To Wear</div>
+              <div class="menu__item ">Additional items</div> --}}
+            </div>
+
+            <div class="cart-orders tabcontent" id="ALL">
+              <h6 class="text-white">Cart Orders</h6> 
+
+              @foreach($cart_orders as $cart_order)
+                <span><?php echo date('d M Y', strtotime($cart_order->created_at)); ?> at <?php echo date('H:i', strtotime($cart_order->created_at)) ?>
+                </span>
+
+                <div class="d-block d-md-flex justify-content-md-around bg-navy-dark rounded-5 mx-0 px-4 px-md-0 py-5 my-3 position-relative items cursor-pointer" data-bs-toggle="modal" data-bs-target="#cartorderDetail{{$cart_order->id}}">
+                    <div class="d-flex flex-row flex-md-column items-info">
+                    <div class="text-white-50 mb-1 mb-md-2">Order Code</div>
+                    <div class="">#{{$cart_order->order_code}}</div>
+                    </div>
+                    <div class="d-flex flex-row flex-md-column items-info">
+                    <div class="text-white-50 mb-1 mb-md-2">Total Cost</div>
+                    <div class="">${{$cart_order->total}}</div>
+                    </div>
+                    <div class="d-flex flex-row flex-md-column items-info">
+                    <div class="text-white-50 mb-1 mb-md-2">By</div>
+                    <div class="">{{$cart_order->user->name}}</div>
+                    </div>
+                    <div class="d-flex flex-row flex-md-column items-info">
+                    <div class="text-white-50 mb-1 mb-md-2">Delivery to</div>
+                    <div class="">{{$cart_order->address}}</div>
+                    </div>
+
+                    <div class="position-absolute top-0 end-0 mt-2 mt-md-3 mx-4 text-white-50">
+                    12/12/2022
+                    </div>
+                </div>
+              @endforeach
+            </div>
+
+            <div class="cart-orders tabcontent" id="two">
+                <h6 class="text-white">Customize Orders</h6>
+                @foreach($cus_orders as $cus_order)
                 @if($cus_order->status == 1)
-                  <span><?php echo date('d M Y', strtotime($cus_order->created_at)); ?>
-                at
+                  <span><?php echo date('d M Y', strtotime($cus_order->created_at)); ?> at
                     <?php echo date('H:i', strtotime($cus_order->created_at))
                           ?></span>
 
@@ -1457,44 +1495,9 @@
                   </div>
                 @endif
               @endforeach
+
             </div>
-            <div class="cart-orders">
-              <h6 class="text-white">Cart Orders</h6></br>
-
-              @foreach($cart_orders as $cart_order)
-                <span><?php echo date('d M Y', strtotime($cart_order->created_at)); ?>
-                at
-                      <?php echo date('H:i', strtotime($cart_order->created_at))
-                        ?>
-              </span>
-
-                <div class="d-block d-md-flex justify-content-md-around bg-navy-dark rounded-5 mx-0
-                px-4 px-md-0 py-5 my-3 position-relative items cursor-pointer"
-                     data-bs-toggle="modal"
-                     data-bs-target="#cartorderDetail{{$cart_order->id}}"">
-                <div class="d-flex flex-row flex-md-column items-info">
-                  <div class="text-white-50 mb-1 mb-md-2">Order Code</div>
-                  <div class="">#{{$cart_order->order_code}}</div>
-                </div>
-                <div class="d-flex flex-row flex-md-column items-info">
-                  <div class="text-white-50 mb-1 mb-md-2">Total Cost</div>
-                  <div class="">${{$cart_order->total}}</div>
-                </div>
-                <div class="d-flex flex-row flex-md-column items-info">
-                  <div class="text-white-50 mb-1 mb-md-2">By</div>
-                  <div class="">{{$cart_order->user->name}}</div>
-                </div>
-                <div class="d-flex flex-row flex-md-column items-info">
-                  <div class="text-white-50 mb-1 mb-md-2">Delivery to</div>
-                  <div class="">{{$cart_order->address}}</div>
-                </div>
-
-                <div class="position-absolute top-0 end-0 mt-2 mt-md-3 mx-4 text-white-50">
-                  12/12/2022
-                </div>
-            </div>
-            @endforeach
-
+           
           </div>
         </div>
       </div>
@@ -1646,7 +1649,7 @@
       @endif
     @endforeach
     {{--order detail for cart--}}
-    {{-- @foreach($cart_orders as $cart_order)
+    @foreach($cart_orders as $cart_order)
       <div class="modal fade" id="cartorderDetail{{$cart_order->id}}">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
           <div class="modal-content">
@@ -1692,7 +1695,7 @@
           </div>
         </div>
       </div>
-    @endforeach --}}
+    @endforeach
   </section>
   <button onclick="topFunction()" id="scrollBtn" title="Go to top" class="d-flex
     justify-content-center align-items-center">
@@ -1702,6 +1705,22 @@
 @endsection
 @section('js')
   <script>
+    function openPage(pageName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        // tablinks = document.getElementsByClassName("tablink");
+        // for (i = 0; i < tablinks.length; i++) {
+        //     tablinks[i].style.backgroundColor = "";
+        // }
+        document.getElementById(pageName).style.display = "block";
+        // elmnt.style.backgroundColor = color;
+    }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
 
       $('#info_tab').click(() => {
         $('.unit-wrapper').css("display", "none");
@@ -2279,8 +2298,7 @@
 @endpush
 @push('script_tag')
   <script>
-      function get_measure_unit(value)
-      {
+      function get_measure_unit(value){
         $('#measure_type').val(value);
       }
       $('#save_measurement').click(function () {
@@ -2356,8 +2374,6 @@
                   "upper_body_shape": upper_body_shape,
                   "pant_line": pant_line,
                   "seat": seat,
-
-
                   "neck": neck,
                   "chest": chest,
                   "waist": waist,
@@ -2374,8 +2390,6 @@
                   "jacket_front": jacket_front,
                   "jacket_back": jacket_back,
                   "vest_len": vest_len,
-
-
                   "pwaist": pwaist,
                   "pstomach": pstomach,
                   "phips": phips,
@@ -2489,33 +2503,32 @@
 
       }
 
-
       if (sessionStorage.getItem('to_profile') == 1) {
           var html = "";
           var html_1 = "";
           sessionStorage.removeItem('to_profile');
           html += `
-       <a class="d-flex align-items-center mb-4" style="height: 20px;" data-bs-toggle="pill" href="#profile" aria-selected="false" role="tab" tabindex="-1">
-            <img src="http://localhost:8000/assets/images/profile/icon/profile.png" width="20px" alt="" class="me-3">
-            Profile
-          </a>
-      <a class="d-flex align-items-center mb-4 active" style="height: 20px;" data-bs-toggle="pill" href="#wishlist" aria-selected="true" role="tab">
-        <img src="http://localhost:8000/assets/images/profile/icon/wishlist.png" width="20px" alt="" class="me-3">
+                <a class="d-flex align-items-center mb-4" style="height: 20px;" data-bs-toggle="pill" href="#profile" aria-selected="false" role="tab" tabindex="-1">
+                        <img src="http://localhost:8000/assets/images/profile/icon/profile.png" width="20px" alt="" class="me-3">
+                        Profile
+                    </a>
+                <a class="d-flex align-items-center mb-4 active" style="height: 20px;" data-bs-toggle="pill" href="#wishlist" aria-selected="true" role="tab">
+                    <img src="http://localhost:8000/assets/images/profile/icon/wishlist.png" width="20px" alt="" class="me-3">
 
-        Wishlist
-      </a>
-      <a class="d-flex align-items-center mb-4" style="height: 20px;"
-            data-bs-toggle="pill" href="#measurements">
-          <img src="{{asset('assets/images/profile/icon/measurement.png')}}" width="20px" alt="" class="me-3">
-          Measurements
-        </a>
-        <a class="d-flex align-items-center mb-4" style="height: 20px;"
-            data-bs-toggle="pill" href="#orders">
-          <img src="{{asset('assets/images/profile/icon/order.png')}}" width="20px" alt=""
-                class="me-3">
-          Orders
-        </a>
-       `
+                    Wishlist
+                </a>
+                <a class="d-flex align-items-center mb-4" style="height: 20px;"
+                        data-bs-toggle="pill" href="#measurements">
+                    <img src="{{asset('assets/images/profile/icon/measurement.png')}}" width="20px" alt="" class="me-3">
+                    Measurements
+                    </a>
+                    <a class="d-flex align-items-center mb-4" style="height: 20px;"
+                        data-bs-toggle="pill" href="#orders">
+                    <img src="{{asset('assets/images/profile/icon/order.png')}}" width="20px" alt=""
+                            class="me-3">
+                    Orders
+                    </a>
+                `
           $('#nav').html(html);
 
           $("#wishlist").addClass("active show");

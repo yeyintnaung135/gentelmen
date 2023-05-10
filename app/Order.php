@@ -92,6 +92,32 @@ class Order extends Model
     return LowerMeasurement::find($this->lower_measure_id);
   }
 
+  public function user() {
+    return $this->belongsTo('App\User','user_id');
+  }
+  public function cus_category() {
+    return $this->belongsTo('App\CustomizeCategory','cus_cate_id');
+  }
+  public function texture() {
+    return $this->belongsTo('App\Texture','texture_id');
+  }
+  public function package() {
+    return $this->belongsTo('App\Package','package_id');
+  }
+  public function jacket() {
+    return $this->belongsTo('App\Top','jacket_id');
+  }
+
+  public function pant() {
+    return $this->belongsTo('App\Pant','pant_id');
+  }
+  public function vest() {
+    return $this->belongsTo('App\Vest_lapel','vest_id');
+  }
+  public function style() {
+    return $this->belongsTo('App\Style','style_id');
+  }
+
 
 
 }

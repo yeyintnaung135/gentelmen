@@ -157,16 +157,40 @@
                         <p>User Name - {{ $order->order->User->name}}</p>
                         <p> Email - {{ $order->order->User->email}}</p>
                         <p>Phone - {{ $order->order->User->phone}}</p>
-                        <p>Dob - {{ $order->order->User->dob}}</p>
-                        <p>Gender - {{ $order->order->User->gender}}</p>
-                        <p>City - {{ $order->order->User->City}}</p>
+                        <p>Date Of Birth - {{ $order->order->User->dob}}</p>
+                  
+                        @switch($order->order->User->gender)
+                           @case($order->order->User->gender == 1)
+                           <p>Gender - Male</p>
+                              @break
+                           @case($order->order->User->gender == 2)
+                           <p>Gender - Female</p>
+                              @break
+                           @default
+                           
+                        @endswitch 
+                       
+                        {{-- <p>Gender - {{ $order->order->User->gender}}</p> --}}
+                  
+                        
+                        <p>City - {{ $order->order->User->city}}</p>
                         <p>TownShip Street - {{ $order->order->User->tsp_street}}</p>
-                        <p>Age - {{ $order->order->User->age}} years</p>
+                        <p>From Customize Age - {{ $order->order->User->age}} years</p>
                         <p>Weight - {{ $order->order->User->weight}} {{$order->order->User->weight_type}}</p>
-                        <p>Height Cm - {{ $order->order->User->height_cm}}</p>
-                        <p>Height ft - {{ $order->order->User->height_ft}}</p>
+                        @if($order->order->User->height_cm)
+                        <p>Height Cm - {{ $order->order->User->height_cm }}</p>
+                        @endif
+                        @if($order->order->User->height_ft)
+                         <p>Height ft - {{ $order->order->User->height_ft}}</p>
+                        @endif
+
+                        @if($order->order->User->height_in)
                         <p>Height In - {{ $order->order->User->height_in}}  </p>
-                        <p>Height Type {{$order->order->User->height_type}}</p>
+                        @endif
+                       
+                        
+                       
+                        <p class="text-red">Height Type - {{$order->order->User->height_type}}</p>
                         <p>Shoulder Type - {{ $order->order->User->shoulder_type}}</p>
                         <p>Drop Shoulder - {{ $order->order->User->drop_shoulder}}</p>
                         <p>Arms Position - {{ $order->order->User->arms_position}}</p>
