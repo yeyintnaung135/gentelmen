@@ -1,5 +1,5 @@
 <div class="bg-dark py-5 px-5 rounded-2">
-  <p class="h4 text-uppercase">Order summary</p>
+  <p class="h4 text-uppercase">Order Summary</p>
   <hr>
   <div class="row">
     <div class="row mb-2">
@@ -156,9 +156,8 @@
         {
           $('#vestName').html(data.vest_name);
           $('#vestName_mo').html(data.vest_name)
-        }
-        else
-        {
+ 
+        } else {
           $('#vestName').html('-');
           $('#vestName_mo').html('-')
         }
@@ -166,7 +165,7 @@
         if(data.pant_name != null)
         {
           $('#pantName').html(data.pant_name);
-          $('#vestName_mo').html('-');
+          $('#pantName_mo').html(data.pant_name);
         }
         else
         {

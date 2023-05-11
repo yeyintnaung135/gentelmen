@@ -147,7 +147,7 @@
                             <p>calf -   {{$order->order->Lower->calf}} {{ $order->order->Lower->measure_type}}</p>
                             <p>knees -   {{$order->order->Lower->knees}} {{ $order->order->Lower->measure_type}}</p>
                             <p>stomach -   {{$order->order->Lower->stomach}} {{ $order->order->Lower->measure_type}}</p>
-                            <p>shorts -   {{$order->order->Lower->shorts}} {{ $order->order->Lower->measure_type}}</p>
+                            {{-- <p>shorts -   {{$order->order->Lower->shorts}} {{ $order->order->Lower->measure_type}}</p> --}}
                             <p>hips -   {{$order->order->Lower->hips}} {{ $order->order->Lower->measure_type}}</p>
                             
                          @endif

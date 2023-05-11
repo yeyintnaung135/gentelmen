@@ -3,8 +3,7 @@
 
   <div class="row">
     <div class="col-md-7">
-      <p class="ff-mont text-white ls-0 text-uppercase h5 mb-4" id="te">here is your billing
-      address</p>
+      <p class="ff-mont text-white ls-0 text-uppercase h5 mb-4" id="te">here is your billing address</p>
       <div class="ms-0 ms-md-4 mb-5">
         <div class="row mb-1">
           <p class="col-md-3 mb-1"><strong>Name :</strong></p>
@@ -32,7 +31,7 @@
         </div>
         <div class="row mb-1">
           <p class="col-md-3 mb-1"><strong>Address :</strong></p>
-          <!--          <p class="col-md-9">No.143, Zayyardipa 1st Street, 31 ward, North Dagon.</p>-->
+          <!--<p class="col-md-9">No.143, Zayyardipa 1st Street, 31 ward, North Dagon.</p>-->
           <div class="col-md-9 mb-3" id="address_space">
             <textarea type="text" class="form-control" rows="2" id="order_address" autofocus onkeydown="store_address(this.value)"></textarea>
           </div>
@@ -112,12 +111,11 @@
       <div class="text-center text-md-start">
         <p class="text-decoration-underline d-block d-md-none my-3" data-bs-toggle="modal"
            data-bs-target="#checkout">
-          View My Order Summary
+          View My Ordery Summary
         </p>
         <hr>
         <div id="paypal-button-container" class="paypal-container"></div>
-        <button class="btn bg-gold rounded-0 px-2 py-1 text-uppercase
-      ls-0" onclick="available_payment()">CheckOut
+        <button class="btn bg-gold rounded-0 px-2 py-1 text-uppercase ls-0" onclick="available_payment()">CheckOut
           Now
         </button>
 
@@ -131,7 +129,7 @@
   <p class="h5 mb-4 text-uppercase">Better Together With</p>
   <div class="row" id="rec_additional_space">
     @foreach($additionals as $add)
-    <div class="col-6 col-md-3">
+      <div class="col-6 col-md-3">
                  <div class="cursor-pointer" data-bs-toggle="modal"
                    data-bs-target="#myAdditional{{$add->id}}" onclick="increase_count('{{$add->id}}')">
                    <div class="mb-1">
@@ -242,8 +240,7 @@
     </div>
 
   </div>
-
-@endforeach
+   @endforeach
 {{-- end popup --}}
   <div class="text-center mb-5 mt-4">
     <button class="btn bg-gold rounded-0 px-2 py-1 text-uppercase ls-0 d-flex align-items-center"
