@@ -14,6 +14,10 @@
     .menu__item{
         cursor: pointer;
     }
+
+    .cus_active{
+      border-bottom:2px solid rgb(244, 241, 241);
+    }
   </style>
 @endpush
 @section('content')
@@ -1419,8 +1423,8 @@
             </div>
 
             <div class="menu-wrapper">
-              <div class="menu__item" onclick="openPage('ALL')" id="defaultOpen">Cart</div>
-              <div class="menu__item" onclick="openPage('two')">Customize</div>
+              <div class="menu__item cart" onclick="openPage('ALL')" id="defaultOpen">Cart</div>
+              <div class="menu__item two" onclick="openPage('two')">Customize</div>
               {{-- <div class="menu__item">Ready To Wear</div>
               <div class="menu__item ">Additional items</div> --}}
             </div>
@@ -1460,7 +1464,7 @@
             <div class="cart-orders tabcontent" id="two">
                 <h6 class="text-white">Customize Orders</h6>
                 @foreach($cus_orders as $cus_order)
-                @if($cus_order->status == 1)
+                @if($cus_order->status == 0)
                   <span><?php echo date('d M Y', strtotime($cus_order->created_at)); ?> at
                     <?php echo date('H:i', strtotime($cus_order->created_at))
                           ?></span>
@@ -1506,7 +1510,7 @@
 
     {{--order detail for customize--}}
     @foreach($cus_orders as $cus_order)
-      @if($cus_order->status == 1)
+      @if($cus_order->status == 0)
         <div class="modal fade" id="orderDetail{{$cus_order->id}}">
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
@@ -1717,6 +1721,16 @@
         // }
         document.getElementById(pageName).style.display = "block";
         // elmnt.style.backgroundColor = color;
+        if(pageName === "ALL"){
+            $('.cart').addClass("cus_active");
+            $('.two').removeClass("cus_active");
+        }
+
+        if(pageName === "two"){
+            $('.cart').removeClass("cus_active");
+
+            $('.two').addClass("cus_active");
+        }
     }
 
         // Get the element with id="defaultOpen" and click on it
