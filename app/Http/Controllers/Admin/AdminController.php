@@ -45,9 +45,69 @@ class AdminController extends Controller
         $banners = Banner::all();
         return view('admin.banner_list',compact('banners'));
     }
+    public function getAllBanners(Request $request) {
+      $draw = $request->get('draw');
+      $start = $request->get("start");
+      $rowperpage = $request->get("length"); // total number of rows per page
+
+      $columnIndex_arr = $request->get('order');
+      $columnName_arr = $request->get('columns');
+      $order_arr = $request->get('order');
+      $search_arr = $request->get('search');
+
+      $columnIndex = $columnIndex_arr[0]['column']; // Column index
+      $columnName = $columnName_arr[$columnIndex]['data']; // Column name
+      $columnSortOrder = $order_arr[0]['dir']; // asc or desc
+      $searchValue = $search_arr['value']; // Search value
+
+      $totalRecords = Banner::select('count(*) as allcount')
+          ->where(function ($query) use ($searchValue) {
+              $query->where('id', 'like', '%' . $searchValue . '%')
+                    ->orWhere('photo', 'like', '%' . $searchValue . '%')
+                    ->orWhere('text', 'like', '%' . $searchValue . '%')
+                    ->orWhere('button_text', 'like', '%' . $searchValue . '%');
+          })
+          ->count();
+      $totalRecordswithFilter = $totalRecords;
+
+      $records = Banner::orderBy($columnName, $columnSortOrder)
+          ->orderBy('created_at', 'desc')
+          ->where(function ($query) use ($searchValue) {
+              $query->where('id', 'like', '%' . $searchValue . '%')
+                    ->orWhere('photo', 'like', '%' . $searchValue . '%')
+                    ->orWhere('text', 'like', '%' . $searchValue . '%')
+                    ->orWhere('button_text', 'like', '%' . $searchValue . '%');
+          })
+          ->select('banners.*')
+          ->skip($start)
+          ->take($rowperpage)
+          ->get();
+      //    return $records;
+      $data_arr = array();
+
+      foreach ($records as $record) {
+          $data_arr[] = array(
+              "id" => $record->id,
+              "photo" => $record->photo,
+              "text" => $record->text,
+              "button_text" => $record->button_text,
+              "action" => $record->id,
+              "created_at" => date('F d, Y ( h:i A )', strtotime($record->created_at)),
+          );
+      }
+
+      $response = array(
+          "draw" => intval($draw),
+          "iTotalRecords" => $totalRecords,
+          "iTotalDisplayRecords" => $totalRecordswithFilter,
+          "aaData" => $data_arr,
+      );
+      echo json_encode($response);
+    }
     public function edit_banner_list($id){
-        $banner = Banner::findOrFail($id);
-        return view('admin.edit_banner',compact('banner'));
+        // $banner = Banner::findOrFail($id);
+        // return view('admin.edit_banner',compact('banner'));
+        return view('admin.edit_banner');
     }
     public function update_banner_list(Request $request,$id)
     {

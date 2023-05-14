@@ -30,56 +30,16 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example2" class="table table-bordered table-hover">
-                  <thead>
-                  <tr>
-                    <th>No</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Action</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <?php $i=1; ?>
-                  @foreach($admins as $admin)
-                  <tr>
-                    <td>{{$i++}}</td>
-                    <td>{{$admin->name}}</td>
-                    <td>{{$admin->email}}</td>
-                    <td>
-                    <div style="
-                        display: flex;
-                    ">  
-                     @php
-                    $auth = Auth::guard('admin')->user()->id;
-                    @endphp
-                    @if($auth === $admin->id)
-                       <a type="button" class="btn btn-primary"  href="{{route('edit_admin',$admin->id)}}" style="
-                          width: 40%;
-                      ">
-
-                       <span class="fa fa-edit"></span>
-                       </a>
-                      @endif
-                      <!-- <a type="button" onclick="delete_banner_confirm('{{$admin->id}}')" class="btn btn-block btn-danger" style="
-                          width: 40%;
-                          margin-top: 0rem;
-                          margin-left: 0.3rem;
-                      "><span class="fa fa-trash"></span></a> -->
-                    </div>
-
-                    </td>
-                  </tr>
-                  @endforeach
-                  </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>No</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Action</th>
-                  </tr>
-                  </tfoot>
+                <table id="superAdminTable" class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Action</th>
+                      <th>Created Date</th>
+                    </tr>
+                    </thead>
                 </table>
               </div>
               <!-- /.card-body -->
@@ -99,17 +59,63 @@
 
 @push('datatables-scripts')
 <script>
- $(function () {
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-  });
+  var superAdminTable = $('#superAdminTable').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: {
+                'url': "{{ route('getAllAdmins') }}",
+            },
+            columns: [
+              {data: 'id'},
+              {data: 'name'},
+              {data: 'email'},
+              {
+                data: 'id',
+                render: function (data, type, row) {
+                  if(`{{Auth::guard('admin')->user()->id }}` == data){
+                    var result = `<div style="display: flex;">  
+                                      <a type="button" class="btn btn-primary"  href="{{route('edit_admin',':id')}}" style="
+                                          width: auto; ">
+                                      <span class="fa fa-edit"></span>
+                                      </a>
+                                  </div>`;
+                  } else {
+                    var result = ``;
+                  }
+                  
+                  result = result.replace(':id', data);
+                  return result;
+                }
+              },
+              {data: 'created_at'}
+            ],
+            responsive: true,
+            lengthChange: true,
+            autoWidth: false,
+            paging: true,
+            dom: 'Blfrtip',
+            buttons: ["copy", "csv", "excel", "pdf", "print"],
+            columnDefs: [
+                {responsivePriority: 1, targets: 1},
+                {responsivePriority: 2, targets: 2},
+                {responsivePriority: 3, targets: 3},
+                {responsivePriority: 4, targets: 4},
+                {
+                    'targets': [3],
+                    'orderable': false,
+                },
+            ],
+            language: {
+                "search": '<i class="fa fa-search"></i>',
+                "searchPlaceholder": 'Search',
+                paginate: {
+                    next: '<i class="fa fa-angle-right"></i>', // or '→'
+                    previous: '<i class="fa fa-angle-left"></i>' // or '←'
+                }
+            },
+
+            "order": [[4, "desc"]],
+        });
 </script>
 @endpush
 @push('input-file-scripts')

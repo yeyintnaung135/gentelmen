@@ -47,6 +47,77 @@ class PackageController extends Controller
         $packages = Package::all();
         return view('admin.package.list',compact('packages'));
     }
+    public function getAllPackages(Request $request) {
+      $draw = $request->get('draw');
+      $start = $request->get("start");
+      $rowperpage = $request->get("length"); // total number of rows per page
+
+      $columnIndex_arr = $request->get('order');
+      $columnName_arr = $request->get('columns');
+      $order_arr = $request->get('order');
+      $search_arr = $request->get('search');
+
+      $columnIndex = $columnIndex_arr[0]['column']; // Column index
+      $columnName = $columnName_arr[$columnIndex]['data']; // Column name
+      $columnSortOrder = $order_arr[0]['dir']; // asc or desc
+      $searchValue = $search_arr['value']; // Search value
+
+      $totalRecords = Package::select('count(*) as allcount')
+          ->where(function ($query) use ($searchValue) {
+              $query->where('id', 'like', '%' . $searchValue . '%')
+                    ->orWhere('photo', 'like', '%' . $searchValue . '%')
+                    ->orWhere('title', 'like', '%' . $searchValue . '%')
+                    ->orWhere('description', 'like', '%' . $searchValue . '%')
+                    ->orWhere('made_in', 'like', '%' . $searchValue . '%')
+                    ->orWhere('tailor', 'like', '%' . $searchValue . '%')
+                    ->orWhere('price', 'like', '%' . $searchValue . '%')
+                    ->orWhere('link', 'like', '%' . $searchValue . '%');
+          })
+          ->count();
+      $totalRecordswithFilter = $totalRecords;
+
+      $records = Package::orderBy($columnName, $columnSortOrder)
+          ->orderBy('created_at', 'desc')
+          ->where(function ($query) use ($searchValue) {
+              $query->where('id', 'like', '%' . $searchValue . '%')
+                    ->orWhere('photo', 'like', '%' . $searchValue . '%')
+                    ->orWhere('title', 'like', '%' . $searchValue . '%')
+                    ->orWhere('description', 'like', '%' . $searchValue . '%')
+                    ->orWhere('made_in', 'like', '%' . $searchValue . '%')
+                    ->orWhere('tailor', 'like', '%' . $searchValue . '%')
+                    ->orWhere('price', 'like', '%' . $searchValue . '%')
+                    ->orWhere('link', 'like', '%' . $searchValue . '%');
+          })
+          ->select('packages.*')
+          ->skip($start)
+          ->take($rowperpage)
+          ->get();
+      //    return $records;
+      $data_arr = array();
+
+      foreach ($records as $record) {
+          $data_arr[] = array(
+              "id" => $record->id,
+              "photo" => $record->photo,
+              "title" => $record->title,
+              "description" => $record->description,
+              "made_in" => $record->made_in,
+              "tailor" => $record->tailor,
+              "price" => $record->price,
+              "link" => $record->link,
+              "action" => $record->id,
+              "created_at" => date('F d, Y ( h:i A )', strtotime($record->created_at)),
+          );
+      }
+
+      $response = array(
+          "draw" => intval($draw),
+          "iTotalRecords" => $totalRecords,
+          "iTotalDisplayRecords" => $totalRecordswithFilter,
+          "aaData" => $data_arr,
+      );
+      echo json_encode($response);
+    }
 
     function add_package_data()
     {

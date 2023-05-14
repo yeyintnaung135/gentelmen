@@ -24,6 +24,7 @@ Route::get('/', 'Frontend\FrontendController@get_index_page')->name('index_page'
 Route::get('/admin', 'Admin\AdminController@create_banner')->name('create_banner');
 Route::post('/store_banner', 'Admin\AdminController@store_banner_data')->name('store_banners');
 Route::get('/show_banner', 'Admin\AdminController@show_banner_list')->name('show_banner');
+Route::get('/get_all_banners', 'Admin\AdminController@getAllBanners')->name('getAllBanners');
 Route::get('/edit_banner/{id}', 'Admin\AdminController@edit_banner_list')->name('edit_banner');
 Route::post('/update_banner/{id}', 'Admin\AdminController@update_banner_list')->name('update_banner');
 
@@ -36,6 +37,7 @@ Route::get('/get_list_registerlog', 'Admin\AdminController@getUserRegister')->na
 
 //testimonial
 Route::get('/testimonial_list', 'Admin\TestimonialController@show_testimonial_list')->name('testimonial_list');
+Route::get('/get_testimonials', 'Admin\TestimonialController@getAllTestimonials')->name('getAllTestimonials');
 Route::get('/add_testimonial', 'Admin\TestimonialController@add_testimonial_data')->name('add_testimonial');
 Route::post('/store_testimonial', 'Admin\TestimonialController@store_testimonial_data')->name('store_testimonial');
 Route::post('/delete_test', 'Admin\TestimonialController@delete_testimonial_list')->name('delete_test');
@@ -250,6 +252,7 @@ Route::post('/add_to_cart_grand', 'Admin\AddToCartController@add_cart')->name('a
 
 // package
 Route::get('/package_list', 'Admin\PackageController@show_package_list')->name('package_list');
+Route::get('/get_all_packages', 'Admin\PackageController@getAllPackages')->name('getAllPackages');
 Route::get('/add_package', 'Admin\PackageController@add_package_data')->name('add_package');
 Route::post('/store_package', 'Admin\PackageController@store_package_data')->name('store_package');
 Route::post('/delete_package', 'Admin\PackageController@delete_package_list')->name('delete_package');
@@ -323,6 +326,7 @@ Route::post('/delete_faq', 'Admin\FaqController@delete_faq')->name('delete_faq')
 
 // Suit Tip
 Route::get('/suit_tip_list', 'Admin\SuitTipsController@show_suit_tip_list')->name('suit_tip_list');
+Route::get('/get_all_suits', 'Admin\SuitTipsController@getAllSuits')->name('getAllSuits');
 Route::get('/add_suit_tip', 'Admin\SuitTipsController@add_suit_tip_data')->name('add_suit_tip');
 Route::post('/store_suit_tip', 'Admin\SuitTipsController@store_suit_tip_data')->name('store_suit_tip');
 Route::get('/edit_suit_tip/{id}', 'Admin\SuitTipsController@edit_suit_tip')->name('edit_suit_tip');
@@ -379,6 +383,17 @@ Route::post('/get_pattern_sub', 'Admin\TextureController@get_pattern_sub_data')-
 Route::get('/get_pattern_all', 'Admin\TextureController@get_pattern_all_data')->name('get_pattern_all');
 Route::get('/get_package', 'Admin\TextureController@get_package_data')->name('get_package');
 Route::post('/get_swiper_photo_texture', 'Admin\TextureController@get_swiper_photo_texture_data')->name('get_swiper_photo_texture');
+// adminregister
+Route::get('/admin_register_create', 'Admin\AdminRegisterController@create_admin_register')->name('create_admin_register');
+Route::get('/admin_register_list', 'Admin\AdminRegisterController@show_list')->name('admin_register_list');
+Route::get('/get_all_admins', 'Admin\AdminRegisterController@getAllAdmins')->name('getAllAdmins');
+Route::get('/edit_admin_register/{id}', 'Admin\AdminRegisterController@edit_admin_register')->name('edit_admin');
+Route::post('/update_admin/{id}', 'Auth\AdminRegisterController@update_admin_list')->name('update_admin');
+Route::post('/delete_admin_register', 'Auth\AdminRegisterController@delete_admin_list')->name('delete_admin');
+Route::get('/change_password', 'ChangePasswordController@index')->name('change_password');
+Route::post('/change_pass_store', 'ChangePasswordController@store')->name('change_password_store');
+Route::get('/update_pass', 'UpdatePasswordController@index')->name('update_password');
+Route::post('/update_pass_store', 'UpdatePasswordController@store')->name('update_password_store');
 
 // userchangepassword
 Route::get('/user_change_password', 'UserChangePasswordController@index')->name('user_change_password');

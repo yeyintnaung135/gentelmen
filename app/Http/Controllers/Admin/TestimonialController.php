@@ -20,6 +20,65 @@ class TestimonialController extends Controller
         $testimonials = Testimonial::all();
         return view('admin.testimonial.list',compact('testimonials'));
     }
+    public function getAllTestimonials(Request $request) {
+      $draw = $request->get('draw');
+      $start = $request->get("start");
+      $rowperpage = $request->get("length"); // total number of rows per page
+
+      $columnIndex_arr = $request->get('order');
+      $columnName_arr = $request->get('columns');
+      $order_arr = $request->get('order');
+      $search_arr = $request->get('search');
+
+      $columnIndex = $columnIndex_arr[0]['column']; // Column index
+      $columnName = $columnName_arr[$columnIndex]['data']; // Column name
+      $columnSortOrder = $order_arr[0]['dir']; // asc or desc
+      $searchValue = $search_arr['value']; // Search value
+
+      $totalRecords = Testimonial::select('count(*) as allcount')
+          ->where(function ($query) use ($searchValue) {
+              $query->where('id', 'like', '%' . $searchValue . '%')
+                    ->orWhere('photo', 'like', '%' . $searchValue . '%')
+                    ->orWhere('name', 'like', '%' . $searchValue . '%')
+                    ->orWhere('description', 'like', '%' . $searchValue . '%');
+          })
+          ->count();
+      $totalRecordswithFilter = $totalRecords;
+
+      $records = Testimonial::orderBy($columnName, $columnSortOrder)
+          ->orderBy('created_at', 'desc')
+          ->where(function ($query) use ($searchValue) {
+              $query->where('id', 'like', '%' . $searchValue . '%')
+                    ->orWhere('photo', 'like', '%' . $searchValue . '%')
+                    ->orWhere('name', 'like', '%' . $searchValue . '%')
+                    ->orWhere('description', 'like', '%' . $searchValue . '%');
+          })
+          ->select('testimonials.*')
+          ->skip($start)
+          ->take($rowperpage)
+          ->get();
+      //    return $records;
+      $data_arr = array();
+
+      foreach ($records as $record) {
+          $data_arr[] = array(
+              "id" => $record->id,
+              "photo" => $record->photo,
+              "name" => $record->name,
+              "description" => $record->description,
+              "action" => $record->id,
+              "created_at" => date('F d, Y ( h:i A )', strtotime($record->created_at)),
+          );
+      }
+
+      $response = array(
+          "draw" => intval($draw),
+          "iTotalRecords" => $totalRecords,
+          "iTotalDisplayRecords" => $totalRecordswithFilter,
+          "aaData" => $data_arr,
+      );
+      echo json_encode($response);
+    }
     function add_testimonial_data()
     {
         return view('admin.testimonial.create');

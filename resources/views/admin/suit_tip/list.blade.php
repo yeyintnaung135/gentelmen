@@ -34,58 +34,19 @@
               </div> --}}
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example2" class="table table-bordered table-hover">
-                  <thead>
-                  <tr>
-                    <th>No</th>
-                    <th>Photo</th>
-                    <th>Brand</th>
-                    <th>Headline</th>
-                    <th>Description</th>
-                    <th>Feature</th>
-                    <th>Action</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                    <?php $i=1; ?>
-                    @foreach($suit_tips as $suit_tip)
+                <table id="suitTable" class="table table-bordered table-hover">
+                    <thead>
                     <tr>
-                    <td>{{$i++}}</td>
-                    <td><img class="rounded-5 shadow-sm" src="{{'/assets/images/suit_tip/'. $suit_tip->photo}}" alt="" width="100px" height="60px"/></td>
-                    <td>{{$suit_tip->brand}}</td>
-                    <td>{{$suit_tip->title}}</td>
-                    <td>{{Str::of($suit_tip->description)->limit(20)}}</td>
-                    <td>{{$suit_tip->feature}}</td>
-                    <td>
-                      <div style="
-                          display: flex;
-                      ">
-                         <a type="button" class="btn btn-primary" href="{{route('edit_suit_tip',$suit_tip->id)}}" style="
-                            width: 40%;
-                        ">
-
-                         <span class="fa fa-edit"></span>
-                         </a>
-                        <a type="button" onclick="delete_confirm('{{$suit_tip->id}}')" class="btn btn-block btn-danger" style="
-                            width: 40%;
-                            margin-top: 0rem;
-                            margin-left: 0.3rem;
-                        "><span class="fa fa-trash"></span></a>
-                      </div>
-                    </td>
+                      <th>No</th>
+                      <th>Photo</th>
+                      <th>Brand</th>
+                      <th>Headline</th>
+                      <th>Description</th>
+                      <th>Feature</th>
+                      <th>Action</th>
+                      <th>Created Date</th>
                     </tr>
-                    @endforeach
-                  <tfoot>
-                  <tr>
-                    <th>No</th>
-                    <th>Photo</th>
-                    <th>Brand</th>
-                    <th>Headline</th>
-                    <th>Description</th>
-                    <th>Feature</th>
-                    <th>Action</th>
-                  </tr>
-                  </tfoot>
+                    </thead>
                 </table>
               </div>
               <!-- /.card-body -->
@@ -106,17 +67,82 @@
 
 @push('datatables-scripts')
 <script>
- $(function () {
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "order": [[0,'desc'],[1,'desc']],
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-  });
+  var suitTable = $('#suitTable').DataTable({
+           processing: true,
+           serverSide: true,
+           ajax: {
+               'url': "{{ route('getAllSuits') }}",
+           },
+           columns: [
+             {data: 'id'},
+             {
+               data: 'photo',
+               render: function (data, type, row) {
+                 var result = `<img class="rounded-5 shadow-sm" src="{{'/assets/images/suit_tip/'. ':photo'}}" alt="" width="100px" height="60px"/>`;
+                 result = result.replace(':photo', data);
+                 return result;
+               }
+             },
+             {data: 'brand'},
+             {data: 'title'},
+             {
+                data: 'description',
+                render: function (data, type, row) {
+                  var result = data.substring(0, 20);
+                  return result + '...';
+                }
+             },
+             {data: 'feature'},
+             {
+               data: 'id',
+               render: function (data, type, row) {
+                  var result = `<div style="
+                                    display: flex;
+                                ">
+                                  <a type="button" class="btn btn-primary" href="{{route('edit_suit_tip',':id')}}" style="
+                                      width: 40%;
+                                  ">
+
+                                  <span class="fa fa-edit"></span>
+                                  </a>
+                                  <a type="button" onclick="delete_confirm(${data})" class="btn btn-block btn-danger" style="
+                                      width: 40%;
+                                      margin-top: 0rem;
+                                      margin-left: 0.3rem;
+                                  "><span class="fa fa-trash"></span></a>
+                                </div>`;
+                  result = result.replace(':id', data);
+                  return result;
+               }
+             },
+             {data: 'created_at'}
+           ],
+           responsive: true,
+           lengthChange: true,
+           autoWidth: false,
+           paging: true,
+           dom: 'Blfrtip',
+           buttons: ["copy", "csv", "excel", "pdf", "print"],
+           columnDefs: [
+               {responsivePriority: 1, targets: 1},
+               {responsivePriority: 2, targets: 2},
+               {responsivePriority: 3, targets: 3},
+               {
+                   'targets': [5],
+                   'orderable': false,
+               },
+           ],
+           language: {
+               "search": '<i class="fa fa-search"></i>',
+               "searchPlaceholder": 'Search',
+               paginate: {
+                   next: '<i class="fa fa-angle-right"></i>', // or '→'
+                   previous: '<i class="fa fa-angle-left"></i>' // or '←'
+               }
+           },
+
+           "order": [[6, "desc"]],
+       });
 </script>
 @endpush
 @push('input-file-scripts')

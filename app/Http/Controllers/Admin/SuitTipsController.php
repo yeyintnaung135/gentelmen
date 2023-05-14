@@ -37,6 +37,71 @@ class SuitTipsController extends Controller
       $suit_tips = SuitTips::all();
       return view('admin.suit_tip.list',compact('suit_tips'));
     }
+    public function getAllSuits(Request $request) {
+      $draw = $request->get('draw');
+      $start = $request->get("start");
+      $rowperpage = $request->get("length"); // total number of rows per page
+
+      $columnIndex_arr = $request->get('order');
+      $columnName_arr = $request->get('columns');
+      $order_arr = $request->get('order');
+      $search_arr = $request->get('search');
+
+      $columnIndex = $columnIndex_arr[0]['column']; // Column index
+      $columnName = $columnName_arr[$columnIndex]['data']; // Column name
+      $columnSortOrder = $order_arr[0]['dir']; // asc or desc
+      $searchValue = $search_arr['value']; // Search value
+
+      $totalRecords = SuitTips::select('count(*) as allcount')
+          ->where(function ($query) use ($searchValue) {
+              $query->where('id', 'like', '%' . $searchValue . '%')
+                    ->orWhere('photo', 'like', '%' . $searchValue . '%')
+                    ->orWhere('brand', 'like', '%' . $searchValue . '%')
+                    ->orWhere('title', 'like', '%' . $searchValue . '%')
+                    ->orWhere('description', 'like', '%' . $searchValue . '%')
+                    ->orWhere('feature', 'like', '%' . $searchValue . '%');
+          })
+          ->count();
+      $totalRecordswithFilter = $totalRecords;
+
+      $records = SuitTips::orderBy($columnName, $columnSortOrder)
+          ->orderBy('created_at', 'desc')
+          ->where(function ($query) use ($searchValue) {
+              $query->where('id', 'like', '%' . $searchValue . '%')
+                    ->orWhere('photo', 'like', '%' . $searchValue . '%')
+                    ->orWhere('brand', 'like', '%' . $searchValue . '%')
+                    ->orWhere('title', 'like', '%' . $searchValue . '%')
+                    ->orWhere('description', 'like', '%' . $searchValue . '%')
+                    ->orWhere('feature', 'like', '%' . $searchValue . '%');
+          })
+          ->select('suit_tips.*')
+          ->skip($start)
+          ->take($rowperpage)
+          ->get();
+      //    return $records;
+      $data_arr = array();
+
+      foreach ($records as $record) {
+          $data_arr[] = array(
+              "id" => $record->id,
+              "photo" => $record->photo,
+              "brand" => $record->brand,
+              "title" => $record->title,
+              "description" => $record->description,
+              "feature" => $record->feature,
+              "action" => $record->id,
+              "created_at" => date('F d, Y ( h:i A )', strtotime($record->created_at)),
+          );
+      }
+
+      $response = array(
+          "draw" => intval($draw),
+          "iTotalRecords" => $totalRecords,
+          "iTotalDisplayRecords" => $totalRecordswithFilter,
+          "aaData" => $data_arr,
+      );
+      echo json_encode($response);
+    }
     public function add_suit_tip_data()
     {
       return view('admin.suit_tip.create');
