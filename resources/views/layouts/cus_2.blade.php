@@ -53,7 +53,7 @@
       </div> &ndash;&gt;
     </div>
   </article>-->
-  <section class="suite-package text-uppercase d-none">
+  {{-- <section class="suite-package text-uppercase d-none">
     <h2 class="text-center">packages</h2>
     <div class="swiper sw-2">
       <div class="swiper-wrapper">
@@ -84,7 +84,7 @@
         </div>-->
       </div>
     </div>
-  </section>
+  </section> --}}
 
   <section class="slider">
     <div class="">
@@ -114,7 +114,6 @@
     <button class="btn p-0 px-3 mt-5" id="next">NEXT STEP</button>
   </div>
 </section>
-
 <script>
 
   $(document).ready(() => {

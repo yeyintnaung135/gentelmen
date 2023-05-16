@@ -920,15 +920,14 @@
                       // alert("suit code is not null and so store measure");
                       store_measurement_overall();
                     }
-                    swal({
-                        title: "Your Register was successfull!",
-                        text: "",
-                        type: "success",
-                        icon: "success"
-                    }).then(function() {
+                    // swal({
+                    //     title: "Your Register was successfull!",
+                    //     text: "",
+                    //     type: "success",
+                    //     icon: "success"
+                    // }).then(function() {
                       if(sessionStorage.getItem('measure_unit') != null)
                       {
-                        alert("suit code is not null and so store measure on ajax");
                         store_measurement_overall();
                       }
                       $.ajax({
@@ -1015,7 +1014,7 @@
                           store_measurement_overall();
                           window.location.reload();
                       }
-                    });
+                    // });
                 }
 
 

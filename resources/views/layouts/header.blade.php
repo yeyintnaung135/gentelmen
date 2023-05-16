@@ -62,6 +62,13 @@ header('X-Content-Type-Options: nosniff');
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="{{ asset('js/front.js') }}"></script>
     @stack('styles')
+    <style>
+      .contact__us {
+        background-image: url("../assets/images/contact/contact-bg.png");
+        background-size: cover;
+        background-position: center;
+      }
+    </style>
 </head>
 <body>
 @yield('content')

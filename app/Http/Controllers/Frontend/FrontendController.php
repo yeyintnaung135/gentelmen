@@ -1097,16 +1097,21 @@ class FrontendController extends Controller
   public function ajex_get_style(Request $request){
     // dd($request->all());
     // $style_id = Session::get('style_id');
-    if($request->cus_cate_id != 9)
-    {
-    $style = Style::where('type_id',$request->cus_cate_id)->where('category',$request->id)->get();
+    if ($request->id == 0) {
+      $style = Style::where('type_id',$request->cus_cate_id)->get();
+    } else {
+      if($request->cus_cate_id != 9)
+      {
+        $style = Style::where('type_id',$request->cus_cate_id)->where('category',$request->id)->get();
+      }
+      else
+      {
+        logger("suit data style");
+        $style = Style::where('type_id',$request->cus_cate_id)->where('category',$request->id)->where('pieces',$request->piece)->get();
+      }
+      logger($style);
     }
-    else
-    {
-      logger("suit data style");
-      $style = Style::where('type_id',$request->cus_cate_id)->where('category',$request->id)->where('pieces',$request->piece)->get();
-    }
-    logger($style);
+    
     return response()->json($style);
   }
 

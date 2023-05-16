@@ -261,90 +261,37 @@
       </div>
     </div> -->
     <div class="ready__items row" id="ready_space">
-     @foreach($texts as $text)
-      <div class="col-6 col-md-4 col-lg-3 ready__item">
-        <div id="tbody" class="ready__item&#45;&#45;img-group">
-          <img src="{{'/assets/images/categories/ready/'. $text->photo_one}}" alt="">
-          @if(isset(Auth::guard('web')->user()->id))
-          <button id="wishlist{{$text->id}}" onclick="whishlist('{{Auth::guard('web')->user()->id}}','{{$text->id}}','{{$text->photo_one}}','{{$text->name}}','{{$text->price}}')">
-          <i id="heart{{$text->id}}" class='bx bx-heart'></i>
-          </button>
-          <button id="delete{{$text->id}}" onclick="deletedata('{{Auth::guard('web')->user()->id}}','{{$text->id}}','{{$text->photo_one}}','{{$text->name}}','{{$text->price}}')" style="display: none;">
-          <i id="heart{{$text->id}}" class='bx bxs-heart'></i>
-          </button>
-          @else
-          <button type="button"
-                  data-bs-toggle="modal"
-                  data-bs-target="#exampleModal"><i class='bx bx-heart'></i>
-          </button>
-        @endif
+      @if (count($texts) == 0)
+        <div class="d-flex align-content-center justify-content-center my-3">
+          <h5 class="my-5">Result Not Found</h5>
         </div>
-        <div class="ready__item&#45;&#45;info">
-          <p>{{$text->name}}</p>
-          <p><strong>$ {{$text->price}}</strong></p>
-        </div>
-      </div>
-      @endforeach
-      <!-- <div class="col-6 col-md-4 col-lg-3 ready__item">
-        <div class="ready__item&#45;&#45;img-group">
-          <img src="{{asset("assets/images/ready/ready-2.png")}}" alt="">
-          <i class='bx bx-heart'></i>
-        </div>
-        <div class="ready__item&#45;&#45;info">
-          <p>Suit Name</p>
-          <p><strong>$ 479</strong></p>
-        </div>
-      </div>
-      <div class="col-6 col-md-4 col-lg-3 ready__item">
-        <div class="ready__item&#45;&#45;img-group">
-          <img src="{{asset("assets/images/ready/ready-3.png")}}" alt="">
-          <i class='bx bx-heart'></i>
-        </div>
-        <div class="ready__item&#45;&#45;info">
-          <p>Suit Name</p>
-          <p><strong>$ 479</strong></p>
-        </div>
-      </div>
-      <div class="col-6 col-md-4 col-lg-3 ready__item">
-        <div class="ready__item&#45;&#45;img-group">
-          <img src="{{asset("assets/images/ready/ready-2.png")}}" alt="">
-          <i class='bx bx-heart'></i>
-        </div>
-        <div class="ready__item&#45;&#45;info">
-          <p>Suit Name</p>
-          <p><strong>$ 479</strong></p>
-        </div>
-      </div>
-      <div class="col-6 col-md-4 col-lg-3 ready__item">
-        <div class="ready__item&#45;&#45;img-group">
-          <img src="{{asset("assets/images/ready/ready-3.png")}}" alt="">
-          <i class='bx bx-heart'></i>
-        </div>
-        <div class="ready__item&#45;&#45;info">
-          <p>Suit Name</p>
-          <p><strong>$ 479</strong></p>
-        </div>
-      </div>
-      <div class="col-6 col-md-4 col-lg-3 ready__item">
-        <div class="ready__item&#45;&#45;img-group">
-          <img src="{{asset("assets/images/ready/ready-2.png")}}" alt="">
-          <i class='bx bx-heart'></i>
-        </div>
-        <div class="ready__item&#45;&#45;info">
-          <p>Suit Name</p>
-          <p><strong>$ 479</strong></p>
-        </div>
-      </div>
-      <div class="col-6 col-md-4 col-lg-3 ready__item">
-        <div class="ready__item&#45;&#45;img-group">
-          <img src="{{asset("assets/images/ready/ready-3.png")}}" alt="">
-          <i class='bx bx-heart'></i>
-        </div>
-        <div class="ready__item&#45;&#45;info">
-          <p>Suit Name</p>
-          <p><strong>$ 479</strong></p>
-        </div>
-      </div> -->
+      @else
+        @foreach($texts as $text)
+          <div class="col-6 col-md-4 col-lg-3 ready__item">
+            <div id="tbody" class="ready__item&#45;&#45;img-group">
+              <img src="{{'/assets/images/categories/ready/'. $text->photo_one}}" alt="">
+              @if(isset(Auth::guard('web')->user()->id))
+              <button id="wishlist{{$text->id}}" onclick="whishlist('{{Auth::guard('web')->user()->id}}','{{$text->id}}','{{$text->photo_one}}','{{$text->name}}','{{$text->price}}')">
+              <i id="heart{{$text->id}}" class='bx bx-heart'></i>
+              </button>
+              <button id="delete{{$text->id}}" onclick="deletedata('{{Auth::guard('web')->user()->id}}','{{$text->id}}','{{$text->photo_one}}','{{$text->name}}','{{$text->price}}')" style="display: none;">
+              <i id="heart{{$text->id}}" class='bx bxs-heart'></i>
+              </button>
+              @else
+              <button type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal"><i class='bx bx-heart'></i>
+              </button>
+            @endif
+            </div>
+            <div class="ready__item&#45;&#45;info">
+              <p>{{$text->name}}</p>
+              <p><strong>$ {{$text->price}}</strong></p>
+            </div>
+          </div>
+        @endforeach
+      @endif
+      
     </div>
   </section>
 
@@ -489,7 +436,6 @@
             // alert( window.userID )
           if(v.user_id == user_id)
           { 
-            alert("hello");
             $('#wishlist'+v.id).hide();
             $('#delete'+v.id).show();
             // alert("right");

@@ -633,7 +633,6 @@
       }
 
       function advance_filter() {
-        alert("advance");
         $('#fabric_filter_status').val('ontexture');
         $('#color_filter_status').val('oncolor');
         $('#pattern_filter_status').val('onpattern');

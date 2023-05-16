@@ -35,7 +35,7 @@
     <div class="d-flex justify-content-between align-items-center mb-0">
       <a href="#" class="pt-1" id="back"><i class='bx bx-arrow-back'></i></a>
       <a href="#" class="pt-1" id="next-arrow"><i class='bx bx-arrow-back bx-rotate-180'></i></a>
-         <a href="#" class="pt-1" id="next-unconfirm"><i class='bx bx-arrow-back bx-rotate-180'></i></a>
+      <a href="#" class="pt-1" style="display: none;" id="next-unconfirm"><i class='bx bx-arrow-back bx-rotate-180'></i></a>
     </div>
   </section>
   <section class="custom text-center" style="margin-bottom: 20px;">
@@ -1406,7 +1406,7 @@
                         // }
                       }
 
-                    if(sessionStorage.getItem('fitting') == null)
+                    if((sessionStorage.getItem('fitting') == null) || (sessionStorage.getItem('texture_id') == null))
                     {
 
                       $('#vtext1').html("style recommendations");

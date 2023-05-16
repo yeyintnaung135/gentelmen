@@ -435,7 +435,6 @@
     })
 
     function infinteLoadMore(page) {
-      alert("hello load more");
       var grand_id = $('#GrandID').val();
       var filter_key = $('#GrandID_filter_key').val();
       var mobile = $('#GrandID_mobile').val();

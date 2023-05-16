@@ -33,7 +33,7 @@ class CustomizeController extends Controller
         $user = Session::get('user_id');
         $favs = Favourite::where('user_id',Session::get('user_id'))->get();
         $carts = AddToCart::where('user_id',Session::get('user_id'))->get();
-        $packages = Package::all();
+        $packages = Package::orderBy('price', 'asc')->get();
         $customize_cates = CustomizeCategory::all();
         $jacket_customize_cate = CustomizeCategory::find(1);
         $vest_customize_cate = CustomizeCategory::find(2);

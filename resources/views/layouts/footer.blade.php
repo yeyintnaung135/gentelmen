@@ -15,9 +15,9 @@
           <div class="w-100">
             <p class="text-gold ff-cinzel ls-0">Package</p>
             <ul class="">
-              <li class="mb-2"><a href="" class="small-text">Classic</a></li>
-              <li class="mb-2"><a href="" class="small-text">Legacy</a></li>
-              <li class="mb-2"><a href="" class="small-text">Premium</a></li>
+              @foreach ($packages as $package)
+                <li class="mb-2"><a href="" class="small-text">{{ $package->title }}</a></li>
+              @endforeach
             </ul>
           </div>
         </div>

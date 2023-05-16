@@ -27,6 +27,12 @@
   <div class="top-margin mt-3">
    <div class="d-none d-lg-block">
     <div id="style_nav" class="nav nav-pills text-uppercase justify-content-between">
+      <button onclick="style_nav('all','0')"
+        class="nav-link d-none d-md-none d-lg-block text-white-50 styleNav"
+        data-bs-target="#style_nav_0"
+        data-bs-toggle="pill"
+        id="style_nav_check_0"
+        href="all" aria-selected="true">All</button>
       @foreach($style_cates as $style_cate)
         <button onclick="style_nav('{{$style_cate->name}}','{{$style_cate->id}}')"
            class="nav-link d-none d-md-none d-lg-block text-white-50 styleNav"
@@ -35,15 +41,23 @@
            id="style_nav_check_{{$style_cate->id}}"
            href="{{$style_cate->name}}" aria-selected="true">{{$style_cate->name}}</button>
       @endforeach
-      </div>
-      </div>
+    </div>
+   </div>
       <div class="d-block d-lg-none">
         <div id="style_nav" class="menu-wrapper">
           <!-- Slides -->
+          <div class="menu__item">
+            <button onclick="style_nav('all','0')"
+               class="nav-link text-white-50 styleNav"
+               data-bs-target="#style_nav_0"
+               data-bs-toggle="pill"
+               id="style_nav_check_0"
+               href="all" aria-selected="true">All</button>
+          </div>
           @foreach($style_cates as $style_cate)
             <div class="menu__item">
               <button onclick="style_nav('{{$style_cate->name}}','{{$style_cate->id}}')"
-                 class="nav-link text-white-50"
+                 class="nav-link text-white-50 styleNav"
                  data-bs-target="#style_nav_{{$style_cate->id}}"
                  data-bs-toggle="pill"
                  id="style_nav_check_{{$style_cate->id}}"
@@ -62,9 +76,7 @@
       <div class="tab-pane container active mx-0 px-0" id="style_nav_" aria-labelledby="style_nav_check_">
 
         <div id="style_card" class="row g-3 g-md-5" style="max-width:1300px">
-
-
-
+          
         </div>
 
       </div>
@@ -137,96 +149,6 @@
       </div>
     </div>
   </div>
-  {{-- style modal start --}}
-  {{-- @foreach($styles as $style)
-  <div class="modal fade" id="myCategory{{$style->id}}">
-      <div class="modal-dialog modal-dialog-centered modal-xl modal-fullscreen-lg-down pop-up__modal">
-        <div class="modal-content">
-          <!-- Modal body -->
-          <div class="modal-body">
-            <div class="close-btn-wrapper">
-              <button type="button" class="btn-close btn-close-white"
-                      data-bs-dismiss="modal"></button>
-            </div>
-            <section class="pop-up">
-              <div class="row g-0 g-lg-5">
-                <div class="col-12 col-lg-6 order-last order-lg-first">
-                  <h5 class="pop-up__title d-none d-lg-block">{{$style->category}}</h5>
-                  <p class="pop-up__description">{{$style->description}}</p>
-                  <div class="row pop-up__feature-list">
-                    <div class="col-12 col-lg-6 row g-0 check-wrapper">
-                      <div class="col-2 check-icon"><i class='bx bx-check'></i></div>
-                      <div class="col-10 check-text">colour : {{$style->colour}}
-                      </div>
-                    </div>
-                    <div class="col-12 col-lg-6 row g-0 check-wrapper">
-                      <div class="col-2 check-icon"><i class='bx bx-check'></i></div>
-                      <div class="col-10 check-text">Fabric :
-                        {{$style->fabric}}
-                      </div>
-                    </div>
-                    <div class="col-12 col-lg-6 row g-0 check-wrapper">
-                      <div class="col-2 check-icon"><i class='bx bx-check'></i></div>
-                      <div class="col-10 check-text">Fabric Type :
-                        {{$style->fabric_type}}
-                      </div>
-                    </div>
-                    <div class="col-12 col-lg-6 row g-0 check-wrapper">
-                      <div class="col-2 check-icon"><i class='bx bx-check'></i></div>
-                      <div class="col-10 check-text">composition : {{$style->compostition}}
-                      </div>
-                    </div>
-                    <div class="col-12 col-lg-6 row g-0 check-wrapper">
-                      <div class="col-2 check-icon"><i class='bx bx-check'></i></div>
-                      <div class="col-10 check-text">softness : {{$style->softness}}
-                      </div>
-                    </div>
-                  </div>
-                  <label id="style_modal_click{{$style->id}}" class="pop-up__button"
-                     for="style_check{{$style->id}}" onclick="style_rec('{{$style->id}}','{{$style->name}}')"
-                           data-bs-toggle="modal" data-bs-target="#step3-confirm">
-                    pick this style
-                  </label>
-                </div>
-                <div class="col-12 col-lg-6 order-first order-lg-last swiper-container">
-                  <h5 class="pop-up__title d-block d-lg-none">Business conference style 2</h5>
-                  <div class="swiper mySwiper2 top-swiper" id="mySwiper2{{$style->id}}">
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide">
-                        <img src="{{'/assets/images/categories/style/'. $style->photo_one}}"/>
-                      </div>
-                      <div class="swiper-slide">
-                        <img src="{{'/assets/images/categories/style/'. $style->photo_two}}"/>
-                      </div>
-                      <div class="swiper-slide">
-                        <img src="{{'/assets/images/categories/style/'. $style->photo_three}}"/>
-                      </div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                  </div>
-                  <div thumbsSlider="" class="swiper thumbsSlider d-none d-md-block">
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide">
-                        <img src="{{'/assets/images/categories/style/'. $style->photo_one}}"/>
-                      </div>
-                      <div class="swiper-slide">
-                        <img src="{{'/assets/images/categories/style/'. $style->photo_two}}"/>
-                      </div>
-                      <div class="swiper-slide">
-                        <img src="{{'/assets/images/categories/style/'. $style->photo_three}}"/>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </section>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  @endforeach --}}
 
   {{-- style modal end --}}
 </section>

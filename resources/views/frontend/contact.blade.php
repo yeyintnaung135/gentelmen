@@ -6,8 +6,7 @@
   @include('layouts/nav')
 
   <div class="contact-wrapper">
-    <div class="contact__us"
-         style="background-image: url('{{asset("assets/images/contact/contact-bg.png")}}')">
+    <div class="contact__us" style="">
       <div class="us__home d-none d-md-block">
         <a href="#">
           <i class='bx bx-left-arrow-alt'></i>Back to home
@@ -46,8 +45,8 @@
         <div class="detail__item">
           <h3 class="detail__item-title">Contact</h3>
           <p class="detail__item-desc">
-            <span>(+95) 9401409915</span>
-            <span>info@gentlementailor.shop</span>
+            <a href="tel:+95 9401409915">(+95) 9401409915</a>
+            <a href="mailto:info@gentlementailor.shop">info@gentlementailor.shop</a>
           </p>
           <div class="detail__social-wrapper">
             <a href="https://www.facebook.com/Gentlemensuitmm" target="_blank"><i class='bx

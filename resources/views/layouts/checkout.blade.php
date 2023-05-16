@@ -108,6 +108,7 @@
         "pant_id": sessionStorage.getItem('pant_id'),
       },
       success: function (data) {
+        console.log('data', data);
         if(data.package_name != null)
         {
           $('#package').html(data.package_name);
